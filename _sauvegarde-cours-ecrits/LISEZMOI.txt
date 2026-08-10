@@ -1,0 +1,1 @@
+Sauvegarde : versions rédigées des cours (non publiées). Pour restaurer un chapitre, recopiez le fichier voulu dans src/content/docs/terminale/.

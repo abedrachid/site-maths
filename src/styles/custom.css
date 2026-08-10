@@ -1,0 +1,563 @@
+/* ═══════════════════════════════════════════════════════════════
+   MATHS-EXPERT — Feuille de style personnalisée
+   ---------------------------------------------------------------
+   1. Palette de marque (Starlight accent + variables de cours)
+   2. Page d'accueil (splash) — masquage du titre auto
+   3. Composants pédagogiques réutilisables :
+      .def .thm .example .exo .remark .correction .fi-grid .ops-table
+      → utilisables dans n'importe quel fichier .md / .mdx
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. PALETTE DE MARQUE ──────────────────────────────────────
+   Starlight utilise --sl-color-accent-* pour les liens, boutons,
+   surlignages de la sidebar, etc. On les aligne sur le violet
+   de la page d'accueil pour une identité cohérente.            */
+:root {
+  --sl-color-accent-low: #241a38;
+  --sl-color-accent: #7c3aed;
+  --sl-color-accent-high: #d8c0ea;
+
+  /* Typographie professionnelle */
+  --sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --me-font-display: 'Fraunces', 'Crimson Pro', Georgia, 'Times New Roman', serif;
+
+  /* Variables réutilisées par les composants de cours */
+  --me-navy: #1e1b2e;
+  --me-navy2: #2a2440;
+  --me-blue: #3a6fd8;
+  --me-indigo: #4f46e5;
+  --me-sky: #38bdf8;
+  --me-green: #059669;
+  --me-gold: #c9952a;
+  --me-gold2: #e0b352;
+  --me-red: #dc2626;
+  --me-cream2: #f8f6f2;
+  --me-cream3: #e6e0d5;
+  --me-muted: #6b7280;
+}
+
+/* Thème clair : accent un peu plus foncé pour le contraste */
+:root[data-theme='light'] {
+  --sl-color-accent-low: #e9ddfb;
+  --sl-color-accent: #6d28d9;
+  --sl-color-accent-high: #3b1f66;
+}
+
+/* ── 2. PAGE D'ACCUEIL (template: splash) ──────────────────────
+   Masque le <h1> "Maths-Expert" généré automatiquement, remplacé
+   par notre hero personnalisé.                                  */
+[data-page-type='splash'] .sl-markdown-content > h1:first-child,
+[data-page-type='splash'] .content-panel > h1:first-child {
+  display: none !important;
+}
+[data-page-type='splash'] .content-panel {
+  padding-top: 0 !important;
+}
+[data-page-type='splash'] .sl-markdown-content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* ── 3. COMPOSANTS PÉDAGOGIQUES ────────────────────────────────
+   Encadrés colorés pour cours et exercices. Fond clair constant
+   (lisible en thème clair comme sombre, à la manière des
+   admonitions).                                                 */
+
+/* Définition */
+.def {
+  background: #ffffff;
+  color: #1f2430;
+  border-left: 4px solid var(--me-blue);
+  border-radius: 0 8px 8px 0;
+  padding: 1.15rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.def-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--me-blue);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.def p:last-child { margin-bottom: 0; }
+
+/* Théorème / Propriété */
+.thm {
+  background: #f0f4ff;
+  color: #1f2430;
+  border: 1px solid #c5d3f5;
+  border-top: 3px solid var(--me-indigo);
+  border-radius: 0 0 8px 8px;
+  padding: 1.15rem 1.5rem;
+  margin: 1.5rem 0;
+}
+.thm-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--me-indigo);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.thm p:last-child, .thm ul:last-child, .thm ol:last-child { margin-bottom: 0; }
+
+/* Remarque */
+.remark {
+  background: #fffbf0;
+  color: #4a3d15;
+  border-left: 4px solid var(--me-gold);
+  border-radius: 0 6px 6px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+}
+.remark-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a9781f;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+.remark p:last-child { margin-bottom: 0; }
+
+/* Exemple */
+.example {
+  background: #f2faf6;
+  color: #123524;
+  border-left: 4px solid var(--me-green);
+  border-radius: 0 6px 6px 0;
+  padding: 1.05rem 1.4rem;
+  margin: 1.25rem 0;
+}
+.example-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--me-green);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.example p:last-child { margin-bottom: 0; }
+
+/* Exercice */
+.exo {
+  background: #ffffff;
+  color: #1f2430;
+  border: 1px solid #e0d5c5;
+  border-left: 4px solid var(--me-red);
+  border-radius: 0 8px 8px 0;
+  padding: 1.15rem 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+.exo-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--me-red);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.exo ol, .exo ul { margin: 0.3rem 0 0.3rem; padding-left: 1.3rem; }
+
+/* Correction (dépliable via <details> ou bloc simple) */
+.correction {
+  background: #f8fdf9;
+  color: #123524;
+  border: 1px solid #b8dfc5;
+  border-radius: 8px;
+  padding: 1.1rem 1.4rem;
+  margin-top: 0.75rem;
+}
+.correction-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--me-green);
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.correction p:last-child { margin-bottom: 0; }
+
+/* Correction repliable : <details class="correction-toggle"> */
+.correction-toggle {
+  margin-top: 0.75rem;
+  border: 1px solid #b8dfc5;
+  border-radius: 8px;
+  background: #f8fdf9;
+  overflow: hidden;
+}
+.correction-toggle > summary {
+  cursor: pointer;
+  padding: 0.7rem 1.2rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--me-green);
+  list-style: none;
+}
+.correction-toggle > summary::-webkit-details-marker { display: none; }
+.correction-toggle > summary::before { content: '▸ '; }
+.correction-toggle[open] > summary::before { content: '▾ '; }
+.correction-toggle > div,
+.correction-toggle > p {
+  padding: 0 1.4rem 1rem;
+  color: #123524;
+}
+
+/* Grille des formes indéterminées */
+.fi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin: 1.5rem 0;
+}
+.fi-card {
+  background: var(--me-navy);
+  color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+}
+.fi-card .fi-form {
+  font-size: 1.35rem;
+  color: var(--me-gold2);
+  margin-bottom: 0.3rem;
+}
+.fi-card .fi-name {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.03em;
+}
+
+/* Tableau d'opérations */
+.ops-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+  display: block;
+}
+.ops-table th {
+  background: var(--me-navy);
+  color: var(--me-sky);
+  padding: 0.6rem 0.9rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.78rem;
+}
+.ops-table td {
+  padding: 0.55rem 0.9rem;
+  text-align: center;
+  border-bottom: 1px solid var(--me-cream3);
+  color: #1f2430;
+  background: #fff;
+}
+.ops-table tr:nth-child(even) td { background: var(--me-cream2); }
+.ops-table .fi { color: var(--me-red); font-weight: 700; }
+
+/* Bloc "carte niveau" pour la navigation en fin de page */
+.next-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+.next-steps a {
+  display: block;
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 12px;
+  text-decoration: none;
+  background: var(--sl-color-black);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.next-steps a:hover {
+  border-color: var(--sl-color-accent);
+  transform: translateY(-2px);
+}
+
+/* Les encadrés doivent aérer les listes internes */
+.def ul, .thm ul, .example ul, .exo ul,
+.def ol, .thm ol, .example ol, .exo ol { margin-top: 0.4rem; }
+
+/* Débordement horizontal des formules longues sur mobile */
+.sl-markdown-content .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.35rem 0;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   4. RAFFINEMENT PROFESSIONNEL — typographie, en-tête, admonitions,
+      cartes, liens et transitions
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Titres élégants en Fraunces (serif optique) */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.content-panel h1,
+h1#_top,
+.site-title {
+  font-family: var(--me-font-display);
+  letter-spacing: -0.01em;
+}
+.sl-markdown-content h1 { font-weight: 600; }
+.sl-markdown-content h2 {
+  font-weight: 600;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--sl-color-gray-5);
+}
+
+/* En-tête du site : logo arrondi + titre soigné */
+.site-title img {
+  border-radius: 9px;
+  box-shadow: 0 3px 10px rgba(124, 58, 237, 0.28);
+}
+.site-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+header.header {
+  backdrop-filter: saturate(1.4) blur(6px);
+}
+
+/* Liens de contenu : soulignement animé discret */
+.sl-markdown-content a:not(:where(.not-content *)) {
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease;
+}
+
+/* Titres des admonitions dans la police display */
+.sl-markdown-content .starlight-aside__title {
+  font-family: var(--me-font-display);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+/* Admonitions : coins plus doux, ombre légère */
+.sl-markdown-content .starlight-aside {
+  border-radius: 0 12px 12px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Tableaux plus lisibles */
+.sl-markdown-content table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sl-markdown-content thead th {
+  background: var(--sl-color-gray-6);
+}
+
+/* Cartes de la page d'accueil : survol soigné */
+.me-card {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.me-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Boutons hero : effet de survol */
+.me-btn {
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+.me-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+/* Animation d'apparition douce (respecte prefers-reduced-motion) */
+@keyframes me-fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.me-animate {
+  animation: me-fade-up 0.6s ease both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .me-animate { animation: none; }
+  .me-card:hover, .me-btn:hover { transform: none; }
+}
+
+/* Symboles mathématiques flottants du hero */
+@keyframes me-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.me-float { animation: me-float 6s ease-in-out infinite; }
+
+/* ═══════════════════════════════════════════════════════════════
+   5. RESSOURCES DE CHAPITRE (cartes de téléchargement)
+   ═══════════════════════════════════════════════════════════════ */
+.chapter-res {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+  margin: 1rem 0 1.5rem;
+}
+.chapter-res a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 12px;
+  background: var(--sl-color-black);
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.chapter-res a:hover {
+  border-color: var(--sl-color-accent);
+  transform: translateY(-2px);
+}
+.chapter-res .ico { font-size: 1.5rem; flex-shrink: 0; }
+.chapter-res .txt strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--sl-color-white);
+  font-weight: 600;
+}
+.chapter-res .txt span {
+  font-size: 0.78rem;
+  color: var(--sl-color-gray-3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   6. QCM INTERACTIF
+   ═══════════════════════════════════════════════════════════════ */
+.qcm {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+  margin: 1.25rem 0 2rem;
+  background: var(--sl-color-black);
+}
+.qcm-q { margin-bottom: 1.25rem; }
+.qcm-q:last-of-type { margin-bottom: 1rem; }
+.qcm-question {
+  font-weight: 600;
+  color: var(--sl-color-white);
+  margin: 0 0 0.6rem;
+}
+.qcm-opts { display: flex; flex-direction: column; gap: 0.5rem; }
+.qcm-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.9rem;
+  border: 1.5px solid var(--sl-color-gray-5);
+  border-radius: 9px;
+  background: var(--sl-color-gray-7, transparent);
+  color: var(--sl-color-white);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.qcm-opt:hover { border-color: var(--sl-color-accent); }
+.qcm-opt.sel {
+  border-color: var(--sl-color-accent);
+  background: color-mix(in srgb, var(--sl-color-accent) 16%, transparent);
+}
+.qcm-opt.correct {
+  border-color: #16a34a;
+  background: color-mix(in srgb, #16a34a 20%, transparent);
+}
+.qcm-opt.wrong {
+  border-color: #dc2626;
+  background: color-mix(in srgb, #dc2626 18%, transparent);
+}
+.qcm-submit {
+  margin-top: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 9999px;
+  background: var(--sl-color-accent);
+  color: var(--sl-color-white);
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.qcm-submit:hover { opacity: 0.92; }
+.qcm-score {
+  margin: 0.9rem 0 0;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--sl-color-white);
+}
+.qcm-score.is-perfect { color: #16a34a; }
+
+/* ═══════════════════════════════════════════════════════════════
+   7. VISIONNEUSE DE DOCUMENTS (onglets + aperçu intégré)
+   ═══════════════════════════════════════════════════════════════ */
+.doc-viewer {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--sl-color-black);
+  margin: 1rem 0 2rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+.doc-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.7rem 0.8rem;
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  background: var(--sl-color-gray-6);
+}
+.doc-tab {
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 9999px;
+  background: var(--sl-color-black);
+  color: var(--sl-color-white);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.doc-tab:hover { border-color: var(--sl-color-accent); }
+.doc-tab.active {
+  background: var(--sl-color-accent);
+  border-color: var(--sl-color-accent);
+  color: var(--sl-color-white);
+}
+.doc-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.95rem;
+  border-bottom: 1px solid var(--sl-color-gray-5);
+}
+.doc-current {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--sl-color-white);
+}
+.doc-download {
+  flex-shrink: 0;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--sl-color-accent);
+  white-space: nowrap;
+}
+.doc-download:hover { text-decoration: underline; }
+.doc-frame {
+  width: 100%;
+  height: 80vh;
+  border: 0;
+  display: block;
+  background: #fff;
+}

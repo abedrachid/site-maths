@@ -1,5 +1,5 @@
 /* ────────────────────────────────────────────────────────────
-   Maths-Expert — Visionneuse de documents
+   MathsElites — Visionneuse de documents
    • <div class="doc-viewer"> + <button class="doc-tab" data-src>
      + <iframe class="doc-frame"> : onglets qui changent le document.
    • Liens class="doc-open" data-src : chargent dans la visionneuse

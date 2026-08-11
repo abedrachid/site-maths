@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 
 // URL de production — changez SITE dans votre plateforme d'hébergement
 // (Netlify / Vercel / GitHub Pages) ou ici pour votre domaine définitif.
-const SITE = process.env.SITE ?? 'https://maths-expert.ma';
+const SITE = process.env.SITE ?? 'https://maths-elites.com';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,7 +15,7 @@ export default defineConfig({
   // Génère automatiquement un sitemap.xml (référencement Google).
   integrations: [
     starlight({
-      title: 'Maths-Expert',
+      title: 'MathsElites',
       description:
         "Plateforme marocaine d'accompagnement en mathématiques : cours, exercices corrigés, DS, DM, examens blancs et sujets de Bac pour la Première Bac SM, la Terminale Sciences Maths et les Classes Prépas.",
       // Le favicon du site
@@ -85,7 +85,7 @@ export default defineConfig({
         {
           icon: 'email',
           label: 'Contact',
-          href: 'mailto:contact@maths-expert.ma',
+          href: 'mailto:contact@maths-elites.com',
         },
       ],
       disable404Route: true,

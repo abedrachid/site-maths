@@ -1,5 +1,5 @@
 /* ────────────────────────────────────────────────────────────
-   Maths-Expert — Compteur de téléchargements PDF
+   MathsElites — Compteur de téléchargements PDF
    Service : Abacus (https://abacus.jasoncameron.dev) — gratuit,
    sans inscription, remplaçant de CountAPI.
 
@@ -23,9 +23,9 @@
   // pour ne pas polluer les compteurs de production.
   var host = (location.hostname || 'site').toLowerCase();
   var NS = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(host)
-    ? 'maths-expert-dev'
+    ? 'maths-elites-dev'
     : host.replace(/[^a-z0-9_.-]/g, '-');
-  if (NS.length < 3) NS = 'maths-expert';
+  if (NS.length < 3) NS = 'maths-elites';
   if (NS.length > 64) NS = NS.slice(0, 64);
 
   // Transforme un chemin de PDF en clé valide pour Abacus.

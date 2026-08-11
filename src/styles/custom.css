@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   MATHS-EXPERT — Feuille de style personnalisée
+   MATHSELITES — Feuille de style personnalisée
    ---------------------------------------------------------------
    1. Palette de marque (Starlight accent + variables de cours)
    2. Page d'accueil (splash) — masquage du titre auto
@@ -44,7 +44,7 @@
 }
 
 /* ── 2. PAGE D'ACCUEIL (template: splash) ──────────────────────
-   Masque le <h1> "Maths-Expert" généré automatiquement, remplacé
+   Masque le <h1> "MathsElites" généré automatiquement, remplacé
    par notre hero personnalisé.                                  */
 [data-page-type='splash'] .sl-markdown-content > h1:first-child,
 [data-page-type='splash'] .content-panel > h1:first-child {

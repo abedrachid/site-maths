@@ -1,5 +1,5 @@
 /* ────────────────────────────────────────────────────────────
-   Maths-Expert — Moteur de QCM interactif
+   MathsElites — Moteur de QCM interactif
    Chaque bloc <div class="qcm"> contient des questions
    <div class="qcm-q"> avec des <button class="qcm-opt"> ;
    la bonne réponse porte l'attribut data-correct.

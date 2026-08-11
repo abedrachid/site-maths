@@ -1,4 +1,4 @@
-# Maths-Expert
+# MathsElites
 
 Plateforme d'accompagnement en **mathématiques** pour la **Première Bac SM**, la **Terminale Sciences Maths** et les **Classes Prépas** (MPSI/MP, PCSI/PC) — programme marocain.
 
@@ -19,7 +19,7 @@ npm run preview  # prévisualise le build de production
 ## 🌐 Domaine / déploiement
 
 L'URL de production est définie dans `astro.config.mjs` via la variable
-d'environnement `SITE` (valeur par défaut : `https://maths-expert.ma`).
+d'environnement `SITE` (valeur par défaut : `https://maths-elites.com`).
 Sur Netlify / Vercel / GitHub Pages, définissez simplement `SITE` avec votre
 domaine réel — le sitemap et les URLs canoniques s'y adapteront.
 

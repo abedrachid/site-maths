@@ -1,4 +1,4 @@
-# Déployer Maths-Expert sur Cloudflare Pages
+# Déployer MathsElites sur Cloudflare Pages
 
 Guide pas à pas pour mettre le site en ligne. Ton site est un projet **Astro/Starlight 100 % statique** : aucun adaptateur, aucun serveur à gérer. Cloudflare Pages est gratuit, avec bande passante illimitée (idéal pour les PDF) et un réseau rapide au Maroc.
 
@@ -9,7 +9,7 @@ Réglages du projet à retenir (tu les réutiliseras partout) :
 | Framework preset | **Astro** |
 | Build command | `npm run build` |
 | Build output directory | `dist` |
-| Variable d'environnement | `SITE` = `https://maths-expert.ma` |
+| Variable d'environnement | `SITE` = `https://mathselites.com` |
 | Node version | `20` (variable `NODE_VERSION` = `20`) |
 
 ---
@@ -41,8 +41,8 @@ Aucune connaissance de Git nécessaire. Idéale pour un premier test.
 Limite de cette méthode : à chaque modification du site, tu dois refaire `npm run build` puis re-glisser le dossier `dist/`. Pour des mises à jour automatiques, passe à la méthode B.
 
 > Important avec cette méthode : comme il n'y a pas de build côté Cloudflare, la variable `SITE` n'est pas lue. Fais donc le build en la définissant toi-même :
-> - Windows (PowerShell) : `$env:SITE="https://maths-expert.ma"; npm run build`
-> - macOS/Linux : `SITE=https://maths-expert.ma npm run build`
+> - Windows (PowerShell) : `$env:SITE="https://mathselites.com"; npm run build`
+> - macOS/Linux : `SITE=https://mathselites.com npm run build`
 
 ---
 
@@ -59,7 +59,7 @@ Ensuite, dans le dossier du site :
 ```bash
 git init
 git add .
-git commit -m "Version initiale du site Maths-Expert"
+git commit -m "Version initiale du site MathsElites"
 git branch -M main
 git remote add origin https://github.com/TON-COMPTE/site-maths.git
 git push -u origin main
@@ -76,7 +76,7 @@ Remplace `TON-COMPTE` par ton nom d'utilisateur GitHub. Grâce au `.gitignore`, 
    - **Build command** : `npm run build`
    - **Build output directory** : `dist`
 4. Déplie **Environment variables (Variables d'environnement)** et ajoute :
-   - `SITE` = `https://maths-expert.ma`
+   - `SITE` = `https://mathselites.com`
    - `NODE_VERSION` = `20`
 5. Clique **Save and Deploy**. Cloudflare installe les dépendances, lance le build et publie le site sur `https://site-maths.pages.dev`.
 
@@ -94,18 +94,18 @@ Cloudflare détecte le push et redéploie automatiquement en 1–2 minutes.
 
 ---
 
-## Brancher ton domaine maths-expert.ma
+## Brancher ton domaine mathselites.com
 
 Le `.pages.dev` fonctionne tout de suite. Pour utiliser ton vrai domaine :
 
-1. Enregistre d'abord `maths-expert.ma` chez un registrar marocain agréé (via l'ANRT — ex. Genious, HB Maroc). Cloudflare ne vend pas les `.ma`.
-2. Dans ton projet Cloudflare Pages → onglet **Custom domains** → **Set up a custom domain** → saisis `maths-expert.ma`.
+1. Enregistre d'abord `mathselites.com` chez un registrar marocain agréé (via l'ANRT — ex. Genious, HB Maroc). Cloudflare ne vend pas les `.ma`.
+2. Dans ton projet Cloudflare Pages → onglet **Custom domains** → **Set up a custom domain** → saisis `mathselites.com`.
 3. Cloudflare t'indique les enregistrements DNS à configurer. Deux cas :
    - **Le plus simple** : transférer la gestion DNS du domaine vers Cloudflare (Cloudflare te donne 2 « nameservers » à coller chez ton registrar). Le certificat HTTPS est alors automatique.
    - **Sinon** : ajouter chez ton registrar les enregistrements `CNAME`/`A` fournis par Cloudflare.
 4. Attends la propagation DNS (de quelques minutes à quelques heures). Le HTTPS (cadenas) est activé automatiquement et gratuitement.
 
-Pense à garder `SITE` = `https://maths-expert.ma` : c'est cette valeur qui rend corrects ton `sitemap.xml` (référencement Google) et les aperçus de partage sur les réseaux sociaux.
+Pense à garder `SITE` = `https://mathselites.com` : c'est cette valeur qui rend corrects ton `sitemap.xml` (référencement Google) et les aperçus de partage sur les réseaux sociaux.
 
 ---
 

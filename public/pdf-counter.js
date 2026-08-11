@@ -23,9 +23,9 @@
   // pour ne pas polluer les compteurs de production.
   var host = (location.hostname || 'site').toLowerCase();
   var NS = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(host)
-    ? 'maths-elites-dev'
+    ? 'mathselites-dev'
     : host.replace(/[^a-z0-9_.-]/g, '-');
-  if (NS.length < 3) NS = 'maths-elites';
+  if (NS.length < 3) NS = 'mathselites';
   if (NS.length > 64) NS = NS.slice(0, 64);
 
   // Transforme un chemin de PDF en clé valide pour Abacus.

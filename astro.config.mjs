@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 
 // URL de production — changez SITE dans votre plateforme d'hébergement
 // (Netlify / Vercel / GitHub Pages) ou ici pour votre domaine définitif.
-const SITE = process.env.SITE ?? 'https://maths-elites.com';
+const SITE = process.env.SITE ?? 'https://mathselites.com';
 
 // https://astro.build/config
 export default defineConfig({
@@ -85,7 +85,7 @@ export default defineConfig({
         {
           icon: 'email',
           label: 'Contact',
-          href: 'mailto:contact@maths-elites.com',
+          href: 'mailto:contact@mathselites.com',
         },
       ],
       disable404Route: true,

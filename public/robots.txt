@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maths-elites.com/sitemap-index.xml
+Sitemap: https://mathselites.com/sitemap-index.xml

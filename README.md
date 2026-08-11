@@ -19,7 +19,7 @@ npm run preview  # prévisualise le build de production
 ## 🌐 Domaine / déploiement
 
 L'URL de production est définie dans `astro.config.mjs` via la variable
-d'environnement `SITE` (valeur par défaut : `https://maths-elites.com`).
+d'environnement `SITE` (valeur par défaut : `https://mathselites.com`).
 Sur Netlify / Vercel / GitHub Pages, définissez simplement `SITE` avec votre
 domaine réel — le sitemap et les URLs canoniques s'y adapteront.
 

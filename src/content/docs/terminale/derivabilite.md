@@ -45,6 +45,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">− 1 / (1 + x²)</button>
       <button class="qcm-opt">1 + x²</button>
     </div>
+    <p class="qcm-exp">Dérivée usuelle à mémoriser : arctan′(x) = <b>1/(1+x²)</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">2. Une primitive de u′ / u (avec u ≠ 0) est :</p>
@@ -54,6 +55,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">arctan(u)</button>
       <button class="qcm-opt">2 √u</button>
     </div>
+    <p class="qcm-exp">Forme u′/u : une primitive est <b>ln|u|</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">3. Si f est dérivable en x₀, alors :</p>
@@ -63,6 +65,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">f′(x₀) = 0</button>
       <button class="qcm-opt">rien</button>
     </div>
+    <p class="qcm-exp">Dérivable en x₀ ⟹ <b>continue</b> en x₀ (la réciproque est fausse).</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">4. f bijective, dérivable, f(2) = 5, f′(2) = 4. Alors (f⁻¹)′(5) =</p>
@@ -72,6 +75,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt" data-correct>1/4</button>
       <button class="qcm-opt">− 1/4</button>
     </div>
+    <p class="qcm-exp">(f⁻¹)′(f(a)) = 1/f′(a) = <b>1/4</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">5. Une primitive de sin(x) · cos⁴(x) est :</p>
@@ -81,6 +85,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">sin⁵(x) / 5</button>
       <button class="qcm-opt">cos⁴(x) / 4</button>
     </div>
+    <p class="qcm-exp">Forme −u′·uⁿ avec u = cos : ∫ sin·cos⁴ = <b>−cos⁵(x)/5</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">6. La fonction x ↦ |x| en 0 :</p>
@@ -90,6 +95,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt" data-correct>n'est pas dérivable (point anguleux)</button>
       <button class="qcm-opt">n'est pas continue</button>
     </div>
+    <p class="qcm-exp">En 0, |x| a un <b>point anguleux</b> : dérivées à gauche (−1) et à droite (+1) différentes.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">7. Pour x &gt; 0, arctan(x) + arctan(1/x) =</p>
@@ -99,6 +105,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt" data-correct>π/2</button>
       <button class="qcm-opt">π</button>
     </div>
+    <p class="qcm-exp">Résultat classique : pour x &gt; 0, arctan(x) + arctan(1/x) = <b>π/2</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">8. Une primitive de x / √(x² + 1) est :</p>
@@ -108,6 +115,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">arctan(x)</button>
       <button class="qcm-opt">2 √(x² + 1)</button>
     </div>
+    <p class="qcm-exp">Forme u′/(2√u) : une primitive est <b>√(x²+1)</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">9. Si f″ &gt; 0 sur I, la courbe 𝒞f est :</p>
@@ -117,6 +125,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">une droite</button>
       <button class="qcm-opt">croissante</button>
     </div>
+    <p class="qcm-exp">f″ &gt; 0 sur I ⟺ courbe <b>convexe</b> (tourne sa concavité vers le haut).</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">10. La dérivée n-ième de 1 / (x − 1) est :</p>
@@ -126,6 +135,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">(− 1)ⁿ / (x − 1)ⁿ</button>
       <button class="qcm-opt">n / (x − 1)ⁿ⁺¹</button>
     </div>
+    <p class="qcm-exp">Par récurrence : (−1)ⁿ·<b>n!/(x−1)ⁿ⁺¹</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">11. Toute fonction continue sur un intervalle :</p>
@@ -135,6 +145,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">est monotone</button>
       <button class="qcm-opt">est bornée</button>
     </div>
+    <p class="qcm-exp">Toute fonction <b>continue</b> sur un intervalle y <b>admet des primitives</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">12. (∛x)′ sur ]0, +∞[ vaut :</p>
@@ -144,6 +155,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">(1/3) x^(2/3)</button>
       <button class="qcm-opt">1 / (2 ∛x)</button>
     </div>
+    <p class="qcm-exp">Puissance : (x^{1/3})′ = <b>(1/3)·x^(−2/3)</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">13. Une primitive de cos⁴(x) contient le terme :</p>
@@ -153,6 +165,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">x / 2</button>
       <button class="qcm-opt">aucun terme en x</button>
     </div>
+    <p class="qcm-exp">La linéarisation de cos⁴ donne un terme constant 3/8, d'où <b>3x/8</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">14. Approximation affine : √(1,02) ≈</p>
@@ -162,6 +175,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/derivabilite/qcm.pdf). Une seul
       <button class="qcm-opt">1,005</button>
       <button class="qcm-opt">0,99</button>
     </div>
+    <p class="qcm-exp">Approximation affine f(1+h) ≈ f(1)+h·f′(1) avec √ : 1 + 0,02·½ = <b>1,01</b>.</p>
   </div>
   <button class="qcm-submit">Valider</button>
   <p class="qcm-score"></p>

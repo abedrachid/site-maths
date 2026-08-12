@@ -1,14 +1,35 @@
 ---
-title: Sujets des olympiades mathématiques
-description: Retrouvez tous les sujets et corrigés des olympiades  pour les Sciences Mathématiques.
+title: Olympiades de mathématiques
+description: Sujets et corrigés des olympiades de mathématiques — Olympiade Internationale (IMO) et Olympiade Marocaine (OMM).
 ---
 
-# Sujets & Corrigés des Examens Nationaux
+Les **olympiades** sont la plus haute forme de compétition mathématique : des problèmes exigeants de démonstration, qui récompensent la créativité et la rigueur.
 
-Bienvenue sur la page dédiée aux archives des examens nationaux. 
+## 🌍 Les grandes olympiades
 
-## Terminale Sciences Mathématiques (SM)
-* 📄 [Session Normale 2026 - Énoncé](/pdf/premiere/sujet_normal_2026.pdf)
-* 📝 [Session Normale 2026 - Corrigé](/2026-normale-corr.pdf)
-* 📄 [Session rattrapage 2026 - Énoncé](/2026-rattrapage.pdf)
-* 📝 [Session rattrapage 2026 - Corrigé](/2025-rattrapage-corr.pdf)
+- **IMO — International Mathematical Olympiad** — la compétition mondiale de référence pour les lycéens.
+- **OMM — Olympiade Marocaine de Mathématiques** — sélection nationale menant à l'IMO.
+- **Olympiades régionales** — premières étapes de qualification.
+
+## 📚 Sujets & corrigés
+
+| Olympiade | Année | Sujet | Corrigé |
+|---|---|---|---|
+| IMO | — | _Bientôt disponible_ | _Bientôt disponible_ |
+| OMM | — | _Bientôt disponible_ | _Bientôt disponible_ |
+
+:::note[Archive en construction]
+Les sujets et corrigés seront ajoutés progressivement. Revenez régulièrement.
+:::
+
+## 💡 Comment se préparer ?
+
+:::tip[Les piliers olympiques]
+Travaillez les quatre grands thèmes : **algèbre**, **combinatoire**, **géométrie** et **théorie des nombres**. L'[arithmétique](/premiere/arithmetique) et le [dénombrement](/terminale/denombrement) constituent d'excellents points de départ.
+:::
+
+## 🔗 Voir aussi
+
+- [Concours (AMC · Kangourou) →](/concours)
+- [Compétitions nationales & régionales →](/competitions)
+- [Examens Nationaux (BAC SM) →](/examens-nationaux)

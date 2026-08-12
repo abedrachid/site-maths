@@ -27,7 +27,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/limites" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #7c3aed;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#7c3aed;letter-spacing:.05em;">CHAPITRE 1</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Limites et continuité</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Limites et continuité <span class="me-badge me-badge--wip">En cours</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
   </a>
@@ -35,7 +35,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/derivabilite" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #7c3aed;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#7c3aed;letter-spacing:.05em;">CHAPITRE 2</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Dérivabilité</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Dérivabilité <span class="me-badge me-badge--done">Complet</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
   </a>
@@ -43,7 +43,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/rolle-taf" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #7c3aed;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#7c3aed;letter-spacing:.05em;">CHAPITRE 3</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);"> Théorèmes: Rolle, T.A.F & I.A.F</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Théorèmes: Rolle, T.A.F &amp; I.A.F <span class="me-badge me-badge--done">Complet</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
   </a>
@@ -51,7 +51,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/primitives" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #7c3aed;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#7c3aed;letter-spacing:.05em;">CHAPITRE 4</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Primitives</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Primitives <span class="me-badge me-badge--soon">Bientôt</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
   </a>
@@ -59,7 +59,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/denombrement" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #7c3aed;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#7c3aed;letter-spacing:.05em;">CHAPITRE 5</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Dénombrement</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Dénombrement <span class="me-badge me-badge--wip">En cours</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
   </a>
@@ -67,7 +67,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/probabilites" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #7c3aed;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#7c3aed;letter-spacing:.05em;">CHAPITRE 6</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Probabilités</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Probabilités <span class="me-badge me-badge--soon">Bientôt</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
   </a>

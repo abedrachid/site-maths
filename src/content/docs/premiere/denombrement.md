@@ -67,10 +67,6 @@ Testez vos connaissances, puis validez pour voir votre score.
   <p class="qcm-score"></p>
 </div>
 
-:::note[Documents à déposer]
-Déposez `fiche-resume.pdf` et `corrections-cours.pdf` dans `public/pdf/premiere/denombrement/`. Le cours et les 3 séries sont déjà en ligne.
-:::
-
 ---
 
 ## Pour aller plus loin

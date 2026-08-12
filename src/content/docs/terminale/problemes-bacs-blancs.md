@@ -35,10 +35,6 @@ Composez un bac blanc dans les conditions réelles : 3 heures, au calme, sans le
 | **Bac blanc 2** | 3 h | <a class="doc-open" data-title="Bac blanc 2 — Sujet" data-src="/pdf/terminale/problemes-bacs-blancs/bb2-sujet.pdf" href="/pdf/terminale/problemes-bacs-blancs/bb2-sujet.pdf">Voir</a> | <a class="doc-open" data-title="Bac blanc 2 — Corrigé" data-src="/pdf/terminale/problemes-bacs-blancs/bb2-corrige.pdf" href="/pdf/terminale/problemes-bacs-blancs/bb2-corrige.pdf">Voir</a> |
 | **Bac blanc 3** | 3 h | <a class="doc-open" data-title="Bac blanc 3 — Sujet" data-src="/pdf/terminale/problemes-bacs-blancs/bb3-sujet.pdf" href="/pdf/terminale/problemes-bacs-blancs/bb3-sujet.pdf">Voir</a> | <a class="doc-open" data-title="Bac blanc 3 — Corrigé" data-src="/pdf/terminale/problemes-bacs-blancs/bb3-corrige.pdf" href="/pdf/terminale/problemes-bacs-blancs/bb3-corrige.pdf">Voir</a> |
 
-:::note[Documents à déposer]
-Déposez vos fichiers dans `public/pdf/terminale/problemes-bacs-blancs/`. Les documents s'afficheront dans la visionneuse.
-:::
-
 ## Voir aussi
 
 - [Devoirs surveillés 2026 →](/terminale/ds-2026)

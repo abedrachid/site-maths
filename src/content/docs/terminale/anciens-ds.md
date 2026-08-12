@@ -29,10 +29,6 @@ Archives des **devoirs surveillés des années précédentes**. Cliquez sur un d
 | **DS 1 — 2024** | Limites · Dérivabilité | <a class="doc-open" data-title="DS 1 — 2024 (Sujet)" data-src="/pdf/terminale/anciens-ds/ds1-2024-sujet.pdf" href="/pdf/terminale/anciens-ds/ds1-2024-sujet.pdf">Voir</a> | <a class="doc-open" data-title="DS 1 — 2024 (Corrigé)" data-src="/pdf/terminale/anciens-ds/ds1-2024-corrige.pdf" href="/pdf/terminale/anciens-ds/ds1-2024-corrige.pdf">Voir</a> |
 | **DS 2 — 2024** | Primitives · Probabilités | <a class="doc-open" data-title="DS 2 — 2024 (Sujet)" data-src="/pdf/terminale/anciens-ds/ds2-2024-sujet.pdf" href="/pdf/terminale/anciens-ds/ds2-2024-sujet.pdf">Voir</a> | <a class="doc-open" data-title="DS 2 — 2024 (Corrigé)" data-src="/pdf/terminale/anciens-ds/ds2-2024-corrige.pdf" href="/pdf/terminale/anciens-ds/ds2-2024-corrige.pdf">Voir</a> |
 
-:::note[Documents à déposer]
-Ajoutez les anciens sujets dans `public/pdf/terminale/anciens-ds/`. Le DS 1 — 2025 est déjà en ligne (cliquez sur « Voir »).
-:::
-
 ## Voir aussi
 
 - [Devoirs surveillés 2026 →](/terminale/ds-2026)

@@ -67,10 +67,6 @@ Testez vos connaissances, puis validez pour voir votre score.
   <p class="qcm-score"></p>
 </div>
 
-:::note[Documents à déposer]
-Déposez `fiche-resume.pdf`, `corrections-cours.pdf` et les planches dans `public/pdf/premiere/arithmetique/`. Le cours est déjà en ligne.
-:::
-
 ---
 
 ## Pour aller plus loin

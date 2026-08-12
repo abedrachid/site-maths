@@ -37,6 +37,7 @@
         submit.textContent = 'Valider';
         return;
       }
+      // (les explications .qcm-exp sont révélées via [data-done='1'] en CSS)
       // Correction
       var score = 0;
       questions.forEach(function (q) {

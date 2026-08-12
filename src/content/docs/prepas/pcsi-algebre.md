@@ -66,10 +66,6 @@ Testez vos connaissances, puis validez pour voir votre score.
   <p class="qcm-score"></p>
 </div>
 
-:::note[Documents à déposer]
-Déposez `cours.pdf`, `fiche-resume.pdf`, `corrections-cours.pdf` et les planches dans `public/pdf/prepas/pcsi-algebre/`.
-:::
-
 ---
 
 ## Pour aller plus loin

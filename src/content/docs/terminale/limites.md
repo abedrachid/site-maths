@@ -38,6 +38,7 @@ Testez vos connaissances, puis validez pour voir votre score.
       <button class="qcm-opt" data-correct>1</button>
       <button class="qcm-opt">+∞</button>
     </div>
+    <p class="qcm-exp">Limite usuelle de référence : sin(x)/x → <b>1</b> quand x → 0 (le sinus est équivalent à x au voisinage de 0).</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">2. lim<sub>x→+∞</sub> (4x² − 3) / (2x² + x + 1) = ?</p>
@@ -46,6 +47,7 @@ Testez vos connaissances, puis validez pour voir votre score.
       <button class="qcm-opt" data-correct>2</button>
       <button class="qcm-opt">4</button>
     </div>
+    <p class="qcm-exp">À l'infini, une fraction rationnelle se comporte comme le rapport des termes de plus haut degré : 4x²/2x² = <b>2</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">3. Si lim<sub>x→a⁺</sub> f(x) = +∞, la droite x = a est une… ?</p>
@@ -54,6 +56,7 @@ Testez vos connaissances, puis validez pour voir votre score.
       <button class="qcm-opt">asymptote horizontale</button>
       <button class="qcm-opt">asymptote oblique</button>
     </div>
+    <p class="qcm-exp">Une limite infinie en un point fini <b>a</b> signale une <b>asymptote verticale</b> d'équation x = a.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">4. lim<sub>x→0</sub> (1 − cos x) / x² = ?</p>
@@ -62,14 +65,47 @@ Testez vos connaissances, puis validez pour voir votre score.
       <button class="qcm-opt" data-correct>1/2</button>
       <button class="qcm-opt">0</button>
     </div>
+    <p class="qcm-exp">Limite usuelle : 1 − cos x ≈ x²/2 au voisinage de 0, donc le quotient tend vers <b>1/2</b>.</p>
+  </div>
+  <div class="qcm-q">
+    <p class="qcm-question">5. lim<sub>x→+∞</sub> (√(x² + 1) − x) = ?</p>
+    <div class="qcm-opts">
+      <button class="qcm-opt" data-correct>0</button>
+      <button class="qcm-opt">+∞</button>
+      <button class="qcm-opt">1</button>
+    </div>
+    <p class="qcm-exp">On multiplie par la quantité conjuguée : √(x²+1) − x = 1 / (√(x²+1) + x) → <b>0</b>.</p>
+  </div>
+  <div class="qcm-q">
+    <p class="qcm-question">6. lim<sub>x→0⁺</sub> x·ln(x) = ?</p>
+    <div class="qcm-opts">
+      <button class="qcm-opt">−∞</button>
+      <button class="qcm-opt" data-correct>0</button>
+      <button class="qcm-opt">1</button>
+    </div>
+    <p class="qcm-exp">Croissances comparées : x l'emporte sur ln(x). La forme « 0 × (−∞) » se lève et donne <b>0</b>.</p>
+  </div>
+  <div class="qcm-q">
+    <p class="qcm-question">7. Le théorème des valeurs intermédiaires s'applique à une fonction… ?</p>
+    <div class="qcm-opts">
+      <button class="qcm-opt" data-correct>continue sur un intervalle</button>
+      <button class="qcm-opt">dérivable partout</button>
+      <button class="qcm-opt">croissante</button>
+    </div>
+    <p class="qcm-exp">Le T.V.I. ne requiert que la <b>continuité</b> sur un intervalle : toute valeur entre f(a) et f(b) est atteinte.</p>
+  </div>
+  <div class="qcm-q">
+    <p class="qcm-question">8. lim<sub>x→+∞</sub> (2x + 3) / (x − 1) = ?</p>
+    <div class="qcm-opts">
+      <button class="qcm-opt">1</button>
+      <button class="qcm-opt" data-correct>2</button>
+      <button class="qcm-opt">+∞</button>
+    </div>
+    <p class="qcm-exp">Rapport des termes dominants : 2x / x = <b>2</b>. La droite y = 2 est asymptote horizontale.</p>
   </div>
   <button class="qcm-submit">Valider</button>
   <p class="qcm-score"></p>
 </div>
-
-:::note[Documents à déposer]
-Déposez `fiche-resume.pdf` et `corrections-cours.pdf` dans `public/pdf/terminale/limites/`. Le cours et les deux planches sont déjà en ligne ; le QCM ci-dessus fonctionne sans fichier.
-:::
 
 ---
 

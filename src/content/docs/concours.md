@@ -1,14 +1,35 @@
 ---
-title: Concours
-description: Retrouvez tous les sujets et corrigés des examens nationaux pour les Sciences Mathématiques.
+title: Concours de mathématiques
+description: Sujets et corrigés des concours de mathématiques — AMC, Kangourou et autres épreuves ouvertes aux lycéens marocains.
 ---
 
-# Sujets & Corrigés des Examens Nationaux
+Les **concours de mathématiques** permettent d'aiguiser sa logique et sa rapidité au-delà du programme officiel. Cette page rassemble les épreuves les plus accessibles aux élèves du secondaire.
 
-Bienvenue sur la page dédiée aux archives des examens nationaux. 
+## 🥇 Concours accessibles aux lycéens
 
-## Terminale Sciences Mathématiques (SM)
-* 📄 [Session Normale 2026 - Énoncé](/pdf/premiere/sujet_normal_2026.pdf)
-* 📝 [Session Normale 2026 - Corrigé](/2026-normale-corr.pdf)
-* 📄 [Session rattrapage 2026 - Énoncé](/2026-rattrapage.pdf)
-* 📝 [Session rattrapage 2026 - Corrigé](/2025-rattrapage-corr.pdf)
+- **Kangourou des mathématiques** — QCM ludique, tous niveaux, épreuve d'une heure.
+- **AMC (American Mathematics Competitions)** — AMC 10 / AMC 12, porte d'entrée vers les compétitions internationales.
+- **Concours nationaux marocains** — épreuves organisées par les associations et académies.
+
+## 📚 Sujets & corrigés
+
+| Concours | Édition | Sujet | Corrigé |
+|---|---|---|---|
+| Kangourou | — | _Bientôt disponible_ | _Bientôt disponible_ |
+| AMC 10/12 | — | _Bientôt disponible_ | _Bientôt disponible_ |
+
+:::note[Contenu en préparation]
+Nous constituons progressivement une archive de sujets. Revenez régulièrement, ou signalez-nous un concours à ajouter via la page **Contact**.
+:::
+
+## 💡 Pourquoi participer ?
+
+:::tip[Un vrai plus]
+Les concours développent l'intuition et la vitesse de calcul, valorisent un dossier, et préparent efficacement aux [Olympiades](/olympiades) et aux [Classes Prépas](/prepas/).
+:::
+
+## 🔗 Voir aussi
+
+- [Olympiades (IMO · Maroc) →](/olympiades)
+- [Compétitions nationales & régionales →](/competitions)
+- [Examens Nationaux (BAC SM) →](/examens-nationaux)

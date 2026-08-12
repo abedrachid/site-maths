@@ -1,0 +1,95 @@
+---
+/* ────────────────────────────────────────────────────────────
+   MathsElites — Override du pied de page Starlight
+   Ajoute un lien discret « Signaler une erreur » (WhatsApp) sous
+   le contenu de chaque page de chapitre. Le nom du chapitre est
+   repris automatiquement depuis le titre de la page (frontmatter),
+   ainsi que l'URL, pour identifier tout de suite la page concernée.
+
+   Pour changer le numéro : modifiez WA_NUMBER (format international,
+   sans + ni espaces) — identique au bouton WhatsApp flottant.
+   ──────────────────────────────────────────────────────────── */
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+// Données de la page courante (API Starlight ≥ 0.30)
+const { entry, slug } = Astro.locals.starlightRoute;
+const title = entry.data.title;
+
+// Numéro WhatsApp — identique au bouton flottant (public/wa-button.js)
+const WA_NUMBER = '212661892588';
+
+// Pages SANS le lien : accueil, présentations de niveau et pages utilitaires.
+// Tout le reste (cours, séries, DS, DM, examens blancs…) affiche le lien.
+const SANS_LIEN = ['', 'a-propos', 'contact', 'premiere', 'terminale', 'prepas'];
+const afficher = !SANS_LIEN.includes(slug);
+
+// URL absolue de la page (utile pour retrouver le chapitre concerné)
+const pageUrl = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : Astro.url.pathname;
+
+// Message WhatsApp pré-rempli
+const message =
+  `Bonjour, je signale une erreur sur le chapitre : ${title}.\n` +
+  `Page : ${pageUrl}\n` +
+  `Voici le problème : `;
+
+const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+---
+
+{
+  afficher && (
+    <div class="me-report">
+      <a
+        class="me-report-link"
+        href={waHref}
+        target="_blank"
+        rel="noopener"
+        aria-label="Signaler une erreur sur ce chapitre via WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+          <path d="M16 3C9 3 3.5 8.5 3.5 15.5c0 2.4.7 4.7 1.9 6.7L3 29l7-1.8c1.9 1 4 1.6 6 1.6 7 0 12.5-5.5 12.5-12.5S23 3 16 3zm0 22.6c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4a10 10 0 01-1.6-5.6C5.4 9.6 10.1 5 16 5s10.6 4.6 10.6 10.5S21.9 25.6 16 25.6zm5.8-7.8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.3c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1.8.3 1.5.5 2 .7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z" />
+        </svg>
+        <span>Signaler une erreur sur ce chapitre</span>
+      </a>
+    </div>
+  )
+}
+
+{/* Pied de page Starlight par défaut (dernière mise à jour, pagination…) */}
+<Default {...Astro.props}><slot /></Default>
+
+<style>
+  .me-report {
+    margin: 1.75rem 0 0.5rem;
+  }
+
+  .me-report-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.85rem;
+    font-size: var(--sl-text-xs);
+    line-height: 1.3;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 999px;
+    background: var(--sl-color-gray-6, transparent);
+    transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  }
+
+  .me-report-link:hover,
+  .me-report-link:focus-visible {
+    color: #128c7e; /* vert WhatsApp */
+    border-color: #25d366;
+    background: color-mix(in srgb, #25d366 8%, transparent);
+  }
+
+  .me-report-link svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+    color: #25d366;
+  }
+</style>

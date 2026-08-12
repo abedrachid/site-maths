@@ -18,6 +18,11 @@ export default defineConfig({
       title: 'MathsElites',
       description:
         "Plateforme marocaine d'accompagnement en mathématiques : cours, exercices corrigés, DS, DM, examens blancs et sujets de Bac pour la Première Bac SM, la Terminale Sciences Maths et les Classes Prépas.",
+      // Remplace le pied de page par défaut par notre version qui ajoute
+      // le lien « Signaler une erreur » (WhatsApp) sous les pages de chapitre.
+      components: {
+        Footer: './src/components/Footer.astro',
+      },
       // Le favicon du site
       favicon: '/favicon.svg',
       // Logo affiché dans l'en-tête, à côté du titre
@@ -53,10 +58,41 @@ export default defineConfig({
             href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap',
           },
         },
-        // Balises Open Graph / réseaux sociaux
+        // Image de partage (Open Graph + Twitter).
+        // Starlight génère déjà og:title, og:description, og:url, og:type,
+        // og:locale, og:site_name et twitter:card. Il ne manque que l'image :
+        // c'est l'aperçu affiché quand un lien est partagé sur WhatsApp,
+        // Facebook, etc. L'URL doit être ABSOLUE.
         {
           tag: 'meta',
-          attrs: { property: 'og:type', content: 'website' },
+          attrs: { property: 'og:image', content: `${SITE}/og-image.png` },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:secure_url', content: `${SITE}/og-image.png` },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:type', content: 'image/png' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:width', content: '1200' },
+        },
+        {
+          tag: 'meta',
+          attrs: { property: 'og:image:height', content: '630' },
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            property: 'og:image:alt',
+            content: 'MathsElites — cours, exercices corrigés et examens de mathématiques (Première Bac SM, Terminale SM, Prépas).',
+          },
+        },
+        {
+          tag: 'meta',
+          attrs: { name: 'twitter:image', content: `${SITE}/og-image.png` },
         },
         {
           tag: 'meta',
@@ -77,6 +113,11 @@ export default defineConfig({
           tag: 'script',
           attrs: { src: '/pdf-counter.js', defer: true },
         },
+        // Bouton WhatsApp flottant (numéro dans /wa-button.js)
+        {
+          tag: 'script',
+          attrs: { src: '/wa-button.js', defer: true },
+        },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.
       lastUpdated: true,
@@ -86,6 +127,24 @@ export default defineConfig({
           icon: 'email',
           label: 'Contact',
           href: 'mailto:contact@mathselites.com',
+        },
+        {
+          icon: 'youtube',
+          label: 'YouTube',
+          // TODO : remplacez par l'URL de votre chaîne YouTube
+          href: 'https://www.youtube.com/@mathselites',
+        },
+        {
+          icon: 'instagram',
+          label: 'Instagram',
+          // TODO : remplacez par l'URL de votre compte Instagram
+          href: 'https://www.instagram.com/mathselites',
+        },
+        {
+          icon: 'facebook',
+          label: 'Facebook',
+          // TODO : remplacez par l'URL de votre page Facebook
+          href: 'https://www.facebook.com/mathselites',
         },
       ],
       disable404Route: true,
@@ -97,6 +156,8 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
       sidebar: [
         { label: '🏠 Accueil du site', link: '/' },
+        { label: 'ℹ️ À propos', link: '/a-propos' },
+        { label: '✉️ Contact', link: '/contact' },
 
         /* ——— PREMIÈRE BAC SM ——— */
         {
@@ -404,7 +465,46 @@ export default defineConfig({
         },
       ],
     }),
-    sitemap(),
+    // Sitemap enrichi : lastmod (date du build), changefreq et priority.
+    // La fonction serialize hiérarchise les pages pour guider Google :
+    // l'accueil et les pages de niveau sont prioritaires, les cours/chapitres
+    // sont mis à jour régulièrement, les pages utilitaires le sont peu.
+    sitemap({
+      changefreq: 'monthly',
+      priority: 0.7,
+      lastmod: new Date(),
+      serialize(item) {
+        const path = new URL(item.url).pathname;
+
+        // Page d'accueil — priorité maximale
+        if (path === '/') {
+          item.priority = 1.0;
+          item.changefreq = 'weekly';
+        }
+        // Pages de présentation d'un niveau (/premiere/, /terminale/, /prepas/)
+        else if (/^\/(premiere|terminale|prepas)\/$/.test(path)) {
+          item.priority = 0.9;
+          item.changefreq = 'weekly';
+        }
+        // Rubriques Examens & Concours
+        else if (/^\/(examens-nationaux|concours|olympiades|competitions)\/$/.test(path)) {
+          item.priority = 0.8;
+          item.changefreq = 'monthly';
+        }
+        // Pages utilitaires — peu de valeur SEO, rarement modifiées
+        else if (path === '/a-propos/' || path === '/contact/') {
+          item.priority = 0.4;
+          item.changefreq = 'yearly';
+        }
+        // Tout le reste : cours, chapitres, séries, DS/DM, examens blancs
+        else {
+          item.priority = 0.7;
+          item.changefreq = 'monthly';
+        }
+
+        return item;
+      },
+    }),
   ],
   markdown: {
     remarkPlugins: [remarkMath],

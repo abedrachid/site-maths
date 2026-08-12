@@ -52,6 +52,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">f croissante</button>
       <button class="qcm-opt">f(a) = 0</button>
     </div>
+    <p class="qcm-exp">Rolle : <b>continue sur [a,b], dérivable sur ]a,b[ et f(a)=f(b)</b> ⟹ ∃c, f′(c)=0.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">2. La conclusion du T.A.F est : ∃ c ∈ ]a, b[ tel que</p>
@@ -61,6 +62,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">f(c) = 0</button>
       <button class="qcm-opt">f′(c) = f(c)</button>
     </div>
+    <p class="qcm-exp">T.A.F : ∃c ∈ ]a,b[ tel que <b>f(b)−f(a) = (b−a)·f′(c)</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">3. (Fermat) Si f a un extremum local en x₀ intérieur et est dérivable en x₀, alors :</p>
@@ -70,6 +72,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">f(x₀) = 0</button>
       <button class="qcm-opt">rien</button>
     </div>
+    <p class="qcm-exp">Théorème de Fermat : en un extremum <b>intérieur</b> où f est dérivable, <b>f′(x₀)=0</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">4. L'affirmation « f′(x₀) = 0 ⟹ f a un extremum en x₀ » est :</p>
@@ -79,6 +82,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">vraie si f continue</button>
       <button class="qcm-opt">vraie sur un fermé</button>
     </div>
+    <p class="qcm-exp"><b>Faux</b> : f′ s'annule aussi aux points d'inflexion (ex. x³ en 0). Condition nécessaire, pas suffisante.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">5. (I.A.F) Si |f′(x)| ≤ M sur I, alors pour tous a, b ∈ I :</p>
@@ -88,6 +92,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">f(b) = f(a)</button>
       <button class="qcm-opt">f′ = M</button>
     </div>
+    <p class="qcm-exp">Inégalité des accroissements finis : |f′| ≤ M ⟹ <b>|f(b)−f(a)| ≤ M|b−a|</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">6. Pour tous réels a, b, |sin a − sin b| est majoré par :</p>
@@ -97,6 +102,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">|a − b|²</button>
       <button class="qcm-opt">1</button>
     </div>
+    <p class="qcm-exp">Comme |sin′| = |cos| ≤ 1, l'I.A.F donne |sin a − sin b| ≤ <b>|a−b|</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">7. Si f′ = 0 sur un intervalle I, alors f est :</p>
@@ -106,6 +112,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">croissante</button>
       <button class="qcm-opt">bijective</button>
     </div>
+    <p class="qcm-exp">f′ = 0 sur un <b>intervalle</b> ⟹ f y est <b>constante</b> (conséquence du T.A.F).</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">8. Le théorème de Rolle est le cas particulier du T.A.F lorsque :</p>
@@ -115,6 +122,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">f′ = 0</button>
       <button class="qcm-opt">f paire</button>
     </div>
+    <p class="qcm-exp">Rolle = T.A.F dans le cas particulier <b>f(a)=f(b)</b> (la pente moyenne est nulle).</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">9. Pour f(x) = x³ sur ℝ : f′(0) = 0 et f :</p>
@@ -124,6 +132,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt" data-correct>n'a pas d'extremum en 0</button>
       <button class="qcm-opt">n'est pas dérivable en 0</button>
     </div>
+    <p class="qcm-exp">x³ : f′(0)=0 mais f est strictement croissante — <b>pas d'extremum</b> (point d'inflexion).</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">10. Pour x &gt; 0, arctan(x) + arctan(1/x) vaut :</p>
@@ -133,6 +142,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt" data-correct>π/2</button>
       <button class="qcm-opt">π</button>
     </div>
+    <p class="qcm-exp">Résultat classique : pour x &gt; 0, arctan(x)+arctan(1/x) = <b>π/2</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">11. Si f(x) = (x − 1)(x − 2)(x − 3), l'équation f′(x) = 0 a :</p>
@@ -142,6 +152,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">3 racines</button>
       <button class="qcm-opt">aucune racine</button>
     </div>
+    <p class="qcm-exp">f est un polynôme de degré 3 à 3 racines distinctes : par Rolle, f′ (degré 2) a <b>2 racines réelles distinctes</b>.</p>
   </div>
   <div class="qcm-q">
     <p class="qcm-question">12. lim(x→0) (sin x − x) / x³ vaut :</p>
@@ -151,6 +162,7 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
       <button class="qcm-opt">− 1/3</button>
       <button class="qcm-opt">+ ∞</button>
     </div>
+    <p class="qcm-exp">Développement : sin x − x ≈ −x³/6, donc la limite vaut <b>−1/6</b>.</p>
   </div>
   <button class="qcm-submit">Valider</button>
   <p class="qcm-score"></p>

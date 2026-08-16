@@ -96,7 +96,7 @@ export default defineConfig({
         },
         {
           tag: 'meta',
-          attrs: { name: 'theme-color', content: '#7c3aed' },
+          attrs: { name: 'theme-color', content: '#0C2340' },
         },
         // Moteur de QCM interactif (chargé sur toutes les pages)
         {
@@ -229,6 +229,16 @@ export default defineConfig({
 
             /* ── Révision (avant les chapitres) ── */
             { label: '🔄 Révision de 1ère Bac SM', link: '/terminale/revision-premiere' },
+
+            /* ── Chapitre : Rédaction mathématique ── */
+            {
+              label: '✍️ Rédaction mathématique',
+              collapsed: true,
+              items: [
+                { label: '📖 Guide de rédaction', link: '/terminale/redaction-mathematique' },
+                { label: '⬇️ Télécharger le PDF', link: '/pdf/terminale/redaction-mathematique/redaction-mathematique.pdf' },
+              ],
+            },
 
             /* ── Chapitre 1 : Limites ── */
             {

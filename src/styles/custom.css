@@ -13,23 +13,23 @@
    surlignages de la sidebar, etc. On les aligne sur le violet
    de la page d'accueil pour une identité cohérente.            */
 :root {
-  --sl-color-accent-low: #241a38;
-  --sl-color-accent: #7c3aed;
-  --sl-color-accent-high: #d8c0ea;
+  --sl-color-accent-low: #0e1f38;
+  --sl-color-accent: #3f74d6;
+  --sl-color-accent-high: #d5e3ff;
 
   /* Typographie professionnelle */
   --sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --me-font-display: 'Fraunces', 'Crimson Pro', Georgia, 'Times New Roman', serif;
 
   /* Variables réutilisées par les composants de cours */
-  --me-navy: #1e1b2e;
-  --me-navy2: #2a2440;
+  --me-navy: #0c2340;
+  --me-navy2: #14345e;
   --me-blue: #3a6fd8;
   --me-indigo: #4f46e5;
   --me-sky: #38bdf8;
   --me-green: #059669;
-  --me-gold: #c9952a;
-  --me-gold2: #e0b352;
+  --me-gold: #c9a227;
+  --me-gold2: #e3c24e;
   --me-red: #dc2626;
   --me-cream2: #f8f6f2;
   --me-cream3: #e6e0d5;
@@ -38,9 +38,9 @@
 
 /* Thème clair : accent un peu plus foncé pour le contraste */
 :root[data-theme='light'] {
-  --sl-color-accent-low: #e9ddfb;
-  --sl-color-accent: #6d28d9;
-  --sl-color-accent-high: #3b1f66;
+  --sl-color-accent-low: #dce7ff;
+  --sl-color-accent: #1d4ed8;
+  --sl-color-accent-high: #10233f;
 }
 
 /* ── 2. PAGE D'ACCUEIL (template: splash) ──────────────────────
@@ -317,7 +317,7 @@ h1#_top,
 /* En-tête du site : logo arrondi + titre soigné et attractif */
 .site-title img {
   border-radius: 9px;
-  box-shadow: 0 3px 10px rgba(124, 58, 237, 0.28);
+  box-shadow: 0 3px 10px rgba(12, 35, 64, 0.30);
 }
 .site-title {
   font-family: var(--me-font-display);
@@ -330,7 +330,7 @@ h1#_top,
    lisible en thème clair comme sombre. Cible le libellé texte,
    pas le logo. */
 .site-title > span:not(.sr-only) {
-  background: linear-gradient(95deg, #9333ea 0%, #6d28d9 22%, #2563eb 55%, #0891b2 80%, #06b6d4 100%);
+  background: linear-gradient(95deg, #0C2340 0%, #14345e 30%, #1d4ed8 58%, #C9A227 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -344,7 +344,7 @@ h1#_top,
 /* En thème sombre, dégradé plus vif et lumineux pour ressortir
    sur fond foncé. */
 :root[data-theme='dark'] .site-title > span:not(.sr-only) {
-  background: linear-gradient(95deg, #c084fc 0%, #a78bfa 22%, #60a5fa 55%, #22d3ee 82%, #2dd4bf 100%);
+  background: linear-gradient(95deg, #F6F1E4 0%, #E7CF7A 55%, #C9A227 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -445,7 +445,7 @@ header.header {
 .me-hf-gauss {
   bottom: 2.2rem;
   right: 3.5%;
-  color: #cda9e8;            /* violet clair — intégrale de Gauss */
+  color: #e0c066;            /* or clair — intégrale de Gauss */
   opacity: 0.34;
   font-size: 1.15rem;
   animation-delay: 1.7s;
@@ -552,12 +552,51 @@ header.header {
 }
 .qcm-submit:hover { opacity: 0.92; }
 .qcm-score {
-  margin: 0.9rem 0 0;
+  margin: 0;
   font-weight: 700;
-  font-size: 1rem;
   color: var(--sl-color-white);
 }
-.qcm-score.is-perfect { color: #16a34a; }
+/* Le score ne s'affiche en grand qu'une fois rempli (après « Valider »). */
+.qcm-score:not(:empty) {
+  display: block;
+  margin: 1.25rem 0 0;
+  padding: 1rem 1.25rem;
+  text-align: center;
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  border: 2px solid #f59e0b;
+  border-radius: 14px;
+  background: color-mix(in srgb, #f59e0b 16%, transparent);
+  color: var(--sl-color-white);
+  box-shadow: 0 4px 14px color-mix(in srgb, #f59e0b 25%, transparent);
+  animation: qcm-score-pop 0.35s ease-out;
+}
+.qcm-score:not(:empty)::before {
+  content: "📊 Votre score";
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 0.35rem;
+}
+.qcm-score.is-perfect {
+  border-color: #16a34a;
+  background: color-mix(in srgb, #16a34a 16%, transparent);
+  box-shadow: 0 4px 14px color-mix(in srgb, #16a34a 30%, transparent);
+  color: #16a34a;
+}
+.qcm-score.is-perfect::before {
+  content: "🏆 Score parfait !";
+  color: #16a34a;
+  opacity: 1;
+}
+@keyframes qcm-score-pop {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
 
 /* Explication révélée après validation (masquée tant que le QCM
    n'est pas corrigé). Ajoutez <p class="qcm-exp">…</p> dans un .qcm-q. */

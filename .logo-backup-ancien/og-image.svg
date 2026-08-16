@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b0f70"/>
+      <stop offset="0.5" stop-color="#6d28d9"/>
+      <stop offset="1" stop-color="#0891b2"/>
+    </linearGradient>
+    <linearGradient id="logo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="0.55" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#0891b2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.7" cy="0.25" r="0.8">
+      <stop offset="0" stop-color="#a78bfa" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Formules mathématiques en filigrane -->
+  <g fill="#ffffff" opacity="0.09" font-family="Georgia, 'DejaVu Serif', serif" font-style="italic">
+    <text x="70" y="150" font-size="52">&#8747;&#8320;&#185; f(x) dx</text>
+    <text x="900" y="140" font-size="58">&#8721;</text>
+    <text x="960" y="150" font-size="30">n=1</text>
+    <text x="90" y="540" font-size="46">lim&#8202; f&#8242;(x)</text>
+    <text x="880" y="560" font-size="50">&#8730;&#8203; &#8706;y/&#8706;x</text>
+    <text x="600" y="600" font-size="40">&#960;&#8226;e&#8309;&#178;</text>
+    <text x="1010" y="330" font-size="46">&#8734;</text>
+    <text x="60" y="330" font-size="44">a&#178;+b&#178;</text>
+  </g>
+
+  <!-- Logo : carré arrondi + courbe + sigma -->
+  <g transform="translate(90,80)">
+    <rect x="0" y="0" width="120" height="120" rx="30" fill="url(#logo)"/>
+    <path d="M28 88 H96 M35 96 V26" stroke="rgba(255,255,255,.30)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M30 84 C50 84 52 40 66 40 C80 40 82 78 96 78" fill="none" stroke="#ffffff" stroke-width="6.4" stroke-linecap="round"/>
+    <text x="74" y="60" font-family="Georgia, 'DejaVu Serif', serif" font-size="30" fill="#eadcff" font-weight="700">&#8721;</text>
+  </g>
+
+  <!-- Nom du site -->
+  <text x="238" y="168" font-family="Georgia, 'DejaVu Serif', serif" font-size="62" font-weight="700" fill="#ffffff">MathsElites</text>
+  <text x="240" y="205" font-family="'DejaVu Sans', sans-serif" font-size="24" fill="#d8c9f5" letter-spacing="2">mathselites.com</text>
+
+  <!-- Accroche principale -->
+  <text x="90" y="330" font-family="Georgia, 'DejaVu Serif', serif" font-size="66" font-weight="700" fill="#ffffff">Les mathématiques,</text>
+  <text x="90" y="410" font-family="Georgia, 'DejaVu Serif', serif" font-size="66" font-weight="700" fill="#c4b5fd">avec méthode et exigence.</text>
+
+  <!-- Sous-titre -->
+  <text x="92" y="470" font-family="'DejaVu Sans', sans-serif" font-size="30" fill="#e9e2fb">Cours &#8226; Exercices corrig&#233;s &#8226; DS &#8226; Examens blancs &#8226; QCM</text>
+
+  <!-- Bandeau niveaux -->
+  <g font-family="'DejaVu Sans', sans-serif" font-size="25" font-weight="700">
+    <rect x="90"  y="522" width="270" height="58" rx="29" fill="#ffffff" opacity="0.14"/>
+    <text x="225" y="559" fill="#ffffff" text-anchor="middle">Premi&#232;re Bac SM</text>
+    <rect x="378" y="522" width="250" height="58" rx="29" fill="#ffffff" opacity="0.14"/>
+    <text x="503" y="559" fill="#ffffff" text-anchor="middle">Terminale SM</text>
+    <rect x="646" y="522" width="258" height="58" rx="29" fill="#ffffff" opacity="0.14"/>
+    <text x="775" y="559" fill="#ffffff" text-anchor="middle">Classes Pr&#233;pas</text>
+  </g>
+</svg>

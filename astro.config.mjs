@@ -368,7 +368,61 @@ export default defineConfig({
           label: '🏛️ Classes Prépas',
           items: [
             { label: 'Présentation', link: '/prepas/' },
+            /* ── Concours d'entrée & Excellence ── */
+            {
+              label: '🏆 Concours Entrée Prépas d\'Excellence',
+              collapsed: true,
+              items: [
+                { label: 'Présentation', link: '/prepas/concours-entree-excellence' },
+                { label: '🏆 Sujet 2025', link: '/prepas/concours-entree-excellence#doc=/pdf/prepas/concours-excellence/concours-entree-mpsi-2025.pdf' },
+                { label: '📄 Sujet 2024', link: '/prepas/concours-entree-excellence#doc=/pdf/prepas/concours-excellence/concours-entree-mpsi-2024.pdf' },
+                { label: '📄 Sujet 2023', link: '/prepas/concours-entree-excellence#doc=/pdf/prepas/concours-excellence/concours-entree-mpsi-2023.pdf' },
+                { label: '📄 Sujet 2022', link: '/prepas/concours-entree-excellence#doc=/pdf/prepas/concours-excellence/concours-entree-mpsi-2022.pdf' },
+                { label: '📄 Sujet 2021', link: '/prepas/concours-entree-excellence#doc=/pdf/prepas/concours-excellence/concours-entree-mpsi-2021.pdf' },
+                { label: '📄 Sujet 2019', link: '/prepas/concours-entree-excellence#doc=/pdf/prepas/concours-excellence/concours-entree-mpsi-2019.pdf' },
+              ],
+            },
+            {
+              label: '🔬 Atelier du Chercheur — MPSI / MP',
+              collapsed: true,
+              items: [
+                { label: '📖 Consulter / télécharger', link: '/prepas/atelier-chercheur' },
+              ],
+            },
+            {
+              label: '📖 Continuité, Dérivabilité & Intégrales',
+              collapsed: true,
+              items: [
+                { label: '📖 Consulter / télécharger', link: '/prepas/cours-continuite-derivabilite' },
+              ],
+            },
+            {
+              label: '🎯 Préparation Lycées d\'Excellence',
+              collapsed: true,
+              items: [
+                { label: '📖 Consulter / télécharger', link: '/prepas/preparation-lycees-excellence' },
+              ],
+            },
+            /* ── Problèmes & Stage Sup/Spé ── */
+            {
+              label: '📐 Problèmes & Stage — Sup/Spé',
+              collapsed: true,
+              items: [
+                { label: 'Présentation', link: '/prepas/problemes-stage-sup' },
+                { label: "📐 Problèmes d'algèbre linéaire", link: '/prepas/problemes-stage-sup#doc=/pdf/prepas/probl%C3%A8mes_sup.pdf' },
+                { label: '📘 Stage Sup/Spé (cours complet)', link: '/prepas/problemes-stage-sup#doc=/pdf/prepas/stage_sup_spe.pdf' },
+              ],
+            },
             /* ── MPSI / MP ── */
+            {
+              label: '📗 Ensembles & Applications',
+              collapsed: true,
+              items: [
+                { label: 'Présentation', link: '/prepas/ensembles-applications' },
+                { label: '📝 Exercices & problèmes', link: '/prepas/ensembles-applications#doc=/pdf/prepas/Ensembles_Applications_exos_probl%C3%A8mes.pdf' },
+                { label: '✅ Corrigés', link: '/prepas/ensembles-applications#doc=/pdf/prepas/Ensembles_Applications_Corriges.pdf' },
+              ],
+            },
             {
               label: '📗 MPSI · Algèbre & Analyse',
               collapsed: true,

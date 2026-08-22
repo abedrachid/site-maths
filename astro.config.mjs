@@ -165,7 +165,17 @@ export default defineConfig({
           items: [
             { label: 'Présentation & Chapitres', link: '/premiere/' },
 
-            /* ── Chapitre 1 : Dénombrement ── */
+            /* ── Chapitre 1 : Logique et raisonnement ── */
+            {
+              label: '📗 Logique et raisonnement',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/premiere/logique' },
+                { label: '❓ QCM', link: '/premiere/logique#qcm' },
+              ],
+            },
+
+            /* ── Chapitre 2 : Dénombrement ── */
             {
               label: '📗 Dénombrement',
               collapsed: true,
@@ -180,7 +190,7 @@ export default defineConfig({
               ],
             },
 
-            /* ── Chapitre 2 : Arithmétique ── */
+            /* ── Chapitre 3 : Arithmétique ── */
             {
               label: '📗 Arithmétique',
               collapsed: true,

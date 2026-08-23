@@ -1,20 +1,16 @@
 /* ────────────────────────────────────────────────────────────
    MathsElites — Statistiques de fréquentation
-   Affiche une petite barre discrète en bas de page avec :
-     • 👁  le nombre TOTAL de visiteurs (cumul, via Abacus — gratuit)
+   Affiche une barre bien visible EN HAUT de chaque page avec :
+     • 👁️  le nombre TOTAL de visiteurs (cumul, via Abacus — gratuit)
      • 🟢  le nombre de visiteurs EN LIGNE maintenant (temps réel,
-           via votre Worker Cloudflare + Durable Object)
+           via le Worker Cloudflare + Durable Object)
 
    ── CONFIGURATION ──────────────────────────────────────────────
-   ONLINE_API : laissez '' tant que le Worker temps réel n'est pas
-   déployé (la pastille « en ligne » reste alors masquée, le total
-   fonctionne quand même). Après `wrangler deploy`, collez ici l'URL
-   du Worker, SANS slash final, par ex. :
-     var ONLINE_API = 'https://mathselites-presence.VOTRE-SOUS-DOMAINE.workers.dev';
+   ONLINE_API : URL du Worker temps réel. Laissez '' pour masquer la
+   pastille « en ligne » (le total continue de fonctionner).
 
    COUNT_MODE : 'unique' = un visiteur compté une seule fois par jour
-   (recommandé, correspond à « nombre de visiteurs »). Mettez 'views'
-   pour compter chaque chargement de page (pages vues).
+   (recommandé). 'views' = chaque chargement de page (pages vues).
    ──────────────────────────────────────────────────────────── */
 (function () {
   'use strict';
@@ -36,8 +32,6 @@
 
   var KEY = 'visiteurs'; // clé Abacus du compteur global
 
-  // Valeurs mémorisées pour éviter de re-solliciter les API à chaque
-  // navigation interne (Starlight utilise des transitions de vue).
   var cachedTotal = null;
   var heartbeatStarted = false;
   var sid = null;
@@ -46,6 +40,8 @@
   function fmt(n) {
     try { return Number(n).toLocaleString('fr-FR'); } catch (e) { return String(n); }
   }
+  // Accord singulier / pluriel.
+  function plural(n, mot) { return Number(n) > 1 ? mot + 's' : mot; }
 
   function getJSON(url, opts, cb) {
     try {
@@ -60,58 +56,78 @@
     var d = new Date();
     return 'me-visit-' + d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
   }
-
   function alreadyCountedToday() {
     try { return localStorage.getItem(todayKey()) === '1'; } catch (e) { return false; }
   }
-
   function markCountedToday() {
     try {
       localStorage.setItem(todayKey(), '1');
-      // Nettoyage léger des anciennes clés de jours précédents.
       for (var i = localStorage.length - 1; i >= 0; i--) {
         var k = localStorage.key(i);
-        if (k && k.indexOf('me-visit-') === 0 && k !== todayKey()) {
-          localStorage.removeItem(k);
-        }
+        if (k && k.indexOf('me-visit-') === 0 && k !== todayKey()) localStorage.removeItem(k);
       }
     } catch (e) {}
   }
 
-  // ─── Barre d'affichage ───
+  // ─── Styles (injectés une seule fois) ───
+  function ensureStyle() {
+    if (document.getElementById('me-stats-style')) return;
+    var st = document.createElement('style');
+    st.id = 'me-stats-style';
+    st.textContent =
+      '#me-stats{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;' +
+      'gap:.5rem .75rem;padding:.55rem 1rem;margin:0;' +
+      'border-bottom:1px solid var(--sl-color-gray-6,#e4e7ec);' +
+      'background:var(--sl-color-gray-7,#f6f7f9);}' +
+      '.me-chip{display:inline-flex;align-items:center;gap:.4em;' +
+      'padding:.28em .8em;border-radius:999px;font-size:.9rem;font-weight:600;' +
+      'line-height:1.4;white-space:nowrap;}' +
+      '.me-chip strong{font-weight:800;}' +
+      '.me-chip--total{background:rgba(124,58,237,.14);color:#6d28d9;}' +
+      '.me-chip--online{background:rgba(22,163,74,.15);color:#15803d;}' +
+      '.me-dot{width:.6em;height:.6em;border-radius:50%;background:#22c55e;' +
+      'box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:me-pulse 1.6s infinite;}' +
+      '@keyframes me-pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55);}' +
+      '70%{box-shadow:0 0 0 .5em rgba(34,197,94,0);}100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}}' +
+      '@media (prefers-color-scheme:dark){#me-stats{background:rgba(255,255,255,.03);' +
+      'border-bottom-color:var(--sl-color-gray-5,#2a2f3a);}' +
+      '.me-chip--total{background:rgba(139,92,246,.20);color:#c4b5fd;}' +
+      '.me-chip--online{background:rgba(34,197,94,.18);color:#86efac;}}';
+    document.head.appendChild(st);
+  }
+
+  // ─── Barre d'affichage (EN HAUT de la page) ───
   function ensureBar() {
+    ensureStyle();
     var bar = document.getElementById('me-stats');
     if (bar) return bar;
 
     bar = document.createElement('div');
     bar.id = 'me-stats';
     bar.setAttribute('aria-live', 'polite');
-    bar.style.cssText =
-      'display:flex;flex-wrap:wrap;justify-content:center;align-items:center;' +
-      'gap:.4rem 1.1rem;margin:1.5rem auto .25rem;padding:.35rem .5rem;' +
-      'font-size:.8rem;line-height:1.5;color:var(--sl-color-gray-3,#8891a5);' +
-      'text-align:center;';
 
     var total = document.createElement('span');
     total.id = 'me-stat-total';
+    total.className = 'me-chip me-chip--total';
     total.hidden = true;
-    total.style.cssText = 'display:inline-flex;align-items:center;gap:.35em;white-space:nowrap;';
 
     var online = document.createElement('span');
     online.id = 'me-stat-online';
+    online.className = 'me-chip me-chip--online';
     online.hidden = true;
-    online.style.cssText = 'display:inline-flex;align-items:center;gap:.35em;white-space:nowrap;';
 
     bar.appendChild(total);
     bar.appendChild(online);
 
-    // Emplacement : le créneau dédié du pied de page (pages de cours),
-    // sinon la fin du contenu (page d'accueil « splash »), sinon <body>.
-    var slot = document.getElementById('me-stats-slot')
-      || document.querySelector('.sl-markdown-content')
-      || document.querySelector('main')
-      || document.body;
-    slot.appendChild(bar);
+    // Placement : juste APRÈS l'en-tête du site (donc en haut de page),
+    // sinon tout en haut de <main> ou du corps de page.
+    var header = document.querySelector('header.header') || document.querySelector('header');
+    if (header && header.parentNode) {
+      header.insertAdjacentElement('afterend', bar);
+    } else {
+      var host2 = document.querySelector('main') || document.body;
+      host2.insertBefore(bar, host2.firstChild);
+    }
     return bar;
   }
 
@@ -119,8 +135,7 @@
     var el = document.getElementById('me-stat-total');
     if (!el) return;
     if (n === null || n === undefined) { el.hidden = true; return; }
-    el.innerHTML = '👁️ <strong style="color:var(--sl-color-gray-2,#c2c9d6);font-weight:600;">'
-      + fmt(n) + '</strong>&nbsp;visiteurs';
+    el.innerHTML = '👁️ <strong>' + fmt(n) + '</strong>&nbsp;' + plural(n, 'visiteur');
     el.hidden = false;
   }
 
@@ -128,10 +143,8 @@
     var el = document.getElementById('me-stat-online');
     if (!el) return;
     if (n === null || n === undefined) { el.hidden = true; return; }
-    var label = n <= 1 ? 'en ligne' : 'en ligne';
-    el.innerHTML = '<span style="color:#22c55e;">●</span> <strong '
-      + 'style="color:var(--sl-color-gray-2,#c2c9d6);font-weight:600;">'
-      + fmt(n) + '</strong>&nbsp;' + label;
+    el.innerHTML = '<span class="me-dot" aria-hidden="true"></span> <strong>'
+      + fmt(n) + '</strong>&nbsp;en ligne';
     el.hidden = false;
   }
 
@@ -169,17 +182,14 @@
 
   function ping() {
     if (!ONLINE_API) return;
-    if (document.hidden) return; // on ne compte pas les onglets en arrière-plan
+    if (document.hidden) return;
     getJSON(ONLINE_API + '/ping', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: getSid() }),
       keepalive: true,
     }, function (d) {
-      if (d && typeof d.online === 'number') {
-        ensureBar();
-        renderOnline(d.online);
-      }
+      if (d && typeof d.online === 'number') { ensureBar(); renderOnline(d.online); }
     });
   }
 
@@ -194,17 +204,13 @@
   }
 
   // ─── Initialisation (compatible transitions Starlight) ───
-  function init() {
-    loadTotal();
-    startHeartbeat();
-  }
+  function init() { loadTotal(); startHeartbeat(); }
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
     init();
   }
-  // Rejoue l'affichage après chaque navigation interne Starlight.
   document.addEventListener('astro:page-load', function () {
     ensureBar();
     if (cachedTotal !== null) renderTotal(cachedTotal); else loadTotal();

@@ -1,0 +1,23 @@
+# ────────────────────────────────────────────────────────────
+# MathsElites — Worker « visiteurs en ligne »
+# Déploiement :  npx wrangler deploy   (depuis ce dossier presence-worker/)
+# ────────────────────────────────────────────────────────────
+name = "mathselites-presence"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+# Liaison vers le Durable Object qui agrège les présences.
+[[durable_objects.bindings]]
+name = "PRESENCE"
+class_name = "Presence"
+
+# Migration : crée la classe Durable Object avec le backend SQLite,
+# le seul disponible sur le plan GRATUIT (et désormais requis pour
+# toute nouvelle classe).
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Presence"]
+
+# Journalisation (facultatif, utile pour déboguer dans le dashboard).
+[observability]
+enabled = true

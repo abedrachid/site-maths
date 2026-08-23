@@ -118,6 +118,13 @@ export default defineConfig({
           tag: 'script',
           attrs: { src: '/wa-button.js', defer: true },
         },
+        // Statistiques de fréquentation : nombre total de visiteurs
+        // (Abacus) + visiteurs en ligne en temps réel (Worker Cloudflare).
+        // Configuration (URL du Worker, mode de comptage) dans le fichier.
+        {
+          tag: 'script',
+          attrs: { src: '/site-stats.js', defer: true },
+        },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.
       lastUpdated: true,

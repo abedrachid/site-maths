@@ -59,6 +59,12 @@ const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
 {/* Pied de page Starlight par défaut (dernière mise à jour, pagination…) */}
 <Default {...Astro.props}><slot /></Default>
 
+{/* Emplacement des statistiques de fréquentation (rempli par /site-stats.js) :
+    nombre total de visiteurs + visiteurs en ligne. Présent sur toutes les
+    pages de cours. Sur la page d'accueil (splash), le script se replie
+    automatiquement en fin de contenu. */}
+<div id="me-stats-slot"></div>
+
 <style>
   .me-report {
     margin: 1.75rem 0 0.5rem;

@@ -247,53 +247,6 @@ export default defineConfig({
             /* ── Révision (avant les chapitres) ── */
             { label: '🔄 Révision de 1ère Bac SM', link: '/terminale/revision-premiere' },
 
-            /* ── Révision 1ère Bac SM — par chapitre ── */
-            {
-              label: '📘 Révision — Partie I : Calcul algébrique',
-              collapsed: true,
-              items: [
-                { label: '📖 Cours', link: '/terminale/revision-calcul-algebrique' },
-                { label: '📝 Exercices', link: '/terminale/revision-calcul-algebrique#doc=/pdf/terminale/revision/calcul-algebrique/exercices.pdf' },
-                { label: '✅ Corrigés', link: '/terminale/revision-calcul-algebrique#doc=/pdf/terminale/revision/calcul-algebrique/corriges.pdf' },
-              ],
-            },
-            {
-              label: '📘 Révision — Partie II : Calcul des limites',
-              collapsed: true,
-              items: [
-                { label: '📖 Cours', link: '/terminale/revision-limites' },
-                { label: '📝 Exercices', link: '/terminale/revision-limites#doc=/pdf/terminale/revision/limites/exercices.pdf' },
-                { label: '✅ Corrigés', link: '/terminale/revision-limites#doc=/pdf/terminale/revision/limites/corriges.pdf' },
-              ],
-            },
-            {
-              label: '📘 Révision — Partie III : Dérivation',
-              collapsed: true,
-              items: [
-                { label: '📖 Cours', link: '/terminale/revision-derivation' },
-                { label: '📝 Exercices', link: '/terminale/revision-derivation#doc=/pdf/terminale/revision/derivation/exercices.pdf' },
-                { label: '✅ Corrigés', link: '/terminale/revision-derivation#doc=/pdf/terminale/revision/derivation/corriges.pdf' },
-              ],
-            },
-            {
-              label: '📘 Révision — Partie IV : Étude de fonctions',
-              collapsed: true,
-              items: [
-                { label: '📖 Cours', link: '/terminale/revision-etude-fonctions' },
-                { label: '📝 Exercices', link: '/terminale/revision-etude-fonctions#doc=/pdf/terminale/revision/etude-fonctions/exercices.pdf' },
-                { label: '✅ Corrigés', link: '/terminale/revision-etude-fonctions#doc=/pdf/terminale/revision/etude-fonctions/corriges.pdf' },
-              ],
-            },
-            {
-              label: '📘 Révision — Partie V : Neuf exercices originaux',
-              collapsed: true,
-              items: [
-                { label: '📖 Cours', link: '/terminale/revision-exercices-originaux' },
-                { label: '📝 Exercices', link: '/terminale/revision-exercices-originaux#doc=/pdf/terminale/revision/exercices-originaux/exercices.pdf' },
-                { label: '✅ Corrigés', link: '/terminale/revision-exercices-originaux#doc=/pdf/terminale/revision/exercices-originaux/corriges.pdf' },
-              ],
-            },
-
             /* ── Chapitre : Rédaction mathématique ── */
             {
               label: '✍️ Rédaction mathématique',

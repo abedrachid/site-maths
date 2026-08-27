@@ -131,7 +131,7 @@ export default defineConfig({
         // (Configuration — adresse Brevo, pages actives — dans le fichier.)
         {
           tag: 'script',
-          attrs: { src: '/corriges-gate.js?v=1', defer: true },
+          attrs: { src: '/corriges-gate.js?v=2', defer: true },
         },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.

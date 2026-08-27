@@ -20,7 +20,7 @@
   // ─── Configuration ───
   var BREVO_ACTION = 'https://5b727d43.sibforms.com/serve/MUIFAEAP0mOiMqizpRv7UtZw0G6bay8HfMgkXESj296-Q-bb2dsqxDZy5kJbK6w7uYb4hIN4lyLA0gFZcWg3NlBntL89PlvHtzA3iLNaS43FgntD_lgUfMTJU0QJMTDMJfQDq9Ygj9GfIZSq-TFyRCYwqtBQVJRd1ktR2HIxaotYdePoQJV06s1udPzxH1GqclxCXsz9zTqnnUJ2eg==';
   var EMAIL_FIELD = 'EMAIL';
-  var ACTIVE_PATHS = ['/terminale/limites']; // pilote ; [] = tout le site
+  var ACTIVE_PATHS = []; // [] = tout le site ; ex. ['/terminale/limites'] pour limiter
   var STORAGE_KEY = 'me-corriges-ok';
   var CONFIRM_PATH = '/acces-corriges'; // page où Brevo peut rediriger après confirmation
 

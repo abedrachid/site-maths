@@ -76,8 +76,8 @@
     st.id = 'me-stats-style';
     st.textContent =
       '#me-stats{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;' +
-      'gap:.5rem .75rem;padding:.55rem 1rem;margin:0;' +
-      'border-bottom:1px solid var(--sl-color-gray-6,#e4e7ec);' +
+      'gap:.5rem .75rem;padding:.55rem 1rem;margin:0 0 1.5rem;border-radius:12px;' +
+      'border:1px solid var(--sl-color-gray-6,#e4e7ec);' +
       'background:var(--sl-color-gray-7,#f6f7f9);}' +
       '.me-chip{display:inline-flex;align-items:center;gap:.4em;' +
       'padding:.28em .8em;border-radius:999px;font-size:.9rem;font-weight:600;' +
@@ -90,7 +90,7 @@
       '@keyframes me-pulse{0%{box-shadow:0 0 0 0 rgba(34,197,94,.55);}' +
       '70%{box-shadow:0 0 0 .5em rgba(34,197,94,0);}100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}}' +
       '@media (prefers-color-scheme:dark){#me-stats{background:rgba(255,255,255,.03);' +
-      'border-bottom-color:var(--sl-color-gray-5,#2a2f3a);}' +
+      'border-color:var(--sl-color-gray-5,#2a2f3a);}' +
       '.me-chip--total{background:rgba(139,92,246,.20);color:#c4b5fd;}' +
       '.me-chip--online{background:rgba(34,197,94,.18);color:#86efac;}}';
     document.head.appendChild(st);
@@ -119,15 +119,12 @@
     bar.appendChild(total);
     bar.appendChild(online);
 
-    // Placement : juste APRÈS l'en-tête du site (donc en haut de page),
-    // sinon tout en haut de <main> ou du corps de page.
-    var header = document.querySelector('header.header') || document.querySelector('header');
-    if (header && header.parentNode) {
-      header.insertAdjacentElement('afterend', bar);
-    } else {
-      var host2 = document.querySelector('main') || document.body;
-      host2.insertBefore(bar, host2.firstChild);
-    }
+    // Placement : tout EN HAUT du contenu de la page (juste au-dessus du
+    // titre), un emplacement fiable qui n'est pas masqué par l'en-tête fixe.
+    var slot = document.querySelector('.sl-markdown-content')
+      || document.querySelector('main')
+      || document.body;
+    slot.insertBefore(bar, slot.firstChild);
     return bar;
   }
 

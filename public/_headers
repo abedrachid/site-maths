@@ -1,0 +1,6 @@
+# Cloudflare Pages — règles d'en-têtes HTTP
+# Empêche la mise en cache agressive du script des compteurs : le navigateur
+# revalide à chaque visite, donc toute mise à jour de site-stats.js est prise
+# en compte immédiatement (plus besoin de vider le cache).
+/site-stats.js
+  Cache-Control: no-cache

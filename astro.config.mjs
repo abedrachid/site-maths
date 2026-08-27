@@ -123,7 +123,9 @@ export default defineConfig({
         // Configuration (URL du Worker, mode de comptage) dans le fichier.
         {
           tag: 'script',
-          attrs: { src: '/site-stats.js', defer: true },
+          // Le ?v=N force le navigateur à recharger le script quand on le
+          // modifie : incrémentez ce numéro à chaque changement de site-stats.js.
+          attrs: { src: '/site-stats.js?v=3', defer: true },
         },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.

@@ -4,3 +4,6 @@
 # en compte immédiatement (plus besoin de vider le cache).
 /site-stats.js
   Cache-Control: no-cache
+
+/corriges-gate.js
+  Cache-Control: no-cache

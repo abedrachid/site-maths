@@ -219,9 +219,34 @@
         e.preventDefault();
         e.stopPropagation();
         if (e.stopImmediatePropagation) e.stopImmediatePropagation();
-        openOverlay(tab);
+        // Ouvre l'encart seulement sur un VRAI clic de l'utilisateur.
+        // Les ouvertures automatiques (lien #doc=…, chargement) sont
+        // bloquées en silence — le corrigé n'est simplement pas affiché.
+        if (e.isTrusted) openOverlay(tab);
       }
     }, true); // capture : passe AVANT le gestionnaire de la visionneuse
+  }
+
+  // Onglet « sûr » (non corrigé) vers lequel se replier — ex. « Cours ».
+  function safeTab() {
+    var tabs = document.querySelectorAll('.doc-viewer .doc-tab');
+    for (var i = 0; i < tabs.length; i++) {
+      if (!isCorrigTab(tabs[i])) return tabs[i];
+    }
+    return null;
+  }
+
+  // Filet de sécurité : si un corrigé a réussi à s'ouvrir (lien direct,
+  // course au chargement), on revient sur un onglet libre.
+  function enforceLock() {
+    if (isUnlocked() || !onActivePage()) return;
+    var active = document.querySelector('.doc-viewer .doc-tab.active');
+    var frame = document.querySelector('.doc-viewer .doc-frame');
+    var frameCorrig = frame && CORRIG_RE.test(frame.getAttribute('src') || '');
+    if ((active && isCorrigTab(active)) || frameCorrig) {
+      var s = safeTab();
+      if (s) { try { s.click(); } catch (e) {} }
+    }
   }
 
   // ─── Initialisation ───
@@ -234,6 +259,10 @@
     if (isUnlocked()) { removeLocks(); return; }
     bindClickGuard();
     applyLocks();
+    enforceLock();
+    // La visionneuse peut ouvrir un corrigé juste après nous : on repasse.
+    setTimeout(enforceLock, 60);
+    setTimeout(enforceLock, 300);
   }
 
   if (document.readyState === 'loading') {

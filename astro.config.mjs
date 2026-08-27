@@ -103,6 +103,13 @@ export default defineConfig({
           tag: 'script',
           attrs: { src: '/qcm.js', defer: true },
         },
+        // Accès aux corrigés : verrou souple + inscription Brevo. Placé AVANT
+        // la visionneuse pour intercepter l'onglet « Corrections » même lors
+        // de l'ouverture automatique (lien #doc=…). Config dans le fichier.
+        {
+          tag: 'script',
+          attrs: { src: '/corriges-gate.js?v=3', defer: true },
+        },
         // Visionneuse de documents PDF (onglets)
         {
           tag: 'script',
@@ -126,12 +133,6 @@ export default defineConfig({
           // Le ?v=N force le navigateur à recharger le script quand on le
           // modifie : incrémentez ce numéro à chaque changement de site-stats.js.
           attrs: { src: '/site-stats.js?v=3', defer: true },
-        },
-        // Accès aux corrigés : verrou souple + inscription Brevo.
-        // (Configuration — adresse Brevo, pages actives — dans le fichier.)
-        {
-          tag: 'script',
-          attrs: { src: '/corriges-gate.js?v=2', defer: true },
         },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.

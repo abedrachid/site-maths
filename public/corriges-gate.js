@@ -150,10 +150,10 @@
     ov.innerHTML =
       '<div id="me-cg-card" role="dialog" aria-modal="true" aria-labelledby="me-cg-title">' +
       '<h3 id="me-cg-title">🔒 Corrigés réservés</h3>' +
-      '<p>Entrez votre adresse email pour débloquer les corrigés du site. ' +
-      'Vous recevrez un email de confirmation, et l\'accès reste actif sur cet appareil.</p>' +
+      '<p>Entrez votre adresse email : vous recevrez un <b>lien de confirmation</b>. ' +
+      'En cliquant dessus, les corrigés se débloquent.</p>' +
       '<input type="email" id="me-cg-email" placeholder="votre@email.com" autocomplete="email" inputmode="email" />' +
-      '<button id="me-cg-btn" type="button">Débloquer les corrigés</button>' +
+      '<button id="me-cg-btn" type="button">Recevoir le lien d\'accès</button>' +
       '<p id="me-cg-msg" aria-live="polite"></p>' +
       '<p id="me-cg-note">Aucune donnée n\'est partagée. Vous pourrez vous désinscrire à tout moment via l\'email reçu.</p>' +
       '<button id="me-cg-later" type="button">Plus tard</button>' +
@@ -181,18 +181,16 @@
       }
       btn.disabled = true;
       submitToBrevo(v);
-      setUnlocked();
-      removeLocks();
+      // Confirmation d'abord : on NE débloque PAS ici. L'accès s'active
+      // uniquement quand l'utilisateur clique le lien reçu par email
+      // (il atterrit alors sur /acces-corriges/, qui débloque). Un faux
+      // email ne reçoit jamais le lien → n'accède jamais.
+      btn.textContent = 'Email envoyé ✓';
       msg.className = 'ok';
-      msg.textContent = 'Merci ! Un email de confirmation vous a été envoyé. Accès débloqué ✅';
-      // Débloque et ouvre le corrigé demandé, puis ferme l'encart.
-      setTimeout(function () {
-        closeOverlay();
-        if (pendingTab && document.body.contains(pendingTab)) {
-          try { pendingTab.click(); } catch (e) {}
-        }
-        showBadge('Corrigés débloqués ✅');
-      }, 1400);
+      msg.innerHTML = '📩 Un email de confirmation vient de vous être envoyé.<br>'
+        + 'Ouvrez-le et cliquez sur le lien pour débloquer les corrigés '
+        + '(pensez à vérifier vos spams).';
+      document.getElementById('me-cg-later').textContent = 'Fermer';
     }
 
     btn.addEventListener('click', submit);

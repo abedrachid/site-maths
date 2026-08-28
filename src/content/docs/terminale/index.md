@@ -20,6 +20,22 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/revision-premiere" style="flex-shrink:0;background:#1d4ed8;color:white;padding:.6rem 1.3rem;border-radius:9999px;text-decoration:none;font-weight:700;font-size:.85rem;">Ouvrir →</a>
 </div>
 
+<p style="margin:1.5rem 0 .6rem;font-size:.82rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">📐 CALCUL TRIGONOMÉTRIQUE — RÉVISION (2026/2027)</p>
+
+<p style="margin:0 0 1rem;font-size:.9rem;color:var(--sl-color-gray-3);">Chapitre de révision distinct, proposé au cours de l'année 2026/2027 — cours et formulaires (indépendant du document « Cap sur la Terminale SM »).</p>
+
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.9rem;margin:0 0 1.75rem;">
+
+  <a href="/terminale/revision-calcul-trigonometrique" class="me-card" style="text-decoration:none;">
+    <div style="height:100%;padding:1rem 1.15rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #0891b2;border-radius:12px;background:var(--sl-color-black);">
+      <p style="margin:0 0 .3rem;font-size:.7rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">RÉVISION</p>
+      <p style="margin:0 0 .25rem;font-size:.95rem;font-weight:600;color:var(--sl-color-white);">Calcul trigonométrique</p>
+      <p style="margin:0;font-size:.78rem;color:var(--sl-color-gray-3);">Cours · Formulaires (PDF) · 2026/2027</p>
+    </div>
+  </a>
+
+</div>
+
 <p style="margin:1.25rem 0 .6rem;font-size:.82rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">📚 RÉVISER PARTIE PAR PARTIE</p>
 
 <p style="margin:0 0 1rem;font-size:.9rem;color:var(--sl-color-gray-3);">Le document « Cap sur la Terminale SM » découpé en 5 parties indépendantes — cours, exercices et corrigés de chacune.</p>

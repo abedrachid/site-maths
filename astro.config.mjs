@@ -220,6 +220,17 @@ export default defineConfig({
                 { label: 'Série 3 (planche 3)', link: '/premiere/arithmetique#doc=/pdf/premiere/arithmetique/serie3.pdf' },
               ],
             },
+
+            /* ── Chapitre 4 : Calcul trigonométrique ── */
+            {
+              label: '📗 Calcul trigonométrique',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/premiere/calcul-trigonometrique' },
+                { label: '📋 Formulaire complet', link: '/premiere/calcul-trigonometrique#doc=/pdf/premiere/calcul-trigonometrique/Formulaire_trigonometrie.pdf' },
+                { label: '⚡ Formulaire express', link: '/premiere/calcul-trigonometrique#doc=/pdf/premiere/calcul-trigonometrique/Formulaire_express_trigo.pdf' },
+              ],
+            },
             {
               label: '📝 Devoirs Surveillés (DS)',
               collapsed: true,
@@ -300,6 +311,17 @@ export default defineConfig({
                 { label: '📖 Cours', link: '/terminale/revision-exercices-originaux' },
                 { label: '📝 Exercices', link: '/terminale/revision-exercices-originaux#doc=/pdf/terminale/revision/exercices-originaux/exercices.pdf' },
                 { label: '✅ Corrigés', link: '/terminale/revision-exercices-originaux#doc=/pdf/terminale/revision/exercices-originaux/corriges.pdf' },
+              ],
+            },
+
+            /* ── Calcul trigonométrique — chapitre séparé, juste après la révision (2026/2027) ── */
+            {
+              label: '📐 Calcul trigonométrique',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale/revision-calcul-trigonometrique' },
+                { label: '📋 Formulaire complet', link: '/terminale/revision-calcul-trigonometrique#doc=/pdf/terminale/calcul-trigonometrique/Formulaire_trigonometrie.pdf' },
+                { label: '⚡ Formulaire express', link: '/terminale/revision-calcul-trigonometrique#doc=/pdf/terminale/calcul-trigonometrique/Formulaire_express_trigo.pdf' },
               ],
             },
 

@@ -728,3 +728,62 @@ header.header {
   display: block;
   background: #fff;
 }
+
+/* ============================================================
+   PAGES STAGES — cours accélérés & stages intensifs
+   Utilisées par /stages, /stages/premiere-sm, /stages/terminale-sm
+   et /stages/mpsi. La couleur d'accent de chaque page est définie
+   via --acc / --acc2 sur le conteneur .me-stage.
+   ============================================================ */
+.me-stage { --acc:#1d4ed8; --acc2:#0891b2; }
+
+.me-stage-hero{
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(900px 400px at 15% -25%, color-mix(in srgb,var(--acc) 60%, #0c2036) 0%, transparent 62%),
+    linear-gradient(135deg,#0c2036 0%,#123156 60%,#0a1d33 100%);
+  color:#fff; border-radius:18px; padding:2.2rem 1.8rem; margin:0 0 1.6rem;
+}
+.me-stage-hero .sym{ position:absolute; font-family:var(--me-font-display,Georgia,serif); opacity:.16; color:var(--acc2); pointer-events:none; }
+.me-stage-badge{
+  display:inline-block; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase;
+  color:#fff; background:color-mix(in srgb,var(--acc) 45%, transparent);
+  border:1px solid color-mix(in srgb,var(--acc2) 60%, transparent);
+  padding:.32rem .85rem; border-radius:9999px; margin-bottom:.9rem;
+}
+.me-stage-hero h1{ color:#fff!important; border:none!important; margin:.2rem 0 .5rem; font-size:clamp(1.7rem,4.5vw,2.4rem); line-height:1.1; }
+.me-stage-hero .lead{ color:#dbe7ff; margin:0; max-width:640px; line-height:1.6; position:relative; z-index:1; }
+
+.me-facts{ display:grid; grid-template-columns:repeat(auto-fit,minmax(115px,1fr)); gap:.7rem; margin:1.3rem 0 2rem; }
+.me-fact{ border:1px solid var(--sl-color-gray-5); border-radius:12px; padding:.75rem .6rem; text-align:center; }
+.me-fact .ic{ font-size:1.25rem; line-height:1; }
+.me-fact .k{ display:block; font-size:.66rem; text-transform:uppercase; letter-spacing:.07em; color:var(--sl-color-gray-3); margin-top:.35rem; }
+.me-fact .v{ display:block; font-weight:700; font-size:.9rem; margin-top:.15rem; color:var(--sl-color-white); }
+
+.me-themes{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1rem; margin:1rem 0 1.6rem; }
+.me-theme{ border-left:4px solid var(--acc); background:var(--sl-color-gray-6,transparent); border-radius:0 12px 12px 0; padding:.85rem 1rem; }
+.me-theme h3{ margin:0 0 .3rem!important; border:none!important; font-size:1rem; }
+.me-theme p{ margin:0; font-size:.87rem; color:var(--sl-color-gray-2); }
+
+.me-timeline{ display:grid; gap:.65rem; margin:1rem 0 1.6rem; }
+.me-day{ display:grid; grid-template-columns:auto 1fr; gap:.9rem; align-items:start; border:1px solid var(--sl-color-gray-5); border-radius:12px; padding:.8rem 1rem; }
+.me-day .n{ display:flex; align-items:center; justify-content:center; width:2.1rem; height:2.1rem; border-radius:9999px; background:var(--acc); color:#fff; font-weight:700; font-size:.9rem; flex:0 0 auto; }
+.me-day h4{ margin:.15rem 0 .25rem!important; border:none!important; font-size:.96rem; }
+.me-day p{ margin:0; font-size:.86rem; color:var(--sl-color-gray-2); }
+
+.me-gift{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:.75rem; margin:1rem 0 1.6rem; }
+.me-gift .g{ display:flex; gap:.6rem; align-items:flex-start; border:1px dashed var(--sl-color-gray-4); border-radius:12px; padding:.75rem .8rem; font-size:.89rem; }
+.me-gift .g .ic{ font-size:1.1rem; }
+
+.me-cta{ background:linear-gradient(90deg,var(--acc),var(--acc2)); color:#fff; border-radius:16px; padding:1.5rem 1.3rem; text-align:center; margin:1.8rem 0; }
+.me-cta h2{ color:#fff!important; border:none!important; margin:0 0 .5rem!important; font-size:1.35rem; }
+.me-cta p{ color:rgba(255,255,255,.94); margin:0 0 1.1rem; }
+.me-cta a.btn{ display:inline-block; background:#fff; color:#0c2036!important; font-weight:700; padding:.7rem 1.6rem; border-radius:9999px; text-decoration:none; box-shadow:0 8px 22px rgba(0,0,0,.22); }
+.me-cta .places{ display:block; margin-top:.9rem; font-size:.82rem; }
+.me-cta .places b{ background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.45); border-radius:9999px; padding:.2rem .7rem; }
+
+.me-others{ display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:.75rem; margin:1.4rem 0; }
+.me-others a{ display:block; border:1px solid var(--sl-color-gray-5); border-radius:12px; padding:.85rem .9rem; text-decoration:none; color:var(--sl-color-white)!important; transition:border-color .15s ease, transform .15s ease; }
+.me-others a:hover{ border-color:var(--acc); transform:translateY(-2px); }
+.me-others .lvl{ display:block; font-size:.7rem; text-transform:uppercase; letter-spacing:.07em; color:var(--sl-color-gray-3); }
+.me-others .nm{ font-weight:700; }

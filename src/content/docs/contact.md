@@ -27,17 +27,17 @@ Suivez MathsElites pour ne rien manquer des nouveaux cours et exercices :
     <span class="ico">▶️</span>
     <span class="txt"><strong>YouTube</strong><span>Vidéos & méthodes</span></span>
   </a>
-  <a href="https://www.instagram.com/mathselites" target="_blank" rel="noopener">
+  <a href="https://www.instagram.com/mathselites.pro" target="_blank" rel="noopener">
     <span class="ico">📸</span>
     <span class="txt"><strong>Instagram</strong><span>Astuces & annonces</span></span>
   </a>
-  <a href="https://www.facebook.com/mathselites" target="_blank" rel="noopener">
+  <a href="https://www.facebook.com/profile.php?id=1308180605710026" target="_blank" rel="noopener">
     <span class="ico">👥</span>
     <span class="txt"><strong>Facebook</strong><span>Communauté & actualités</span></span>
   </a>
 </div>
 
-<!-- TODO : remplacez les URL YouTube/Instagram/Facebook ci-dessus par vos comptes réels (également dans astro.config.mjs). -->
+<!-- Liens reseaux OK. YouTube @MathsElites, Instagram @mathselites.pro, Facebook (lien par ID) - remplacer le lien FB par https://www.facebook.com/mathselites quand le nom d'utilisateur sera disponible (ici et dans astro.config.mjs). -->
 
 ## 🐞 Signaler une erreur
 

@@ -22,6 +22,8 @@ export default defineConfig({
       // le lien « Signaler une erreur » (WhatsApp) sous les pages de chapitre.
       components: {
         Footer: './src/components/Footer.astro',
+        // Bandeau global d'annonce (cours accélérés & stages) — voir src/annonce.mjs
+        Banner: './src/components/Banner.astro',
       },
       // Le favicon du site
       favicon: '/favicon.svg',
@@ -147,20 +149,20 @@ export default defineConfig({
         {
           icon: 'youtube',
           label: 'YouTube',
-          // TODO : remplacez par l'URL de votre chaîne YouTube
+          // Chaîne YouTube @MathsElites (handle insensible à la casse : OK)
           href: 'https://www.youtube.com/@mathselites',
         },
         {
           icon: 'instagram',
           label: 'Instagram',
-          // TODO : remplacez par l'URL de votre compte Instagram
-          href: 'https://www.instagram.com/mathselites',
+          // Compte Instagram @mathselites.pro (mathselites etait pris)
+          href: 'https://www.instagram.com/mathselites.pro',
         },
         {
           icon: 'facebook',
           label: 'Facebook',
-          // TODO : remplacez par l'URL de votre page Facebook
-          href: 'https://www.facebook.com/mathselites',
+          // Page Facebook MathsElites - lien par ID pour l'instant ; remplacer par https://www.facebook.com/mathselites quand le nom d'utilisateur sera dispo
+          href: 'https://www.facebook.com/profile.php?id=1308180605710026',
         },
       ],
       disable404Route: true,
@@ -174,6 +176,15 @@ export default defineConfig({
         { label: '🏠 Accueil du site', link: '/' },
         { label: 'ℹ️ À propos', link: '/a-propos' },
         { label: '✉️ Contact', link: '/contact' },
+        {
+          label: '🚀 Stages & cours accélérés',
+          items: [
+            { label: 'Vue d’ensemble', link: '/stages' },
+            { label: '📖 Stage 1ère Bac SM', link: '/stages/premiere-sm' },
+            { label: '🎓 Stage Terminale SM', link: '/stages/terminale-sm' },
+            { label: '🏛️ Stage Prépas MPSI', link: '/stages/mpsi' },
+          ],
+        },
 
         /* ——— PREMIÈRE BAC SM ——— */
         {

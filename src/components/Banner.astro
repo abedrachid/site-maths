@@ -1,0 +1,119 @@
+---
+/* ────────────────────────────────────────────────────────────
+   MathsElites — Override du bandeau (Banner) Starlight
+   Affiche en haut de TOUTES les pages une annonce pour les
+   cours accélérés et les stages. Le contenu vient d'un seul
+   fichier : src/annonce.mjs (voir ce fichier pour tout changer).
+
+   • Le bandeau est fermable (croix) ; le choix est mémorisé
+     dans le navigateur de l'élève.
+   • Si vous changez « version » dans src/annonce.mjs, le bandeau
+     réapparaît même chez ceux qui l'avaient fermé.
+   • Une page qui définit son propre « banner » dans son
+     frontmatter garde la priorité (le bandeau global cède la place).
+   ──────────────────────────────────────────────────────────── */
+import { annonce } from '../annonce.mjs';
+
+// Bandeau spécifique à une page (frontmatter banner:) — prioritaire.
+const bannerPage = Astro.locals.starlightRoute.entry.data.banner;
+
+// Faut-il afficher le bandeau global d'annonce ?
+const afficherAnnonce = annonce.actif && !bannerPage;
+
+// Clé de mémorisation (dépend de la version → ré-affichage automatique).
+const cle = `me-annonce-${annonce.version}`;
+---
+
+{/* Bandeau propre à la page (comportement Starlight par défaut) */}
+{bannerPage && (
+  <div class="sl-banner" data-pagefind-ignore set:html={bannerPage.content} />
+)}
+
+{/* Bandeau global d'annonce MathsElites */}
+{afficherAnnonce && (
+  <div class="me-annonce" id="me-annonce" data-cle={cle} data-pagefind-ignore hidden>
+    <div class="me-annonce-inner">
+      <span class="me-annonce-emoji" aria-hidden="true">{annonce.emoji}</span>
+      <span class="me-annonce-txt">{annonce.texte}</span>
+      <a class="me-annonce-cta" href={annonce.lien}>{annonce.lienTexte}</a>
+    </div>
+    <button
+      type="button"
+      class="me-annonce-close"
+      aria-label="Fermer l'annonce"
+      onclick="(function(b){try{localStorage.setItem(b.dataset.cle,'1')}catch(e){};b.remove()})(this.parentElement)"
+    >×</button>
+  </div>
+)}
+
+{/* Révèle le bandeau seulement s'il n'a pas déjà été fermé
+    (évite qu'il clignote au chargement). */}
+{afficherAnnonce && (
+  <script is:inline define:vars={{ cle }}>
+    (function () {
+      var el = document.getElementById('me-annonce');
+      if (!el) return;
+      var ferme = false;
+      try { ferme = localStorage.getItem(cle) === '1'; } catch (e) {}
+      if (!ferme) el.hidden = false;
+    })();
+  </script>
+)}
+
+<style>
+  .me-annonce {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(90deg, #1d4ed8, #C9A227);
+    color: #fff;
+    box-shadow: var(--sl-shadow-sm);
+    line-height: 1.35;
+  }
+  .me-annonce-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.75rem;
+    flex: 1 1 auto;
+    text-align: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .me-annonce-emoji { font-size: 1.15rem; }
+  .me-annonce-txt {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .me-annonce-cta {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    color: #fff !important;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .me-annonce-cta:hover,
+  .me-annonce-cta:focus-visible {
+    background: rgba(255, 255, 255, 0.28);
+  }
+  .me-annonce-close {
+    flex: 0 0 auto;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 1.35rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 0.35rem;
+    opacity: 0.85;
+  }
+  .me-annonce-close:hover { opacity: 1; }
+</style>

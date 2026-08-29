@@ -22,16 +22,34 @@
   var EMAIL_FIELD = 'EMAIL';
   var ACTIVE_PATHS = []; // [] = tout le site ; ex. ['/terminale/limites'] pour limiter
   var STORAGE_KEY = 'me-corriges-ok';
+  var ACCESS_DAYS = 7; // durée d'accès après déblocage (jours). 0 = illimité.
   var CONFIRM_PATH = '/acces-corriges'; // page où Brevo peut rediriger après confirmation
 
   var CORRIG_RE = /corrig|correction/i;
 
-  // ─── État ───
+  // ─── État (avec expiration) ───
+  // On stocke la date d'expiration (en ms) ; passé cette date, l'accès
+  // se re-verrouille et le visiteur doit se ré-inscrire.
   function isUnlocked() {
-    try { return localStorage.getItem(STORAGE_KEY) === '1'; } catch (e) { return false; }
+    try {
+      var v = localStorage.getItem(STORAGE_KEY);
+      if (!v) return false;
+      if (v === 'unlimited') return true;
+      var t = parseInt(v, 10);
+      if (!t || isNaN(t)) return false;
+      if (Date.now() < t) return true;
+      localStorage.removeItem(STORAGE_KEY); // expiré
+      return false;
+    } catch (e) { return false; }
   }
   function setUnlocked() {
-    try { localStorage.setItem(STORAGE_KEY, '1'); } catch (e) {}
+    try {
+      if (ACCESS_DAYS && ACCESS_DAYS > 0) {
+        localStorage.setItem(STORAGE_KEY, String(Date.now() + ACCESS_DAYS * 86400000));
+      } else {
+        localStorage.setItem(STORAGE_KEY, 'unlimited');
+      }
+    } catch (e) {}
   }
 
   function onActivePage() {

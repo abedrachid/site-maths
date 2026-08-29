@@ -108,7 +108,7 @@ export default defineConfig({
         // de l'ouverture automatique (lien #doc=…). Config dans le fichier.
         {
           tag: 'script',
-          attrs: { src: '/corriges-gate.js?v=4', defer: true },
+          attrs: { src: '/corriges-gate.js?v=5', defer: true },
         },
         // Visionneuse de documents PDF (onglets)
         {

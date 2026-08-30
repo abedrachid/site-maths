@@ -18,6 +18,17 @@ Tous les documents du chapitre **Théorèmes de Rolle, des accroissements finis 
 
 *Illustration animée : les trois conditions du théorème, la tangente qui glisse le long de la courbe et le point c où la dérivée s'annule.*
 
+## 🎬 Vidéo — Le théorème des accroissements finis (T.A.F) en animation
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/taf-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/taf-illustration.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/taf-illustration.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Illustration animée : les conditions du T.A.F, la corde [AB] et la tangente qui glisse jusqu'au point c où f′(c) égale la pente moyenne (f(b) − f(a)) / (b − a).*
+
 ## 📄 Documents du chapitre
 
 <div class="doc-viewer">

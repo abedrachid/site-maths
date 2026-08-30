@@ -7,6 +7,17 @@ sidebar:
 
 Tous les documents du chapitre **Théorèmes de Rolle, des accroissements finis (T.A.F) et inégalité des accroissements finis (I.A.F)** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
+## 🎬 Vidéo — Le théorème de Rolle en animation
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/rolle-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/rolle-illustration.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/rolle-illustration.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Illustration animée : les trois conditions du théorème, la tangente qui glisse le long de la courbe et le point c où la dérivée s'annule.*
+
 ## 📄 Documents du chapitre
 
 <div class="doc-viewer">

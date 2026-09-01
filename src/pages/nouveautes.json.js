@@ -5,7 +5,7 @@ import { nouveautes } from '../nouveautes.mjs';
 
 export function GET() {
   const items = [...nouveautes]
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0))
     .map((it) => ({ date: it.date, titre: it.titre }));
   const latest = items.length ? items[0].date : '';
   const body = JSON.stringify({ latest, count: items.length, items });

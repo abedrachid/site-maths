@@ -53,19 +53,18 @@ export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
     date: '2026-09-01',
+    type: 'video',
+    niveau: 'Terminale SM',
+    titre: 'Vidéo — Le théorème des valeurs intermédiaires (T.V.I) en animation',
+    lien: '/terminale/limites#video-tvi',
+    desc: 'Nouvelle vidéo pédagogique animée pour comprendre et visualiser le T.V.I.',
+  },
+  {
+    date: '2026-09-01',
     type: 'document',
     niveau: 'Terminale SM',
     titre: 'Théorème de Rolle & théorème des accroissements finis',
     lien: '/terminale/rolle-taf',
     desc: 'Cours complet, méthodes-types et exercices corrigés.',
   },
-  {
-    date: '2026-08-30',
-    type: 'video',
-    niveau: 'Terminale SM',
-    titre: 'Vidéo — Le théorème des valeurs intermédiaires (TVI) en animation',
-    lien: '/terminale/limites#video-tvi',
-    desc: 'Nouvelle vidéo pédagogique animée.',
-  },
-  // ↑↑↑ Ces deux lignes sont des EXEMPLES : gardez-les ou remplacez-les. ↑↑↑
 ];

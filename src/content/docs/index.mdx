@@ -32,7 +32,7 @@ import HeroFormulas from '../../components/HeroFormulas.astro';
   <div style="position:relative;z-index:1;max-width:720px;margin:0 auto;">
     <p style="display:inline-block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#c9a8e0;margin:0 0 1.1rem;padding:.35rem .9rem;border:1px solid rgba(201,168,224,.35);border-radius:9999px;">Plateforme de mathématiques · Maroc</p>
     <h1 style="font-family:var(--me-font-display);font-size:clamp(2.6rem,6vw,4rem);font-weight:600;margin:0 0 .9rem;color:white;border:none;letter-spacing:-.02em;line-height:1.05;">Maths<em style="font-style:italic;color:#c9a8e0;">Elites</em></h1>
-    <p style="font-size:1.2rem;color:#d8c0ea;margin:0 auto 2.2rem;max-width:520px;line-height:1.6;">Cours rigoureux, exercices corrigés et sujets d'examen — de la Première Bac SM aux Classes Prépas. <strong style="color:#fff;">Chaque problème a au moins une solution.</strong></p>
+    <p style="font-size:1.2rem;color:#d8c0ea;margin:0 auto 2.2rem;max-width:520px;line-height:1.6;">Cours rigoureux, exercices corrigés, sujets d'examen et vidéos de maths — de la Première Bac SM aux Classes Prépas. <strong style="color:#fff;">Chaque problème a au moins une solution.</strong></p>
     <div style="display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;">
       <a href="/premiere/" class="me-btn" style="background:#0891b2;color:white;padding:.8rem 1.8rem;border-radius:9999px;text-decoration:none;font-weight:700;font-size:.95rem;box-shadow:0 8px 22px rgba(8,145,178,.45);">📖 Première Bac SM</a>
       <a href="/terminale/" class="me-btn" style="background:#1d4ed8;color:white;padding:.8rem 1.8rem;border-radius:9999px;text-decoration:none;font-weight:700;font-size:.95rem;box-shadow:0 8px 22px rgba(29,78,216,.45);">🎓 Terminale SM</a>
@@ -186,6 +186,36 @@ import HeroFormulas from '../../components/HeroFormulas.astro';
         <p style="font-size:.7rem;font-weight:700;color:#C8932B;margin:0 0 .3rem;text-transform:uppercase;letter-spacing:.06em;">Terminale SM · Dérivabilité</p>
         <h3 style="font-family:var(--me-font-display);color:var(--sl-color-white);font-size:1.05rem;font-weight:600;margin:0 0 .35rem;border:none;">Idée de la démonstration du T.A.F</h3>
         <p style="color:var(--sl-color-gray-2);font-size:.83rem;margin:0 0 .9rem;line-height:1.55;">Comment se ramener au théorème de Rolle en soustrayant la corde à la fonction.</p>
+        <span style="color:#C8932B;font-size:.85rem;font-weight:700;">▶ Regarder la vidéo →</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="/terminale/limites#video-tvi" class="me-card" style="text-decoration:none;">
+    <div style="background:var(--sl-color-black);border:1px solid #e6d3a3;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(200,147,43,.14);height:100%;">
+      <div style="position:relative;aspect-ratio:16/9;background:#1B3A6B;">
+        <img src="/videos/tvi-extrema-poster.jpg" alt="Aperçu — Théorème des valeurs intermédiaires en animation" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        <span aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><span style="width:52px;height:52px;border-radius:9999px;background:rgba(200,147,43,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 4px 14px rgba(0,0,0,.35);padding-left:.2rem;">▶</span></span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <p style="font-size:.7rem;font-weight:700;color:#C8932B;margin:0 0 .3rem;text-transform:uppercase;letter-spacing:.06em;">Terminale SM · Limites et continuité</p>
+        <h3 style="font-family:var(--me-font-display);color:var(--sl-color-white);font-size:1.05rem;font-weight:600;margin:0 0 .35rem;border:none;">Le théorème des valeurs intermédiaires</h3>
+        <p style="color:var(--sl-color-gray-2);font-size:.83rem;margin:0 0 .9rem;line-height:1.55;">L’énoncé du T.V.I : f continue sur [a, b] atteint toute valeur k comprise entre f(a) et f(b).</p>
+        <span style="color:#C8932B;font-size:.85rem;font-weight:700;">▶ Regarder la vidéo →</span>
+      </div>
+    </div>
+  </a>
+
+  <a href="/terminale/limites#video-tvi-solutions" class="me-card" style="text-decoration:none;">
+    <div style="background:var(--sl-color-black);border:1px solid #e6d3a3;border-radius:16px;overflow:hidden;box-shadow:0 4px 18px rgba(200,147,43,.14);height:100%;">
+      <div style="position:relative;aspect-ratio:16/9;background:#1B3A6B;">
+        <img src="/videos/tvi-multisolutions-poster.jpg" alt="Aperçu — Combien de solutions pour f(x) = k" style="width:100%;height:100%;object-fit:cover;display:block;" />
+        <span aria-hidden="true" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;"><span style="width:52px;height:52px;border-radius:9999px;background:rgba(200,147,43,.92);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 4px 14px rgba(0,0,0,.35);padding-left:.2rem;">▶</span></span>
+      </div>
+      <div style="padding:1.2rem 1.3rem;">
+        <p style="font-size:.7rem;font-weight:700;color:#C8932B;margin:0 0 .3rem;text-transform:uppercase;letter-spacing:.06em;">Terminale SM · Limites et continuité</p>
+        <h3 style="font-family:var(--me-font-display);color:var(--sl-color-white);font-size:1.05rem;font-weight:600;margin:0 0 .35rem;border:none;">T.V.I : combien de solutions ?</h3>
+        <p style="color:var(--sl-color-gray-2);font-size:.83rem;margin:0 0 .9rem;line-height:1.55;">Dénombrer les solutions de f(x) = k selon la position de k par rapport aux extrema.</p>
         <span style="color:#C8932B;font-size:.85rem;font-weight:700;">▶ Regarder la vidéo →</span>
       </div>
     </div>

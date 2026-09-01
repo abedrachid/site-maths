@@ -7,6 +7,32 @@ sidebar:
 
 Tous les documents du chapitre **Limites et continuité** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
+<div id="video-tvi" style="scroll-margin-top:5rem;"></div>
+
+## 🎬 Vidéo — Le théorème des valeurs intermédiaires (T.V.I) en animation
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/tvi-extrema-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/tvi-extrema.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/tvi-extrema.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Illustration animée : l’énoncé du T.V.I — pour f continue sur [a, b] et k compris entre f(a) et f(b), il existe c ∈ [a, b] tel que f(c) = k.*
+
+<div id="video-tvi-solutions" style="scroll-margin-top:5rem;"></div>
+
+## 🎬 Vidéo — T.V.I : combien de solutions pour f(x) = k ?
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/tvi-multisolutions-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/tvi-multisolutions.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/tvi-multisolutions.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Méthode animée : dénombrer les solutions de l’équation f(x) = k selon la position de k par rapport aux extrema locaux de la fonction.*
+
 ## 📄 Documents du chapitre
 
 <div class="doc-viewer">

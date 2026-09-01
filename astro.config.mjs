@@ -136,6 +136,12 @@ export default defineConfig({
           // modifie : incrémentez ce numéro à chaque changement de site-stats.js.
           attrs: { src: '/site-stats.js?v=3', defer: true },
         },
+        // Pastille « ✨ Nouveautés » sur le lien de la sidebar :
+        // affiche le nombre d'ajouts que l'élève n'a pas encore vus.
+        {
+          tag: 'script',
+          attrs: { src: '/nouveautes-badge.js?v=1', defer: true },
+        },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.
       lastUpdated: true,
@@ -176,6 +182,7 @@ export default defineConfig({
         { label: '🏠 Accueil du site', link: '/' },
         { label: 'ℹ️ À propos', link: '/a-propos' },
         { label: '✉️ Contact', link: '/contact' },
+        { label: '✨ Nouveautés', link: '/nouveautes' },
         {
           label: '🚀 Stages & cours accélérés',
           items: [

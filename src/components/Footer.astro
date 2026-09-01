@@ -11,6 +11,9 @@
    ──────────────────────────────────────────────────────────── */
 import Default from '@astrojs/starlight/components/Footer.astro';
 
+// Liens du canal de diffusion (Telegram / WhatsApp) — voir src/nouveautes.mjs
+import { canal } from '../nouveautes.mjs';
+
 // Données de la page courante (API Starlight ≥ 0.30)
 const { entry, slug } = Astro.locals.starlightRoute;
 const title = entry.data.title;
@@ -35,6 +38,12 @@ const message =
   `Voici le problème : `;
 
 const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+
+// Bouton « Rejoindre le canal » (pied de page global). N'apparaît que si
+// au moins un lien est renseigné dans src/nouveautes.mjs.
+const aTelegram = canal.telegram && canal.telegram.trim() !== '';
+const aWhatsapp = canal.whatsapp && canal.whatsapp.trim() !== '';
+const aCanal = aTelegram || aWhatsapp;
 ---
 
 {
@@ -63,6 +72,20 @@ const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
     nombre total de visiteurs + visiteurs en ligne. Présent sur toutes les
     pages de cours. Sur la page d'accueil (splash), le script se replie
     automatiquement en fin de contenu. */}
+{aCanal && (
+  <div class="me-canal">
+    <span class="me-canal-txt">🔔 Soyez prévenu·e des nouveaux documents &amp; vidéos :</span>
+    <span class="me-canal-btns">
+      {aTelegram && (
+        <a class="me-canal-btn me-canal-tg" href={canal.telegram} target="_blank" rel="noopener">Rejoindre le canal Telegram</a>
+      )}
+      {aWhatsapp && (
+        <a class="me-canal-btn me-canal-wa" href={canal.whatsapp} target="_blank" rel="noopener">Rejoindre le canal WhatsApp</a>
+      )}
+    </span>
+  </div>
+)}
+
 <div id="me-stats-slot"></div>
 
 <style>
@@ -98,4 +121,22 @@ const waHref = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
     flex-shrink: 0;
     color: #25d366;
   }
+
+  .me-canal {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: .6rem .9rem; margin: 1.75rem 0 .5rem; padding: .85rem 1rem;
+    border-radius: 12px; border: 1px solid var(--sl-color-gray-5);
+    background: linear-gradient(90deg, rgba(29,78,216,.08), rgba(201,162,39,.08));
+    text-align: center;
+  }
+  .me-canal-txt { font-size: .86rem; font-weight: 600; color: var(--sl-color-gray-2); }
+  .me-canal-btns { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+  .me-canal-btn {
+    display: inline-block; padding: .4rem .9rem; border-radius: 9999px;
+    font-size: .82rem; font-weight: 700; color: #fff !important; text-decoration: none;
+    white-space: nowrap; transition: opacity .15s ease;
+  }
+  .me-canal-btn:hover { opacity: .9; }
+  .me-canal-tg { background: #229ED9; }
+  .me-canal-wa { background: #25D366; }
 </style>

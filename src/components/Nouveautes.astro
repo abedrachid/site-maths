@@ -1,0 +1,120 @@
+---
+/* ────────────────────────────────────────────────────────────
+   MathsElites — Liste des nouveautés (nouveaux docs & vidéos)
+   Alimenté par src/nouveautes.mjs (seul fichier à modifier).
+   Utilisé par la page src/content/docs/nouveautes.mdx.
+   ──────────────────────────────────────────────────────────── */
+import { nouveautes, canal } from '../nouveautes.mjs';
+
+const items = [...nouveautes].sort((a, b) => (a.date < b.date ? 1 : -1));
+
+const fmtDate = (iso) => {
+  try {
+    return new Intl.DateTimeFormat('fr-FR', {
+      day: 'numeric', month: 'long', year: 'numeric',
+    }).format(new Date(iso + 'T00:00:00'));
+  } catch (e) { return iso; }
+};
+
+const meta = {
+  document: { emoji: '📄', mot: 'Document' },
+  video:    { emoji: '🎬', mot: 'Vidéo' },
+  stage:    { emoji: '🚀', mot: 'Stage' },
+  autre:    { emoji: '✨', mot: 'Nouveauté' },
+};
+const infoType = (t) => meta[t] || meta.autre;
+
+const aTelegram = canal.telegram && canal.telegram.trim() !== '';
+const aWhatsapp = canal.whatsapp && canal.whatsapp.trim() !== '';
+const aCanal = aTelegram || aWhatsapp;
+---
+
+{aCanal && (
+  <aside class="me-nv-cta">
+    <div class="me-nv-cta-txt">
+      <strong>🔔 Ne manquez aucun ajout</strong>
+      <span>Rejoignez notre canal : vous serez prévenu·e sur votre téléphone dès qu'un nouveau document ou une nouvelle vidéo est publié.</span>
+    </div>
+    <div class="me-nv-cta-btns">
+      {aTelegram && (
+        <a class="me-nv-btn me-nv-tg" href={canal.telegram} target="_blank" rel="noopener">Rejoindre sur Telegram</a>
+      )}
+      {aWhatsapp && (
+        <a class="me-nv-btn me-nv-wa" href={canal.whatsapp} target="_blank" rel="noopener">Rejoindre sur WhatsApp</a>
+      )}
+    </div>
+  </aside>
+)}
+
+{items.length === 0 ? (
+  <p>Aucune nouveauté pour le moment. Revenez bientôt !</p>
+) : (
+  <ul class="me-nv-liste">
+    {items.map((it) => (
+      <li class="me-nv-item">
+        <span class="me-nv-ico" aria-hidden="true">{infoType(it.type).emoji}</span>
+        <div class="me-nv-corps">
+          <div class="me-nv-haut">
+            <span class="me-nv-type">{infoType(it.type).mot}</span>
+            {it.niveau && <span class="me-nv-niveau">{it.niveau}</span>}
+            <time class="me-nv-date" datetime={it.date}>{fmtDate(it.date)}</time>
+          </div>
+          <a class="me-nv-titre" href={it.lien}>{it.titre}</a>
+          {it.desc && <p class="me-nv-desc">{it.desc}</p>}
+        </div>
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .me-nv-cta {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 1rem; margin: 0 0 2rem; padding: 1rem 1.25rem; border-radius: 14px;
+    background: linear-gradient(90deg, rgba(29,78,216,.12), rgba(201,162,39,.12));
+    border: 1px solid var(--sl-color-gray-5);
+  }
+  .me-nv-cta-txt { display: flex; flex-direction: column; gap: .2rem; max-width: 34rem; }
+  .me-nv-cta-txt strong { font-size: 1.02rem; }
+  .me-nv-cta-txt span { font-size: .9rem; color: var(--sl-color-gray-2); }
+  .me-nv-cta-btns { display: flex; flex-wrap: wrap; gap: .6rem; }
+  .me-nv-btn {
+    display: inline-block; padding: .5rem 1rem; border-radius: 9999px;
+    font-weight: 700; font-size: .88rem; text-decoration: none; color: #fff !important;
+    white-space: nowrap; transition: opacity .15s ease;
+  }
+  .me-nv-btn:hover { opacity: .9; }
+  .me-nv-tg { background: #229ED9; }
+  .me-nv-wa { background: #25D366; }
+
+  .me-nv-liste { list-style: none; padding: 0; margin: 0; }
+  .me-nv-item {
+    display: flex; gap: .9rem; padding: .95rem 0;
+    border-bottom: 1px solid var(--sl-color-gray-6);
+  }
+  .me-nv-item:first-child { padding-top: 0; }
+  .me-nv-ico {
+    flex: 0 0 auto; font-size: 1.35rem; line-height: 1.6;
+    width: 2.4rem; height: 2.4rem; display: grid; place-items: center;
+    border-radius: 10px; background: var(--sl-color-gray-6);
+  }
+  .me-nv-corps { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
+  .me-nv-haut { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+  .me-nv-type {
+    font-size: .7rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+    color: #1d4ed8;
+  }
+  .me-nv-niveau {
+    font-size: .72rem; font-weight: 700; padding: .05rem .5rem; border-radius: 9999px;
+    background: rgba(201,162,39,.18); color: var(--sl-color-gray-1);
+  }
+  .me-nv-date { font-size: .78rem; color: var(--sl-color-gray-3); margin-left: auto; }
+  .me-nv-titre { font-weight: 700; font-size: 1.02rem; text-decoration: none; }
+  .me-nv-titre:hover { text-decoration: underline; }
+  .me-nv-desc { margin: .1rem 0 0; font-size: .88rem; color: var(--sl-color-gray-2); }
+
+  @media (max-width: 30rem) {
+    .me-nv-date { margin-left: 0; width: 100%; }
+    .me-nv-cta { flex-direction: column; align-items: flex-start; }
+  }
+</style>

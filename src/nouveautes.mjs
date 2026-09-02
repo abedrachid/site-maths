@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-09-02',
+    type: 'document',
+    niveau: 'Terminale SM',
+    titre: 'Limites et continuité — Cours, fiche, QCM, exercices & planches',
+    lien: '/terminale/limites',
+    desc: 'Nouveaux documents du chapitre : cours, fiche de révision, QCM, exercices d\'applications et 3 planches.',
+  },
+  {
     date: '2026-09-01',
     type: 'video',
     niveau: 'Terminale SM',

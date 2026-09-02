@@ -51,10 +51,12 @@ Tous les documents du chapitre **Limites et continuité** sont consultables dire
 <div class="doc-viewer">
   <div class="doc-tabs">
     <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/limites/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Corrections des exercices" data-src="/pdf/terminale/limites/corrections-cours.pdf">✅ Corrections</button>
-    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/terminale/limites/fiche-resume.pdf">📋 Fiche résumé</button>
-    <button class="doc-tab" data-title="Série 1 — Calcul de limites" data-src="/pdf/terminale/limites/serie1.pdf">📄 Série 1</button>
-    <button class="doc-tab" data-title="Série 2 — Continuité et prolongement" data-src="/pdf/terminale/limites/serie2.pdf">📄 Série 2</button>
+    <button class="doc-tab" data-title="Fiche de révision" data-src="/pdf/terminale/limites/fiche-resume.pdf">📋 Fiche de révision</button>
+    <button class="doc-tab" data-title="QCM (PDF)" data-src="/pdf/terminale/limites/qcm.pdf">❓ QCM (PDF)</button>
+    <button class="doc-tab" data-title="Exercices d'applications" data-src="/pdf/terminale/limites/exercices-applications.pdf">📝 Exercices d'applications</button>
+    <button class="doc-tab" data-title="Planche 1 — Limites, continuité & T.V.I" data-src="/pdf/terminale/limites/planche1.pdf">📄 Planche 1 — Limites, continuité & T.V.I</button>
+    <button class="doc-tab" data-title="Planche 2 — T.V.I, points fixes & propriétés" data-src="/pdf/terminale/limites/planche2.pdf">📄 Planche 2 — T.V.I, points fixes & propriétés</button>
+    <button class="doc-tab" data-title="Planche 3 — Propriétés & périodicité" data-src="/pdf/terminale/limites/planche3.pdf">📄 Planche 3 — Propriétés & périodicité</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

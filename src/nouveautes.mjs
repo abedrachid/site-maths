@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-09-04',
+    type: 'video',
+    niveau: 'Terminale SM',
+    titre: 'Vidéos — Corrections animées : limite (racines cubiques) & prolongement par continuité',
+    lien: '/terminale/limites#video-corrections',
+    desc: 'Deux corrections en vidéo courte : calcul d\'une limite avec racines cubiques à l\'infini et prolongement par continuité en 0.',
+  },
+  {
     date: '2026-09-02',
     type: 'document',
     niveau: 'Terminale SM',

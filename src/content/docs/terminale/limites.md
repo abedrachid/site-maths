@@ -46,6 +46,35 @@ Tous les documents du chapitre **Limites et continuité** sont consultables dire
 
 *Illustration animée : l’image d’un segment [a, b] par une fonction continue est le segment [m, M], où m et M sont le minimum et le maximum atteints par f sur [a, b].*
 
+<div id="video-corrections" style="scroll-margin-top:5rem;"></div>
+
+## 🎬 Corrections en vidéo — exercices types
+
+Deux corrections animées au format court (idéales sur téléphone) : le calcul d'une limite avec racines cubiques à l'infini, et un prolongement par continuité en 0.
+
+<div class="me-shorts">
+  <div class="me-short">
+    <figure>
+      <video controls preload="metadata" poster="/videos/correction-limite-racines-cubiques-poster.jpg">
+        <source src="/videos/correction-limite-racines-cubiques.mp4" type="video/mp4" />
+        Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/correction-limite-racines-cubiques.mp4">télécharger la vidéo</a>.
+      </video>
+    </figure>
+    <span class="me-short-tag">▶ Vidéo courte</span>
+    <figcaption><b>Limite avec racines cubiques à l'infini</b>On factorise x³ sous chaque racine cubique, on simplifie par x, puis on passe à la limite : le résultat vaut 1.</figcaption>
+  </div>
+  <div class="me-short">
+    <figure>
+      <video controls preload="metadata" poster="/videos/correction-prolongement-continuite-poster.jpg">
+        <source src="/videos/correction-prolongement-continuite.mp4" type="video/mp4" />
+        Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/correction-prolongement-continuite.mp4">télécharger la vidéo</a>.
+      </video>
+    </figure>
+    <span class="me-short-tag">▶ Vidéo courte</span>
+    <figcaption><b>Prolongement par continuité en 0</b>Étude de la limite en 0 de (x + 1 − √(1+2x)·cos x) / x² ; elle vaut 1, d'où le prolongement g(0) = 1.</figcaption>
+  </div>
+</div>
+
 ## 📄 Documents du chapitre
 
 <div class="doc-viewer">

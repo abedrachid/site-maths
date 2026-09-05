@@ -149,6 +149,12 @@ export default defineConfig({
           tag: 'script',
           attrs: { src: '/video-facade.js?v=1', defer: true },
         },
+        // Verrou email sur les vidéos : même accès que les corrigés
+        // (une seule inscription débloque les deux). Voir public/video-gate.js.
+        {
+          tag: 'script',
+          attrs: { src: '/video-gate.js?v=1', defer: true },
+        },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.
       lastUpdated: true,

@@ -110,7 +110,7 @@ export default defineConfig({
         // de l'ouverture automatique (lien #doc=…). Config dans le fichier.
         {
           tag: 'script',
-          attrs: { src: '/corriges-gate.js?v=5', defer: true },
+          attrs: { src: '/corriges-gate.js?v=6', defer: true },
         },
         // Visionneuse de documents PDF (onglets)
         {
@@ -153,7 +153,7 @@ export default defineConfig({
         // (une seule inscription débloque les deux). Voir public/video-gate.js.
         {
           tag: 'script',
-          attrs: { src: '/video-gate.js?v=1', defer: true },
+          attrs: { src: '/video-gate.js?v=2', defer: true },
         },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.

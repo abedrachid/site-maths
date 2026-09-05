@@ -22,6 +22,7 @@
   var EMAIL_FIELD = 'EMAIL';
   var ACTIVE_PATHS = []; // [] = tout le site ; ex. ['/terminale/limites'] pour limiter
   var STORAGE_KEY = 'me-corriges-ok';
+  var CONFIRMED_KEY = 'me-corriges-confirmed'; // appareil ayant déjà confirmé un email
   var ACCESS_DAYS = 7; // durée d'accès après déblocage (jours). 0 = illimité.
   var CONFIRM_PATH = '/acces-corriges'; // page où Brevo peut rediriger après confirmation
 
@@ -50,6 +51,13 @@
         localStorage.setItem(STORAGE_KEY, 'unlimited');
       }
     } catch (e) {}
+  }
+  // Appareil ayant déjà confirmé un email au moins une fois (permanent).
+  function isConfirmed() {
+    try { return localStorage.getItem(CONFIRMED_KEY) === '1'; } catch (e) { return false; }
+  }
+  function setConfirmed() {
+    try { localStorage.setItem(CONFIRMED_KEY, '1'); } catch (e) {}
   }
 
   function onActivePage() {
@@ -168,10 +176,11 @@
     ov.innerHTML =
       '<div id="me-cg-card" role="dialog" aria-modal="true" aria-labelledby="me-cg-title">' +
       '<h3 id="me-cg-title">🔒 Corrigés réservés</h3>' +
-      '<p>Entrez votre adresse email : vous recevrez un <b>lien de confirmation</b>. ' +
-      'En cliquant dessus, les corrigés se débloquent.</p>' +
+      '<p>' + (isConfirmed()
+        ? 'Bon retour ! Entrez votre adresse email pour <b>réactiver votre accès</b> (corrigés + vidéos, 7 jours).'
+        : 'Entrez votre adresse email : vous recevrez un <b>lien de confirmation</b>. En cliquant dessus, les corrigés se débloquent.') + '</p>' +
       '<input type="email" id="me-cg-email" placeholder="votre@email.com" autocomplete="email" inputmode="email" />' +
-      '<button id="me-cg-btn" type="button">Recevoir le lien d\'accès</button>' +
+      '<button id="me-cg-btn" type="button">' + (isConfirmed() ? 'Réactiver mon accès' : 'Recevoir le lien d\'accès') + '</button>' +
       '<p id="me-cg-msg" aria-live="polite"></p>' +
       '<p id="me-cg-note">Aucune donnée n\'est partagée. Vous pourrez vous désinscrire à tout moment via l\'email reçu.</p>' +
       '<button id="me-cg-later" type="button">Plus tard</button>' +
@@ -199,16 +208,25 @@
       }
       btn.disabled = true;
       submitToBrevo(v);
-      // Confirmation d'abord : on NE débloque PAS ici. L'accès s'active
-      // uniquement quand l'utilisateur clique le lien reçu par email
-      // (il atterrit alors sur /acces-corriges/, qui débloque). Un faux
-      // email ne reçoit jamais le lien → n'accède jamais.
-      btn.textContent = 'Email envoyé ✓';
-      msg.className = 'ok';
-      msg.innerHTML = '📩 Un email de confirmation vient de vous être envoyé.<br>'
-        + 'Ouvrez-le et cliquez sur le lien pour débloquer les corrigés '
-        + '(pensez à vérifier vos spams).';
-      document.getElementById('me-cg-later').textContent = 'Fermer';
+      if (isConfirmed()) {
+        // Appareil déjà confirmé (retour après expiration des 7 jours) :
+        // réactivation immédiate, sans nouvel email (Brevo ne renvoie pas
+        // de double opt-in à un contact déjà confirmé).
+        setUnlocked();
+        btn.textContent = 'Accès réactivé ✓';
+        msg.className = 'ok';
+        msg.innerHTML = '✅ Bon retour ! Votre accès est réactivé pour 7 jours.';
+        setTimeout(function () { try { location.reload(); } catch (e) { closeOverlay(); } }, 1200);
+      } else {
+        // Nouveau visiteur : double opt-in. On NE débloque PAS ici ;
+        // l'accès s'active quand il clique le lien reçu par email (/acces-corriges).
+        btn.textContent = 'Email envoyé ✓';
+        msg.className = 'ok';
+        msg.innerHTML = '📩 Un email de confirmation vient de vous être envoyé.<br>'
+          + 'Ouvrez-le et cliquez sur le lien pour débloquer les corrigés '
+          + '(pensez à vérifier vos spams).';
+        document.getElementById('me-cg-later').textContent = 'Fermer';
+      }
     }
 
     btn.addEventListener('click', submit);
@@ -270,6 +288,7 @@
     // Page de confirmation Brevo : on active l'accès puis on ne verrouille rien.
     if (location.pathname.replace(/\/+$/, '') === CONFIRM_PATH) {
       setUnlocked();
+      setConfirmed();
       return;
     }
     if (isUnlocked()) { removeLocks(); return; }

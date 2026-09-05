@@ -27,6 +27,7 @@
   var EMAIL_FIELD = 'EMAIL';
   var ACTIVE_PATHS = [];                 // [] = tout le site
   var STORAGE_KEY = 'me-corriges-ok';    // MÊME clé que les corrigés
+  var CONFIRMED_KEY = 'me-corriges-confirmed'; // appareil ayant déjà confirmé un email
   var ACCESS_DAYS = 7;                   // durée d'accès (jours). 0 = illimité.
   var CONFIRM_PATH = '/acces-corriges';  // page de confirmation Brevo
 
@@ -51,6 +52,13 @@
         localStorage.setItem(STORAGE_KEY, 'unlimited');
       }
     } catch (e) {}
+  }
+  // Appareil ayant déjà confirmé un email au moins une fois (permanent).
+  function isConfirmed() {
+    try { return localStorage.getItem(CONFIRMED_KEY) === '1'; } catch (e) { return false; }
+  }
+  function setConfirmed() {
+    try { localStorage.setItem(CONFIRMED_KEY, '1'); } catch (e) {}
   }
 
   function onActivePage() {
@@ -154,10 +162,11 @@
     ov.innerHTML =
       '<div id="me-vg-card" role="dialog" aria-modal="true" aria-labelledby="me-vg-title">' +
       '<h3 id="me-vg-title">🎬 Vidéos réservées</h3>' +
-      '<p>Entrez votre adresse email : vous recevrez un <b>lien de confirmation</b>. ' +
-      'En cliquant dessus, les vidéos <b>et</b> les corrigés se débloquent.</p>' +
+      '<p>' + (isConfirmed()
+        ? 'Bon retour ! Entrez votre adresse email pour <b>réactiver votre accès</b> (vidéos + corrigés, 7 jours).'
+        : 'Entrez votre adresse email : vous recevrez un <b>lien de confirmation</b>. En cliquant dessus, les vidéos <b>et</b> les corrigés se débloquent.') + '</p>' +
       '<input type="email" id="me-vg-email" placeholder="votre@email.com" autocomplete="email" inputmode="email" />' +
-      '<button id="me-vg-btn" type="button">Recevoir le lien d\'accès</button>' +
+      '<button id="me-vg-btn" type="button">' + (isConfirmed() ? 'Réactiver mon accès' : 'Recevoir le lien d\'accès') + '</button>' +
       '<p id="me-vg-msg" aria-live="polite"></p>' +
       '<p id="me-vg-note">Aucune donnée n\'est partagée. Vous pourrez vous désinscrire à tout moment via l\'email reçu.</p>' +
       '<button id="me-vg-later" type="button">Plus tard</button>' +
@@ -185,14 +194,25 @@
       }
       btn.disabled = true;
       submitToBrevo(v);
-      // Double opt-in : on NE débloque PAS ici. L'accès s'active seulement
-      // quand l'utilisateur clique le lien reçu par email (page /acces-corriges).
-      btn.textContent = 'Email envoyé ✓';
-      msg.className = 'ok';
-      msg.innerHTML = '📩 Un email de confirmation vient de vous être envoyé.<br>'
-        + 'Ouvrez-le et cliquez sur le lien pour débloquer les vidéos '
-        + '(pensez à vérifier vos spams).';
-      document.getElementById('me-vg-later').textContent = 'Fermer';
+      if (isConfirmed()) {
+        // Appareil déjà confirmé (retour après expiration des 7 jours) :
+        // on réactive l'accès immédiatement, sans nouvel email de confirmation
+        // (Brevo ne renvoie pas de double opt-in à un contact déjà confirmé).
+        setUnlocked();
+        btn.textContent = 'Accès réactivé ✓';
+        msg.className = 'ok';
+        msg.innerHTML = '✅ Bon retour ! Votre accès est réactivé pour 7 jours.';
+        setTimeout(function () { try { location.reload(); } catch (e) { closeOverlay(); } }, 1200);
+      } else {
+        // Nouveau visiteur : double opt-in. On NE débloque PAS ici ;
+        // l'accès s'active quand il clique le lien reçu par email (/acces-corriges).
+        btn.textContent = 'Email envoyé ✓';
+        msg.className = 'ok';
+        msg.innerHTML = '📩 Un email de confirmation vient de vous être envoyé.<br>'
+          + 'Ouvrez-le et cliquez sur le lien pour débloquer les vidéos '
+          + '(pensez à vérifier vos spams).';
+        document.getElementById('me-vg-later').textContent = 'Fermer';
+      }
     }
 
     btn.addEventListener('click', submit);
@@ -241,6 +261,7 @@
     // de corriges-gate.js) puis on ne verrouille rien.
     if (location.pathname.replace(/\/+$/, '') === CONFIRM_PATH) {
       setUnlocked();
+      setConfirmed();
       markLockState();
       return;
     }

@@ -46,6 +46,19 @@ Tous les documents du chapitre **Limites et continuité** sont consultables dire
 
 *Illustration animée : l’image d’un segment [a, b] par une fonction continue est le segment [m, M], où m et M sont le minimum et le maximum atteints par f sur [a, b].*
 
+<div id="video-limite-racines-niemes" style="scroll-margin-top:5rem;"></div>
+
+## 🎬 Correction en vidéo — limite d'une différence de racines n-ièmes
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/correction-limite-difference-racines-niemes-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/correction-limite-difference-racines-niemes.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/correction-limite-difference-racines-niemes.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Correction détaillée : limite en +∞ de f(x) = (⁴√(x+1) − ⁴√x) / (³√(x+1) − ³√x) · ¹²√x. On factorise chaque différence de racines par sa conjuguée n-ième, ce qui fait apparaître les sommes T₄ → 4 et T₃ → 3 ; après regroupement, l'exposant de x se compense et la limite vaut 3/4.*
+
 <div id="video-corrections" style="scroll-margin-top:5rem;"></div>
 
 ## 🎬 Corrections en vidéo — exercices types

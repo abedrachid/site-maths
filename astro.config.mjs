@@ -142,6 +142,13 @@ export default defineConfig({
           tag: 'script',
           attrs: { src: '/nouveautes-badge.js?v=1', defer: true },
         },
+        // Vignettes vidéo « cliquer pour lire » : remplace chaque
+        // lecteur par une carte compacte ; la vidéo n'est chargée qu'au
+        // clic (gain de place + page plus légère). Voir public/video-facade.js.
+        {
+          tag: 'script',
+          attrs: { src: '/video-facade.js?v=1', defer: true },
+        },
       ],
       // Affiche la date de dernière mise à jour en bas des pages.
       lastUpdated: true,

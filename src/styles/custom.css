@@ -842,3 +842,110 @@ header.header {
 @media (max-width:560px){
   .me-shorts{ grid-template-columns:1fr; max-width:380px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   Vignettes vidéo « cliquer pour lire » (facade)
+   Générées par /video-facade.js sur toutes les pages : chaque <video>
+   devient une carte compacte ; la vidéo n'est chargée qu'au clic.
+   Gain de place + page plus légère. Voir public/video-facade.js.
+   ═══════════════════════════════════════════════════════════════ */
+.me-vfacade{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  width:100%;
+  max-width:760px;
+  margin:1.5rem auto;
+  padding:.7rem;
+  text-align:left;
+  font:inherit;
+  color:inherit;
+  background:var(--me-cream2);
+  border:2px solid var(--me-gold);
+  border-radius:14px;
+  box-shadow:0 6px 22px rgba(12,35,64,.16);
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+.me-vfacade:hover,
+.me-vfacade:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(12,35,64,.26);
+  border-color:var(--me-gold2);
+  outline:none;
+}
+/* Vignette (poster) */
+.me-vfacade-thumb{
+  position:relative;
+  flex:0 0 auto;
+  width:154px;
+  height:87px;                 /* 16:9 pour les vidéos paysage */
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--me-navy) center/cover no-repeat;
+}
+.me-vfacade--short .me-vfacade-thumb{
+  width:70px;
+  height:124px;                /* 9:16 pour les « shorts » */
+}
+/* Bouton lecture */
+.me-vfacade-play{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  background:rgba(12,35,64,.30);
+}
+.me-vfacade-play > span{
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  padding-left:3px;            /* recentre le triangle ▶ */
+  border-radius:50%;
+  background:var(--me-gold);
+  color:var(--me-navy);
+  font-size:1rem;
+  box-shadow:0 2px 8px rgba(0,0,0,.35);
+}
+.me-vfacade:hover .me-vfacade-play > span{ background:var(--me-gold2); }
+/* Texte */
+.me-vfacade-body{
+  display:flex;
+  flex-direction:column;
+  gap:.28rem;
+  min-width:0;
+}
+.me-vfacade-title{
+  font-family:var(--me-font-display);
+  font-weight:700;
+  font-size:1.06rem;
+  line-height:1.25;
+  color:var(--me-navy);
+}
+.me-vfacade-hint{
+  font-size:.8rem;
+  font-weight:700;
+  letter-spacing:.02em;
+  color:var(--me-gold);
+}
+/* Thème sombre */
+:root[data-theme='dark'] .me-vfacade{
+  background:var(--me-navy2);
+  border-color:var(--me-gold);
+}
+:root[data-theme='dark'] .me-vfacade-title{ color:var(--me-cream2, #f8f6f2); }
+:root[data-theme='dark'] .me-vfacade-hint{ color:var(--me-gold2); }
+/* Accessibilité : mouvement réduit */
+@media (prefers-reduced-motion:reduce){
+  .me-vfacade{ transition:none; }
+  .me-vfacade:hover,
+  .me-vfacade:focus-visible{ transform:none; }
+}
+/* Mobile : la carte reste lisible sur petits écrans */
+@media (max-width:460px){
+  .me-vfacade{ gap:.75rem; padding:.6rem; }
+  .me-vfacade-thumb{ width:120px; height:68px; }
+  .me-vfacade--short .me-vfacade-thumb{ width:58px; height:103px; }
+  .me-vfacade-title{ font-size:.98rem; }
+}

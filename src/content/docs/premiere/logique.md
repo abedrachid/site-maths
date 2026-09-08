@@ -1,6 +1,6 @@
 ---
 title: Logique et raisonnement
-description: "Cours, QCM interactif et notions clés consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
+description: "Cours, fiche résumé, QCM interactif corrigé et série d'exercices consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
 sidebar:
   order: 1
 ---
@@ -11,65 +11,25 @@ Tous les documents du chapitre **Logique et raisonnement** sont consultables dir
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/logique.pdf">📖 Cours</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/premiere/logique/cours.pdf">📖 Cours</button>
+    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/premiere/logique/fiche-resume.pdf">📋 Fiche résumé</button>
+    <button class="doc-tab" data-title="Exercices &amp; problèmes" data-src="/pdf/premiere/logique/exercices.pdf">📝 Exercices &amp; problèmes</button>
+    <button class="doc-tab" data-title="QCM corrigé" data-src="/pdf/premiere/logique/qcm.pdf">❓ QCM (corrigé)</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
-    <a class="doc-download" href="/pdf/logique.pdf" download>⬇️ Télécharger ce document</a>
+    <a class="doc-download" href="/pdf/premiere/logique/cours.pdf" download>⬇️ Télécharger ce document</a>
   </div>
-  <iframe class="doc-frame" src="/pdf/logique.pdf" title="Document — Logique et raisonnement"></iframe>
+  <iframe class="doc-frame" src="/pdf/premiere/logique/cours.pdf" title="Document — Logique et raisonnement"></iframe>
 </div>
 
 <div id="qcm" style="scroll-margin-top:5rem;"></div>
 
 ## ❓ QCM — Logique et raisonnement
 
-Testez vos connaissances, puis validez pour voir votre score.
+Testez vos connaissances avec le **QCM interactif** du chapitre : **21 questions corrigées** sur la logique et les raisonnements, en trois niveaux (moyen · bon · difficile — type concours), avec correction justifiée et note sur 20.
 
-<div class="qcm">
-  <div class="qcm-q">
-    <p class="qcm-question">1. La négation de « ∀x ∈ ℝ, P(x) » est… ?</p>
-    <div class="qcm-opts">
-      <button class="qcm-opt" data-correct>∃x ∈ ℝ, non P(x)</button>
-      <button class="qcm-opt">∀x ∈ ℝ, non P(x)</button>
-      <button class="qcm-opt">∃x ∈ ℝ, P(x)</button>
-    </div>
-  </div>
-  <div class="qcm-q">
-    <p class="qcm-question">2. L'implication P ⟹ Q est logiquement équivalente à… ?</p>
-    <div class="qcm-opts">
-      <button class="qcm-opt">P ∧ (non Q)</button>
-      <button class="qcm-opt" data-correct>(non P) ∨ Q</button>
-      <button class="qcm-opt">(non P) ∧ Q</button>
-    </div>
-  </div>
-  <div class="qcm-q">
-    <p class="qcm-question">3. La contraposée de « P ⟹ Q » est… ?</p>
-    <div class="qcm-opts">
-      <button class="qcm-opt">Q ⟹ P</button>
-      <button class="qcm-opt">(non P) ⟹ (non Q)</button>
-      <button class="qcm-opt" data-correct>(non Q) ⟹ (non P)</button>
-    </div>
-  </div>
-  <div class="qcm-q">
-    <p class="qcm-question">4. D'après les lois de De Morgan, non(P ∧ Q) équivaut à… ?</p>
-    <div class="qcm-opts">
-      <button class="qcm-opt" data-correct>(non P) ∨ (non Q)</button>
-      <button class="qcm-opt">(non P) ∧ (non Q)</button>
-      <button class="qcm-opt">non P ∨ Q</button>
-    </div>
-  </div>
-  <div class="qcm-q">
-    <p class="qcm-question">5. Pour démontrer « P ⟹ Q » par l'absurde, on suppose… ?</p>
-    <div class="qcm-opts">
-      <button class="qcm-opt" data-correct>P vraie et Q fausse, puis on cherche une contradiction</button>
-      <button class="qcm-opt">P fausse et Q vraie</button>
-      <button class="qcm-opt">P et Q toutes deux vraies</button>
-    </div>
-  </div>
-  <button class="qcm-submit">Valider</button>
-  <p class="qcm-score"></p>
-</div>
+<a class="qcm-launch" href="/qcm-logique.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.6rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ Lancer le QCM — 21 questions corrigées</a>
 
 ---
 

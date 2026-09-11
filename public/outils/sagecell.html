@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calcul en direct (SageMathCell) — MathsElites</title>
+<meta name="description" content="Cellule de calcul SageMathCell avec exemples Lycée SM et CPGE — MathsElites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#0b1a2f; --surface:#122744; --surface-2:#0e2039;
+  --ink:#eef3fb; --muted:#a9bcd8; --line:#22395b;
+  --gold:#C9A227; --goldd:#a8841b;
+  --disp:"Fraunces",Georgia,serif; --text:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--text); font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;}
+.topbar{display:flex; align-items:center; gap:14px; padding:10px 18px; background:linear-gradient(135deg,#0c2036,#123156); border-bottom:2px solid var(--gold);}
+.topbar a.back{color:#dfe8f7; text-decoration:none; font-weight:600; font-size:13.5px}
+.topbar a.back:hover{color:#fff}
+.topbar .brand{margin-left:auto; font-weight:700; color:#fff; font-size:14px}
+.topbar .brand em{font-style:italic; color:#c9a8e0}
+.wrap{max-width:1080px; margin:0 auto; padding:20px 18px 40px}
+.head{margin:6px 2px 14px}
+.kicker{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600; margin:0 0 4px}
+h1{font-family:var(--disp); font-weight:600; font-size:clamp(22px,3.4vw,30px); margin:0}
+.sub{color:var(--muted); font-size:13.5px; margin:5px 0 0}
+.levels{display:inline-flex; background:var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:3px; margin:14px 0 4px}
+.levels button{font-family:var(--text); font-weight:600; font-size:13px; color:var(--muted); background:transparent; border:0; padding:7px 16px; border-radius:999px; cursor:pointer; transition:.15s}
+.levels button[aria-selected="true"]{background:var(--gold); color:#2a2100}
+.presets{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 4px}
+.presets button{font-family:var(--text); font-weight:500; font-size:12.5px; color:#f0e6c8; background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:6px 13px; cursor:pointer; transition:.15s}
+.presets button:hover{background:var(--gold); border-color:var(--gold); color:#2a2100}
+.presets button:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+.hint{font-size:12px; color:var(--muted); margin:.5em 2px 0}
+.cell-shell{margin-top:12px; border:1px solid var(--line); border-radius:12px; padding:12px; background:#fff; box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.calc-fallback{display:none; padding:26px 22px; text-align:center; color:var(--muted); font-size:13px; background:var(--surface-2); border-radius:8px}
+.calc-fallback b{color:var(--ink)}
+.note{margin-top:16px; background:var(--surface-2); border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:8px; padding:11px 14px; font-size:12.7px; color:var(--muted)}
+.note b{color:var(--ink)}
+code{font-family:"SFMono-Regular",Consolas,Menlo,monospace; background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-size:12px; color:#f0e6c8}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="/">← Retour à MathsElites</a>
+  <span class="brand">Maths<em>Elites</em></span>
+</div>
+
+<div class="wrap">
+  <div class="head">
+    <p class="kicker">Outil interactif · SageMathCell</p>
+    <h1>Calcul en direct</h1>
+    <p class="sub">Dérive, intègre, factorise, trace — gratuit, sans installation. Choisis un niveau, puis un exemple, puis « Évaluer ».</p>
+    <div class="levels" id="levels" role="tablist" aria-label="Niveau">
+      <button role="tab" data-lvl="lycee" aria-selected="true">Lycée SM</button>
+      <button role="tab" data-lvl="cpge" aria-selected="false">CPGE</button>
+    </div>
+  </div>
+
+  <div class="presets" id="presets"></div>
+  <p class="hint" id="preset-caption">Chargement…</p>
+
+  <div class="cell-shell">
+    <div id="sage-cell"></div>
+    <div class="calc-fallback" id="fallback">
+      <p><b>La cellule de calcul n'a pas pu se charger.</b></p>
+      <p>Elle nécessite une connexion à Internet (serveur SageMathCell).</p>
+    </div>
+  </div>
+
+  <p class="note"><b>Astuce.</b> Le calcul tourne sur les serveurs gratuits de SageMathCell — aucune clé, aucune licence commerciale requise. Idéal pour vérifier un corrigé.</p>
+</div>
+
+<script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+<script>
+(function(){
+  var caption = document.getElementById('preset-caption');
+  var presetsBar = document.getElementById('presets');
+  var levelsBar = document.getElementById('levels');
+
+  var SETS = {
+    lycee: [
+      { key:'deriv', label:'Dérivée & primitive', caption:'f(x)=x³−3x : dérivée, primitive et tracé.',
+        code:"x = var('x')\nf = x^3 - 3*x\nprint(\"f'(x) =\", diff(f, x))\nprint(\"Primitive F(x) =\", integrate(f, x))\nplot(f, (x, -3, 3), color='blue')" },
+      { key:'limite', label:'Limites', caption:'limites classiques.',
+        code:"x = var('x')\nprint(\"lim sin(x)/x en 0 :\", limit(sin(x)/x, x=0))\nprint(\"lim (1+1/x)^x en +oo :\", limit((1 + 1/x)^x, x=oo))\nprint(\"lim (sqrt(x^2+1)-x) en +oo :\", limit(sqrt(x^2+1) - x, x=oo))" },
+      { key:'integrale', label:'Intégrale & aire', caption:'intégrale définie et aire sous la courbe.',
+        code:"x = var('x')\nf = x^2\nprint(\"Aire entre 0 et 1 =\", integrate(f, (x, 0, 1)))\nplot(f, (x, 0, 1), fill=True, fillcolor='gold', color='blue')" },
+      { key:'complexe', label:'Nombres complexes', caption:'module, argument, équation dans ℂ.',
+        code:"z = 1 + I\nprint(\"module =\", abs(z), \" argument =\", arg(z))\nprint(\"(1+i)^6 =\", expand((1 + I)^6))\nx = var('x')\nprint(\"Racines de z^2-2z+2 :\", solve(x^2 - 2*x + 2 == 0, x))" },
+      { key:'arith', label:'Arithmétique dans ℤ', caption:'PGCD, décomposition, primalité, congruence.',
+        code:"print(\"PGCD(1071, 462) =\", gcd(1071, 462))\nprint(\"360 =\", factor(360))\nprint(\"561 premier ?\", is_prime(561))\nprint(\"7x = 3 (mod 11) : x =\", mod(3, 11) / mod(7, 11))" }
+    ],
+    cpge: [
+      { key:'taylor', label:'Développement limité', caption:'DL de eˣ à l’ordre 6 en 0.',
+        code:"x = var('x')\nprint(taylor(exp(x), x, 0, 6))" },
+      { key:'matrice', label:'Algèbre linéaire', caption:'valeurs propres, déterminant, diagonalisation.',
+        code:"A = matrix([[2, 1], [1, 2]])\nprint(\"det =\", A.det())\nprint(\"valeurs propres :\", A.eigenvalues())\nP, D = A.eigenmatrix_right()\nprint(\"D =\", D)" },
+      { key:'serie', label:'Séries', caption:'sommes de séries convergentes et divergentes.',
+        code:"k = var('k')\nprint(\"Somme 1/k^2 (k>=1) :\", sum(1/k^2, k, 1, oo))\nprint(\"Somme 1/k (k>=1) :\", sum(1/k, k, 1, oo))" },
+      { key:'edo', label:'Équation différentielle', caption:'résolution de y′ + y = x.',
+        code:"x = var('x')\ny = function('y')(x)\nprint(desolve(diff(y, x) + y == x, y, ivar=x))" },
+      { key:'impropre', label:'Intégrale impropre', caption:'intégrale généralisée sur [0, +∞[.',
+        code:"x = var('x')\nprint(\"integrale de e^{-x} sur [0,+oo) =\", integrate(exp(-x), x, 0, oo))\nprint(\"integrale de 1/(1+x^2) sur [0,+oo) =\", integrate(1/(1+x^2), x, 0, oo))" }
+    ]
+  };
+
+  var current = 'lycee', made = false;
+
+  function renderButtons(level){
+    presetsBar.innerHTML = '';
+    SETS[level].forEach(function(ex){
+      var b = document.createElement('button');
+      b.textContent = ex.label; b.setAttribute('data-key', ex.key);
+      presetsBar.appendChild(b);
+    });
+  }
+
+  function editor(){
+    var cm = document.querySelector('#sage-cell .CodeMirror');
+    return (cm && cm.CodeMirror) ? cm.CodeMirror : null;
+  }
+  function setCode(code){
+    var ed = editor();
+    if (ed){ ed.setValue(code); return true; }
+    var ta = document.querySelector('#sage-cell textarea');
+    if (ta){ ta.value = code; return true; }
+    return false;
+  }
+  function loadPreset(level, key){
+    var ex = SETS[level].filter(function(e){ return e.key === key; })[0] || SETS[level][0];
+    setCode(ex.code);
+    caption.textContent = 'Exemple : ' + ex.caption;
+  }
+
+  presetsBar.addEventListener('click', function(evt){
+    var btn = evt.target.closest('button'); if(!btn) return;
+    loadPreset(current, btn.getAttribute('data-key'));
+  });
+  levelsBar.addEventListener('click', function(evt){
+    var btn = evt.target.closest('button'); if(!btn) return;
+    current = btn.getAttribute('data-lvl');
+    Array.prototype.forEach.call(levelsBar.children, function(c){ c.setAttribute('aria-selected', c===btn?'true':'false'); });
+    renderButtons(current);
+    loadPreset(current, SETS[current][0].key);
+  });
+
+  var h = (location.hash || '').toLowerCase();
+  if (h.indexOf('cpge') > -1 || h.indexOf('prepa') > -1) {
+    current = 'cpge';
+    levelsBar.children[0].setAttribute('aria-selected','false');
+    levelsBar.children[1].setAttribute('aria-selected','true');
+  }
+  renderButtons(current);
+
+  if (typeof sagecell === 'undefined') {
+    document.getElementById('fallback').style.display = 'block';
+    document.getElementById('sage-cell').style.display = 'none';
+    caption.textContent = '';
+    return;
+  }
+
+  sagecell.makeSagecell({
+    inputLocation:'#sage-cell', languages:['sage'], evalButtonText:'Évaluer',
+    autoeval:false, hide:['permalink'],
+    code: SETS[current][0].code,
+    callback:function(){ made = true; caption.textContent = 'Exemple : ' + SETS[current][0].caption; }
+  });
+})();
+</script>
+</body>
+</html>

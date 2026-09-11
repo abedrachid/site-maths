@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculatrice graphique Desmos — MathsElites</title>
+<meta name="description" content="Calculatrice graphique Desmos avec exemples préchargés Lycée SM et CPGE — MathsElites.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#0b1a2f; --surface:#122744; --surface-2:#0e2039;
+  --ink:#eef3fb; --muted:#a9bcd8; --line:#22395b;
+  --blue:#3f74d6; --blue-solid:#1d4ed8; --gold:#C9A227; --cyan:#0891b2; --teal:#10b981;
+  --disp:"Fraunces",Georgia,serif; --text:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--text); font-size:15px; line-height:1.55; -webkit-font-smoothing:antialiased;}
+.topbar{
+  display:flex; align-items:center; gap:14px; padding:10px 18px;
+  background:linear-gradient(135deg,#0c2036,#123156); border-bottom:2px solid var(--gold);
+}
+.topbar a.back{color:#dfe8f7; text-decoration:none; font-weight:600; font-size:13.5px; display:inline-flex; align-items:center; gap:6px}
+.topbar a.back:hover{color:#fff}
+.topbar .brand{margin-left:auto; font-weight:700; letter-spacing:.02em; color:#fff; font-size:14px}
+.topbar .brand em{font-style:italic; color:#c9a8e0}
+.wrap{max-width:1080px; margin:0 auto; padding:20px 18px 40px}
+.head{margin:6px 2px 14px}
+.kicker{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-weight:600; margin:0 0 4px}
+h1{font-family:var(--disp); font-weight:600; font-size:clamp(22px,3.4vw,30px); margin:0; letter-spacing:-.01em}
+.sub{color:var(--muted); font-size:13.5px; margin:5px 0 0}
+.levels{display:inline-flex; background:var(--surface-2); border:1px solid var(--line); border-radius:999px; padding:3px; margin:14px 0 4px}
+.levels button{
+  font-family:var(--text); font-weight:600; font-size:13px; color:var(--muted);
+  background:transparent; border:0; padding:7px 16px; border-radius:999px; cursor:pointer; transition:.15s;
+}
+.levels button[aria-selected="true"]{background:var(--blue-solid); color:#fff}
+.presets{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 4px}
+.presets button{
+  font-family:var(--text); font-weight:500; font-size:12.5px; color:#dbe6fa;
+  background:var(--surface); border:1px solid var(--line); border-radius:20px;
+  padding:6px 13px; cursor:pointer; transition:.15s;
+}
+.presets button:hover{background:var(--blue-solid); border-color:var(--blue-solid); color:#fff}
+.presets button:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+.hint{font-size:12px; color:var(--muted); margin:.5em 2px 0}
+.calc-shell{margin-top:12px; border:1px solid var(--line); border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,.35); background:#fff}
+#calculator{width:100%; height:min(70vh,560px)}
+.calc-fallback{display:none; padding:26px 22px; text-align:center; color:var(--muted); font-size:13px; background:var(--surface-2)}
+.calc-fallback b{color:var(--ink)}
+.note{margin-top:16px; background:var(--surface-2); border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:8px; padding:11px 14px; font-size:12.7px; color:var(--muted)}
+.note b{color:var(--ink)}
+code{font-family:"SFMono-Regular",Consolas,Menlo,monospace; background:var(--surface); border:1px solid var(--line); border-radius:4px; padding:1px 5px; font-size:12px; color:#dbe6fa}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="/">← Retour à MathsElites</a>
+  <span class="brand">Maths<em>Elites</em></span>
+</div>
+
+<div class="wrap">
+  <div class="head">
+    <p class="kicker">Outil interactif · Desmos</p>
+    <h1>Calculatrice graphique</h1>
+    <p class="sub">Tracer, explorer, vérifier. Choisis un niveau, puis un exemple.</p>
+    <div class="levels" id="levels" role="tablist" aria-label="Niveau">
+      <button role="tab" data-lvl="lycee" aria-selected="true">Lycée SM</button>
+      <button role="tab" data-lvl="cpge" aria-selected="false">CPGE</button>
+    </div>
+  </div>
+
+  <div class="presets" id="presets"></div>
+  <p class="hint" id="preset-caption">Chargement…</p>
+
+  <div class="calc-shell">
+    <div id="calculator" role="application" aria-label="Calculatrice graphique Desmos"></div>
+    <div class="calc-fallback" id="fallback">
+      <p><b>La calculatrice n'a pas pu se charger.</b></p>
+      <p>Elle nécessite une connexion à Internet (script hébergé par Desmos).</p>
+    </div>
+  </div>
+
+  <p class="note"><b>Astuce.</b> Desmos donne le tracé et les valeurs, mais pas la rédaction rigoureuse attendue à l'examen : sers-t'en pour vérifier et visualiser.</p>
+</div>
+
+<script src="https://www.desmos.com/api/v1.12/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+<script>
+(function(){
+  var host = document.getElementById('calculator');
+  var caption = document.getElementById('preset-caption');
+  var presetsBar = document.getElementById('presets');
+
+  if (typeof Desmos === 'undefined') {
+    document.getElementById('fallback').style.display = 'block';
+    host.style.display = 'none';
+    caption.textContent = '';
+    return;
+  }
+
+  var calc = Desmos.GraphingCalculator(host, {
+    language:'fr', expressions:true, settingsMenu:true, keypad:true, border:false, autosize:true
+  });
+
+  var C = Desmos.Colors, S = Desmos.Styles;
+
+  var SETS = {
+    lycee: [
+      { key:'etude', label:'Étude de fonction + dérivée',
+        caption:'f(x)=x³−3x et sa dérivée f′(x)=3x²−3.',
+        exprs:[{id:'f',latex:'f(x)=x^{3}-3x',color:C.BLUE},{id:'fp',latex:"f'(x)=3x^{2}-3",color:C.RED}],
+        bounds:{left:-4,right:4,bottom:-6,top:6} },
+      { key:'tangente', label:'Tangente mobile',
+        caption:'déplace le curseur a pour suivre la tangente.',
+        exprs:[{id:'f',latex:'f(x)=x^{3}-3x',color:C.BLUE},{id:'a',latex:'a=1',sliderBounds:{min:-3,max:3,step:0.1}},
+               {id:'pt',latex:'(a,\\ f(a))',color:C.PURPLE},{id:'tg',latex:"y=f'(a)(x-a)+f(a)",color:C.ORANGE}],
+        bounds:{left:-4,right:4,bottom:-6,top:6} },
+      { key:'explog', label:'Exponentielle & logarithme',
+        caption:'f(x)=eˣ et g(x)=ln(x), symétriques par rapport à y=x.',
+        exprs:[{id:'f',latex:'f(x)=e^{x}',color:C.BLUE},{id:'g',latex:'g(x)=\\ln(x)',color:C.GREEN},
+               {id:'d',latex:'y=x',color:C.BLACK,lineStyle:S.DASHED}],
+        bounds:{left:-3,right:5,bottom:-3,top:5} },
+      { key:'trig', label:'Fonctions trigonométriques',
+        caption:'sin et cos (radians).',
+        exprs:[{id:'s',latex:'\\sin(x)',color:C.BLUE},{id:'c',latex:'\\cos(x)',color:C.RED}],
+        bounds:{left:-6.5,right:6.5,bottom:-2,top:2} },
+      { key:'famille', label:'Famille avec paramètre',
+        caption:'fais varier a dans f(x)=a·x².',
+        exprs:[{id:'a',latex:'a=1',sliderBounds:{min:-3,max:3,step:0.1}},{id:'f',latex:'f(x)=ax^{2}',color:C.BLUE}],
+        bounds:{left:-4,right:4,bottom:-6,top:6} },
+      { key:'suite', label:'Suite récurrente (escalier)',
+        caption:'uₙ₊₁ = uₙ/2 + 1 : fonction et droite y=x (point fixe 2).',
+        exprs:[{id:'f',latex:'f(x)=\\frac{x}{2}+1',color:C.BLUE},{id:'d',latex:'y=x',color:C.BLACK,lineStyle:S.DASHED},
+               {id:'p',latex:'(2,2)',color:C.RED,label:'point fixe',showLabel:true}],
+        bounds:{left:-1,right:5,bottom:-1,top:5} }
+    ],
+    cpge: [
+      { key:'dl_sin', label:'Développement limité (sin)',
+        caption:'sin(x) et son DL₅ : x − x³/6 + x⁵/120.',
+        exprs:[{id:'f',latex:'\\sin(x)',color:C.BLUE},{id:'p',latex:'x-\\frac{x^{3}}{6}+\\frac{x^{5}}{120}',color:C.RED}],
+        bounds:{left:-6.5,right:6.5,bottom:-2.5,top:2.5} },
+      { key:'serie_exp', label:'Somme partielle (exp)',
+        caption:'eˣ et son polynôme de Taylor d’ordre 3 : 1+x+x²/2+x³/6.',
+        exprs:[{id:'f',latex:'e^{x}',color:C.BLUE},{id:'p',latex:'1+x+\\frac{x^{2}}{2}+\\frac{x^{3}}{6}',color:C.RED}],
+        bounds:{left:-3,right:3,bottom:-1,top:8} },
+      { key:'lissajous', label:'Courbe paramétrée (Lissajous)',
+        caption:'(cos t, sin 2t) pour t ∈ [0, 2π].',
+        exprs:[{id:'c',latex:'(\\cos t,\\ \\sin 2t)',parametricDomain:{min:'0',max:'2\\pi'},color:C.PURPLE}],
+        bounds:{left:-1.6,right:1.6,bottom:-1.4,top:1.4} },
+      { key:'edo', label:'Famille de solutions d’EDO',
+        caption:'y = C·e⁻ˣ, solutions de y′+y=0 ; fais varier C.',
+        exprs:[{id:'C',latex:'C=1',sliderBounds:{min:-3,max:3,step:0.2}},{id:'y',latex:'y=Ce^{-x}',color:C.GREEN}],
+        bounds:{left:-2,right:5,bottom:-4,top:4} },
+      { key:'convergence', label:'Convergence de xⁿ',
+        caption:'xⁿ sur [0,1] : fais varier n pour observer la limite simple.',
+        exprs:[{id:'n',latex:'n=2',sliderBounds:{min:1,max:40,step:1}},{id:'f',latex:'f(x)=x^{n}',color:C.BLUE}],
+        bounds:{left:0,right:1.05,bottom:-0.1,top:1.1} }
+    ]
+  };
+
+  var current = 'lycee';
+
+  function renderButtons(level){
+    presetsBar.innerHTML = '';
+    SETS[level].forEach(function(ex){
+      var b = document.createElement('button');
+      b.textContent = ex.label;
+      b.setAttribute('data-key', ex.key);
+      presetsBar.appendChild(b);
+    });
+  }
+
+  function loadPreset(level, key){
+    var ex = SETS[level].filter(function(e){ return e.key === key; })[0] || SETS[level][0];
+    calc.setBlank();
+    ex.exprs.forEach(function(e){ calc.setExpression(e); });
+    if (ex.bounds) calc.setMathBounds(ex.bounds);
+    caption.textContent = 'Exemple : ' + ex.caption;
+  }
+
+  presetsBar.addEventListener('click', function(evt){
+    var btn = evt.target.closest('button'); if(!btn) return;
+    loadPreset(current, btn.getAttribute('data-key'));
+  });
+
+  var levelsBar = document.getElementById('levels');
+  levelsBar.addEventListener('click', function(evt){
+    var btn = evt.target.closest('button'); if(!btn) return;
+    current = btn.getAttribute('data-lvl');
+    Array.prototype.forEach.call(levelsBar.children, function(c){
+      c.setAttribute('aria-selected', c === btn ? 'true' : 'false');
+    });
+    renderButtons(current);
+    loadPreset(current, SETS[current][0].key);
+  });
+
+  // Niveau initial depuis l'ancre d'URL (#cpge, #prepas → CPGE)
+  var h = (location.hash || '').toLowerCase();
+  if (h.indexOf('cpge') > -1 || h.indexOf('prepa') > -1) {
+    current = 'cpge';
+    levelsBar.children[0].setAttribute('aria-selected','false');
+    levelsBar.children[1].setAttribute('aria-selected','true');
+  }
+  renderButtons(current);
+  loadPreset(current, SETS[current][0].key);
+})();
+</script>
+</body>
+</html>

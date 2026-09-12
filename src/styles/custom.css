@@ -949,3 +949,15 @@ header.header {
   .me-vfacade--short .me-vfacade-thumb{ width:58px; height:103px; }
   .me-vfacade-title{ font-size:.98rem; }
 }
+
+/* ------------------------------------------------------------------
+   Correctif radicaux KaTeX (√, racines).
+   Starlight applique aux <svg> du contenu : display:block; max-width:100%;
+   height:auto — ce qui écrase le SVG du symbole racine de KaTeX (qui
+   attend height:inherit) et le rend invisible. On restaure le comportement
+   attendu par KaTeX, sur toutes les pages (Markdown + composants).
+   ------------------------------------------------------------------ */
+.sl-markdown-content .katex svg {
+  height: inherit !important;
+  max-width: none !important;
+}

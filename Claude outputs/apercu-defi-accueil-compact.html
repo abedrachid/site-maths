@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Défi accueil compact</title>
+<style>
+body{font-family:system-ui,Arial;margin:0;padding:18px;background:#0d1526;color:#dfe7f5}
+.defi-hero{position:relative;overflow:hidden;margin:.5rem 0 1.6rem;padding:1.05rem 1.2rem 1.15rem;border-radius:14px;border:1px solid #2a3f66;border-left:6px solid #C9A227;background:linear-gradient(135deg,#0b1f3a,#123156 60%,#0e2647);box-shadow:0 16px 40px rgba(4,12,28,.45);color:#eef3fb}
+.defi-hero::after{content:"";position:absolute;top:-60px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,#C9A227 0%,transparent 68%);opacity:.16}
+.defi-ribbon{position:relative;display:inline-flex;align-items:center;gap:.45rem;font-weight:800;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#2a2100;background:#C9A227;padding:.3rem .8rem;border-radius:999px}
+.defi-sub{position:relative;margin:.6rem 0 0;max-width:62ch;font-size:.86rem;line-height:1.5;color:#cdd9ee}
+.defi-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem;margin-top:.9rem}
+.defi-card{display:flex;flex-direction:column;gap:.3rem;text-decoration:none;color:inherit;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-left:4px solid var(--accent);border-radius:11px;padding:.85rem 1rem}
+.defi-niv{font-size:.72rem;font-weight:700;color:var(--accent)}
+.defi-theme{font-size:.7rem;font-weight:600;color:#aec3e4;text-transform:uppercase;letter-spacing:.04em}
+.defi-title{font-family:Georgia,serif;font-weight:700;font-size:1.02rem;line-height:1.18;color:#fff;margin:.1rem 0 .4rem}
+.defi-cta{margin-top:auto;align-self:flex-start;font-weight:800;font-size:.82rem;color:#05131f;background:var(--accent);padding:.42rem .95rem;border-radius:999px;display:inline-flex;gap:.4rem}
+</style></head><body>
+<section class="defi-hero"><span class="defi-ribbon"><span>★</span> Défi de la semaine</span>
+<p class="defi-sub">Un nouveau problème chaque semaine — Olympiades, CPGE, Bac SM. Choisissez votre niveau et relevez le défi.</p>
+<div class="defi-grid"><a class="defi-card" style="--accent:#22d3ee"><span class="defi-niv">Première Bac SM</span><span class="defi-theme">Logique et raisonnement</span><span class="defi-title">Irrationalité de √2 + √3</span><span class="defi-cta">Relever le défi <span>→</span></span></a><a class="defi-card" style="--accent:#60a5fa"><span class="defi-niv">Terminale SM</span><span class="defi-theme">Limites et continuité</span><span class="defi-title">Équation fonctionnelle de Cauchy</span><span class="defi-cta">Relever le défi <span>→</span></span></a></div></section>
+</body></html>

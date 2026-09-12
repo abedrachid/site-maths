@@ -1,27 +1,24 @@
 ---
 /*
-  MathsElites — Problème de la semaine
-  Alimenté par src/data/problemes.json (une entrée par semaine).
-  - Le « problème courant » = l'entrée la plus récente dont la date est ≤ aujourd'hui.
-  - Sa solution reste cachée ; elle apparaît dans les Archives la semaine suivante.
-  - Formules rendues avec KaTeX côté serveur (CSS KaTeX chargée globalement).
+  MathsElites — Problème de la semaine (une banque par niveau)
+  Usage :  <ProblemeSemaine banque="premiere" />  ou  banque="terminale"
+  Données : src/data/problemes-premiere.json / problemes-terminale.json
+  Formules PRÉ-RENDUES en SVG autonome (champs *Html) : aucun rendu à l'exécution.
+  Régénération après édition des énoncés : node scripts/render-problemes.mjs
 */
-import problemes from '../data/problemes.json';
-import katex from 'katex';
+import premiereData from '../data/problemes-premiere.json';
+import terminaleData from '../data/problemes-terminale.json';
+
+const { banque = 'premiere' } = Astro.props;
+const BANQUES = {
+  premiere:  { data: premiereData,  label: 'Première Bac SM' },
+  terminale: { data: terminaleData, label: 'Terminale SM' },
+};
+const conf = BANQUES[banque] || BANQUES.premiere;
+const problemes = conf.data;
+const niveauLabel = conf.label;
 
 const WA_NUMBER = '212661892588';
-
-function renderMath(str) {
-  if (!str) return '';
-  let out = str.replace(/\$\$([\s\S]+?)\$\$/g, (_, e) =>
-    katex.renderToString(e.trim(), { displayMode: true, throwOnError: false })
-  );
-  out = out.replace(/\$([^$]+?)\$/g, (_, e) =>
-    katex.renderToString(e.trim(), { displayMode: false, throwOnError: false })
-  );
-  out = out.replace(/\n{2,}/g, '</p><p>').replace(/\n/g, '<br>');
-  return '<p>' + out + '</p>';
-}
 
 const MOIS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 function semaineDu(iso) {
@@ -29,66 +26,67 @@ function semaineDu(iso) {
   return 'Semaine du ' + d.getDate() + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear();
 }
 
-const NIVEAU_COULEUR = {
-  'Terminale SM': '#1d4ed8',
-  'Première SM': '#0891b2',
-  'CPGE': '#059669',
-  'Olympiades': '#C9A227',
+const THEME_COULEUR = {
+  'Logique et raisonnement': '#3b82f6',
+  'Ensembles et applications': '#0891b2',
+  'Généralités sur les fonctions': '#7c3aed',
+  'Suites & récurrence': '#C9A227',
+  'Limites et continuité': '#3b82f6',
+  'Dérivabilité (Rolle, TAF)': '#10b981',
+  'Primitives': '#C9A227',
+  'Fonctions ln & exp': '#7c3aed',
 };
-function couleur(niveau) { return NIVEAU_COULEUR[niveau] || '#1d4ed8'; }
+function couleur(theme) { return THEME_COULEUR[theme] || '#3b82f6'; }
 
 const aujourdhui = new Date();
-const tries = [...problemes]
-  .filter((p) => p.date)
-  .sort((a, b) => (a.date < b.date ? 1 : -1)); // décroissant par date
+const tries = [...problemes].filter((p) => p.date).sort((a, b) => (a.date < b.date ? 1 : -1));
 const visibles = tries.filter((p) => new Date(p.date + 'T00:00:00') <= aujourdhui);
-
 const courant = visibles[0];
 const archives = visibles.slice(1);
 
 const waHref = courant
   ? 'https://wa.me/' + WA_NUMBER + '?text=' +
-    encodeURIComponent('Bonjour MathsElites, voici ma solution au Problème de la semaine « ' + courant.titre + ' » : ')
+    encodeURIComponent('Bonjour MathsElites (' + niveauLabel + '), voici ma solution au Problème de la semaine « ' + courant.titre + ' » : ')
   : 'https://wa.me/' + WA_NUMBER;
 ---
 
 {courant ? (
   <div class="pdsem">
-    <div class="banner" style={`--accent:${couleur(courant.niveau)}`}>
-      <div class="banner-top">
-        <span class="star">★</span>
-        <span class="ktitre">Problème de la semaine</span>
-        <span class="niv">{courant.niveau}</span>
+    <section class="hero" style={`--accent:${couleur(courant.theme)}`}>
+      <div class="hero-ribbon"><span class="star">★</span> Défi de la semaine · {niveauLabel}</div>
+      <div class="hero-meta">
+        <span class="hero-theme">{courant.theme}</span>
+        <span class="hero-date">{semaineDu(courant.date)}</span>
       </div>
-      <h2 class="titre">{courant.titre}</h2>
-      <p class="date">{semaineDu(courant.date)}</p>
-    </div>
-
-    <div class="enonce" set:html={renderMath(courant.enonce)} />
-
-    <div class="actions">
-      <a class="btn-wa" href={waHref} target="_blank" rel="noopener">💬 Soumettre ma solution (WhatsApp)</a>
-      <details class="indice">
-        <summary>💡 Voir un indice</summary>
-        <div set:html={renderMath(courant.indice)} />
-      </details>
-    </div>
-
-    <p class="note">🔒 La solution détaillée sera publiée dans les archives la semaine prochaine. À vos crayons !</p>
+      <h2 class="hero-title">{courant.titre}</h2>
+      <div class="hero-enonce not-content" set:html={courant.enonceHtml} />
+      <div class="hero-actions">
+        <a class="btn-wa" href={waHref} target="_blank" rel="noopener">💬 Soumettre ma solution</a>
+        <details class="indice">
+          <summary>💡 Voir un indice</summary>
+          <div class="not-content" set:html={courant.indiceHtml} />
+        </details>
+      </div>
+      <p class="hero-note">🔒 La solution détaillée paraîtra dans les archives la semaine prochaine. À vos crayons&nbsp;!</p>
+    </section>
 
     {archives.length > 0 && (
       <div class="archives">
         <h3 class="arch-titre">📚 Archives &amp; solutions</h3>
         {archives.map((p) => (
-          <details class="arch-item" style={`--accent:${couleur(p.niveau)}`}>
+          <details class="arch-item" style={`--accent:${couleur(p.theme)}`}>
             <summary>
-              <span class="arch-niv">{p.niveau}</span>
+              <span class="arch-niv">{p.theme}</span>
               <span class="arch-name">{p.titre}</span>
               <span class="arch-date">{semaineDu(p.date)}</span>
             </summary>
-            <div class="arch-enonce" set:html={renderMath(p.enonce)} />
+            <div class="arch-enonce not-content" set:html={p.enonceHtml} />
+            <details class="arch-indice">
+              <summary>💡 Indice</summary>
+              <div class="not-content" set:html={p.indiceHtml} />
+            </details>
             <div class="arch-sol-label">Solution</div>
-            <div class="arch-sol" set:html={renderMath(p.solution)} />
+            <div class="arch-sol not-content" set:html={p.solutionHtml} />
           </details>
         ))}
       </div>
@@ -98,91 +96,125 @@ const waHref = courant
   <p>Aucun problème publié pour le moment — revenez très bientôt !</p>
 )}
 
+<style is:global>
+  mjx-container[jax="SVG"]{direction:ltr}
+  mjx-container[jax="SVG"]>svg{overflow:visible;min-height:1px;min-width:1px}
+  mjx-container[jax="SVG"][display="true"]{display:block;text-align:center;margin:1em 0;overflow-x:auto;overflow-y:hidden;max-width:100%}
+  mjx-container[jax="SVG"][justify="left"]{text-align:left}
+  mjx-container svg{fill:currentColor}
+  mjx-container{color:inherit}
+</style>
+
 <style>
   .pdsem { margin: 1.2rem 0 2rem; }
 
-  .banner {
-    background: linear-gradient(135deg, #0c2036, #123156);
-    border: 1px solid var(--sl-color-gray-5);
-    border-left: 5px solid var(--accent);
-    border-radius: 14px;
-    padding: 1.2rem 1.4rem;
-    color: #fff;
+  /* ============ CARTE HÉRO — DÉFI DE LA SEMAINE ============ */
+  .hero {
+    position: relative;
+    overflow: hidden;
+    margin: 1.2rem 0 1.8rem;
+    padding: 1.7rem 1.8rem 1.6rem;
+    border-radius: 18px;
+    border: 1px solid #24406a;
+    border-left: 6px solid var(--accent);
+    background: linear-gradient(135deg, #0b1f3a 0%, #123156 60%, #0e2647 100%);
+    box-shadow: 0 16px 40px rgba(4, 12, 28, 0.45);
+    color: #eef3fb;
   }
-  .banner-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
-  .star { color: var(--accent); font-size: 1.1rem; }
-  .ktitre {
-    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-    font-weight: 700; color: #dfe8f7;
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: -60px; right: -40px;
+    width: 260px; height: 260px;
+    background: radial-gradient(circle, var(--accent) 0%, transparent 68%);
+    opacity: 0.18;
+    pointer-events: none;
   }
-  .niv {
-    margin-left: auto; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
-    color: #04121f; background: var(--accent); padding: 0.15rem 0.6rem; border-radius: 999px;
+  .hero-ribbon {
+    position: relative;
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    font-family: var(--me-font-display, "Archivo", sans-serif);
+    font-weight: 800; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #05131f; background: var(--accent);
+    padding: 0.4rem 0.9rem; border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
   }
-  .titre {
+  .hero-ribbon .star { font-size: 0.85rem; line-height: 1; }
+  .hero-meta { position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin: 0.85rem 0 0.15rem; }
+  .hero-theme {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.03em;
+    color: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 0.12rem 0.7rem;
+    background: rgba(255,255,255,0.04);
+  }
+  .hero-date { font-size: 0.82rem; color: #aec3e4; }
+  .hero-title {
+    position: relative;
     font-family: var(--me-font-display, Georgia, serif);
-    font-size: 1.35rem; font-weight: 600; margin: 0.1rem 0 0.2rem; border: none; color: #fff;
+    font-weight: 700; font-size: clamp(1.5rem, 3.2vw, 2.05rem);
+    line-height: 1.12; margin: 0.35rem 0 0.9rem; border: none; color: #ffffff;
+    letter-spacing: -0.01em; text-wrap: balance;
   }
-  .date { margin: 0; font-size: 0.82rem; color: #b9c8e6; }
-
-  .enonce {
-    margin: 1rem 0 1.1rem; padding: 1rem 1.2rem;
-    background: var(--sl-color-gray-6, #0e2039); border: 1px solid var(--sl-color-gray-5);
-    border-radius: 12px; font-size: 1.02rem; line-height: 1.7;
+  .hero-enonce {
+    position: relative;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 13px;
+    padding: 1.05rem 1.25rem;
+    font-size: 1.1rem; line-height: 1.8; color: #f2f6fc;
   }
-  .enonce :global(p) { margin: 0.4em 0; }
+  .hero-enonce :global(p) { margin: 0.45em 0; }
+  .hero-enonce :global(p:first-child) { margin-top: 0; }
+  .hero-enonce :global(p:last-child) { margin-bottom: 0; }
 
-  .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+  .hero-actions { position: relative; display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; margin-top: 1.15rem; }
   .btn-wa {
-    display: inline-block; background: #25D366; color: #04231a; font-weight: 700;
-    padding: 0.6rem 1.2rem; border-radius: 999px; text-decoration: none; font-size: 0.9rem;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: #25D366; color: #04231a; font-weight: 800; font-size: 0.95rem;
+    padding: 0.72rem 1.4rem; border-radius: 999px; text-decoration: none;
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
   }
-  .btn-wa:hover { filter: brightness(1.05); }
+  .btn-wa:hover { filter: brightness(1.06); }
 
-  details.indice { flex: 1; min-width: 200px; }
-  details.indice > summary,
-  details.arch-item > summary {
-    cursor: pointer; font-weight: 600; color: var(--sl-color-white);
-    list-style: none; user-select: none;
+  details.indice { }
+  details.indice > summary {
+    cursor: pointer; font-weight: 700; color: #eef3fb; list-style: none; user-select: none;
+    padding: 0.62rem 1.1rem; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; display: inline-block; font-size: 0.9rem;
   }
-  details.indice > summary { padding: 0.5rem 0.9rem; background: var(--sl-color-gray-6, #0e2039);
-    border: 1px solid var(--sl-color-gray-5); border-radius: 999px; display: inline-block; font-size: 0.85rem; }
   details.indice[open] > summary { border-radius: 12px 12px 0 0; }
   details.indice > div {
-    padding: 0.7rem 1rem; border: 1px solid var(--sl-color-gray-5); border-top: 0;
-    border-radius: 0 12px 12px 12px; background: var(--sl-color-gray-6, #0e2039); font-size: 0.92rem;
+    padding: 0.8rem 1.1rem; border: 1px solid rgba(255,255,255,0.18); border-top: 0;
+    border-radius: 0 12px 12px 12px; background: rgba(255,255,255,0.05); font-size: 0.96rem; color: #e7eefb;
   }
 
-  .note {
-    margin: 1.1rem 0 0; font-size: 0.85rem; color: var(--sl-color-gray-3);
-    background: var(--sl-color-gray-6, #0e2039); border-left: 3px solid #C9A227;
+  .hero-note {
+    position: relative;
+    margin: 1.1rem 0 0; font-size: 0.85rem; color: #cdd9ee;
+    background: rgba(0,0,0,0.22); border-left: 3px solid var(--accent);
     border-radius: 8px; padding: 0.7rem 0.95rem;
   }
 
+  /* ============ ARCHIVES ============ */
   .archives { margin-top: 2rem; }
-  .arch-titre {
-    font-family: var(--me-font-display, Georgia, serif); font-size: 1.15rem; font-weight: 600;
-    margin: 0 0 0.8rem; border: none; color: var(--sl-color-white);
-  }
-  details.arch-item {
-    border: 1px solid var(--sl-color-gray-5); border-left: 4px solid var(--accent);
-    border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 0.7rem;
-    background: var(--sl-color-black);
-  }
-  details.arch-item > summary { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
-  .arch-niv {
-    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; color: #04121f;
-    background: var(--accent); padding: 0.12rem 0.55rem; border-radius: 999px;
-  }
+  .arch-titre { font-family: var(--me-font-display, Georgia, serif); font-size: 1.2rem; font-weight: 700; margin: 0 0 0.8rem; border: none; color: var(--sl-color-white); }
+  details.arch-item { border: 1px solid var(--sl-color-gray-5); border-left: 4px solid var(--accent); border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 0.7rem; background: var(--sl-color-black); }
+  details.arch-item > summary { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; cursor: pointer; list-style: none; user-select: none; }
+  .arch-niv { font-size: 0.64rem; font-weight: 700; color: #04121f; background: var(--accent); padding: 0.12rem 0.55rem; border-radius: 999px; }
   .arch-name { font-weight: 600; color: var(--sl-color-white); }
   .arch-date { margin-left: auto; font-size: 0.76rem; color: var(--sl-color-gray-3); }
-  .arch-enonce { margin: 0.8rem 0 0.6rem; font-size: 0.95rem; line-height: 1.6; }
-  .arch-sol-label {
-    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--accent); margin: 0.6rem 0 0.2rem;
-  }
-  .arch-sol { font-size: 0.93rem; line-height: 1.65; }
+  .arch-enonce { margin: 0.8rem 0 0.6rem; font-size: 0.98rem; line-height: 1.6; }
+  details.arch-indice { margin: 0.3rem 0 0.6rem; }
+  details.arch-indice > summary { cursor: pointer; font-size: 0.82rem; color: var(--sl-color-gray-2); list-style: none; }
+  details.arch-indice > div { margin-top: 0.3rem; font-size: 0.9rem; color: var(--sl-color-gray-2); }
+  .arch-sol-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0.6rem 0 0.2rem; }
+  .arch-sol { font-size: 0.95rem; line-height: 1.65; }
   .arch-sol :global(p), .arch-enonce :global(p) { margin: 0.4em 0; }
 
   details > summary::-webkit-details-marker { display: none; }
+
+  @media (max-width: 540px) {
+    .hero { padding: 1.3rem 1.2rem; }
+    .hero-enonce { padding: 0.9rem 1rem; font-size: 1.04rem; }
+    .btn-wa, details.indice > summary { width: 100%; justify-content: center; text-align: center; }
+  }
 </style>

@@ -1,10 +1,25 @@
 ---
 title: Problème de la semaine
-description: Un défi mathématique chaque semaine — Olympiades, CPGE et Terminale SM. Proposez votre solution !
+description: Un défi mathématique chaque semaine — choisissez votre niveau.
 ---
 
-import ProblemeSemaine from '../../components/ProblemeSemaine.astro';
+Un nouveau défi chaque semaine, avec un indice puis la solution. Choisissez votre niveau :
 
-Chaque semaine, un nouveau défi à chercher — puis à soumettre. La solution du problème précédent est dévoilée dans les archives.
-
-<ProblemeSemaine />
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.5rem 0;">
+  <a href="/premiere/probleme-de-la-semaine" class="me-card" style="text-decoration:none;">
+    <div style="height:100%;padding:1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #0891b2;border-radius:12px;background:var(--sl-color-black);">
+      <div style="font-size:1.8rem;">📖</div>
+      <p style="margin:.4rem 0 .2rem;font-size:1.05rem;font-weight:600;color:var(--sl-color-white);">Première Bac SM</p>
+      <p style="margin:0;font-size:.85rem;color:var(--sl-color-gray-3);">Logique · Ensembles &amp; applications · Fonctions · Suites</p>
+      <span style="display:inline-block;margin-top:.8rem;background:#0891b2;color:#fff;padding:.4rem 1rem;border-radius:999px;font-size:.82rem;font-weight:700;">Relever le défi →</span>
+    </div>
+  </a>
+  <a href="/terminale/probleme-de-la-semaine" class="me-card" style="text-decoration:none;">
+    <div style="height:100%;padding:1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">
+      <div style="font-size:1.8rem;">🎓</div>
+      <p style="margin:.4rem 0 .2rem;font-size:1.05rem;font-weight:600;color:var(--sl-color-white);">Terminale SM</p>
+      <p style="margin:0;font-size:.85rem;color:var(--sl-color-gray-3);">Limites &amp; continuité · Dérivabilité · Primitives · ln &amp; exp</p>
+      <span style="display:inline-block;margin-top:.8rem;background:#1d4ed8;color:#fff;padding:.4rem 1rem;border-radius:999px;font-size:.82rem;font-weight:700;">Relever le défi →</span>
+    </div>
+  </a>
+</div>

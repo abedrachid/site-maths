@@ -1,0 +1,118 @@
+---
+/*
+  MathsElites — Carte « Défi de la semaine » pour la page d'accueil.
+  Affiche les problèmes courants de chaque niveau (Première & Terminale) dans une
+  grande carte mise en avant, avec un bouton vers chaque page de défi.
+*/
+import premiereData from '../data/problemes-premiere.json';
+import terminaleData from '../data/problemes-terminale.json';
+
+function courant(data) {
+  const today = new Date();
+  const vis = [...data]
+    .filter((p) => p.date)
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .filter((p) => new Date(p.date + 'T00:00:00') <= today);
+  return vis[0];
+}
+
+const items = [
+  { label: 'Première Bac SM', href: '/premiere/probleme-de-la-semaine', accent: '#22d3ee', p: courant(premiereData) },
+  { label: 'Terminale SM', href: '/terminale/probleme-de-la-semaine', accent: '#60a5fa', p: courant(terminaleData) },
+];
+---
+
+<section class="defi-hero not-content">
+  <div class="defi-head">
+    <span class="defi-ribbon"><span class="star">★</span> Défi de la semaine</span>
+    <p class="defi-sub">Un nouveau problème chaque semaine — Olympiades, CPGE, Bac&nbsp;SM. Choisissez votre niveau et relevez le défi.</p>
+  </div>
+
+  <div class="defi-grid">
+    {items.map((it) => (
+      <a class="defi-card" href={it.href} style={`--accent:${it.accent}`}>
+        <span class="defi-niv">{it.label}</span>
+        {it.p && <span class="defi-theme">{it.p.theme}</span>}
+        <span class="defi-title">{it.p ? it.p.titre : 'Bientôt disponible'}</span>
+        <span class="defi-cta">Relever le défi <span class="arw">→</span></span>
+      </a>
+    ))}
+  </div>
+</section>
+
+<style>
+  .defi-hero {
+    position: relative; overflow: hidden;
+    margin: 0.5rem 0 1.6rem;
+    padding: 1.05rem 1.2rem 1.15rem;
+    border-radius: 14px;
+    border: 1px solid #2a3f66;
+    border-left: 6px solid #C9A227;
+    background: linear-gradient(135deg, #0b1f3a 0%, #123156 60%, #0e2647 100%);
+    box-shadow: 0 16px 40px rgba(4, 12, 28, 0.45);
+    color: #eef3fb;
+  }
+  .defi-hero::after {
+    content: ""; position: absolute; top: -60px; right: -40px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, #C9A227 0%, transparent 68%);
+    opacity: 0.16; pointer-events: none;
+  }
+  .defi-ribbon {
+    position: relative; display: inline-flex; align-items: center; gap: 0.45rem;
+    font-family: var(--me-font-display, "Archivo", sans-serif);
+    font-weight: 800; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #2a2100; background: #C9A227; padding: 0.3rem 0.8rem; border-radius: 999px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  }
+  .defi-ribbon .star { font-size: 0.82rem; }
+  .defi-sub {
+    position: relative; margin: 0.6rem 0 0; max-width: 62ch;
+    font-size: 0.86rem; line-height: 1.5; color: #cdd9ee;
+  }
+
+  .defi-grid {
+    position: relative; display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem; margin-top: 0.9rem;
+  }
+  .defi-card {
+    display: flex; flex-direction: column; gap: 0.3rem;
+    text-decoration: none; color: inherit;
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-left: 4px solid var(--accent);
+    border-radius: 11px; padding: 0.85rem 1rem;
+    transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+  }
+  .defi-card:hover {
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.09);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+  }
+  .defi-niv {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.03em;
+    color: var(--accent);
+  }
+  .defi-theme {
+    font-size: 0.7rem; font-weight: 600; color: #aec3e4;
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  .defi-title {
+    font-family: var(--me-font-display, Georgia, serif);
+    font-weight: 700; font-size: 1.02rem; line-height: 1.18; color: #ffffff;
+    margin: 0.1rem 0 0.4rem; text-wrap: balance;
+  }
+  .defi-cta {
+    margin-top: auto; align-self: flex-start;
+    font-weight: 800; font-size: 0.82rem; color: #05131f;
+    background: var(--accent); padding: 0.42rem 0.95rem; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+  }
+  .defi-card:hover .arw { transform: translateX(3px); }
+  .arw { transition: transform 0.16s ease; }
+
+  @media (max-width: 520px) {
+    .defi-hero { padding: 1.3rem 1.2rem; }
+  }
+</style>

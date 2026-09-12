@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Défi accueil</title>
+<style>
+body{font-family:system-ui,Arial;margin:0;padding:18px;background:#0d1526;color:#dfe7f5}
+.defi-hero{position:relative;overflow:hidden;margin:.5rem 0;padding:1.7rem 1.8rem 1.8rem;border-radius:18px;border:1px solid #2a3f66;border-left:6px solid #C9A227;background:linear-gradient(135deg,#0b1f3a,#123156 60%,#0e2647);box-shadow:0 16px 40px rgba(4,12,28,.45);color:#eef3fb}
+.defi-hero::after{content:"";position:absolute;top:-70px;right:-40px;width:280px;height:280px;background:radial-gradient(circle,#C9A227 0%,transparent 68%);opacity:.16}
+.defi-ribbon{position:relative;display:inline-flex;align-items:center;gap:.45rem;font-weight:800;font-size:.74rem;letter-spacing:.15em;text-transform:uppercase;color:#2a2100;background:#C9A227;padding:.4rem .95rem;border-radius:999px}
+.defi-sub{position:relative;margin:.85rem 0 0;max-width:60ch;font-size:.98rem;line-height:1.6;color:#cdd9ee}
+.defi-grid{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1.3rem}
+.defi-card{display:flex;flex-direction:column;gap:.4rem;text-decoration:none;color:inherit;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.14);border-left:4px solid var(--accent);border-radius:13px;padding:1.1rem 1.25rem;transition:.16s}
+.defi-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.09);box-shadow:0 12px 26px rgba(0,0,0,.35)}
+.defi-niv{font-size:.72rem;font-weight:700;color:var(--accent)}
+.defi-theme{font-size:.7rem;font-weight:600;color:#aec3e4;text-transform:uppercase;letter-spacing:.04em}
+.defi-title{font-family:Georgia,serif;font-weight:700;font-size:1.18rem;line-height:1.2;color:#fff;margin:.15rem 0 .5rem}
+.defi-cta{margin-top:auto;align-self:flex-start;font-weight:800;font-size:.9rem;color:#05131f;background:var(--accent);padding:.5rem 1.1rem;border-radius:999px;display:inline-flex;gap:.4rem}
+</style></head><body>
+<section class="defi-hero">
+ <span class="defi-ribbon"><span>★</span> Défi de la semaine</span>
+ <p class="defi-sub">Un nouveau problème chaque semaine — Olympiades, CPGE, Bac SM. Choisissez votre niveau et relevez le défi.</p>
+ <div class="defi-grid"><a class="defi-card" style="--accent:#22d3ee">
+ <span class="defi-niv">Première Bac SM</span>
+ <span class="defi-theme">Logique et raisonnement</span>
+ <span class="defi-title">Irrationalité de √2 + √3</span>
+ <span class="defi-cta">Relever le défi <span class="arw">→</span></span></a><a class="defi-card" style="--accent:#60a5fa">
+ <span class="defi-niv">Terminale SM</span>
+ <span class="defi-theme">Limites et continuité</span>
+ <span class="defi-title">Équation fonctionnelle de Cauchy</span>
+ <span class="defi-cta">Relever le défi <span class="arw">→</span></span></a></div>
+</section>
+</body></html>

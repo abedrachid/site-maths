@@ -218,6 +218,7 @@ export default defineConfig({
           label: '📂 Première Bac SM',
           items: [
             { label: 'Présentation & Chapitres', link: '/premiere/' },
+            { label: '⭐ Problème de la semaine', link: '/premiere/probleme-de-la-semaine' },
 
             /* ── Chapitre 1 : Logique et raisonnement ── */
             {
@@ -301,6 +302,7 @@ export default defineConfig({
           label: '🎓 Terminale Sciences Maths',
           items: [
             { label: 'Présentation', link: '/terminale/' },
+            { label: '⭐ Problème de la semaine', link: '/terminale/probleme-de-la-semaine' },
 
             /* ── Révision (avant les chapitres) ── */
             { label: '🔄 Révision de 1ère Bac SM', link: '/terminale/revision-premiere' },

@@ -9,6 +9,8 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <p style="margin:0;color:#d8c0ea;font-size:.95rem;line-height:1.6;max-width:560px;">Chaque chapitre réunit son <strong style="color:#fff;">cours en PDF</strong> et ses <strong style="color:#fff;">séries d'exercices (planches)</strong>. Choisissez un chapitre pour commencer.</p>
 </div>
 
+<div class="me-outils" data-niveau="terminale"></div>
+
 ## Avant de commencer
 
 <div class="me-card" style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;margin:1rem 0 1.75rem;padding:1.2rem 1.4rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">

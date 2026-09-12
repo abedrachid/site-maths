@@ -9,6 +9,8 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
   <p style="margin:0;color:#dcfce7;font-size:.95rem;line-height:1.6;max-width:560px;">Chaque cours réunit son <strong style="color:#fff;">PDF téléchargeable</strong> et ses <strong style="color:#fff;">séries d'exercices (planches)</strong>. Filières MPSI / MP et PCSI / PC.</p>
 </div>
 
+<div class="me-outils" data-niveau="prepas"></div>
+
 ## 🏆 Concours d'entrée & Excellence
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:1.25rem 0 1.5rem;">

@@ -105,6 +105,11 @@ export default defineConfig({
           tag: 'script',
           attrs: { src: '/qcm.js', defer: true },
         },
+        // Cartes « Outils interactifs » (Desmos, GeoGebra, SageMathCell)
+        {
+          tag: 'script',
+          attrs: { src: '/outils-cards.js', defer: true },
+        },
         // Accès aux corrigés : verrou souple + inscription Brevo. Placé AVANT
         // la visionneuse pour intercepter l'onglet « Corrections » même lors
         // de l'ouverture automatique (lien #doc=…). Config dans le fichier.
@@ -196,6 +201,7 @@ export default defineConfig({
         { label: 'ℹ️ À propos', link: '/a-propos' },
         { label: '✉️ Contact', link: '/contact' },
         { label: '✨ Nouveautés', link: '/nouveautes' },
+        { label: '🧮 Outils interactifs', link: '/outils/' },
         {
           label: '🚀 Stages & cours accélérés',
           items: [

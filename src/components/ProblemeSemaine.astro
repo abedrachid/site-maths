@@ -1,0 +1,188 @@
+---
+/*
+  MathsElites — Problème de la semaine
+  Alimenté par src/data/problemes.json (une entrée par semaine).
+  - Le « problème courant » = l'entrée la plus récente dont la date est ≤ aujourd'hui.
+  - Sa solution reste cachée ; elle apparaît dans les Archives la semaine suivante.
+  - Formules rendues avec KaTeX côté serveur (CSS KaTeX chargée globalement).
+*/
+import problemes from '../data/problemes.json';
+import katex from 'katex';
+
+const WA_NUMBER = '212661892588';
+
+function renderMath(str) {
+  if (!str) return '';
+  let out = str.replace(/\$\$([\s\S]+?)\$\$/g, (_, e) =>
+    katex.renderToString(e.trim(), { displayMode: true, throwOnError: false })
+  );
+  out = out.replace(/\$([^$]+?)\$/g, (_, e) =>
+    katex.renderToString(e.trim(), { displayMode: false, throwOnError: false })
+  );
+  out = out.replace(/\n{2,}/g, '</p><p>').replace(/\n/g, '<br>');
+  return '<p>' + out + '</p>';
+}
+
+const MOIS = ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function semaineDu(iso) {
+  const d = new Date(iso + 'T00:00:00');
+  return 'Semaine du ' + d.getDate() + ' ' + MOIS[d.getMonth()] + ' ' + d.getFullYear();
+}
+
+const NIVEAU_COULEUR = {
+  'Terminale SM': '#1d4ed8',
+  'Première SM': '#0891b2',
+  'CPGE': '#059669',
+  'Olympiades': '#C9A227',
+};
+function couleur(niveau) { return NIVEAU_COULEUR[niveau] || '#1d4ed8'; }
+
+const aujourdhui = new Date();
+const tries = [...problemes]
+  .filter((p) => p.date)
+  .sort((a, b) => (a.date < b.date ? 1 : -1)); // décroissant par date
+const visibles = tries.filter((p) => new Date(p.date + 'T00:00:00') <= aujourdhui);
+
+const courant = visibles[0];
+const archives = visibles.slice(1);
+
+const waHref = courant
+  ? 'https://wa.me/' + WA_NUMBER + '?text=' +
+    encodeURIComponent('Bonjour MathsElites, voici ma solution au Problème de la semaine « ' + courant.titre + ' » : ')
+  : 'https://wa.me/' + WA_NUMBER;
+---
+
+{courant ? (
+  <div class="pdsem">
+    <div class="banner" style={`--accent:${couleur(courant.niveau)}`}>
+      <div class="banner-top">
+        <span class="star">★</span>
+        <span class="ktitre">Problème de la semaine</span>
+        <span class="niv">{courant.niveau}</span>
+      </div>
+      <h2 class="titre">{courant.titre}</h2>
+      <p class="date">{semaineDu(courant.date)}</p>
+    </div>
+
+    <div class="enonce" set:html={renderMath(courant.enonce)} />
+
+    <div class="actions">
+      <a class="btn-wa" href={waHref} target="_blank" rel="noopener">💬 Soumettre ma solution (WhatsApp)</a>
+      <details class="indice">
+        <summary>💡 Voir un indice</summary>
+        <div set:html={renderMath(courant.indice)} />
+      </details>
+    </div>
+
+    <p class="note">🔒 La solution détaillée sera publiée dans les archives la semaine prochaine. À vos crayons !</p>
+
+    {archives.length > 0 && (
+      <div class="archives">
+        <h3 class="arch-titre">📚 Archives &amp; solutions</h3>
+        {archives.map((p) => (
+          <details class="arch-item" style={`--accent:${couleur(p.niveau)}`}>
+            <summary>
+              <span class="arch-niv">{p.niveau}</span>
+              <span class="arch-name">{p.titre}</span>
+              <span class="arch-date">{semaineDu(p.date)}</span>
+            </summary>
+            <div class="arch-enonce" set:html={renderMath(p.enonce)} />
+            <div class="arch-sol-label">Solution</div>
+            <div class="arch-sol" set:html={renderMath(p.solution)} />
+          </details>
+        ))}
+      </div>
+    )}
+  </div>
+) : (
+  <p>Aucun problème publié pour le moment — revenez très bientôt !</p>
+)}
+
+<style>
+  .pdsem { margin: 1.2rem 0 2rem; }
+
+  .banner {
+    background: linear-gradient(135deg, #0c2036, #123156);
+    border: 1px solid var(--sl-color-gray-5);
+    border-left: 5px solid var(--accent);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    color: #fff;
+  }
+  .banner-top { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.4rem; flex-wrap: wrap; }
+  .star { color: var(--accent); font-size: 1.1rem; }
+  .ktitre {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700; color: #dfe8f7;
+  }
+  .niv {
+    margin-left: auto; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+    color: #04121f; background: var(--accent); padding: 0.15rem 0.6rem; border-radius: 999px;
+  }
+  .titre {
+    font-family: var(--me-font-display, Georgia, serif);
+    font-size: 1.35rem; font-weight: 600; margin: 0.1rem 0 0.2rem; border: none; color: #fff;
+  }
+  .date { margin: 0; font-size: 0.82rem; color: #b9c8e6; }
+
+  .enonce {
+    margin: 1rem 0 1.1rem; padding: 1rem 1.2rem;
+    background: var(--sl-color-gray-6, #0e2039); border: 1px solid var(--sl-color-gray-5);
+    border-radius: 12px; font-size: 1.02rem; line-height: 1.7;
+  }
+  .enonce :global(p) { margin: 0.4em 0; }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: center; }
+  .btn-wa {
+    display: inline-block; background: #25D366; color: #04231a; font-weight: 700;
+    padding: 0.6rem 1.2rem; border-radius: 999px; text-decoration: none; font-size: 0.9rem;
+  }
+  .btn-wa:hover { filter: brightness(1.05); }
+
+  details.indice { flex: 1; min-width: 200px; }
+  details.indice > summary,
+  details.arch-item > summary {
+    cursor: pointer; font-weight: 600; color: var(--sl-color-white);
+    list-style: none; user-select: none;
+  }
+  details.indice > summary { padding: 0.5rem 0.9rem; background: var(--sl-color-gray-6, #0e2039);
+    border: 1px solid var(--sl-color-gray-5); border-radius: 999px; display: inline-block; font-size: 0.85rem; }
+  details.indice[open] > summary { border-radius: 12px 12px 0 0; }
+  details.indice > div {
+    padding: 0.7rem 1rem; border: 1px solid var(--sl-color-gray-5); border-top: 0;
+    border-radius: 0 12px 12px 12px; background: var(--sl-color-gray-6, #0e2039); font-size: 0.92rem;
+  }
+
+  .note {
+    margin: 1.1rem 0 0; font-size: 0.85rem; color: var(--sl-color-gray-3);
+    background: var(--sl-color-gray-6, #0e2039); border-left: 3px solid #C9A227;
+    border-radius: 8px; padding: 0.7rem 0.95rem;
+  }
+
+  .archives { margin-top: 2rem; }
+  .arch-titre {
+    font-family: var(--me-font-display, Georgia, serif); font-size: 1.15rem; font-weight: 600;
+    margin: 0 0 0.8rem; border: none; color: var(--sl-color-white);
+  }
+  details.arch-item {
+    border: 1px solid var(--sl-color-gray-5); border-left: 4px solid var(--accent);
+    border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 0.7rem;
+    background: var(--sl-color-black);
+  }
+  details.arch-item > summary { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+  .arch-niv {
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.04em; color: #04121f;
+    background: var(--accent); padding: 0.12rem 0.55rem; border-radius: 999px;
+  }
+  .arch-name { font-weight: 600; color: var(--sl-color-white); }
+  .arch-date { margin-left: auto; font-size: 0.76rem; color: var(--sl-color-gray-3); }
+  .arch-enonce { margin: 0.8rem 0 0.6rem; font-size: 0.95rem; line-height: 1.6; }
+  .arch-sol-label {
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin: 0.6rem 0 0.2rem;
+  }
+  .arch-sol { font-size: 0.93rem; line-height: 1.65; }
+  .arch-sol :global(p), .arch-enonce :global(p) { margin: 0.4em 0; }
+
+  details > summary::-webkit-details-marker { display: none; }
+</style>

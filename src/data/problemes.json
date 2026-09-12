@@ -1,0 +1,29 @@
+[
+  {
+    "id": "2026-s37",
+    "date": "2026-09-07",
+    "niveau": "Olympiades",
+    "titre": "Divisibilité par 30",
+    "enonce": "Montrer que pour tout entier $n \\ge 1$, le nombre $n^5 - n$ est divisible par $30$.",
+    "indice": "Factorisez $n^5 - n$, puis établissez séparément la divisibilité par $2$, par $3$ et par $5$.",
+    "solution": "On écrit $n^5 - n = n(n^4 - 1) = n(n-1)(n+1)(n^2+1)$.\n\n$\\bullet$ Parmi les trois entiers consécutifs $n-1,\\ n,\\ n+1$, l'un au moins est divisible par $2$ et l'un au moins par $3$.\n\n$\\bullet$ Pour $5$ : si $n \\equiv 0$ ou $\\pm 1 \\pmod 5$, alors $n(n-1)(n+1)$ est divisible par $5$ ; si $n \\equiv \\pm 2 \\pmod 5$, alors $n^2 \\equiv 4 \\equiv -1$, donc $n^2 + 1 \\equiv 0 \\pmod 5$.\n\nLe produit est donc divisible par $2$, $3$ et $5$, qui sont premiers entre eux deux à deux : $n^5 - n$ est divisible par $2 \\times 3 \\times 5 = 30$."
+  },
+  {
+    "id": "2026-s36",
+    "date": "2026-08-31",
+    "niveau": "CPGE",
+    "titre": "Une somme qui cache une intégrale",
+    "enonce": "Calculer $\\displaystyle \\lim_{n \\to \\infty} \\sum_{k=1}^{n} \\frac{1}{n+k}$.",
+    "indice": "Mettez $\\dfrac{1}{n}$ en facteur et reconnaissez une somme de Riemann.",
+    "solution": "On factorise : $\\displaystyle \\sum_{k=1}^{n} \\frac{1}{n+k} = \\frac{1}{n} \\sum_{k=1}^{n} \\frac{1}{1 + \\frac{k}{n}}$.\n\nC'est une somme de Riemann de la fonction $f(x) = \\dfrac{1}{1+x}$ sur $[0,1]$ (subdivision régulière de pas $\\frac{1}{n}$). Comme $f$ est continue sur $[0,1]$, la limite est\n$$\\int_0^1 \\frac{dx}{1+x} = \\big[\\ln(1+x)\\big]_0^1 = \\ln 2.$$"
+  },
+  {
+    "id": "2026-s35",
+    "date": "2026-08-24",
+    "niveau": "Terminale SM",
+    "titre": "Radicaux emboîtés",
+    "enonce": "Résoudre dans $\\mathbb{R}$ :\n$$\\sqrt{x + 3 - 4\\sqrt{x-1}} \\ + \\ \\sqrt{x + 8 - 6\\sqrt{x-1}} \\ = \\ 1.$$",
+    "indice": "Posez $t = \\sqrt{x-1} \\ge 0$ et faites apparaître des carrés parfaits sous les racines.",
+    "solution": "L'expression n'a de sens que si $x \\ge 1$. Posons $t = \\sqrt{x-1} \\ge 0$, donc $x - 1 = t^2$.\n\nAlors :\n$$x + 3 - 4\\sqrt{x-1} = t^2 - 4t + 4 = (t-2)^2, \\qquad x + 8 - 6\\sqrt{x-1} = t^2 - 6t + 9 = (t-3)^2.$$\n\nL'équation devient $|t-2| + |t-3| = 1$. La somme des distances de $t$ à $2$ et à $3$ vaut $1$ si et seulement si $t \\in [2,3]$.\n\nDonc $x - 1 = t^2 \\in [4, 9]$, c'est-à-dire $x \\in [5, 10]$.\n\nRéciproquement, tout $x \\in [5,10]$ convient. L'ensemble des solutions est $[5,\\,10]$."
+  }
+]

@@ -202,6 +202,7 @@ export default defineConfig({
         { label: '✉️ Contact', link: '/contact' },
         { label: '✨ Nouveautés', link: '/nouveautes' },
         { label: '🧮 Outils interactifs', link: '/outils/' },
+        { label: '⭐ Problème de la semaine', link: '/probleme-de-la-semaine' },
         {
           label: '🚀 Stages & cours accélérés',
           items: [

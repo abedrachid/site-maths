@@ -651,6 +651,93 @@ export default defineConfig({
             },
           ],
         },
+        {
+          label: '🧪 Terminale PC',
+          items: [
+            { label: 'Présentation', link: '/terminale-pc/' },
+            {
+              label: '📗 Limites et continuité',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/limites-continuite' },
+                { label: '📝 Exercices', link: '/terminale-pc/limites-continuite#doc=/pdf/terminale-pc/limites-continuite/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/limites-continuite#doc=/pdf/terminale-pc/limites-continuite/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Dérivabilité et étude de fonctions',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/derivabilite-etude-fonctions' },
+                { label: '📝 Exercices', link: '/terminale-pc/derivabilite-etude-fonctions#doc=/pdf/terminale-pc/derivabilite-etude-fonctions/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/derivabilite-etude-fonctions#doc=/pdf/terminale-pc/derivabilite-etude-fonctions/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Suites numériques',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/suites' },
+                { label: '📝 Exercices', link: '/terminale-pc/suites#doc=/pdf/terminale-pc/suites/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/suites#doc=/pdf/terminale-pc/suites/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Fonction logarithme',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/logarithme' },
+                { label: '📝 Exercices', link: '/terminale-pc/logarithme#doc=/pdf/terminale-pc/logarithme/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/logarithme#doc=/pdf/terminale-pc/logarithme/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Fonction exponentielle',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/exponentielle' },
+                { label: '📝 Exercices', link: '/terminale-pc/exponentielle#doc=/pdf/terminale-pc/exponentielle/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/exponentielle#doc=/pdf/terminale-pc/exponentielle/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Calcul intégral',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/calcul-integral' },
+                { label: '📝 Exercices', link: '/terminale-pc/calcul-integral#doc=/pdf/terminale-pc/calcul-integral/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/calcul-integral#doc=/pdf/terminale-pc/calcul-integral/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Équations différentielles',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/equations-differentielles' },
+                { label: '📝 Exercices', link: '/terminale-pc/equations-differentielles#doc=/pdf/terminale-pc/equations-differentielles/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/equations-differentielles#doc=/pdf/terminale-pc/equations-differentielles/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Nombres complexes',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/nombres-complexes' },
+                { label: '📝 Exercices', link: '/terminale-pc/nombres-complexes#doc=/pdf/terminale-pc/nombres-complexes/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/nombres-complexes#doc=/pdf/terminale-pc/nombres-complexes/corrections-cours.pdf' },
+              ],
+            },
+            {
+              label: '📗 Dénombrement et probabilités',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale-pc/probabilites' },
+                { label: '📝 Exercices', link: '/terminale-pc/probabilites#doc=/pdf/terminale-pc/probabilites/serie1.pdf' },
+                { label: '✅ Corrigés', link: '/terminale-pc/probabilites#doc=/pdf/terminale-pc/probabilites/corrections-cours.pdf' },
+              ],
+            },
+          ],
+        },
 
         /* ——— EXAMENS & CONCOURS ——— */
         {

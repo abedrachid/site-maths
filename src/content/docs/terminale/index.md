@@ -9,6 +9,18 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <p style="margin:0;color:#d8c0ea;font-size:.95rem;line-height:1.6;max-width:560px;">Chaque chapitre réunit son <strong style="color:#fff;">cours en PDF</strong> et ses <strong style="color:#fff;">séries d'exercices (planches)</strong>. Choisissez un chapitre pour commencer.</p>
 </div>
 
+<div class="me-card" style="display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;margin:0 0 1.75rem;padding:1.2rem 1.4rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #C8932B;border-radius:12px;background:var(--sl-color-black);">
+  <div style="flex:1;min-width:220px;">
+    <p style="margin:0 0 .3rem;font-size:.72rem;font-weight:700;color:#C8932B;letter-spacing:.05em;">✍️ À LIRE EN PREMIER — EXAMEN NATIONAL</p>
+    <p style="margin:0 0 .2rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">La rédaction obligatoire en Terminale Sciences Mathématiques</p>
+    <p style="margin:0;font-size:.82rem;color:var(--sl-color-gray-3);">Ce qu'il faut impérativement écrire, chapitre par chapitre, pour obtenir la totalité des points — d'après le cadre de référence de l'examen national (PDF).</p>
+  </div>
+  <div style="display:flex;gap:.5rem;flex-wrap:wrap;flex-shrink:0;">
+    <a href="/pdf/terminale/fiche-redaction-obligatoire-sm.pdf" target="_blank" rel="noopener" style="background:#C8932B;color:white;padding:.6rem 1.3rem;border-radius:9999px;text-decoration:none;font-weight:700;font-size:.85rem;">📖 Ouvrir</a>
+    <a href="/pdf/terminale/fiche-redaction-obligatoire-sm.pdf" download style="border:1px solid #C8932B;color:#C8932B;padding:.55rem 1.2rem;border-radius:9999px;text-decoration:none;font-weight:700;font-size:.85rem;">⬇️ Télécharger</a>
+  </div>
+</div>
+
 <div class="me-outils" data-niveau="terminale"></div>
 
 ## Avant de commencer

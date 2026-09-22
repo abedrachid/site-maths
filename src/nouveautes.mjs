@@ -54,6 +54,22 @@ export const nouveautes = [
   {
     date: '2026-09-23',
     type: 'document',
+    niveau: 'Terminale SM',
+    titre: 'Fiche — La rédaction obligatoire en Terminale Sciences Mathématiques',
+    lien: '/pdf/terminale/fiche-redaction-obligatoire-sm.pdf',
+    desc: 'Ce qu\'il faut impérativement écrire, chapitre par chapitre, pour obtenir tous les points à l\'examen national.',
+  },
+  {
+    date: '2026-09-23',
+    type: 'document',
+    niveau: 'Terminale PC',
+    titre: 'Fiche — La rédaction obligatoire en Terminale Sciences Expérimentales',
+    lien: '/pdf/terminale-pc/fiche-redaction-obligatoire-se.pdf',
+    desc: 'Les attendus de rédaction chapitre par chapitre, d\'après le cadre de référence de l\'examen national.',
+  },
+  {
+    date: '2026-09-23',
+    type: 'document',
     niveau: 'Première SM',
     titre: 'Logique — 2 nouvelles séries d\'exercices : quantificateurs & types de raisonnement',
     lien: '/premiere/logique',

@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-09-23',
+    type: 'document',
+    niveau: 'Première SM',
+    titre: 'Logique — 2 nouvelles séries d\'exercices : quantificateurs & types de raisonnement',
+    lien: '/premiere/logique',
+    desc: 'Série n°1 (quantificateurs, négation, CN/CS, valeurs de vérité) et série sur les raisonnements (absurde, contraposée, récurrence…).',
+  },
+  {
     date: '2026-09-04',
     type: 'video',
     niveau: 'Terminale SM',

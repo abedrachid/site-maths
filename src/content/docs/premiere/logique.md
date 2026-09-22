@@ -1,6 +1,6 @@
 ---
 title: Logique et raisonnement
-description: "Cours, fiche résumé, QCM interactif corrigé et série d'exercices consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
+description: "Cours, fiche résumé, QCM interactif corrigé et séries d'exercices consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
 sidebar:
   order: 1
 ---
@@ -15,6 +15,8 @@ Tous les documents du chapitre **Logique et raisonnement** sont consultables dir
     <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/premiere/logique/fiche-resume.pdf">📋 Fiche résumé</button>
     <button class="doc-tab" data-title="Exercices &amp; problèmes" data-src="/pdf/premiere/logique/exercices.pdf">📝 Exercices &amp; problèmes</button>
     <button class="doc-tab" data-title="QCM corrigé" data-src="/pdf/premiere/logique/qcm.pdf">❓ QCM (corrigé)</button>
+    <button class="doc-tab" data-title="Série n°1 — Quantificateurs, négation, CN/CS" data-src="/pdf/premiere/logique/serie-logique-1.pdf">🧩 Série n°1 — Logique</button>
+    <button class="doc-tab" data-title="Série — Les types de raisonnement" data-src="/pdf/premiere/logique/serie-raisonnements.pdf">🧠 Série — Raisonnements</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

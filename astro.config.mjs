@@ -365,6 +365,9 @@ export default defineConfig({
               ],
             },
 
+            /* ── Racines n-ièmes et Arctangente (2026/2027) ── */
+            { label: '√ Racines n-ièmes & Arctangente', link: '/terminale/racines-arctan' },
+
             /* ── Chapitre : Rédaction mathématique ── */
             {
               label: '✍️ Rédaction mathématique',

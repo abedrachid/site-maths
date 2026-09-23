@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-09-24',
+    type: 'document',
+    niveau: 'Terminale SM',
+    titre: 'DS d\'entraînement n°1 et n°2 — sujets & corrigés détaillés',
+    lien: '/terminale/ds-2026',
+    desc: 'DS 1 : continuité, fonction réciproque, Arctangente (2 h). DS 2 : limites et continuité, Arctangente (4 h).',
+  },
+  {
     date: '2026-09-23',
     type: 'document',
     niveau: 'Terminale SM',

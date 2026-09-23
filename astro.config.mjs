@@ -366,7 +366,17 @@ export default defineConfig({
             },
 
             /* ── Racines n-ièmes et Arctangente (2026/2027) ── */
-            { label: '√ Racines n-ièmes & Arctangente', link: '/terminale/racines-arctan' },
+            {
+              label: '√ Racines n-ièmes & Arctangente',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale/racines-arctan' },
+                { label: '📋 Fiche résumé', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/fiche-resume.pdf' },
+                { label: '❓ QCM', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/qcm.pdf' },
+                { label: '📝 Exercices & problèmes', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/exercices-problemes.pdf' },
+                { label: '📚 Chapitre complet', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/Racines_niemes_Arctan.pdf' },
+              ],
+            },
 
             /* ── Chapitre : Rédaction mathématique ── */
             {

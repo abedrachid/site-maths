@@ -2,10 +2,10 @@
 title: "Racines n-ièmes et Arctangente"
 description: "Racines n-ièmes et Arctangente — cours approfondi, fiche résumé, QCM, exercices et problèmes corrigés (PDF). Fonctions réciproques, Terminale Sciences Mathématiques, 2026/2027."
 sidebar:
-  order: 7
+  order: 1
 ---
 
-**Chapitre complet — Fonctions réciproques** (Terminale SM, 2026/2027). Théorie des fonctions réciproques (théorème de la bijection, symétrie des courbes, dérivée de la réciproque), puis deux applications majeures : les **racines n-ièmes** et puissances réelles, et la fonction **arctangente** (formules d'addition, sommes télescopiques, formule de Machin).
+**Chapitre du programme — Fonctions réciproques** (Terminale SM, 2026/2027). Théorie des fonctions réciproques (théorème de la bijection, symétrie des courbes, dérivée de la réciproque), puis deux applications majeures : les **racines n-ièmes** et puissances réelles, et la fonction **arctangente** (formules d'addition, sommes télescopiques, formule de Machin).
 
 Cours, fiche résumé, QCM et exercices sont consultables séparément ci-dessous, ou réunis dans le chapitre complet (23 pages).
 

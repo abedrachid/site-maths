@@ -365,19 +365,6 @@ export default defineConfig({
               ],
             },
 
-            /* ── Racines n-ièmes et Arctangente (2026/2027) ── */
-            {
-              label: '√ Racines n-ièmes & Arctangente',
-              collapsed: true,
-              items: [
-                { label: '📖 Cours', link: '/terminale/racines-arctan' },
-                { label: '📋 Fiche résumé', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/fiche-resume.pdf' },
-                { label: '❓ QCM', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/qcm.pdf' },
-                { label: '📝 Exercices & problèmes', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/exercices-problemes.pdf' },
-                { label: '📚 Chapitre complet', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/Racines_niemes_Arctan.pdf' },
-              ],
-            },
-
             /* ── Chapitre : Rédaction mathématique ── */
             {
               label: '✍️ Rédaction mathématique',
@@ -399,6 +386,19 @@ export default defineConfig({
                 { label: '❓ QCM', link: '/terminale/limites#qcm' },
                 { label: 'Série 1 (planche 1)', link: '/terminale/limites#doc=/pdf/terminale/limites/serie1.pdf' },
                 { label: 'Série 2 (planche 2)', link: '/terminale/limites#doc=/pdf/terminale/limites/serie2.pdf' },
+              ],
+            },
+
+            /* ── Chapitre : Racines n-ièmes et Arctangente ── */
+            {
+              label: '📗 Racines n-ièmes et Arctangente',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale/racines-arctan' },
+                { label: '📋 Fiche résumé', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/fiche-resume.pdf' },
+                { label: '❓ QCM', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/qcm.pdf' },
+                { label: '📝 Exercices & problèmes', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/exercices-problemes.pdf' },
+                { label: '📚 Chapitre complet', link: '/terminale/racines-arctan#doc=/pdf/terminale/racines-arctan/Racines_niemes_Arctan.pdf' },
               ],
             },
 

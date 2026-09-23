@@ -34,9 +34,9 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
   <a href="/terminale/revision-premiere" style="flex-shrink:0;background:#1d4ed8;color:white;padding:.6rem 1.3rem;border-radius:9999px;text-decoration:none;font-weight:700;font-size:.85rem;">Ouvrir →</a>
 </div>
 
-<p style="margin:1.5rem 0 .6rem;font-size:.82rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">📐 CALCUL TRIGONOMÉTRIQUE · RACINES n-IÈMES &amp; ARCTANGENTE (2026/2027)</p>
+<p style="margin:1.5rem 0 .6rem;font-size:.82rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">📐 CALCUL TRIGONOMÉTRIQUE — RÉVISION (2026/2027)</p>
 
-<p style="margin:0 0 1rem;font-size:.9rem;color:var(--sl-color-gray-3);">Chapitres distincts, proposés au cours de l'année 2026/2027 (indépendants du document « Cap sur la Terminale SM »).</p>
+<p style="margin:0 0 1rem;font-size:.9rem;color:var(--sl-color-gray-3);">Chapitre de révision distinct, proposé au cours de l'année 2026/2027 — cours et formulaires (indépendant du document « Cap sur la Terminale SM »).</p>
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:.9rem;margin:0 0 1.75rem;">
 
@@ -45,14 +45,6 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
       <p style="margin:0 0 .3rem;font-size:.7rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">RÉVISION</p>
       <p style="margin:0 0 .25rem;font-size:.95rem;font-weight:600;color:var(--sl-color-white);">Calcul trigonométrique</p>
       <p style="margin:0;font-size:.78rem;color:var(--sl-color-gray-3);">Cours · Formulaires (PDF) · 2026/2027</p>
-    </div>
-  </a>
-
-  <a href="/terminale/racines-arctan" class="me-card" style="text-decoration:none;">
-    <div style="height:100%;padding:1rem 1.15rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #0891b2;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .3rem;font-size:.7rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">FONCTIONS RÉCIPROQUES</p>
-      <p style="margin:0 0 .25rem;font-size:.95rem;font-weight:600;color:var(--sl-color-white);">Racines n-ièmes &amp; Arctangente</p>
-      <p style="margin:0;font-size:.78rem;color:var(--sl-color-gray-3);">Cours · Fiche · QCM · Exercices corrigés (PDF)</p>
     </div>
   </a>
 
@@ -126,9 +118,17 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
     </div>
   </a>
 
-  <a href="/terminale/derivabilite" class="me-card" style="text-decoration:none;">
+  <a href="/terminale/racines-arctan" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 3</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Racines n-ièmes et Arctangente <span class="me-badge me-badge--done">Complet</span></p>
+      <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours · Fiche · QCM · Exercices (PDF)</p>
+    </div>
+  </a>
+
+  <a href="/terminale/derivabilite" class="me-card" style="text-decoration:none;">
+    <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 4</p>
       <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Dérivabilité <span class="me-badge me-badge--done">Complet</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
@@ -136,7 +136,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
 
   <a href="/terminale/rolle-taf" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 4</p>
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 5</p>
       <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Théorèmes: Rolle, T.A.F &amp; I.A.F <span class="me-badge me-badge--done">Complet</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
@@ -144,7 +144,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
 
   <a href="/terminale/primitives" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 5</p>
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 6</p>
       <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Primitives <span class="me-badge me-badge--soon">Bientôt</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
@@ -152,7 +152,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
 
   <a href="/terminale/denombrement" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 6</p>
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 7</p>
       <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Dénombrement <span class="me-badge me-badge--wip">En cours</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>
@@ -160,7 +160,7 @@ description: Cours en PDF, séries d'exercices et sujets d'examen pour la Termin
 
   <a href="/terminale/probabilites" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #1d4ed8;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 7</p>
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#1d4ed8;letter-spacing:.05em;">CHAPITRE 8</p>
       <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;">Probabilités <span class="me-badge me-badge--soon">Bientôt</span></p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · Planches d'exercices</p>
     </div>

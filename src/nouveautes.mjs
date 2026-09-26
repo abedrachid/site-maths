@@ -41,16 +41,24 @@ export const canal = {
 //   🆕 Nouveau sur MathsElites
 //   📄 [Titre du document ou de la vidéo]
 //   🎓 Niveau : [Terminale SM / Première SM / Prépas]
-//   👉 À consulter ici : https://mathselites.com[lien, ex. /terminale/ds-2026]
+//   👉 À consulter ici : https://mathselites.com[lien, ex. /devoirs-surveilles?niveau=terminale]
 //
 //   Bon travail 💪
 //
 // Variante courte :
-//   🆕 Nouveau DS de Terminale SM en ligne 👉 https://mathselites.com/terminale/ds-2026
+//   🆕 Nouveau DS de Terminale SM en ligne 👉 https://mathselites.com/devoirs-surveilles?niveau=terminale
 
 // ── Liste des nouveautés (la plus récente EN HAUT) ────────────────
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
+  {
+    date: '2026-09-26',
+    type: 'autre',
+    niveau: '',
+    titre: 'Nouvel espace « Devoirs & Examens » — 15 années d\'archives',
+    lien: '/devoirs-surveilles',
+    desc: 'DS, devoirs à la maison, examens blancs et examens nationaux réunis dans 4 pages : filtre par niveau, recherche par chapitre, accès direct par année.',
+  },
   {
     date: '2026-09-24',
     type: 'document',
@@ -64,7 +72,7 @@ export const nouveautes = [
     type: 'document',
     niveau: 'Terminale SM',
     titre: 'DS d\'entraînement n°1 et n°2 — sujets & corrigés détaillés',
-    lien: '/terminale/ds-2026',
+    lien: '/devoirs-surveilles?niveau=terminale',
     desc: 'DS 1 : continuité, fonction réciproque, Arctangente (2 h). DS 2 : limites et continuité, Arctangente (4 h).',
   },
   {

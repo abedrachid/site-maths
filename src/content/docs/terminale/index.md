@@ -176,11 +176,11 @@ Suites numériques · Intégration · Nombres complexes · Arithmétique
 
 | Ressource | Accès |
 |---|---|
-| 📝 Devoirs surveillés 2026 | [Ouvrir →](/terminale/ds-2026) |
-| 🗄️ Anciens devoirs surveillés | [Ouvrir →](/terminale/anciens-ds) |
-| 🏠 Devoirs à la Maison (DM) | [Ouvrir →](/terminale/dm) |
-| 📋 Examens Blancs | [Ouvrir →](/terminale/examens-blancs) |
-| 🧩 Problèmes et bacs blancs | [Ouvrir →](/terminale/problemes-bacs-blancs) |
+| 📝 Devoirs surveillés — 15 années | [Ouvrir →](/devoirs-surveilles?niveau=terminale) |
+| 🏠 Devoirs à la maison — 15 années | [Ouvrir →](/devoirs-maison?niveau=terminale) |
+| 🏁 Examens blancs & bacs blancs | [Ouvrir →](/examens-blancs?niveau=terminale) |
+| 🎓 Examens nationaux — 15 sessions | [Ouvrir →](/examens-nationaux?filiere=sm) |
+| 🧩 Problèmes de synthèse | [Ouvrir →](/terminale/problemes-bacs-blancs) |
 
 ## Liens utiles
 

@@ -34,5 +34,5 @@ Le chapitre est proposé **en 4 parties** (cours, fiche résumé, QCM de 21 ques
 
 - [📐 Calcul trigonométrique (révision)](/terminale/revision-calcul-trigonometrique)
 - [Limites et continuité →](/terminale/limites)
-- [Devoirs surveillés d'entraînement →](/terminale/ds-2026)
+- [Devoirs surveillés d'entraînement →](/devoirs-surveilles?niveau=terminale)
 - [Retour à la Terminale SM →](/terminale/)

@@ -12,6 +12,23 @@ const SITE = process.env.SITE ?? 'https://mathselites.com';
 // https://astro.build/config
 export default defineConfig({
   site: SITE,
+  // Anciennes pages de devoirs → nouveaux espaces « Devoirs & Examens »
+  // (les liens déjà partagés aux élèves continuent de fonctionner).
+  redirects: {
+    '/premiere/ds': '/devoirs-surveilles?niveau=premiere',
+    '/premiere/dm': '/devoirs-maison?niveau=premiere',
+    '/premiere/examens-blancs': '/examens-blancs?niveau=premiere',
+    '/premiere/bacs-blancs': '/examens-blancs?niveau=premiere',
+    '/terminale/ds-2026': '/devoirs-surveilles?niveau=terminale',
+    '/terminale/anciens-ds': '/devoirs-surveilles?niveau=terminale',
+    '/terminale/dm': '/devoirs-maison?niveau=terminale',
+    '/terminale/examens-blancs': '/examens-blancs?niveau=terminale',
+    '/terminale/examens-nationaux': '/examens-nationaux',
+    '/prepas/ds': '/devoirs-surveilles?niveau=prepas',
+    '/prepas/dm': '/devoirs-maison?niveau=prepas',
+    '/prepas/examens-blancs': '/examens-blancs?niveau=prepas',
+    '/prepas/concours-blancs': '/examens-blancs?niveau=prepas',
+  },
   // Génère automatiquement un sitemap.xml (référencement Google).
   integrations: [
     starlight({
@@ -203,6 +220,16 @@ export default defineConfig({
         { label: '✨ Nouveautés', link: '/nouveautes' },
         { label: '🧮 Outils interactifs', link: '/outils/' },
         { label: '⭐ Problème de la semaine', link: '/probleme-de-la-semaine' },
+        /* ——— DEVOIRS & EXAMENS (accès direct, tous niveaux) ——— */
+        {
+          label: '📚 Devoirs & Examens',
+          items: [
+            { label: '📝 Devoirs surveillés', link: '/devoirs-surveilles' },
+            { label: '🏠 Devoirs à la maison', link: '/devoirs-maison' },
+            { label: '🏁 Examens blancs', link: '/examens-blancs' },
+            { label: '🎓 Examens nationaux', link: '/examens-nationaux' },
+          ],
+        },
         {
           label: '🚀 Stages & cours accélérés',
           items: [
@@ -271,27 +298,12 @@ export default defineConfig({
               ],
             },
             {
-              label: '📝 Devoirs Surveillés (DS)',
-              collapsed: true,
-              items: [{ label: 'Tous les DS', link: '/premiere/ds' }],
-            },
-            {
-              label: '🏠 Devoirs à la Maison (DM)',
-              collapsed: true,
-              items: [{ label: 'Tous les DM', link: '/premiere/dm' }],
-            },
-            {
-              label: '📄 Examens Blancs',
+              label: '📚 Devoirs & examens',
               collapsed: true,
               items: [
-                { label: 'Tous les Examens Blancs', link: '/premiere/examens-blancs' },
-              ],
-            },
-            {
-              label: '🏁 Bacs Blancs',
-              collapsed: true,
-              items: [
-                { label: 'Tous les Bacs Blancs', link: '/premiere/bacs-blancs' },
+                { label: '📝 Devoirs surveillés', link: '/devoirs-surveilles?niveau=premiere' },
+                { label: '🏠 Devoirs à la maison', link: '/devoirs-maison?niveau=premiere' },
+                { label: '🏁 Examens blancs', link: '/examens-blancs?niveau=premiere' },
               ],
             },
           ],
@@ -493,21 +505,17 @@ export default defineConfig({
                 { label: 'Série 3 (planche 3)', link: '/terminale/probabilites#doc=/pdf/terminale/probabilites/serie3.pdf' },
               ],
             },
-            { label: '📝 Devoirs surveillés 2026', link: '/terminale/ds-2026' },
-            { label: '🗄️ Anciens devoirs surveillés', link: '/terminale/anciens-ds' },
             {
-              label: '🏠 Devoirs à la Maison (DM)',
-              collapsed: true,
-              items: [{ label: 'Tous les DM', link: '/terminale/dm' }],
-            },
-            {
-              label: '📄 Examens Blancs',
+              label: '📚 Devoirs & examens',
               collapsed: true,
               items: [
-                { label: 'Tous les Examens Blancs', link: '/terminale/examens-blancs' },
+                { label: '📝 Devoirs surveillés', link: '/devoirs-surveilles?niveau=terminale' },
+                { label: '🏠 Devoirs à la maison', link: '/devoirs-maison?niveau=terminale' },
+                { label: '🏁 Examens blancs', link: '/examens-blancs?niveau=terminale' },
+                { label: '🎓 Examens nationaux (Bac SM)', link: '/examens-nationaux?filiere=sm' },
               ],
             },
-            { label: '🧩 Problèmes et bacs blancs', link: '/terminale/problemes-bacs-blancs' },
+            { label: '🧩 Problèmes de synthèse', link: '/terminale/problemes-bacs-blancs' },
           ],
         },
 
@@ -639,27 +647,12 @@ export default defineConfig({
               ],
             },
             {
-              label: '📝 Devoirs Surveillés (DS)',
-              collapsed: true,
-              items: [{ label: 'Tous les DS', link: '/prepas/ds' }],
-            },
-            {
-              label: '🏠 Devoirs à la Maison (DM)',
-              collapsed: true,
-              items: [{ label: 'Tous les DM', link: '/prepas/dm' }],
-            },
-            {
-              label: '📋 Examens Blancs',
+              label: '📚 Devoirs & examens',
               collapsed: true,
               items: [
-                { label: 'Tous les Examens Blancs', link: '/prepas/examens-blancs' },
-              ],
-            },
-            {
-              label: '🏁 Concours Blancs',
-              collapsed: true,
-              items: [
-                { label: 'Tous les Concours Blancs', link: '/prepas/concours-blancs' },
+                { label: '📝 Devoirs surveillés', link: '/devoirs-surveilles?niveau=prepas' },
+                { label: '🏠 Devoirs à la maison', link: '/devoirs-maison?niveau=prepas' },
+                { label: '🏁 Examens & concours blancs', link: '/examens-blancs?niveau=prepas' },
               ],
             },
           ],
@@ -668,6 +661,7 @@ export default defineConfig({
           label: '🧪 Terminale PC',
           items: [
             { label: 'Présentation', link: '/terminale-pc/' },
+            { label: '🎓 Examens nationaux (Bac PC/SVT)', link: '/examens-nationaux?filiere=pc' },
             {
               label: '📗 Limites et continuité',
               collapsed: true,

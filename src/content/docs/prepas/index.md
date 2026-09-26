@@ -141,10 +141,9 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
 
 | Ressource | Accès |
 |---|---|
-| 📝 Devoirs Surveillés (DS) | [Ouvrir →](/prepas/ds) |
-| 🏠 Devoirs à la Maison (DM) | [Ouvrir →](/prepas/dm) |
-| 📋 Examens Blancs | [Ouvrir →](/prepas/examens-blancs) |
-| 🏁 Concours Blancs | [Ouvrir →](/prepas/concours-blancs) |
+| 📝 Devoirs surveillés — 15 années | [Ouvrir →](/devoirs-surveilles?niveau=prepas) |
+| 🏠 Devoirs à la maison — 15 années | [Ouvrir →](/devoirs-maison?niveau=prepas) |
+| 🏁 Examens & concours blancs | [Ouvrir →](/examens-blancs?niveau=prepas) |
 
 :::note[Concours visés]
 CNC (Maroc) · ENS · Mines-Ponts · Centrale-Supélec · CCP

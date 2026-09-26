@@ -1,0 +1,702 @@
+---
+/* ────────────────────────────────────────────────────────────
+   MathsElites — Archives des devoirs & examens
+   Une seule brique pour les 4 espaces :
+     <ArchiveDevoirs type="ds" />        devoirs surveillés
+     <ArchiveDevoirs type="dm" />        devoirs à la maison
+     <ArchiveDevoirs type="eb" />        examens blancs
+     <ArchiveDevoirs type="national" />  examens nationaux (matrice 15 sessions)
+   Données : src/data/devoirs.mjs (seul fichier à modifier).
+   Un PDF absent de public/ s'affiche « Bientôt » (jamais de lien cassé).
+   ──────────────────────────────────────────────────────────── */
+import fs from 'node:fs';
+import path from 'node:path';
+import {
+  devoirs, examensNationaux, NIVEAUX, TYPES, FILIERES,
+  NB_ANNEES, RENTREE_COURANTE, SESSION_COURANTE,
+} from '../data/devoirs.mjs';
+
+interface Props { type: 'ds' | 'dm' | 'eb' | 'national' }
+const { type } = Astro.props;
+const T = TYPES[type];
+
+const PUB = path.join(process.cwd(), 'public');
+const exists = (p?: string) => {
+  if (!p) return false;
+  try { return fs.existsSync(path.join(PUB, decodeURIComponent(p.split(/[?#]/)[0]))); }
+  catch { return false; }
+};
+const norm = (s: string) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+const slug = (s: string) => norm(s).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const today = new Date();
+const isNew = (d?: string) => !!d && (today.getTime() - new Date(d + 'T00:00:00').getTime()) < 30 * 86400000;
+const anneeLabel = (a: number) => `${a}–${a + 1}`;
+const anneeCourt = (a: number) => `${a}–${String(a + 1).slice(2)}`;
+
+/* ── Barre de navigation entre les 4 espaces ── */
+const espaces = (['ds', 'dm', 'eb', 'national'] as const).map((k) => ({ k, ...TYPES[k] }));
+
+/* ══════════ DS · DM · EB ══════════ */
+const ordreNiveaux = ['premiere', 'terminale', 'terminale-pc', 'prepas'];
+let items: any[] = [];
+let annees: number[] = [];
+let niveauxPresents: string[] = [];
+if (type !== 'national') {
+  items = devoirs
+    .filter((d) => d.type === type)
+    .map((d) => {
+      const okS = exists(d.sujet);
+      const okC = exists(d.corrige);
+      return {
+        ...d, okS, okC, dispo: okS || okC, nouveau: isNew(d.ajout),
+        id: `${d.niveau}-${d.annee}-${slug((d.categorie || '') + '-' + d.titre)}`,
+        search: norm([d.titre, d.chapitres, d.categorie, NIVEAUX[d.niveau]?.label].filter(Boolean).join(' ')),
+      };
+    });
+  const set = new Set<number>();
+  for (let a = RENTREE_COURANTE; a > RENTREE_COURANTE - NB_ANNEES; a--) set.add(a);
+  items.forEach((d) => set.add(d.annee)); // ne jamais masquer un devoir hors fenêtre
+  annees = [...set].sort((a, b) => b - a);
+  niveauxPresents = ordreNiveaux.filter((n) => items.some((d) => d.niveau === n));
+}
+const tri = (a: any, b: any) =>
+  (Number(b.dispo) - Number(a.dispo)) ||
+  (a.categorie || '').localeCompare(b.categorie || '', 'fr') ||
+  a.titre.localeCompare(b.titre, 'fr', { numeric: true });
+
+const parAnnee = annees.map((a) => {
+  const list = items.filter((d) => d.annee === a);
+  return {
+    annee: a,
+    nbDispo: list.filter((d) => d.dispo).length,
+    nbAVenir: list.filter((d) => !d.dispo).length,
+    groupes: ordreNiveaux
+      .map((n) => ({ niveau: n, list: list.filter((d) => d.niveau === n).sort(tri) }))
+      .filter((g) => g.list.length),
+  };
+});
+const premiereAnneeOuverte = parAnnee.find((y) => y.nbDispo > 0)?.annee;
+
+const nbDocs = items.filter((d) => d.dispo).length;
+const nbCorriges = items.filter((d) => d.okC).length;
+
+/* ══════════ EXAMENS NATIONAUX ══════════ */
+const nat = examensNationaux.map((e) => ({ ...e, okS: exists(e.sujet), okC: exists(e.corrige) }));
+const filieres = Object.entries(FILIERES).map(([k, f]) => {
+  const rows: any[] = [];
+  for (let a = SESSION_COURANTE; a > SESSION_COURANTE - NB_ANNEES; a--) {
+    rows.push({
+      annee: a,
+      normale: nat.find((e) => e.filiere === k && e.annee === a && e.session === 'normale'),
+      rattrapage: nat.find((e) => e.filiere === k && e.annee === a && e.session === 'rattrapage'),
+    });
+  }
+  const list = nat.filter((e) => e.filiere === k);
+  return { k, ...f, rows, nbSujets: list.filter((e) => e.okS).length, nbCorriges: list.filter((e) => e.okC).length };
+});
+const natSujets = nat.filter((e) => e.okS).length;
+const natCorriges = nat.filter((e) => e.okC).length;
+const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
+---
+
+<div class="ar-root not-content" data-type={type}>
+
+  {/* ── Accès rapide aux 4 espaces ── */}
+  <nav class="ar-switch" aria-label="Espaces devoirs et examens">
+    {espaces.map((e) => (
+      <a href={e.url} class:list={['ar-switch-item', { 'is-active': e.k === type }]} aria-current={e.k === type ? 'page' : undefined}>
+        <span class="ar-switch-emoji" aria-hidden="true">{e.emoji}</span>
+        <span>{e.titre}</span>
+      </a>
+    ))}
+  </nav>
+
+  {/* ── Bandeau ── */}
+  <header class="ar-hero">
+    <p class="ar-hero-txt">{T.accroche}</p>
+    <div class="ar-stats">
+      {type === 'national' ? (
+        <>
+          <div class="ar-stat"><b>{NB_ANNEES}</b><span>sessions couvertes</span></div>
+          <div class="ar-stat"><b>{natSujets}</b><span>sujet{natSujets > 1 ? 's' : ''} en ligne</span></div>
+          <div class="ar-stat"><b>{natCorriges}</b><span>corrigé{natCorriges > 1 ? 's' : ''}</span></div>
+        </>
+      ) : (
+        <>
+          <div class="ar-stat"><b>{NB_ANNEES}</b><span>années scolaires</span></div>
+          <div class="ar-stat"><b>{nbDocs}</b><span>document{nbDocs > 1 ? 's' : ''} en ligne</span></div>
+          <div class="ar-stat"><b>{nbCorriges}</b><span>corrigé{nbCorriges > 1 ? 's' : ''}</span></div>
+        </>
+      )}
+    </div>
+  </header>
+
+  {type !== 'national' ? (
+    <>
+      {/* ── Filtres ── */}
+      <div class="ar-tools" role="search">
+        <div class="ar-chips" role="group" aria-label="Filtrer par niveau">
+          <button type="button" class="ar-chip is-active" data-niveau="all">Tous les niveaux</button>
+          {niveauxPresents.map((n) => (
+            <button type="button" class="ar-chip" data-niveau={n} style={`--c:${NIVEAUX[n].couleur}`}>
+              <i aria-hidden="true"></i>{NIVEAUX[n].label}
+            </button>
+          ))}
+        </div>
+        <div class="ar-tools-row">
+          <label class="ar-search">
+            <span aria-hidden="true">🔎</span>
+            <input type="search" placeholder="Chercher un chapitre : limites, suites, complexes…" aria-label="Chercher un chapitre" />
+          </label>
+          <label class="ar-toggle">
+            <input type="checkbox" class="ar-dispo-only" />
+            <span>Seulement les documents en ligne</span>
+          </label>
+        </div>
+      </div>
+
+      {/* ── Frise des 15 années ── */}
+      <div class="ar-years" aria-label="Aller à une année">
+        {parAnnee.map((y) => (
+          <a href={`#annee-${y.annee}`} class:list={['ar-year-chip', { 'is-empty': !y.nbDispo, 'is-current': y.annee === RENTREE_COURANTE }]} data-annee={y.annee}>
+            <span class="ar-yc-lbl">{anneeCourt(y.annee)}</span>
+            <span class="ar-yc-n" data-count>{y.nbDispo}</span>
+          </a>
+        ))}
+      </div>
+
+      {/* ── Liste par année ── */}
+      <div class="ar-list">
+        {parAnnee.map((y) => (
+          <details class="ar-year" id={`annee-${y.annee}`} data-annee={y.annee} open={y.annee === premiereAnneeOuverte || y.annee === RENTREE_COURANTE}>
+            <summary>
+              <span class="ar-y-title">
+                Année scolaire {anneeLabel(y.annee)}
+                {y.annee === RENTREE_COURANTE && <span class="ar-tag ar-tag--now">En cours</span>}
+              </span>
+              <span class="ar-y-meta" data-meta>
+                {y.nbDispo ? `${y.nbDispo} en ligne` : 'Archives en cours de mise en ligne'}
+                {y.nbAVenir ? ` · ${y.nbAVenir} à venir` : ''}
+              </span>
+              <span class="ar-chevron" aria-hidden="true"></span>
+            </summary>
+
+            <div class="ar-y-body">
+              {y.groupes.map((g) => (
+                <section class="ar-group" data-niveau={g.niveau} style={`--c:${NIVEAUX[g.niveau].couleur}`}>
+                  <h3 class="ar-group-title"><i aria-hidden="true"></i>{NIVEAUX[g.niveau].label}</h3>
+                  <ul class="ar-rows">
+                    {g.list.map((d) => (
+                      <li class:list={['ar-row', { 'is-soon': !d.dispo }]} id={d.id} data-niveau={d.niveau} data-dispo={d.dispo ? '1' : '0'} data-search={d.search}>
+                        <div class="ar-row-main">
+                          <div class="ar-row-title">
+                            <strong>{d.titre}</strong>
+                            {d.categorie && <span class="ar-tag">{d.categorie}</span>}
+                            {d.nouveau && d.dispo && <span class="ar-tag ar-tag--new">Nouveau</span>}
+                          </div>
+                          {(d.chapitres || d.duree) && (
+                            <div class="ar-row-sub">
+                              {d.chapitres}{d.chapitres && d.duree ? ' · ' : ''}{d.duree && <span class="ar-dur">⏱ {d.duree}</span>}
+                            </div>
+                          )}
+                        </div>
+                        <div class="ar-row-act">
+                          {!d.dispo ? (
+                            <span class="ar-btn is-off" title="Ce document sera bientôt en ligne">⏳ Bientôt en ligne</span>
+                          ) : (
+                            <>
+                              {d.okS ? (
+                                <a class="ar-btn" href={d.sujet} data-ar-src={d.sujet} data-ar-title={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)} (Sujet)`}>📄 Sujet</a>
+                              ) : (
+                                <span class="ar-btn is-off" title="Énoncé bientôt en ligne">📄 Bientôt</span>
+                              )}
+                              {d.okC ? (
+                                <button type="button" class="doc-tab ar-btn ar-btn--corr" data-src={d.corrige} data-title={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)} (Corrigé)`} data-ar-src={d.corrige}>✅ Corrigé</button>
+                              ) : d.corrige ? (
+                                <span class="ar-btn is-off" title="Corrigé bientôt en ligne">✅ Bientôt</span>
+                              ) : (
+                                <span class="ar-btn is-off" title="Pas de corrigé pour ce devoir">Sans corrigé</span>
+                              )}
+                            </>
+                          )}
+                          {d.okS && (
+                            <button type="button" class="ar-share" data-ar-share={d.sujet} data-ar-name={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)}`} title="Copier le lien pour le partager" aria-label="Partager">🔗</button>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+              <p class="ar-empty" data-empty hidden={y.groupes.length > 0}>
+                {y.groupes.length > 0
+                  ? 'Aucun document ne correspond à ce filtre pour cette année.'
+                  : <>Les sujets de cette année seront publiés progressivement. Vous en avez un ? <a href="/contact">Partagez-le avec nous</a>.</>}
+              </p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </>
+  ) : (
+    <>
+      {/* ── Examens nationaux : choix de la filière ── */}
+      <div class="ar-tools">
+        <div class="ar-chips ar-chips--seg" role="tablist" aria-label="Filière du Baccalauréat">
+          {filieres.map((f, i) => (
+            <button type="button" role="tab" class:list={['ar-chip', { 'is-active': i === 0 }]} data-filiere={f.k} aria-selected={i === 0 ? 'true' : 'false'} style={`--c:${NIVEAUX[f.niveau].couleur}`}>
+              <i aria-hidden="true"></i>{f.label}<small>{f.court}</small>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {filieres.map((f, i) => (
+        <section class="ar-matrix" data-filiere={f.k} hidden={i !== 0} style={`--c:${NIVEAUX[f.niveau].couleur}`}>
+          <p class="ar-matrix-cap">
+            <strong>Bac {f.label}</strong> — {f.nbSujets} sujet{f.nbSujets > 1 ? 's' : ''} et {f.nbCorriges} corrigé{f.nbCorriges > 1 ? 's' : ''} en ligne sur les {NB_ANNEES} dernières sessions.
+          </p>
+          <div class="ar-table-wrap">
+            <table class="ar-table">
+              <thead>
+                <tr>
+                  <th scope="col" rowspan="2">Session</th>
+                  <th scope="colgroup" colspan="2">Session normale <small>(juin)</small></th>
+                  <th scope="colgroup" colspan="2">Rattrapage <small>(juillet)</small></th>
+                </tr>
+                <tr>
+                  <th scope="col">Sujet</th><th scope="col">Corrigé</th>
+                  <th scope="col">Sujet</th><th scope="col">Corrigé</th>
+                </tr>
+              </thead>
+              <tbody>
+                {f.rows.map((r) => (
+                  <tr id={`bac-${f.k}-${r.annee}`} class:list={{ 'is-soon': !(r.normale.okS || r.rattrapage.okS) }}>
+                    <th scope="row">
+                      {r.annee}
+                      {r.annee === SESSION_COURANTE && <span class="ar-tag ar-tag--now">Dernière</span>}
+                    </th>
+                    {(['normale', 'rattrapage'] as const).map((s) => {
+                      const e = r[s];
+                      const lbl = `Bac ${f.court} ${r.annee} — ${sessionLabel[s]}`;
+                      return (
+                        <>
+                          <td>
+                            {e.okS
+                              ? <a class="ar-btn ar-btn--sm" aria-label={`${lbl} — sujet`} href={e.sujet} data-ar-src={e.sujet} data-ar-title={`${lbl} (Sujet)`}>📄<span class="ar-bl"> Sujet</span></a>
+                              : <span class="ar-dash" title="Bientôt en ligne">—</span>}
+                          </td>
+                          <td>
+                            {e.okC
+                              ? <button type="button" aria-label={`${lbl} — corrigé`} class="doc-tab ar-btn ar-btn--sm ar-btn--corr" data-src={e.corrige} data-title={`${lbl} (Corrigé)`} data-ar-src={e.corrige}>✅<span class="ar-bl"> Corrigé</span></button>
+                              : <span class="ar-dash" title="Bientôt en ligne">—</span>}
+                          </td>
+                        </>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="ar-legend"><span class="ar-dash">—</span> document pas encore en ligne : les archives sont ajoutées progressivement.</p>
+        </section>
+      ))}
+    </>
+  )}
+
+  {/* ── Visionneuse (s'ouvre par-dessus la page) ── */}
+  <div class="doc-viewer ar-viewer" role="dialog" aria-modal="true" aria-label="Visionneuse de document">
+    <div class="doc-toolbar">
+      <span class="doc-current">Document</span>
+      <a class="doc-download" href="#" download>⬇️ Télécharger</a>
+      <button type="button" class="ar-close" aria-label="Fermer la visionneuse">✕</button>
+    </div>
+    <iframe class="doc-frame" src="about:blank" title="Visionneuse de document"></iframe>
+  </div>
+  <div class="ar-toast" role="status" aria-live="polite"></div>
+</div>
+
+<script>
+  const norm = (s: string) => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  const CORRIG_RE = /corrig|correction/i;
+  const isUnlocked = () => {
+    try {
+      const v = localStorage.getItem('me-corriges-ok');
+      if (!v) return false;
+      if (v === 'unlimited') return true;
+      const t = parseInt(v, 10);
+      return !!t && Date.now() < t;
+    } catch { return false; }
+  };
+
+  function init() {
+    const root = document.querySelector<HTMLElement>('.ar-root');
+    if (!root || root.dataset.ready) return;
+    root.dataset.ready = '1';
+
+    /* ── Visionneuse ── */
+    const viewer = root.querySelector<HTMLElement>('.ar-viewer')!;
+    const frame = viewer.querySelector<HTMLIFrameElement>('.doc-frame')!;
+    const cur = viewer.querySelector<HTMLElement>('.doc-current')!;
+    const dl = viewer.querySelector<HTMLAnchorElement>('.doc-download')!;
+    const toast = root.querySelector<HTMLElement>('.ar-toast')!;
+    // La visionneuse et le toast sont déplacés sous <body> : un parent
+    // transformé les enfermerait sinon dans la colonne de contenu.
+    document.body.appendChild(viewer);
+    document.body.appendChild(toast);
+    const small = () => window.matchMedia('(max-width: 720px)').matches;
+
+    const say = (msg: string) => {
+      toast.textContent = msg;
+      toast.classList.add('is-on');
+      setTimeout(() => toast.classList.remove('is-on'), 2600);
+    };
+    const openViewer = () => {
+      viewer.classList.add('is-open');
+      document.documentElement.classList.add('ar-noscroll');
+    };
+    const closeViewer = () => {
+      viewer.classList.remove('is-open');
+      document.documentElement.classList.remove('ar-noscroll');
+      frame.setAttribute('src', 'about:blank');
+      if (location.hash.startsWith('#doc=')) history.replaceState(null, '', location.pathname + location.search);
+    };
+    const show = (src: string, title: string) => {
+      if (small()) { window.open(src, '_blank', 'noopener'); return; } // mobile : lecteur PDF natif
+      frame.setAttribute('src', src);
+      dl.setAttribute('href', src);
+      const nt = viewer.querySelector<HTMLAnchorElement>('.doc-newtab');
+      if (nt) nt.setAttribute('href', src);
+      cur.textContent = title;
+      openViewer();
+    };
+
+    root.addEventListener('click', (e) => {
+      const t = e.target as HTMLElement;
+      const btn = t.closest<HTMLElement>('[data-ar-src]');
+      if (btn) {
+        e.preventDefault();
+        show(btn.dataset.arSrc!, btn.dataset.arTitle || btn.dataset.title || '');
+        return;
+      }
+      const sh = t.closest<HTMLElement>('[data-ar-share]');
+      if (sh) {
+        const url = `${location.origin}${location.pathname}#doc=${sh.dataset.arShare}`;
+        const name = sh.dataset.arName || document.title;
+        if (navigator.share && small()) {
+          navigator.share({ title: name, url }).catch(() => {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(() => say('🔗 Lien copié — collez-le sur WhatsApp !'), () => say(url));
+        } else { say(url); }
+        return;
+      }
+    });
+    viewer.addEventListener('click', (e) => {
+      if (e.target === viewer || (e.target as HTMLElement).closest('.ar-close')) closeViewer();
+    });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && viewer.classList.contains('is-open')) closeViewer(); });
+
+    // Lien direct #doc=… (géré par docviewer.js) : on ouvre la visionneuse.
+    new MutationObserver(() => {
+      const src = frame.getAttribute('src') || '';
+      if (!src || src === 'about:blank' || viewer.classList.contains('is-open')) return;
+      if (CORRIG_RE.test(src) && !isUnlocked()) {
+        // Corrigé verrouillé : on montre le bouton au lieu d'ouvrir.
+        frame.setAttribute('src', 'about:blank');
+        const b = root.querySelector<HTMLElement>(`[data-ar-src="${CSS.escape(src)}"]`);
+        if (b) {
+          b.closest('details')?.setAttribute('open', '');
+          b.scrollIntoView({ block: 'center', behavior: 'smooth' });
+          b.classList.add('is-flash');
+          say('🔒 Cliquez sur « Corrigé » pour débloquer les corrigés (gratuit).');
+        }
+        return;
+      }
+      const b = root.querySelector<HTMLElement>(`[data-ar-src="${CSS.escape(src)}"]`);
+      if (b && !cur.textContent?.trim()) cur.textContent = b.dataset.arTitle || '';
+      if (small()) { frame.setAttribute('src', 'about:blank'); window.open(src, '_blank', 'noopener'); return; }
+      openViewer();
+    }).observe(frame, { attributes: true, attributeFilter: ['src'] });
+
+    // Cadenas sur les corrigés tant que l'accès n'est pas débloqué.
+    if (!isUnlocked()) root.querySelectorAll('.ar-btn--corr').forEach((b) => b.classList.add('is-locked'));
+
+    const params = new URLSearchParams(location.search);
+
+    /* ── Examens nationaux : onglets de filière ── */
+    const tabs = root.querySelectorAll<HTMLElement>('[data-filiere].ar-chip');
+    if (tabs.length) {
+      const pick = (k: string) => {
+        tabs.forEach((t) => {
+          const on = t.dataset.filiere === k;
+          t.classList.toggle('is-active', on);
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        root.querySelectorAll<HTMLElement>('.ar-matrix').forEach((m) => { m.hidden = m.dataset.filiere !== k; });
+      };
+      tabs.forEach((t) => t.addEventListener('click', () => {
+        pick(t.dataset.filiere!);
+        const u = new URL(location.href); u.searchParams.set('filiere', t.dataset.filiere!);
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      }));
+      const f = params.get('filiere') || (params.get('niveau') === 'terminale-pc' ? 'pc' : null);
+      if (f && root.querySelector(`.ar-matrix[data-filiere="${f}"]`)) pick(f);
+      return;
+    }
+
+    /* ── DS / DM / EB : filtres ── */
+    const chips = root.querySelectorAll<HTMLElement>('.ar-chip[data-niveau]');
+    const input = root.querySelector<HTMLInputElement>('.ar-search input')!;
+    const dispoOnly = root.querySelector<HTMLInputElement>('.ar-dispo-only')!;
+    const years = root.querySelectorAll<HTMLDetailsElement>('details.ar-year');
+    let niveau = 'all';
+
+    const apply = (fromSearch = false) => {
+      const q = norm(input.value.trim());
+      years.forEach((y) => {
+        let vis = 0, visDispo = 0, visSoon = 0;
+        y.querySelectorAll<HTMLElement>('.ar-group').forEach((g) => {
+          let gv = 0;
+          g.querySelectorAll<HTMLElement>('.ar-row').forEach((r) => {
+            const ok = (niveau === 'all' || r.dataset.niveau === niveau)
+              && (!dispoOnly.checked || r.dataset.dispo === '1')
+              && (!q || (r.dataset.search || '').includes(q));
+            r.hidden = !ok;
+            if (ok) { gv++; if (r.dataset.dispo === '1') visDispo++; else visSoon++; }
+          });
+          g.hidden = gv === 0;
+          vis += gv;
+        });
+        const empty = y.querySelector<HTMLElement>('[data-empty]');
+        if (empty) empty.hidden = vis > 0;
+        const meta = y.querySelector<HTMLElement>('[data-meta]');
+        if (meta) meta.textContent = (visDispo ? `${visDispo} en ligne` : 'Archives en cours de mise en ligne') + (visSoon ? ` · ${visSoon} à venir` : '');
+        const chip = root.querySelector<HTMLElement>(`.ar-year-chip[data-annee="${y.dataset.annee}"]`);
+        if (chip) {
+          chip.classList.toggle('is-empty', visDispo === 0);
+          const n = chip.querySelector('[data-count]'); if (n) n.textContent = String(visDispo);
+        }
+        if (fromSearch && q && vis > 0) y.open = true;
+      });
+    };
+
+    const setNiveau = (n: string, push = true) => {
+      niveau = n;
+      chips.forEach((c) => c.classList.toggle('is-active', c.dataset.niveau === n));
+      apply();
+      if (push) {
+        const u = new URL(location.href);
+        if (n === 'all') u.searchParams.delete('niveau'); else u.searchParams.set('niveau', n);
+        history.replaceState(null, '', u.pathname + u.search + u.hash);
+      }
+    };
+    chips.forEach((c) => c.addEventListener('click', () => setNiveau(c.dataset.niveau!)));
+    input.addEventListener('input', () => apply(true));
+    dispoOnly.addEventListener('change', () => apply());
+
+    root.querySelectorAll<HTMLAnchorElement>('.ar-year-chip').forEach((a) => a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const y = root.querySelector<HTMLDetailsElement>(`#annee-${a.dataset.annee}`);
+      if (!y) return;
+      y.open = true;
+      y.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+
+    const n0 = params.get('niveau');
+    if (n0 && root.querySelector(`.ar-chip[data-niveau="${n0}"]`)) setNiveau(n0, false);
+    const a0 = params.get('annee') || (location.hash.match(/^#annee-(\d{4})$/) || [])[1];
+    if (a0) {
+      const y = root.querySelector<HTMLDetailsElement>(`#annee-${a0}`);
+      if (y) { y.open = true; setTimeout(() => y.scrollIntoView({ block: 'start' }), 50); }
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+  document.addEventListener('astro:page-load', init);
+</script>
+
+<style is:global>
+  /* ═════════ Archives devoirs & examens (préfixe .ar-) ═════════ */
+  .ar-root { --ar-gold: #c9a227; --ar-navy: #0c2340; --ar-r: 14px; margin-top: 0.5rem; }
+  .ar-root * { box-sizing: border-box; }
+  .ar-root :where(p, ul, h3, table, div, section, details, nav, header) { margin-top: 0; }
+
+  /* Navigation entre espaces */
+  .ar-switch { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; padding: 0.35rem; border-radius: 16px;
+    background: var(--sl-color-gray-6); border: 1px solid var(--sl-color-gray-5); margin-bottom: 1rem; }
+  .ar-switch-item { display: flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.6rem 0.5rem; border-radius: 11px;
+    text-decoration: none; font-weight: 600; font-size: 0.88rem; color: var(--sl-color-gray-2); text-align: center; line-height: 1.2;
+    transition: background 0.15s, color 0.15s; }
+  .ar-switch-item:hover { color: var(--sl-color-white); background: var(--sl-color-black); }
+  .ar-switch-item.is-active { background: var(--ar-navy); color: #fff; box-shadow: 0 4px 14px rgba(12, 35, 64, 0.25); }
+  .ar-switch-emoji { font-size: 1.05rem; }
+  @media (max-width: 640px) {
+    .ar-switch { grid-template-columns: repeat(2, 1fr); }
+    .ar-switch-item { font-size: 0.8rem; padding: 0.55rem 0.35rem; }
+  }
+
+  /* Bandeau */
+  .ar-hero { position: relative; overflow: hidden; border-radius: 18px; padding: 1.4rem 1.5rem; margin-bottom: 1rem; color: #fff;
+    background: radial-gradient(700px 260px at 10% -30%, #1d4a80 0%, transparent 60%), linear-gradient(135deg, #0c2036 0%, #123156 60%, #0a1d33 100%); }
+  .ar-hero::after { content: '∑  ∫  π  ∂  √'; position: absolute; right: 1rem; bottom: -0.6rem; font-family: var(--me-font-display, serif);
+    font-size: 3.2rem; letter-spacing: 0.4rem; color: rgba(201, 162, 39, 0.12); pointer-events: none; white-space: nowrap; }
+  .ar-hero-txt { margin: 0 0 1rem; font-size: 1rem; line-height: 1.55; max-width: 44rem; color: #dbe6f7; }
+  .ar-stats { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .ar-stat { display: flex; align-items: baseline; gap: 0.45rem; padding: 0.45rem 0.9rem; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.14); margin: 0 !important; }
+  .ar-stat b { font-family: var(--me-font-display, serif); font-size: 1.25rem; color: #e3c24e; }
+  .ar-stat span { font-size: 0.82rem; color: #c9d6ea; }
+
+  /* Filtres */
+  .ar-tools { position: sticky; top: calc(var(--sl-nav-height, 3.5rem) + 0.4rem); z-index: 5; display: flex; flex-direction: column; gap: 0.6rem;
+    padding: 0.75rem; border-radius: var(--ar-r); background: color-mix(in srgb, var(--sl-color-bg, #fff) 92%, transparent);
+    backdrop-filter: blur(8px); border: 1px solid var(--sl-color-gray-5); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); margin-bottom: 0.9rem; }
+  .ar-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 !important; }
+  .ar-chip { --c: var(--ar-navy); display: inline-flex; align-items: center; gap: 0.45rem; font: inherit; font-size: 0.84rem; font-weight: 600;
+    padding: 0.42rem 0.85rem; border-radius: 999px; cursor: pointer; margin: 0 !important;
+    border: 1px solid var(--sl-color-gray-5); background: var(--sl-color-black); color: var(--sl-color-white); transition: all 0.15s; }
+  .ar-chip i { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--c); display: inline-block; }
+  .ar-chip:hover { border-color: var(--c); }
+  .ar-chip.is-active { background: var(--c); border-color: var(--c); color: #fff; }
+  .ar-chip.is-active i { background: #fff; }
+  .ar-chip small { font-weight: 500; opacity: 0.75; font-size: 0.74rem; }
+  .ar-chips--seg .ar-chip { padding: 0.55rem 1rem; }
+  .ar-tools-row { display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; align-items: center; margin: 0 !important; }
+  .ar-search { flex: 1 1 18rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.8rem; border-radius: 10px;
+    border: 1px solid var(--sl-color-gray-5); background: var(--sl-color-black); margin: 0 !important; }
+  .ar-search:focus-within { border-color: var(--sl-color-accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--sl-color-accent) 20%, transparent); }
+  .ar-search input { flex: 1; border: 0; outline: 0; background: transparent; color: var(--sl-color-white); font: inherit; font-size: 0.9rem; min-width: 0; }
+  .ar-toggle { display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.84rem; color: var(--sl-color-gray-2); cursor: pointer; margin: 0 !important; }
+  .ar-toggle input { accent-color: var(--sl-color-accent); width: 1rem; height: 1rem; }
+
+  /* Frise des années */
+  .ar-years { display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 0.4rem; margin-bottom: 1.2rem; }
+  .ar-year-chip { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; padding: 0.45rem 0.3rem; border-radius: 10px;
+    text-decoration: none; border: 1px solid var(--sl-color-gray-5); background: var(--sl-color-black); margin: 0 !important; transition: all 0.15s; }
+  .ar-year-chip:hover { border-color: var(--ar-gold); transform: translateY(-1px); }
+  .ar-yc-lbl { font-size: 0.8rem; font-weight: 700; color: var(--sl-color-white); }
+  .ar-yc-n { font-size: 0.7rem; font-weight: 700; padding: 0 0.45rem; border-radius: 999px; background: #d1fae5; color: #065f46; }
+  .ar-yc-n::after { content: ' doc.'; font-weight: 500; }
+  .ar-year-chip.is-empty { opacity: 0.55; }
+  .ar-year-chip.is-empty .ar-yc-n { background: var(--sl-color-gray-6); color: var(--sl-color-gray-3); }
+  .ar-year-chip.is-current { border-color: var(--ar-gold); box-shadow: inset 0 -3px 0 var(--ar-gold); }
+
+  /* Années */
+  .ar-list { display: flex; flex-direction: column; gap: 0.6rem; }
+  .ar-year { border: 1px solid var(--sl-color-gray-5); border-radius: var(--ar-r); background: var(--sl-color-black); margin: 0 !important;
+    scroll-margin-top: calc(var(--sl-nav-height, 3.5rem) + 9rem); overflow: hidden; }
+  .ar-year > summary { list-style: none; display: flex; align-items: center; gap: 0.8rem; padding: 0.85rem 1.1rem; cursor: pointer; user-select: none; }
+  .ar-year > summary::-webkit-details-marker { display: none; }
+  .ar-year > summary:hover { background: var(--sl-color-gray-6); }
+  .ar-y-title { font-family: var(--me-font-display, serif); font-weight: 600; font-size: 1.08rem; color: var(--sl-color-white); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  .ar-y-meta { margin-left: auto; font-size: 0.8rem; color: var(--sl-color-gray-3); text-align: right; }
+  .ar-chevron { width: 0.55rem; height: 0.55rem; border-right: 2px solid var(--sl-color-gray-3); border-bottom: 2px solid var(--sl-color-gray-3);
+    transform: rotate(45deg); transition: transform 0.2s; flex-shrink: 0; margin-top: -0.2rem; }
+  .ar-year[open] > summary .ar-chevron { transform: rotate(-135deg); margin-top: 0.2rem; }
+  .ar-year[open] > summary { border-bottom: 1px solid var(--sl-color-gray-5); }
+  .ar-y-body { padding: 0.4rem 1.1rem 1rem; }
+  .ar-empty { margin: 0.6rem 0 0 !important; font-size: 0.88rem; color: var(--sl-color-gray-3); }
+
+  .ar-group { --c: var(--ar-navy); margin-top: 0.8rem !important; }
+  .ar-group-title { display: flex; align-items: center; gap: 0.5rem; font-size: 0.78rem !important; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--c) !important; margin: 0 0 0.35rem !important; border: 0 !important; padding: 0 !important; }
+  .ar-group-title i { width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--c); display: inline-block; }
+  .ar-rows { list-style: none; padding: 0 !important; margin: 0 !important; border-left: 3px solid var(--c); border-radius: 4px; }
+  .ar-row { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; flex-wrap: wrap;
+    padding: 0.6rem 0.2rem 0.6rem 0.85rem; margin: 0 !important; border-bottom: 1px dashed var(--sl-color-gray-5); scroll-margin-top: 12rem; }
+  .ar-row:last-child { border-bottom: 0; }
+  .ar-row:target { background: color-mix(in srgb, var(--ar-gold) 12%, transparent); }
+  .ar-row-main { min-width: 0; flex: 1 1 16rem; }
+  .ar-row-title { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; color: var(--sl-color-white); font-size: 0.95rem; }
+  .ar-row-sub { font-size: 0.82rem; color: var(--sl-color-gray-3); margin-top: 0.1rem !important; }
+  .ar-dur { white-space: nowrap; }
+  .ar-row.is-soon .ar-row-title strong { color: var(--sl-color-gray-3); font-weight: 600; }
+  .ar-row-act { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; margin: 0 !important; }
+
+  .ar-tag { font-size: 0.68rem; font-weight: 700; padding: 0.08rem 0.5rem; border-radius: 999px; letter-spacing: 0.02em;
+    background: var(--sl-color-gray-6); color: var(--sl-color-gray-2); border: 1px solid var(--sl-color-gray-5); white-space: nowrap; font-family: var(--sl-font); }
+  .ar-tag--new { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+  .ar-tag--now { background: rgba(201, 162, 39, 0.16); color: #a16207; border-color: rgba(201, 162, 39, 0.5); }
+  :root[data-theme='dark'] .ar-tag--now { color: #e3c24e; }
+
+  /* Boutons */
+  .ar-root .ar-btn { display: inline-flex; align-items: center; gap: 0.3rem; font: inherit; font-size: 0.8rem; font-weight: 700; white-space: nowrap;
+    padding: 0.38rem 0.8rem; border-radius: 999px; border: 1px solid var(--ar-navy); background: var(--ar-navy); color: #fff;
+    text-decoration: none; cursor: pointer; margin: 0 !important; transition: transform 0.12s, box-shadow 0.12s, background 0.12s; }
+  .ar-root .ar-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(12, 35, 64, 0.25); }
+  :root[data-theme='dark'] .ar-root .ar-btn:not(.ar-btn--corr):not(.is-off) { background: #1d4ed8; border-color: #1d4ed8; }
+  .ar-root .ar-btn--corr { background: transparent; color: #047857; border-color: #10b981; }
+  :root[data-theme='dark'] .ar-root .ar-btn--corr { background: transparent; color: #6ee7b7; border-color: #10b981; }
+  .ar-root .ar-btn--corr:hover { background: rgba(16, 185, 129, 0.1); }
+  .ar-root .ar-btn--corr.is-locked::after { content: '🔒'; font-size: 0.72rem; }
+  .ar-root .ar-btn.is-off { background: transparent; border: 1px dashed var(--sl-color-gray-4); color: var(--sl-color-gray-3); cursor: default; font-weight: 600; }
+  .ar-root .ar-btn.is-off:hover { transform: none; box-shadow: none; }
+  .ar-root .ar-btn--sm { padding: 0.28rem 0.65rem; font-size: 0.76rem; }
+  .ar-root .ar-btn.is-flash { animation: ar-flash 1.2s ease 3; }
+  @keyframes ar-flash { 50% { box-shadow: 0 0 0 6px rgba(201, 162, 39, 0.45); } }
+  .ar-share { font: inherit; font-size: 0.85rem; border: 0; background: transparent; cursor: pointer; padding: 0.2rem 0.35rem; border-radius: 8px;
+    opacity: 0.55; margin: 0 !important; }
+  .ar-share:hover { opacity: 1; background: var(--sl-color-gray-6); }
+  .ar-root .pdf-dl-count { display: none !important; } /* compteur masqué dans les listes compactes */
+
+  /* Matrice des examens nationaux */
+  .ar-matrix { --c: var(--ar-navy); }
+  .ar-matrix-cap { font-size: 0.9rem; color: var(--sl-color-gray-2); margin: 0 0 0.6rem !important; }
+  .ar-table-wrap { overflow-x: auto; border: 1px solid var(--sl-color-gray-5); border-radius: var(--ar-r); background: var(--sl-color-black); }
+  .ar-root .ar-table { width: 100%; border-collapse: collapse; margin: 0 !important; display: table; font-size: 0.88rem; }
+  .ar-root .ar-table th, .ar-root .ar-table td { padding: 0.5rem 0.6rem; text-align: center; border: 0; border-bottom: 1px solid var(--sl-color-gray-5); vertical-align: middle; }
+  .ar-root .ar-table thead th { background: var(--ar-navy); color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.02em; }
+  .ar-root .ar-table thead tr:first-child th[colspan] { border-left: 1px solid rgba(255, 255, 255, 0.15); }
+  .ar-root .ar-table thead th small { font-weight: 500; opacity: 0.75; }
+  .ar-root .ar-table tbody th { font-family: var(--me-font-display, serif); font-size: 1rem; color: var(--sl-color-white); text-align: left; white-space: nowrap;
+    border-left: 4px solid var(--c); }
+  .ar-root .ar-table tbody th .ar-tag { margin-left: 0.4rem; vertical-align: middle; }
+  .ar-root .ar-table tbody tr:hover td, .ar-root .ar-table tbody tr:hover th { background: var(--sl-color-gray-6); }
+  .ar-root .ar-table tbody td:nth-child(4) { border-left: 1px solid var(--sl-color-gray-5); }
+  .ar-root .ar-table tr.is-soon th { color: var(--sl-color-gray-3); }
+  .ar-dash { color: var(--sl-color-gray-4); font-weight: 700; }
+  .ar-legend { font-size: 0.8rem; color: var(--sl-color-gray-3); margin: 0.5rem 0 0 !important; }
+
+  /* Visionneuse en surimpression */
+  .ar-viewer { display: none; }
+  .doc-viewer.ar-viewer.is-open { display: flex; flex-direction: column; position: fixed; inset: 0; z-index: 1000; margin: 0 !important;
+    border-radius: 0; border: 0; background: rgba(8, 18, 33, 0.72); padding: min(3vh, 1.5rem) min(3vw, 1.5rem); backdrop-filter: blur(3px); }
+  .ar-viewer.is-open .doc-toolbar { background: var(--sl-color-black); border-radius: 14px 14px 0 0; margin: 0 !important; gap: 0.8rem; }
+  .ar-viewer.is-open .doc-current { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .ar-viewer.is-open .doc-frame { flex: 1; height: auto; border-radius: 0 0 14px 14px; margin: 0 !important; }
+  .ar-close { font: inherit; font-size: 1rem; font-weight: 700; width: 2rem; height: 2rem; border-radius: 50%; border: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-gray-6); color: var(--sl-color-white); cursor: pointer; flex-shrink: 0; margin: 0 !important; }
+  .ar-close:hover { background: #dc2626; border-color: #dc2626; color: #fff; }
+  .ar-viewer .doc-newtab { font-weight: 700; font-size: 0.82rem; text-decoration: none; color: var(--sl-color-accent); white-space: nowrap; }
+  html.ar-noscroll { overflow: hidden; }
+
+  .ar-toast { position: fixed; left: 50%; bottom: 1.5rem; transform: translate(-50%, 1rem); z-index: 1100; padding: 0.6rem 1.1rem; border-radius: 999px;
+    background: var(--ar-navy); color: #fff; font-size: 0.88rem; font-weight: 600; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    opacity: 0; pointer-events: none; transition: all 0.25s; margin: 0 !important; }
+  .ar-toast.is-on { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 640px) {
+    .ar-tools { position: static; }
+    .ar-y-meta { display: none; }
+    .ar-row { padding-left: 0.6rem; }
+    .ar-hero::after { font-size: 2.2rem; }
+  }
+
+  :root[data-theme='dark'] .ar-switch-item.is-active { background: #1d4ed8; }
+  :root[data-theme='dark'] .ar-chip[data-niveau='all'].is-active { background: #1d4ed8; border-color: #1d4ed8; }
+  @media (max-width: 640px) {
+    .ar-chip small { display: none; }
+    .ar-root .ar-table { font-size: 0.8rem; }
+    .ar-root .ar-table th, .ar-root .ar-table td { padding: 0.45rem 0.25rem; }
+    .ar-root .ar-table tbody th { font-size: 0.9rem; padding-left: 0.5rem; }
+    .ar-root .ar-table tbody th .ar-tag, .ar-root .ar-table thead th small { display: none; }
+    .ar-root .ar-btn--sm { padding: 0.3rem 0.5rem; }
+    .ar-root .ar-btn--sm .ar-bl { display: none; }
+    .ar-root .ar-btn--corr.ar-btn--sm.is-locked::after { content: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ar-root *, .ar-root *::after { transition: none !important; animation: none !important; }
+  }
+</style>

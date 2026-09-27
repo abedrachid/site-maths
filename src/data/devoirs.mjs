@@ -157,6 +157,9 @@ export const devoirs = [
   { type: 'eb', niveau: 'terminale', annee: 2026, categorie: 'Bac blanc', titre: 'Bac blanc 3', chapitres: 'Tout le programme', duree: '3 h',
     sujet: '/pdf/terminale/problemes-bacs-blancs/bb3-sujet.pdf', corrige: '/pdf/terminale/problemes-bacs-blancs/bb3-corrige.pdf' },
 
+  { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 1', chapitres: 'Limites et continuité · Arctangente', ajout: '2026-09-27',
+    sujet: '/pdf/terminale/dm/2026/dm1-sujet.pdf' },
+
   // DM — modèle à dupliquer :
   // { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 1', chapitres: '…',
   //   sujet: '/pdf/terminale/dm/2026/dm1-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm1-corrige.pdf' },

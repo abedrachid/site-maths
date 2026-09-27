@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-09-27',
+    type: 'document',
+    niveau: 'Terminale SM',
+    titre: '8 nouveaux DS d\'entraînement pour préparer le DS 1 — sujets & corrigés détaillés',
+    lien: '/devoirs-surveilles?niveau=terminale',
+    desc: 'DS n°3, 4, 6, 7, 8, 9, 10 et 11 (2 h chacun) : limites, continuité, TVI, bijection et réciproque, racines n-ièmes, Arctangente.',
+  },
+  {
     date: '2026-09-26',
     type: 'autre',
     niveau: '',

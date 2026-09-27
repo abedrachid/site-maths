@@ -164,6 +164,8 @@ export const devoirs = [
   /* ───────────── PREMIÈRE BAC SM ───────────── */
   { type: 'ds', niveau: 'premiere', annee: 2026, titre: 'DS 1', chapitres: 'Logique mathématique',
     sujet: '/pdf/premiere/ds1-logique.pdf' },
+  { type: 'ds', niveau: 'premiere', annee: 2025, titre: 'DS 1', chapitres: 'Logique et raisonnements', duree: '3 h', ajout: '2026-09-27',
+    sujet: '/pdf/premiere/ds/2025/ds1-sujet.pdf' },
   { type: 'dm', niveau: 'premiere', annee: 2026, titre: 'DM 1', chapitres: 'Fonctions — généralités',
     sujet: '/pdf/premiere/dm1.pdf' },
   { type: 'eb', niveau: 'premiere', annee: 2026, titre: 'Examen blanc 1', chapitres: 'Principes de dénombrement · Arrangements', duree: '1 h',

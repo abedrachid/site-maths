@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-10-02',
+    type: 'document',
+    niveau: 'Première SM',
+    titre: 'Logique — premiers corrigés détaillés : Série n°1 et Série Raisonnements',
+    lien: '/premiere/logique',
+    desc: 'Corrigés rédigés pas à pas — parties 1 et 2 en ligne (Série n°1 : exercices 1 à 12 ; Série Raisonnements : exercices 1 à 12). Les autres parties arrivent prochainement.',
+  },
+  {
     date: '2026-09-27',
     type: 'document',
     niveau: 'Terminale SM',

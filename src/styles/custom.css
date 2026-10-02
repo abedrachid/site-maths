@@ -699,6 +699,19 @@ header.header {
   border-color: var(--sl-color-accent);
   color: var(--sl-color-white);
 }
+/* Onglet « prochainement » : document annoncé mais pas encore publié */
+.doc-soon {
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.45rem 0.85rem;
+  border: 1px dashed var(--sl-color-gray-4);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--sl-color-gray-3);
+  cursor: default;
+  user-select: none;
+}
+.doc-soon em { font-style: italic; font-weight: 500; }
 .doc-toolbar {
   display: flex;
   align-items: center;

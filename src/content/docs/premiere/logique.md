@@ -1,6 +1,6 @@
 ---
 title: Logique et raisonnement
-description: "Cours, fiche résumé, QCM interactif corrigé et séries d'exercices consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
+description: "Cours, fiche résumé, QCM interactif corrigé, séries d'exercices et leurs corrigés détaillés consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
 sidebar:
   order: 1
 ---
@@ -16,7 +16,17 @@ Tous les documents du chapitre **Logique et raisonnement** sont consultables dir
     <button class="doc-tab" data-title="Exercices &amp; problèmes" data-src="/pdf/premiere/logique/exercices.pdf">📝 Exercices &amp; problèmes</button>
     <button class="doc-tab" data-title="QCM corrigé" data-src="/pdf/premiere/logique/qcm.pdf">❓ QCM (corrigé)</button>
     <button class="doc-tab" data-title="Série n°1 — Quantificateurs, négation, CN/CS" data-src="/pdf/premiere/logique/serie-logique-1.pdf">🧩 Série n°1 — Logique</button>
+    <button class="doc-tab" data-title="Série n°1 Logique — Corrigé, partie 1/3 (exercices 1 à 6)" data-src="/pdf/premiere/logique/serie-logique-1-corrige-partie-1.pdf">✅ Corrigé Série n°1 — Partie 1 (Ex. 1–6)</button>
+    <button class="doc-tab" data-title="Série n°1 Logique — Corrigé, partie 2/3 (exercices 7 à 12)" data-src="/pdf/premiere/logique/serie-logique-1-corrige-partie-2.pdf">✅ Corrigé Série n°1 — Partie 2 (Ex. 7–12)</button>
+    <span class="doc-soon" title="Ce corrigé sera publié prochainement">⏳ Corrigé Série n°1 — Partie 3 (Ex. 13–19) — <em>prochainement</em></span>
     <button class="doc-tab" data-title="Série — Les types de raisonnement" data-src="/pdf/premiere/logique/serie-raisonnements.pdf">🧠 Série — Raisonnements</button>
+    <button class="doc-tab" data-title="Série Raisonnements — Corrigé, partie 1/7 (exercices 1 à 6)" data-src="/pdf/premiere/logique/serie-raisonnements-corrige-partie-1.pdf">✅ Corrigé Raisonnements — Partie 1 (Ex. 1–6)</button>
+    <button class="doc-tab" data-title="Série Raisonnements — Corrigé, partie 2/7 (exercices 7 à 12)" data-src="/pdf/premiere/logique/serie-raisonnements-corrige-partie-2.pdf">✅ Corrigé Raisonnements — Partie 2 (Ex. 7–12)</button>
+    <span class="doc-soon" title="Ce corrigé sera publié prochainement">⏳ Corrigé Raisonnements — Partie 3 (Ex. 13–18) — <em>prochainement</em></span>
+    <span class="doc-soon" title="Ce corrigé sera publié prochainement">⏳ Corrigé Raisonnements — Partie 4 (Ex. 19–24) — <em>prochainement</em></span>
+    <span class="doc-soon" title="Ce corrigé sera publié prochainement">⏳ Corrigé Raisonnements — Partie 5 (Ex. 25–30) — <em>prochainement</em></span>
+    <span class="doc-soon" title="Ce corrigé sera publié prochainement">⏳ Corrigé Raisonnements — Partie 6 (Ex. 31–36) — <em>prochainement</em></span>
+    <span class="doc-soon" title="Ce corrigé sera publié prochainement">⏳ Corrigé Raisonnements — Partie 7 (Ex. 37–43) — <em>prochainement</em></span>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

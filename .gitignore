@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # macOS-specific files
 .DS_Store
+
+# Corrigés prêts mais pas encore publiés
+_corriges_a_venir/

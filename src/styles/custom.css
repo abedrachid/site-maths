@@ -699,6 +699,53 @@ header.header {
   border-color: var(--sl-color-accent);
   color: var(--sl-color-white);
 }
+/* Onglets regroupés par thème (docviewer.js) */
+.doc-tabs.doc-tabs--grouped {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 0.55rem;
+}
+.doc-group {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.doc-group + .doc-group {
+  padding-top: 0.55rem;
+  border-top: 1px dashed var(--sl-color-gray-5);
+}
+.doc-group-label {
+  flex: 0 0 11.5rem;
+  padding-top: 0.45rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sl-color-gray-2);
+  white-space: nowrap;
+}
+.doc-group--qcm .doc-group-label { color: #C8932B; }
+.doc-group-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.doc-pair {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.15rem;
+  border-radius: 1.25rem;
+  background: color-mix(in srgb, var(--sl-color-gray-5) 55%, transparent);
+  max-width: 100%;
+}
+.doc-pair--long { display: flex; width: 100%; padding: 0.3rem; }
+@media (max-width: 640px) {
+  .doc-group { flex-direction: column; gap: 0.35rem; }
+  .doc-group-label { flex: none; padding-top: 0; }
+}
 /* Onglet « prochainement » : document annoncé mais pas encore publié */
 .doc-soon {
   font-size: 0.82rem;

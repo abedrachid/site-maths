@@ -54,6 +54,22 @@ export const nouveautes = [
   {
     date: '2026-10-02',
     type: 'document',
+    niveau: 'Terminale SM',
+    titre: 'QCM de révision n°2 — Limites, continuité & fonctions réciproques : deux sujets (A et B) avec corrigés détaillés',
+    lien: '/terminale/limites#qcm',
+    desc: '20 questions par sujet sur les chapitres 1 et 2 (racines n-ièmes, arctangente) : méthodes, pièges et contre-exemples, avec corrigé justifié en PDF.',
+  },
+  {
+    date: '2026-10-02',
+    type: 'document',
+    niveau: 'Première SM',
+    titre: 'Logique — deux QCM de révision interactifs (20 questions chacun) avec corrigés détaillés',
+    lien: '/premiere/logique#qcm',
+    desc: 'QCM n°1 « Cours sous tension » et QCM n°2 « Méthodes et pièges » : note sur 20 et corrigé justifié de chaque question, en ligne et en PDF.',
+  },
+  {
+    date: '2026-10-02',
+    type: 'document',
     niveau: 'Première SM',
     titre: 'Logique — premiers corrigés détaillés : Série n°1 et Série Raisonnements',
     lien: '/premiere/logique',

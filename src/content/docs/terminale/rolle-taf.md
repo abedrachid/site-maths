@@ -7,51 +7,12 @@ sidebar:
 
 Tous les documents du chapitre **Théorèmes de Rolle, des accroissements finis (T.A.F) et inégalité des accroissements finis (I.A.F)** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
-<div id="video-rolle" style="scroll-margin-top:5rem;"></div>
-
-## 🎬 Vidéo — Le théorème de Rolle en animation
-
-<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
-  <video controls preload="metadata" poster="/videos/rolle-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
-    <source src="/videos/rolle-illustration.mp4" type="video/mp4" />
-    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/rolle-illustration.mp4">télécharger la vidéo</a>.
-  </video>
-</div>
-
-*Illustration animée : les trois conditions du théorème, la tangente qui glisse le long de la courbe et le point c où la dérivée s'annule.*
-
-<div id="video-taf" style="scroll-margin-top:5rem;"></div>
-
-## 🎬 Vidéo — Le théorème des accroissements finis (T.A.F) en animation
-
-<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
-  <video controls preload="metadata" poster="/videos/taf-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
-    <source src="/videos/taf-illustration.mp4" type="video/mp4" />
-    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/taf-illustration.mp4">télécharger la vidéo</a>.
-  </video>
-</div>
-
-*Illustration animée : les conditions du T.A.F, la corde [AB] et la tangente qui glisse jusqu'au point c où f′(c) égale la pente moyenne (f(b) − f(a)) / (b − a).*
-
-<div id="video-taf-demo" style="scroll-margin-top:5rem;"></div>
-
-## 🎬 Vidéo — Idée démonstration de T.A.F
-
-<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
-  <video controls preload="metadata" poster="/videos/taf-demonstration-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
-    <source src="/videos/taf-demonstration.mp4" type="video/mp4" />
-    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/taf-demonstration.mp4">télécharger la vidéo</a>.
-  </video>
-</div>
-
-*Idée de la démonstration du T.A.F : on se ramène au théorème de Rolle en soustrayant à f la corde [AB], puis on applique Rolle à la fonction auxiliaire ainsi construite.*
-
 ## 📄 Documents du chapitre
 
 <div class="doc-viewer">
   <div class="doc-tabs">
     <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/rolle-taf/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Corrections du cours" data-src="/pdf/terminale/rolle-taf/corrections-cours.pdf">✅ Corrections du cours</button>
+    <button class="doc-tab" data-group="cours" data-title="Corrections du cours" data-src="/pdf/terminale/rolle-taf/corrections-cours.pdf">✅ Corrections du cours</button>
     <button class="doc-tab" data-title="Fiche de révision" data-src="/pdf/terminale/rolle-taf/fiche-resume.pdf">📋 Fiche de révision</button>
     <button class="doc-tab" data-title="QCM (PDF)" data-src="/pdf/terminale/rolle-taf/qcm.pdf">❓ QCM (PDF)</button>
     <button class="doc-tab" data-title="Exercices du chapitre" data-src="/pdf/terminale/rolle-taf/exercices-chapitre.pdf">📝 Exercices du chapitre</button>
@@ -210,6 +171,47 @@ Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule r
 :::note[Documents en ligne]
 Cours, corrections du cours, fiche de révision, QCM (PDF et interactif), exercices du chapitre et leurs corrigés, ainsi que les **6 séries d'exercices (planches) avec leurs corrigés**, sont **disponibles**.
 :::
+
+---
+
+<div id="video-rolle" style="scroll-margin-top:5rem;"></div>
+
+## 🎬 Vidéo — Le théorème de Rolle en animation
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/rolle-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/rolle-illustration.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/rolle-illustration.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Illustration animée : les trois conditions du théorème, la tangente qui glisse le long de la courbe et le point c où la dérivée s'annule.*
+
+<div id="video-taf" style="scroll-margin-top:5rem;"></div>
+
+## 🎬 Vidéo — Le théorème des accroissements finis (T.A.F) en animation
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/taf-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/taf-illustration.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/taf-illustration.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Illustration animée : les conditions du T.A.F, la corde [AB] et la tangente qui glisse jusqu'au point c où f′(c) égale la pente moyenne (f(b) − f(a)) / (b − a).*
+
+<div id="video-taf-demo" style="scroll-margin-top:5rem;"></div>
+
+## 🎬 Vidéo — Idée démonstration de T.A.F
+
+<div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
+  <video controls preload="metadata" poster="/videos/taf-demonstration-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
+    <source src="/videos/taf-demonstration.mp4" type="video/mp4" />
+    Votre navigateur ne peut pas lire cette vidéo — <a href="/videos/taf-demonstration.mp4">télécharger la vidéo</a>.
+  </video>
+</div>
+
+*Idée de la démonstration du T.A.F : on se ramène au théorème de Rolle en soustrayant à f la corde [AB], puis on applique Rolle à la fonction auxiliaire ainsi construite.*
 
 ---
 

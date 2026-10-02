@@ -32,8 +32,80 @@
     if (dl) bar.insertBefore(a, dl); else bar.appendChild(a);
   }
 
+
+  /* ── Regroupement thématique des onglets ─────────────────────
+     Les onglets sont rangés par thème, dans cet ordre :
+       📖 Cours & fiches  →  ❓ QCM  →  📝 Exercices & corrigés
+     (ordre du fichier conservé à l'intérieur de chaque thème).
+     Forcer un thème : data-group="cours|qcm|exo|autre" sur l'onglet.
+     Désactiver sur une visionneuse : data-group="none" sur .doc-viewer.
+     Ne s'applique que s'il y a ≥ 6 onglets et au moins 2 thèmes.   */
+  var GROUPS = [
+    { id: 'cours', label: '📖 Cours & fiches' },
+    { id: 'qcm',   label: '❓ QCM' },
+    { id: 'exo',   label: '📝 Exercices & corrigés' },
+    { id: 'autre', label: '📄 Autres documents' }
+  ];
+  function groupOf(el) {
+    var g = el.getAttribute('data-group');
+    if (g) return g;
+    var s = ((el.getAttribute('data-title') || '') + ' ' + (el.textContent || '')).toLowerCase();
+    if (/qcm/.test(s)) return 'qcm';
+    if (/exercice|s[ée]rie|planche|probl[èe]me|corrig|correction|devoir|sujet/.test(s)) return 'exo';
+    if (/cours|fiche|formulaire|chapitre complet|r[ée]sum/.test(s)) return 'cours';
+    return 'autre';
+  }
+  function isCorr(el) {
+    return /corrig|correction/i.test((el.getAttribute('data-title') || '') + ' ' + (el.textContent || ''));
+  }
+  function groupTabs(v) {
+    if (v.getAttribute('data-group') === 'none') return;
+    var bar = v.querySelector('.doc-tabs');
+    if (!bar || bar.classList.contains('doc-tabs--grouped')) return;
+    var items = Array.prototype.filter.call(bar.children, function (c) {
+      return c.classList.contains('doc-tab') || c.classList.contains('doc-soon');
+    });
+    if (items.length < 6) return;
+    var buckets = {};
+    items.forEach(function (el) {
+      var g = groupOf(el);
+      (buckets[g] = buckets[g] || []).push(el);
+    });
+    var used = GROUPS.filter(function (g) { return buckets[g.id]; });
+    if (used.length < 2) return;
+    bar.classList.add('doc-tabs--grouped');
+    used.forEach(function (g) {
+      var row = document.createElement('div');
+      row.className = 'doc-group doc-group--' + g.id;
+      var lab = document.createElement('span');
+      lab.className = 'doc-group-label';
+      lab.textContent = g.label;
+      var box = document.createElement('div');
+      box.className = 'doc-group-items';
+      // Énoncé + corrigé gardés côte à côte (paire insécable)
+      var list = buckets[g.id];
+      for (var i = 0; i < list.length; i++) {
+        var el = list[i], nx = list[i + 1];
+        if (nx && !isCorr(el) && isCorr(nx)) {
+          var pair = document.createElement('span');
+          pair.className = 'doc-pair';
+          pair.appendChild(el);
+          while (nx && isCorr(nx)) { pair.appendChild(nx); i++; nx = list[i + 1]; }
+          if (pair.children.length > 2) pair.classList.add('doc-pair--long');
+          box.appendChild(pair);
+        } else {
+          box.appendChild(el);
+        }
+      }
+      row.appendChild(lab);
+      row.appendChild(box);
+      bar.appendChild(row);
+    });
+  }
+
   function initViewer(v) {
     injectNewTab(v);
+    groupTabs(v);
     var tabs = v.querySelectorAll('.doc-tab');
     tabs.forEach(function (tab) {
       tab.setAttribute('type', 'button');

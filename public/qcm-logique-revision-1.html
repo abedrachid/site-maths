@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logique — QCM de révision n° 1 · Cours sous tension | Maths Élites</title>
+<meta name="description" content="QCM de révision n° 1 corrigé — Notions de logique, 1re Bac Sciences Mathématiques : 20 questions, note sur 20 et corrigé justifié (R. Abed).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+  :root{
+    --cream:#fbf7ef; --paper:#fffdf8; --paper2:#f5efe1;
+    --navy:#1b3a6b; --navy-deep:#0c2340; --navy-light:#3b5e93; --navy-soft:#eaeff6;
+    --gold:#c8932b; --gold-light:#e0b457; --gold-soft:#f7edd7; --gold-line:#e6d3a6;
+    --teal:#1e7a6e; --teal-soft:#e3f0ed; --teal-line:#b6dbd4; --teal-ink:#155e54;
+    --coral:#c9554a; --coral-soft:#f8e7e4; --coral-line:#eec6c0; --coral-ink:#a63f36;
+    --ink:#2a2a2a; --ink-soft:#4b4f57; --gray:#5b6472;
+    --line:#e7ddca; --line-strong:#d8ccb2;
+    --shadow:0 1px 2px rgba(27,58,107,.06),0 10px 26px -16px rgba(12,35,64,.26);
+    --radius:12px;
+    --sans:"Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --serif:"Palatino Linotype","Book Antiqua","TeX Gyre Pagella",Palatino,"URW Palladio L",Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+  .wrap{width:min(980px,100%);margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+
+  .topnav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--cream) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--gold-line)}
+  .topnav .row{display:flex;align-items:center;gap:18px;min-height:50px;flex-wrap:wrap}
+  .brandmark{font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.02em;color:var(--navy);white-space:nowrap}
+  .brandmark b{color:var(--gold)}
+  .navlinks{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+  .navlinks a{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--gray);text-decoration:none;padding:6px 9px;border-radius:7px;line-height:1}
+  .navlinks a:hover{background:var(--navy-soft);color:var(--navy)}
+  @media (max-width:720px){.navlinks{display:none}}
+
+  header.mast{padding:clamp(26px,4vw,40px) 0 6px}
+  .banner{display:flex;align-items:center;gap:clamp(16px,3vw,26px);background:linear-gradient(140deg,var(--navy) 0%,var(--navy-deep) 100%);border-radius:14px;border-bottom:4px solid var(--gold);padding:clamp(20px,3.4vw,30px) clamp(20px,3.6vw,34px);box-shadow:var(--shadow)}
+  .logo{flex:none}
+  .logo svg{width:clamp(58px,9vw,76px);height:clamp(58px,9vw,76px);display:block;filter:drop-shadow(0 2px 5px rgba(0,0,0,.3))}
+  .banner-txt{min-width:0}
+  .badge{display:inline-block;font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(224,180,87,.55);border-radius:999px;padding:4px 11px;margin:0 0 11px}
+  .eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin:0 0 6px}
+  .banner-txt h1{font-family:var(--sans);font-weight:700;color:#fff;font-size:clamp(1.6rem,4.6vw,2.6rem);line-height:1.08;letter-spacing:-.01em;text-wrap:balance;margin:0}
+  .banner-sub{font-family:var(--serif);font-style:italic;color:#d8e2f0;font-size:clamp(1rem,2vw,1.12rem);margin:.4em 0 0}
+  .lede{font-size:1.08rem;color:var(--ink-soft);max-width:64ch;margin:26px auto 0;line-height:1.62}
+  .lede strong{color:var(--navy);font-weight:600}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:26px 0 4px}
+  .fact{background:var(--paper);padding:15px 18px}
+  .fact .n{font-family:var(--sans);font-weight:700;font-size:1.66rem;line-height:1;color:var(--navy);font-variant-numeric:tabular-nums}
+  .fact .l{font-family:var(--sans);font-size:11.5px;color:var(--gray);margin-top:7px;letter-spacing:.02em;line-height:1.35}
+
+  section.level{padding:clamp(30px,4.5vw,48px) 0 0}
+  .lvlbanner{display:flex;align-items:center;gap:14px;background:var(--c);border-radius:10px;border-bottom:3px solid rgba(0,0,0,.16);padding:12px 18px;color:#fff;box-shadow:var(--shadow)}
+  .lvlbanner .lv{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+  .lvlbanner .nm{font-family:var(--sans);font-weight:700;font-size:1.06rem;letter-spacing:.01em}
+  .lvlbanner .st{margin-left:auto;letter-spacing:.12em;font-size:1rem;color:var(--gold-light)}
+  .level[data-l="moyen"]{--c:var(--teal)}
+  .level[data-l="bon"]{--c:var(--navy-light)}
+  .level[data-l="diff"]{--c:var(--coral)}
+  .kicker{font-family:var(--sans);color:var(--gray);max-width:70ch;margin:14px 2px 22px;font-size:.96rem;line-height:1.5}
+
+  .stack{display:grid;gap:15px}
+  .qcard{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:var(--radius);padding:20px clamp(16px,2.4vw,24px);box-shadow:var(--shadow)}
+  .qtop{display:flex;gap:12px;align-items:baseline}
+  .qnum{font-family:var(--sans);font-weight:700;font-size:12px;color:#fff;background:var(--navy);border-radius:6px;padding:4px 8px;line-height:1;flex:none}
+  .qtext{font-size:1.08rem;color:var(--ink);line-height:1.5}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:15px 0 0}
+  @media (max-width:560px){.opts{grid-template-columns:1fr}}
+  .opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;font-family:var(--serif);font-size:1rem;color:var(--ink);background:var(--cream);border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .05s}
+  .opt:hover{border-color:var(--navy)}
+  .opt:active{transform:translateY(1px)}
+  .opt:focus-visible{outline:2.5px solid var(--navy);outline-offset:2px}
+  .ok{flex:none;width:1.7em;height:1.7em;display:grid;place-items:center;font-family:var(--sans);font-weight:700;font-size:.8rem;color:var(--gold);border:1.5px solid var(--gold-line);border-radius:7px;background:var(--gold-soft)}
+  .ob{flex:1}
+  .opt.sel{border-color:var(--navy);background:var(--navy-soft);box-shadow:0 0 0 1px var(--navy) inset}
+  .opt.sel .ok{background:var(--navy);color:#fff;border-color:var(--navy)}
+  body[data-done="1"] .opt{cursor:default}
+  body[data-done="1"] .opt:hover{border-color:var(--line-strong)}
+  .opt.correct{border-color:var(--teal);background:var(--teal-soft);box-shadow:0 0 0 1px var(--teal) inset}
+  .opt.correct .ok{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .opt.correct .ob::after{content:" ✓";color:var(--teal-ink);font-weight:700}
+  .opt.wrong{border-color:var(--coral);background:var(--coral-soft);box-shadow:0 0 0 1px var(--coral) inset}
+  .opt.wrong .ok{background:var(--coral);color:#fff;border-color:var(--coral)}
+  .opt.wrong .ob::after{content:" ✕";color:var(--coral-ink);font-weight:700}
+
+  .exp{display:none;margin:14px 0 0;padding:13px 16px;background:var(--teal-soft);border:1px solid var(--teal-line);border-left:4px solid var(--teal);border-radius:9px;font-size:.98rem;color:var(--ink-soft);line-height:1.5}
+  body[data-done="1"] .exp{display:block}
+  .exp-tag{display:inline-block;font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-ink);border:1px solid var(--teal-line);background:var(--paper);border-radius:5px;padding:3px 7px;margin-right:10px;vertical-align:1px}
+  .exp b{color:var(--navy);font-weight:600}
+
+  mjx-container{color:inherit}
+  mjx-container svg{vertical-align:-.14em}
+
+  section.result{padding:clamp(30px,4.5vw,48px) 0 0}
+  .resultcard{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:linear-gradient(140deg,var(--navy),var(--navy-deep));border-radius:14px;border-bottom:4px solid var(--gold);padding:24px clamp(20px,3vw,30px);box-shadow:var(--shadow)}
+  .score-tile{flex:none;min-width:150px;text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(224,180,87,.4);border-radius:12px;padding:16px 26px}
+  .score-tile .n{font-family:var(--sans);font-weight:700;font-size:2.8rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .score-tile .n span{font-size:1.8rem;color:var(--gold-light)}
+  .score-tile .l{font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-top:8px}
+  .score-meta{flex:1;min-width:220px}
+  .score-meta .raw{font-family:var(--sans);font-size:.98rem;color:#d8e2f0;margin:0 0 6px}
+  .score-meta .raw b{color:#fff;font-variant-numeric:tabular-nums}
+  .score-meta .appraise{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:#fff;margin:0;text-wrap:balance}
+
+  .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:color-mix(in srgb,var(--cream) 92%,transparent);backdrop-filter:blur(10px);border-top:2px solid var(--gold)}
+  .arow{display:flex;align-items:center;gap:16px;min-height:60px}
+  .progress{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--gray)}
+  .progress b{color:var(--navy);font-weight:700}
+  .btn{margin-left:auto;font-family:var(--sans);font-weight:700;font-size:.92rem;letter-spacing:.01em;color:#fff;cursor:pointer;padding:.72em 1.6em;border-radius:9px;border:1px solid var(--navy-deep);background:var(--navy);box-shadow:var(--shadow);transition:filter .15s,transform .06s}
+  .btn:hover{filter:brightness(1.12)}
+  .btn:active{transform:translateY(1px)}
+  .btn:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px}
+
+  footer{margin-top:clamp(34px,5vw,52px);border-top:1px solid var(--gold-line);padding:28px 0 34px;color:var(--gray)}
+  footer .colophon{font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray)}
+  footer p{margin:8px 0 0;font-size:.9rem}
+  footer b{color:var(--navy)}
+  :focus-visible{outline:2.5px solid var(--navy);outline-offset:2px;border-radius:4px}
+
+  .level[data-l="rev"]{--c:var(--navy)}
+  .opts.one{grid-template-columns:1fr}
+  .cl{display:block;text-align:center;margin:.45em 0}
+  .fig{display:flex;justify-content:center;margin:14px 0 2px;overflow-x:auto}
+  table.tt{border-collapse:collapse;font-family:var(--sans);font-size:.95rem;background:var(--paper)}
+  table.tt th{background:var(--navy);color:#fff;font-weight:700;padding:7px 16px;border:1px solid #fff}
+  table.tt td{padding:7px 16px;border:1px solid var(--line-strong);text-align:center;font-weight:700}
+  table.tt td.tv{color:var(--teal)} table.tt td.tf{color:var(--coral)}
+  .exp .meta{display:block;font-family:var(--sans);font-size:.78rem;color:var(--gray);margin:0 0 8px;letter-spacing:.01em}
+  .exp .why{margin:11px 0 0}
+  .exp .why-t{font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-ink)}
+  .exp ul{margin:6px 0 0;padding-left:0;list-style:none}
+  .exp li{margin:5px 0 0;padding-left:1.9em;text-indent:-1.9em}
+  .exp li .wl{display:inline-block;width:1.9em;text-indent:0;font-family:var(--sans);font-weight:700;color:var(--coral)}
+  .exp .ret{margin:11px 0 0;padding-top:9px;border-top:1px dashed var(--teal-line)}
+  .exp .ret-t{font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:#9a6d16}
+  .pdfnote{font-family:var(--sans);font-size:.92rem;color:var(--gray);text-align:center;margin:22px 0 0}
+  .pdfnote a{color:var(--navy);font-weight:700}
+</style>
+
+</head>
+<body>
+<nav class="topnav">
+  <div class="wrap row">
+    <span class="brandmark">MATHS <b>ÉLITES</b> · Logique — QCM 1</span>
+    <div class="navlinks"><a href="#n1">Questions</a><a href="/premiere/logique#qcm">Version PDF</a><a href="/qcm-logique-revision-2.html">QCM 2</a><a href="/premiere/logique">Chapitre</a></div>
+  </div>
+</nav>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="banner">
+      <span class="logo" aria-label="Logo Maths Élites">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><rect x="42" y="42" width="556" height="556" rx="111.2" ry="111.2" fill="#F6F1E4" stroke="#0C2340" stroke-width="25.02"/><rect x="83.7" y="83.7" width="472.6" height="472.6" rx="80.064" ry="80.064" fill="none" stroke="#0C2340" stroke-width="5.56"/><path d="M 158.76,464.56 L 206.72,453.81 L 254.67,438.65 L 302.62,417.28 L 345.78,390.64 L 384.15,358.95 L 417.72,323.09 L 446.49,284.68 L 470.47,246.03 L 489.65,209.96 L 504.04,179.46 L 518.42,145.64 L 532.81,108.15 L 542.40,80.92" fill="none" stroke="#C9A227" stroke-width="23.63" stroke-linecap="round" stroke-linejoin="round"/><path d="M 542.4,80.9 L 488.8,126.5 L 554.1,150.3 Z" fill="#C9A227"/><circle cx="158.8" cy="464.6" r="13.344" fill="#C9A227"/><path d="M1051 0V47H943V639H1051V686H830C808 686 797 686 786 661L546 132L306 661C295 686 284 686 262 686H40V639H148V76C148 54 147 53 119 50C95 47 93 47 65 47H40V0C78 3 135 3 174 3C216 3 268 3 309 0V47H284C266 47 249 48 231 50C202 53 201 54 201 76V626H202L474 25C483 5 495 0 506 0C526 0 534 15 538 24L817 639H818V47H710V0C746 3 839 3 880 3C921 3 1015 3 1051 0Z" fill="#0C2340" transform="translate(160.739,431.2) scale(0.17236,-0.17236)"/><path d="M723 274H676C654 136 626 47 441 47H289V329H344C440 329 450 286 450 212H497V493H450C450 419 441 376 344 376H289V633H441C602 633 628 560 644 439H691L660 680H39V633H147V47H39V0H677Z" fill="#C9A227" transform="translate(348.956,431.2) scale(0.17236,-0.17236)"/></svg>
+      </span>
+      <div class="banner-txt">
+        <span class="badge">QCM interactif</span>
+        <p class="eyebrow">Maths Élites · 1<sup>re</sup> Bac Sciences Mathématiques</p>
+        <h1>Logique — QCM de révision n° 1</h1>
+        <p class="banner-sub">Cours sous tension · <span data-qcount>0</span> questions</p>
+      </div>
+    </div>
+
+    <p class="lede">Chapitre 1 — <strong>Notions de logique</strong> : propositions, connecteurs, quantificateurs, négations et grands types de raisonnement (contraposée, absurde, disjonction des cas, récurrence). Une seule bonne réponse par question. Répondez, validez votre copie, et obtenez votre note sur 20 avec le corrigé justifié de chaque item.</p>
+
+    <div class="facts">
+      <div class="fact"><div class="n"><span data-qcount>0</span></div><div class="l">questions à choix unique</div></div>
+      <div class="fact"><div class="n">13</div><div class="l">notions du chapitre couvertes</div></div>
+      <div class="fact"><div class="n">/20</div><div class="l">note calculée automatiquement</div></div>
+      <div class="fact"><div class="n"><span data-qcount>0</span></div><div class="l">corrigés justifiés</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="level" data-l="rev" id="n1">
+  <div class="wrap">
+    <div class="lvlbanner"><span class="lv">QCM de révision n° 1</span><span class="nm">Cours sous tension</span><span class="st">20 Q</span></div>
+    <p class="kicker">Définitions, énoncés exacts et conditions d'application : chaque question cible une notion du chapitre et un piège précis (réciproque, négation, hypothèse oubliée…).</p>
+    <div class="stack">
+
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q1</span><div class="qtext">Parmi les énoncés suivants, lequel est une <b>proposition</b> ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">« $x^2-1=0$ », où $x$ désigne un réel non précisé</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">« $\exists\, x\in\R,\ x^2+1=0$ »</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">« $x^2+1$ », où $x$ désigne un réel</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">« Le nombre $10^{100}+1$ est-il premier ? »</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notion : Ch1.1 — Propositions et fonctions propositionnelles</span><span class="exp-tag">Corrigé · B</span>Une proposition est un énoncé qui est soit vrai, soit faux. « $\exists x\in\R,\ x^2+1=0$ » est un énoncé dont la variable est quantifiée ; il est <b>faux</b>, car $x^2+1\geqslant1&gt;0$ pour tout réel $x$. Être fausse n'empêche pas d'être une proposition : c'est précisément avoir une valeur de vérité.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>« $x^2-1=0$ », où $x$ désigne un réel non précisé : sa valeur de vérité dépend de $x$ (vraie pour $x=\pm1$, fausse sinon) : c'est une fonction propositionnelle, pas une proposition.</li><li><span class="wl">C.</span>« $x^2+1$ », où $x$ désigne un réel : c'est une expression, pas un énoncé affirmatif : elle n'est ni vraie ni fausse.</li><li><span class="wl">D.</span>« Le nombre $10^{100}+1$ est-il premier ? » : une question n'a pas de valeur de vérité.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Une proposition fausse reste une proposition ; c'est une variable <em>libre</em> (non quantifiée) qui empêche un énoncé d'en être une.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q2</span><div class="qtext">Soient $P$ et $Q$ deux propositions. On sait que l'implication $Q\imp P$ est <b>fausse</b>. Que peut-on affirmer de l'implication $P\imp Q$ ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">Elle est fausse.</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">On ne peut rien affirmer sans connaître $P$ et $Q$.</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">Elle est vraie si et seulement si $P$ est vraie.</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">Elle est vraie.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notion : Ch1.3 — Implication, conditions nécessaire / suffisante, réciproque</span><span class="exp-tag">Corrigé · D</span>Une implication n'est fausse que dans un seul cas : prémisse vraie et conclusion fausse. Donc « $Q\imp P$ fausse » impose $Q$ vraie et $P$ fausse. L'implication $P\imp Q$ a alors une prémisse fausse : elle est <b>vraie</b>.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>Elle est fausse : confusion entre une implication et sa réciproque, qui n'ont pas en général la même valeur de vérité (ici, elles ont même des valeurs opposées).</li><li><span class="wl">B.</span>On ne peut rien affirmer sans connaître $P$ et $Q$ : on les connaît : $Q\imp P$ fausse impose $Q$ vraie et $P$ fausse.</li><li><span class="wl">C.</span>Elle est vraie si et seulement si $P$ est vraie : $P$ est fausse ici ; d'ailleurs, lorsque $P$ est vraie, $P\imp Q$ a la valeur de vérité de $Q$, non de $P$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> « $A\imp B$ est fausse » fournit deux informations : $A$ est vraie <em>et</em> $B$ est fausse.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q3</span><div class="qtext">On considère les propositions $P$ : « $2$ est premier » et $Q$ : « $2$ est pair ». Quelle est la valeur de vérité de $(P\vee Q)\wedge\nnot{P\wedge Q}$ ?</div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">Fausse</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">Vraie, car le « ou » mathématique est exclusif</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">Vraie, car $P\vee Q$ est vraie</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">Ce n'est pas une proposition</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notion : Ch1.2 — Connecteurs et tables de vérité</span><span class="exp-tag">Corrigé · A</span>$P$ et $Q$ sont vraies ($2$ est le seul nombre premier pair). Donc $P\vee Q$ est vraie, $P\wedge Q$ est vraie et $\nnot{P\wedge Q}$ est fausse. Une conjonction dont un facteur est faux est fausse. (Cette formule traduit le « ou exclusif » : « l'un ou l'autre, mais pas les deux ».)<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>Vraie, car le « ou » mathématique est exclusif : le « ou » mathématique est inclusif ; de toute façon, la valeur se calcule avec les tables de vérité.</li><li><span class="wl">C.</span>Vraie, car $P\vee Q$ est vraie : oubli du second facteur de la conjonction : $\nnot{P\wedge Q}$ est fausse.</li><li><span class="wl">D.</span>Ce n'est pas une proposition : $P$ et $Q$ sont des propositions ; toute combinaison de propositions par des connecteurs en est une.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Le connecteur $\vee$ est inclusif ; le « ou exclusif » s'écrit $(P\vee Q)\wedge\nnot{P\wedge Q}$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q4</span><div class="qtext">Quelle est la négation de la proposition « $\forall x\in\R,\ \exists n\in\Z,\ n\leqslant x&lt;n+1$ » ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\exists x\in\R,\ \forall n\in\Z,\ (n&gt;x\ \text{et}\ x\geqslant n+1)$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\forall x\in\R,\ \exists n\in\Z,\ (n&gt;x\ \text{ou}\ x\geqslant n+1)$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$\exists x\in\R,\ \forall n\in\Z,\ (n\geqslant x\ \text{ou}\ x&gt;n+1)$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">$\exists x\in\R,\ \forall n\in\Z,\ (n&gt;x\ \text{ou}\ x\geqslant n+1)$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.7 — Négation d&#x27;une proposition quantifiée ; Ch1.5 — Lois logiques (De Morgan, contraposée, négation d&#x27;une implication)</span><span class="exp-tag">Corrigé · D</span>« $n\leqslant x&lt;n+1$ » est la conjonction $(n\leqslant x)\wedge(x&lt;n+1)$. On échange $\forall$ et $\exists$ <em>dans l'ordre</em>, puis on nie la conjonction par De Morgan : $\nnot{(n\leqslant x)\wedge(x&lt;n+1)}\eqv(n&gt;x)\vee(x\geqslant n+1)$. (La proposition de départ est vraie — tout réel est compris entre deux entiers consécutifs —, donc sa négation est fausse.)<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$\exists x\in\R,\ \forall n\in\Z,\ (n&gt;x\ \text{et}\ x\geqslant n+1)$ : la négation d'une conjonction est une disjonction (De Morgan) : « et » devait devenir « ou ».</li><li><span class="wl">B.</span>$\forall x\in\R,\ \exists n\in\Z,\ (n&gt;x\ \text{ou}\ x\geqslant n+1)$ : les quantificateurs n'ont pas été échangés.</li><li><span class="wl">C.</span>$\exists x\in\R,\ \forall n\in\Z,\ (n\geqslant x\ \text{ou}\ x&gt;n+1)$ : la négation de $n\leqslant x$ est $n&gt;x$ et celle de $x&lt;n+1$ est $x\geqslant n+1$ : les cas d'égalité sont mal placés.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Nier : échanger les quantificateurs dans l'ordre, puis nier la fin ; un encadrement $a\leqslant x&lt;b$ se nie en « $x&lt;a$ ou $x\geqslant b$ ».</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q5</span><div class="qtext">Soit $x$ un réel. La condition « $x^2&gt;4$ » est, pour « $x&gt;2$ », une condition :</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">suffisante mais non nécessaire</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">nécessaire mais non suffisante</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">nécessaire et suffisante</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">ni nécessaire ni suffisante</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notion : Ch1.3 — Implication, conditions nécessaire / suffisante, réciproque</span><span class="exp-tag">Corrigé · B</span>« $Q$ est nécessaire pour $P$ » signifie $P\imp Q$. Ici $x&gt;2\imp x^2&gt;4$ est vraie (si $x&gt;2&gt;0$, alors $x^2&gt;2x&gt;4$) : « $x^2&gt;4$ » est <b>nécessaire</b>. Elle n'est pas suffisante, car $x^2&gt;4\imp x&gt;2$ est fausse : pour $x=-3$, $x^2=9&gt;4$ mais $x\leqslant2$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>suffisante mais non nécessaire : inversion des rôles : c'est « $x&gt;2$ » qui est suffisante pour « $x^2&gt;4$ ».</li><li><span class="wl">C.</span>nécessaire et suffisante : la réciproque $x^2&gt;4\imp x&gt;2$ est fausse : contre-exemple $x=-3$.</li><li><span class="wl">D.</span>ni nécessaire ni suffisante : elle est nécessaire, car $x&gt;2\imp x^2&gt;4$ est vraie.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Si $P\imp Q$ est vraie : $P$ est suffisante pour $Q$, et $Q$ est nécessaire pour $P$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q6</span><div class="qtext">Laquelle des propositions suivantes est <b>vraie</b> ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\exists b\in\Z,\ \forall a\in\Z,\ a+b\ \text{est impair}$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\forall a\in\Z,\ \exists b\in\Z,\ ab\ \text{est impair}$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$\forall a\in\Z,\ \exists b\in\Z,\ a+b\ \text{est impair}$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$\exists a\in\Z,\ \forall b\in\Z,\ ab\ \text{est impair}$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.6 — Quantificateurs et ordre des quantificateurs ; Ch1.12 — Exemple et contre-exemple</span><span class="exp-tag">Corrigé · C</span>Soit $a\in\Z$ ; on choisit $b=a+1$ (qui dépend de $a$) : $a+b=2a+1$ est impair. L'ordre « $\forall a\ \exists b$ » autorise ce choix de $b$ en fonction de $a$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$\exists b\in\Z,\ \forall a\in\Z,\ a+b\ \text{est impair}$ : un même $b$ ne convient pas pour tous les $a$ : $a+b$ et $(a+1)+b$ n'ont pas la même parité.</li><li><span class="wl">B.</span>$\forall a\in\Z,\ \exists b\in\Z,\ ab\ \text{est impair}$ : contre-exemple $a=2$ : $2b$ est pair pour tout entier $b$.</li><li><span class="wl">D.</span>$\exists a\in\Z,\ \forall b\in\Z,\ ab\ \text{est impair}$ : pour $b=0$, $ab=0$ est pair, quel que soit $a$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Dans « $\forall a\ \exists b$ », $b$ peut dépendre de $a$ ; dans « $\exists b\ \forall a$ », un même $b$ doit convenir à tous les $a$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q7</span><div class="qtext">Pour tout réel $x$, la proposition « $x\neq1$ ou $x&gt;3$ » est équivalente à :</div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">$x=1\imp x&gt;3$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$x\neq1\imp x&gt;3$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$x&gt;3\imp x=1$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$x\leqslant3\imp x=1$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notion : Ch1.5 — Lois logiques (De Morgan, contraposée, négation d&#x27;une implication)</span><span class="exp-tag">Corrigé · A</span>Loi logique : $(A\imp B)\eqv(\nnot A\vee B)$. Avec $A$ : « $x=1$ » et $B$ : « $x&gt;3$ », on a $\nnot A$ : « $x\neq1$ », d'où : « $x\neq1$ ou $x&gt;3$ » $\eqv$ « $x=1\imp x&gt;3$ ». (Les deux propositions sont fausses pour $x=1$ et vraies pour tout autre réel.)<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>$x\neq1\imp x&gt;3$ : « $\nnot A\imp B$ » équivaut à « $A\vee B$ », non à « $\nnot A\vee B$ » ; pour $x=0$, elle est fausse alors que la proposition de départ est vraie.</li><li><span class="wl">C.</span>$x&gt;3\imp x=1$ : elle équivaut à « $x\leqslant3$ ou $x=1$ » ; pour $x=4$, elle est fausse alors que la proposition de départ est vraie.</li><li><span class="wl">D.</span>$x\leqslant3\imp x=1$ : elle équivaut à « $x&gt;3$ ou $x=1$ » ; pour $x=0$, elle est fausse alors que la proposition de départ est vraie.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> « non $A$ ou $B$ » se lit « si $A$, alors $B$ ».</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q8</span><div class="qtext">Pour démontrer par récurrence que $P(n)$ est vraie pour tout entier $n\geqslant n_0$, l'étape d'<b>hérédité</b> consiste à :</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">supposer $P(n)$ vraie pour tout $n\geqslant n_0$, puis en déduire $P(n+1)$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">trouver un entier $n\geqslant n_0$ pour lequel $P(n)\imp P(n+1)$ est vraie</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">montrer que, pour tout $n&gt;n_0$, $P(n)$ entraîne $P(n-1)$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">fixer un entier $n\geqslant n_0$ quelconque, supposer $P(n)$ vraie et en déduire $P(n+1)$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notion : Ch1.13 — Raisonnement par récurrence</span><span class="exp-tag">Corrigé · D</span>L'hérédité est la proposition $\forall n\geqslant n_0,\ \big(P(n)\imp P(n+1)\big)$. Pour la démontrer, on fixe un entier $n\geqslant n_0$ arbitraire, on suppose $P(n)$ vraie (hypothèse de récurrence) et l'on démontre $P(n+1)$ ; comme $n$ est quelconque, l'implication vaut pour tout $n\geqslant n_0$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>supposer $P(n)$ vraie pour tout $n\geqslant n_0$, puis en déduire $P(n+1)$ : supposer $P(n)$ pour tout $n$, c'est supposer ce qu'on veut démontrer : raisonnement circulaire.</li><li><span class="wl">B.</span>trouver un entier $n\geqslant n_0$ pour lequel $P(n)\imp P(n+1)$ est vraie : l'implication doit être établie pour <em>tout</em> $n\geqslant n_0$, pas pour un seul.</li><li><span class="wl">C.</span>montrer que, pour tout $n&gt;n_0$, $P(n)$ entraîne $P(n-1)$ : c'est une « descente » : elle ne transmet pas la vérité de $P(n_0)$ aux rangs suivants.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Hypothèse de récurrence : « supposons $P(n)$ vraie pour <em>un</em> entier $n\geqslant n_0$ fixé », jamais « pour tout $n$ ».</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q9</span><div class="qtext">Laquelle des propositions suivantes est vraie <b>quelles que soient</b> les propositions $P$, $Q$, $R$ ?</div></div>
+       <div class="opts one">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">$\big(P\imp(Q\imp R)\big)\eqv\big((P\wedge Q)\imp R\big)$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\big(P\imp(Q\imp R)\big)\eqv\big((P\imp Q)\imp R\big)$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$\big((P\imp Q)\imp P\big)\eqv Q$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$(P\vee Q)\imp(P\wedge Q)$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.5 — Lois logiques (De Morgan, contraposée, négation d&#x27;une implication) ; Ch1.2 — Connecteurs et tables de vérité</span><span class="exp-tag">Corrigé · A</span>Avec $(A\imp B)\eqv(\nnot A\vee B)$ : $P\imp(Q\imp R)\eqv\nnot P\vee\nnot Q\vee R$, et $(P\wedge Q)\imp R\eqv\nnot{P\wedge Q}\vee R\eqv\nnot P\vee\nnot Q\vee R$ (De Morgan). Les deux membres coïncident : c'est une loi logique (ce que confirme une table de vérité à $8$ lignes).<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>$\big(P\imp(Q\imp R)\big)\eqv\big((P\imp Q)\imp R\big)$ : fausse lorsque $P$, $Q$, $R$ sont toutes fausses : le membre de gauche est vrai, celui de droite vaut « vrai $\imp$ faux », donc faux. L'implication n'est pas associative.</li><li><span class="wl">C.</span>$\big((P\imp Q)\imp P\big)\eqv Q$ : $(P\imp Q)\imp P$ équivaut à $P$ ; la formule se ramène à $P\eqv Q$, fausse pour $P$ vraie et $Q$ fausse.</li><li><span class="wl">D.</span>$(P\vee Q)\imp(P\wedge Q)$ : fausse pour $P$ vraie et $Q$ fausse.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> « Si $P$, alors (si $Q$ alors $R$) » équivaut à « si $P$ et $Q$, alors $R$ » ; mais l'implication n'est pas associative.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q10</span><div class="qtext">Pour résoudre dans $[-2\,;+\infty[$ l'équation $\sqrt{x+2}=x$, un élève écrit :<span class="cl">$\sqrt{x+2}=x\eqv x+2=x^2\eqv x^2-x-2=0\eqv(x=-1\ \text{ou}\ x=2)$</span> et conclut que l'ensemble des solutions est $\{-1\,;\,2\}$. Que faut-il en penser ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">Tout est correct : $S=\{-1\,;\,2\}$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">La 3<sup>e</sup> équivalence est fausse ; en réalité $S=\varnothing$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">La 1<sup>re</sup> équivalence est fausse (seule « $\imp$ » est vraie) ; il faut $x\geqslant0$, d'où $S=\{2\}$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">La 1<sup>re</sup> équivalence est fausse ; il faut $x\leqslant0$, d'où $S=\{-1\}$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.8 — Raisonnement direct et équivalences successives ; Ch1.4 — Équivalence</span><span class="exp-tag">Corrigé · C</span>Élever au carré ne donne qu'une implication : $a=b\imp a^2=b^2$. Pour obtenir une équivalence, il faut savoir que les deux membres sont positifs. Rédaction correcte : $\sqrt{x+2}=x\eqv\big(x\geqslant0\ \text{et}\ x+2=x^2\big)\eqv\big(x\geqslant0\ \text{et}\ (x=-1\ \text{ou}\ x=2)\big)\eqv x=2$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>Tout est correct : $S=\{-1\,;\,2\}$ : $x=-1$ donne $\sqrt1=1\neq-1$ : ce n'est pas une solution.</li><li><span class="wl">B.</span>La 3<sup>e</sup> équivalence est fausse ; en réalité $S=\varnothing$ : la factorisation $x^2-x-2=(x+1)(x-2)$ est juste, et $x=2$ convient : $\sqrt4=2$.</li><li><span class="wl">D.</span>La 1<sup>re</sup> équivalence est fausse ; il faut $x\leqslant0$, d'où $S=\{-1\}$ : une racine carrée est positive : la condition à ajouter est $x\geqslant0$, et $-1$ ne vérifie pas l'équation.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> $\sqrt A=B\eqv\big(B\geqslant0\ \text{et}\ A=B^2\big)$ : sans la condition $B\geqslant0$, la chaîne d'équivalences est rompue.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q11</span><div class="qtext">Soient $x$ et $y$ deux réels. Quelle est la <b>contraposée</b> de l'implication « $(x\neq1\ \text{et}\ y\neq1)\imp x+y-xy\neq1$ » ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$x+y-xy=1\imp(x=1\ \text{et}\ y=1)$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$(x=1\ \text{ou}\ y=1)\imp x+y-xy=1$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$x+y-xy\neq1\imp(x\neq1\ \text{et}\ y\neq1)$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">$x+y-xy=1\imp(x=1\ \text{ou}\ y=1)$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.9 — Raisonnement par contraposée ; Ch1.5 — Lois logiques (De Morgan, contraposée, négation d&#x27;une implication)</span><span class="exp-tag">Corrigé · D</span>La contraposée de $A\imp B$ est $\nnot B\imp\nnot A$. Ici $\nnot B$ : « $x+y-xy=1$ » et, par De Morgan, $\nnot A$ : « $x=1$ ou $y=1$ ». Elle est d'ailleurs vraie : $x+y-xy-1=-(x-1)(y-1)$, donc $x+y-xy=1\eqv(x-1)(y-1)=0$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$x+y-xy=1\imp(x=1\ \text{et}\ y=1)$ : la négation de « $x\neq1$ et $y\neq1$ » est « $x=1$ ou $y=1$ » (De Morgan), pas « et ».</li><li><span class="wl">B.</span>$(x=1\ \text{ou}\ y=1)\imp x+y-xy=1$ : c'est la contraposée de la réciproque : elle équivaut à la réciproque, pas à l'implication.</li><li><span class="wl">C.</span>$x+y-xy\neq1\imp(x\neq1\ \text{et}\ y\neq1)$ : c'est la réciproque : hypothèse et conclusion ont été échangées sans être niées.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Contraposer, c'est échanger <em>et</em> nier ; la négation d'un « et » est un « ou ».</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q12</span><div class="qtext">Pour démontrer par l'absurde que « pour tout réel $x&gt;0$, $x+\dfrac1x\geqslant2$ », on commence par supposer :</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">que pour tout réel $x&gt;0$, $x+\dfrac1x&lt;2$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">qu'il existe un réel $x&gt;0$ tel que $x+\dfrac1x&lt;2$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">qu'il existe un réel $x&gt;0$ tel que $x+\dfrac1x\leqslant2$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">qu'il existe un réel $x\leqslant0$ tel que $x+\dfrac1x&lt;2$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.10 — Raisonnement par l&#x27;absurde ; Ch1.7 — Négation d&#x27;une proposition quantifiée</span><span class="exp-tag">Corrigé · B</span>On suppose la négation exacte : $\exists x&gt;0,\ x+\frac1x&lt;2$. Pour un tel $x$, en multipliant par $x&gt;0$ : $x^2+1&lt;2x$, soit $(x-1)^2&lt;0$, ce qui est absurde. Donc la propriété est vraie.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>que pour tout réel $x&gt;0$, $x+\dfrac1x&lt;2$ : la négation d'un « pour tout » est un « il existe ».</li><li><span class="wl">C.</span>qu'il existe un réel $x&gt;0$ tel que $x+\dfrac1x\leqslant2$ : la négation de « $\geqslant$ » est « $&lt;$ » ; avec « $\leqslant$ », on n'aboutirait à aucune contradiction ($x=1$ donne l'égalité).</li><li><span class="wl">D.</span>qu'il existe un réel $x\leqslant0$ tel que $x+\dfrac1x&lt;2$ : on nie la propriété, pas le domaine : $x$ reste dans $]0\,;+\infty[$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Par l'absurde, on suppose la négation exacte de la conclusion : quantificateur échangé, domaine conservé, inégalité stricte.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q13</span><div class="qtext">Soient $P$, $Q$, $R$ trois propositions. Le principe du raisonnement par disjonction des cas permet d'affirmer que $R$ est vraie dès que :</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$P\imp R$ et $Q\imp R$ sont vraies</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$P\imp R$ et $P\vee Q$ sont vraies</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$P\imp R$, $Q\imp R$ et $P\vee Q$ sont vraies</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$P\imp R$ et $\nnot P\imp Q$ sont vraies</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notion : Ch1.11 — Raisonnement par disjonction des cas</span><span class="exp-tag">Corrigé · C</span>Si $P\vee Q$ est vraie, l'une au moins des propositions $P$, $Q$ est vraie ; dans chaque cas, l'implication correspondante donne $R$. C'est la loi $\big[(P\imp R)\wedge(Q\imp R)\big]\imp\big[(P\vee Q)\imp R\big]$, appliquée avec $P\vee Q$ vraie.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$P\imp R$ et $Q\imp R$ sont vraies : les cas doivent être <b>exhaustifs</b> : si $P$ et $Q$ sont fausses, les deux implications sont vraies et $R$ peut être fausse.</li><li><span class="wl">B.</span>$P\imp R$ et $P\vee Q$ sont vraies : le cas $Q$ n'est pas traité : $P$ fausse, $Q$ vraie et $R$ fausse rendent ces hypothèses vraies.</li><li><span class="wl">D.</span>$P\imp R$ et $\nnot P\imp Q$ sont vraies : on ne sait rien de $R$ lorsque $P$ est fausse ($P$ fausse, $Q$ vraie, $R$ fausse).</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Une disjonction des cas n'est valable que si les cas recouvrent toutes les situations.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q14</span><div class="qtext">Pour $n\in\N$, on considère la propriété $P(n)$ : « $2^n&gt;2n+1$ ». Laquelle des affirmations suivantes est vraie ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$P(n)$ est vraie pour tout $n\in\N$, par récurrence</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$P(n)$ est fausse pour tout $n$, puisque $P(0)$ est fausse</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$P(n)$ est vraie pour tout $n\geqslant2$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">$P(n)$ est vraie exactement pour les entiers $n\geqslant3$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.13 — Raisonnement par récurrence ; Ch1.12 — Exemple et contre-exemple</span><span class="exp-tag">Corrigé · D</span>$P(0)$, $P(1)$, $P(2)$ sont fausses ; $P(3)$ : $8&gt;7$ est vraie. Hérédité pour $n\geqslant1$ : si $2^n&gt;2n+1$, alors $2^{n+1}=2\cdot2^n&gt;4n+2=(2n+3)+(2n-1)\geqslant2n+3=2(n+1)+1$, car $2n-1\geqslant1&gt;0$. Par récurrence à partir du rang $3$, $P(n)$ est vraie pour tout $n\geqslant3$, et fausse pour $n\leqslant2$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$P(n)$ est vraie pour tout $n\in\N$, par récurrence : $P(0)$ : $1&gt;1$ est fausse, de même que $P(1)$ ($2&gt;3$) et $P(2)$ ($4&gt;5$).</li><li><span class="wl">B.</span>$P(n)$ est fausse pour tout $n$, puisque $P(0)$ est fausse : une initialisation qui échoue au rang $0$ n'empêche pas $P(n)$ d'être vraie à partir d'un autre rang.</li><li><span class="wl">C.</span>$P(n)$ est vraie pour tout $n\geqslant2$ : $P(2)$ : $4&gt;5$ est fausse.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> On initialise au premier rang où la propriété est vraie, à condition que l'hérédité soit établie à partir de ce rang.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q15</span><div class="qtext">Pour $x$ et $y$ dans $E=\{1,2,3\}$, le tableau ci-dessous donne la valeur de vérité de $P(x,y)$ (ligne $x$, colonne $y$). Laquelle des propositions suivantes est vraie ?<div class="fig"><table class="tt"><tr><th>$P(x,y)$</th><th>$y=1$</th><th>$y=2$</th><th>$y=3$</th></tr><tr><th>$x=1$</th><td class="tv">V</td><td class="tv">V</td><td class="tf">F</td></tr><tr><th>$x=2$</th><td class="tf">F</td><td class="tf">F</td><td class="tv">V</td></tr><tr><th>$x=3$</th><td class="tf">F</td><td class="tv">V</td><td class="tf">F</td></tr></table></div></div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">$\forall x\in E,\ \exists y\in E,\ P(x,y)$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\exists x\in E,\ \forall y\in E,\ P(x,y)$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$\exists y\in E,\ \forall x\in E,\ P(x,y)$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$\exists x\in E,\ \forall y\in E,\ \nnot{P(x,y)}$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.6 — Quantificateurs et ordre des quantificateurs ; Ch1.1 — Propositions et fonctions propositionnelles</span><span class="exp-tag">Corrigé · A</span>« $\forall x\ \exists y$ » signifie : chaque <em>ligne</em> contient au moins un V. Ligne $x=1$ : $y=1$ ; ligne $x=2$ : $y=3$ ; ligne $x=3$ : $y=2$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>$\exists x\in E,\ \forall y\in E,\ P(x,y)$ : il faudrait une ligne entièrement composée de V : il n'y en a pas.</li><li><span class="wl">C.</span>$\exists y\in E,\ \forall x\in E,\ P(x,y)$ : il faudrait une colonne entièrement composée de V : il n'y en a pas.</li><li><span class="wl">D.</span>$\exists x\in E,\ \forall y\in E,\ \nnot{P(x,y)}$ : il faudrait une ligne entièrement composée de F : il n'y en a pas.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> $\forall x\ \exists y$ : un V dans chaque ligne ; $\exists x\ \forall y$ : une ligne pleine de V ; $\exists y\ \forall x$ : une colonne pleine de V.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q16</span><div class="qtext">Soit $f$ une fonction définie sur $\R$. Quelle est la négation de « $\forall x\in\R,\ \forall y\in\R,\ \big(x&lt;y\imp f(x)\leqslant f(y)\big)$ » (c'est-à-dire « $f$ est croissante sur $\R$ ») ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\forall x\in\R,\ \forall y\in\R,\ \big(x&lt;y\imp f(x)&gt;f(y)\big)$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\exists x\in\R,\ \exists y\in\R,\ \big(x\geqslant y\ \text{et}\ f(x)&gt;f(y)\big)$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$\exists x\in\R,\ \exists y\in\R,\ \big(x&lt;y\ \text{et}\ f(x)&gt;f(y)\big)$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$\exists x\in\R,\ \exists y\in\R,\ \big(x&lt;y\ \text{et}\ f(x)\geqslant f(y)\big)$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.7 — Négation d&#x27;une proposition quantifiée ; Ch1.5 — Lois logiques (De Morgan, contraposée, négation d&#x27;une implication)</span><span class="exp-tag">Corrigé · C</span>On échange les deux quantificateurs $\forall$ en $\exists$, puis on applique $\nnot{(A\imp B)}\eqv A\wedge\nnot B$ avec $A$ : $x&lt;y$ et $B$ : $f(x)\leqslant f(y)$, dont la négation est $f(x)&gt;f(y)$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$\forall x\in\R,\ \forall y\in\R,\ \big(x&lt;y\imp f(x)&gt;f(y)\big)$ : c'est « $f$ est strictement décroissante » : une fonction non croissante n'est pas forcément décroissante (exemple : $x\mapsto x^2$).</li><li><span class="wl">B.</span>$\exists x\in\R,\ \exists y\in\R,\ \big(x\geqslant y\ \text{et}\ f(x)&gt;f(y)\big)$ : on ne nie pas l'hypothèse d'une implication : $\nnot{(A\imp B)}\eqv A\wedge\nnot B$.</li><li><span class="wl">D.</span>$\exists x\in\R,\ \exists y\in\R,\ \big(x&lt;y\ \text{et}\ f(x)\geqslant f(y)\big)$ : la négation de $f(x)\leqslant f(y)$ est $f(x)&gt;f(y)$ ; avec « $\geqslant$ », une fonction constante (qui est croissante) vérifierait la prétendue négation.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> « Non croissante » ne signifie pas « décroissante » : il suffit d'un couple $x&lt;y$ tel que $f(x)&gt;f(y)$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q17</span><div class="qtext">On sait que la proposition $P\eqv Q$ est <b>fausse</b>. Laquelle des propositions suivantes est alors nécessairement vraie ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\nnot{P\vee Q}$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">$P\eqv\nnot Q$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$\nnot P\eqv\nnot Q$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$P\imp Q$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.4 — Équivalence ; Ch1.2 — Connecteurs et tables de vérité</span><span class="exp-tag">Corrigé · B</span>« $P\eqv Q$ est fausse » signifie que $P$ et $Q$ ont des valeurs de vérité différentes. Alors $P$ et $\nnot Q$ ont la même valeur de vérité, donc $P\eqv\nnot Q$ est vraie.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$\nnot{P\vee Q}$ : $P$ et $Q$ ayant des valeurs différentes, l'une est vraie : $P\vee Q$ est vraie et sa négation est fausse.</li><li><span class="wl">C.</span>$\nnot P\eqv\nnot Q$ : loi logique : $(\nnot P\eqv\nnot Q)\eqv(P\eqv Q)$ ; elle est donc fausse.</li><li><span class="wl">D.</span>$P\imp Q$ : fausse lorsque $P$ est vraie et $Q$ fausse, cas compatible avec l'hypothèse.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> $\nnot{(P\eqv Q)}\eqv(P\eqv\nnot Q)$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q18</span><div class="qtext">On considère l'affirmation : « pour tout entier naturel $n$, le nombre $n^2+n+41$ est premier ». Laquelle des réponses suivantes est correcte ?</div></div>
+       <div class="opts one">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">Elle est fausse : $n=40$ est un contre-exemple</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">Elle est vraie : on le vérifie pour $n=0,1,\dots,10$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">Elle est fausse : $n=10$ est un contre-exemple</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">Elle est fausse : $n=1$ est un contre-exemple</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.12 — Exemple et contre-exemple ; Ch1.6 — Quantificateurs et ordre des quantificateurs</span><span class="exp-tag">Corrigé · A</span>Pour $n=40$ : $40^2+40+41=40\times41+41=41\times41=41^2$, qui n'est pas premier. Un seul contre-exemple suffit à réfuter un « pour tout ».<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>Elle est vraie : on le vérifie pour $n=0,1,\dots,10$ : des exemples, même nombreux, ne prouvent pas un « pour tout ».</li><li><span class="wl">C.</span>Elle est fausse : $n=10$ est un contre-exemple : $10^2+10+41=151$ est premier (non divisible par $2$, $3$, $5$, $7$, $11$, et $13^2&gt;151$) : ce n'est pas un contre-exemple.</li><li><span class="wl">D.</span>Elle est fausse : $n=1$ est un contre-exemple : $1+1+41=43$ est premier.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Réfuter un « $\forall$ » : un contre-exemple suffit. Le démontrer : un raisonnement général, jamais une liste d'exemples.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q19</span><div class="qtext">Pour un réel $c$ et un entier $n\geqslant1$, on note $P_c(n)$ : « $1+2+\cdots+n=\dfrac{n^2+n+c}{2}$ ». Pour quelle(s) valeur(s) de $c$ la propriété $P_c(n)$ est-elle vraie pour tout entier $n\geqslant1$ ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">Pour tout réel $c$, car l'hérédité est vraie quel que soit $c$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">Pour $c=2$ seulement</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">Pour $c=0$ seulement</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">Pour aucune valeur de $c$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.13 — Raisonnement par récurrence ; Ch1.4 — Équivalence</span><span class="exp-tag">Corrigé · C</span>Hérédité (pour tout $c$) : si $1+\cdots+n=\frac{n^2+n+c}{2}$, alors $1+\cdots+(n+1)=\frac{n^2+n+c}{2}+n+1=\frac{n^2+3n+2+c}{2}=\frac{(n+1)^2+(n+1)+c}{2}$. Initialisation : $P_c(1)\eqv1=\frac{2+c}{2}\eqv c=0$. Si $c\neq0$, $P_c(1)$ est fausse ; si $c=0$, initialisation et hérédité donnent $P_0(n)$ pour tout $n\geqslant1$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>Pour tout réel $c$, car l'hérédité est vraie quel que soit $c$ : l'hérédité seule ne prouve rien : il faut aussi l'initialisation.</li><li><span class="wl">B.</span>Pour $c=2$ seulement : $P_2(1)$ s'écrit $1=\frac{1+1+2}{2}=2$ : elle est fausse.</li><li><span class="wl">D.</span>Pour aucune valeur de $c$ : $c=0$ convient : c'est la somme des $n$ premiers entiers.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> L'hérédité peut être vraie pour toute une famille de formules : c'est l'initialisation qui sélectionne la bonne.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q20</span><div class="qtext">Soit $n\in\N$. On veut démontrer : « si $n^2-1$ n'est pas divisible par $8$, alors $n$ est pair ». Quelle démarche est correcte ?</div></div>
+       <div class="opts one">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">Par l'absurde : on suppose $n$ pair et $n^2-1$ non divisible par $8$, et l'on cherche une contradiction</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">Par contraposée : si $n=2k+1$, alors $n^2-1=4k(k+1)$, et $k(k+1)$ est pair, donc $8$ divise $n^2-1$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">Par disjonction des cas : on montre que $n^2-1$ n'est divisible par $8$ ni pour $n$ pair, ni pour $n$ impair</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">Directement : $n^2-1=(n-1)(n+1)$ n'est pas divisible par $8$, donc $n-1$ et $n+1$ sont impairs, donc $n$ est pair</span></button>
+       </div>
+       <div class="exp"><span class="meta">Notions : Ch1.9 — Raisonnement par contraposée ; Ch1.11 — Raisonnement par disjonction des cas ; Ch1.8 — Raisonnement direct et équivalences successives</span><span class="exp-tag">Corrigé · B</span>La contraposée est « $n$ impair $\imp$ $8$ divise $n^2-1$ ». Si $n=2k+1$ : $n^2-1=4k^2+4k=4k(k+1)$. Or $k(k+1)$ est le produit de deux entiers consécutifs, donc pair : $k(k+1)=2m$, d'où $n^2-1=8m$. La contraposée étant vraie, l'implication l'est aussi.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>Par l'absurde : on suppose $n$ pair et $n^2-1$ non divisible par $8$, et l'on cherche une contradiction : la négation de l'implication est « $n^2-1$ non divisible par $8$ <em>et</em> $n$ impair » : c'est cela qu'il faut supposer.</li><li><span class="wl">C.</span>Par disjonction des cas : on montre que $n^2-1$ n'est divisible par $8$ ni pour $n$ pair, ni pour $n$ impair : c'est faux pour $n$ impair (par exemple $n=3$ : $n^2-1=8$).</li><li><span class="wl">D.</span>Directement : $n^2-1=(n-1)(n+1)$ n'est pas divisible par $8$, donc $n-1$ et $n+1$ sont impairs, donc $n$ est pair : le passage « non divisible par $8$, donc $n-1$ et $n+1$ impairs » est précisément ce qu'il fallait démontrer : il n'est pas justifié.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Quand la conclusion est « $n$ pair », sa négation « $n=2k+1$ » fournit une écriture exploitable : pensez à la contraposée.</p></div>
+     </article>
+
+    </div>
+    <p class="pdfnote">Version imprimable (énoncé et corrigé détaillé) : <a href="/premiere/logique#qcm">page du chapitre Logique</a>.</p>
+  </div>
+</section>
+
+<section class="result" id="resultSec" hidden>
+  <div class="wrap">
+    <div class="resultcard">
+      <div class="score-tile"><div class="n"><span id="note20">0</span>/20</div><div class="l">Note</div></div>
+      <div class="score-meta">
+        <p class="raw"><b id="rawscore">0</b> bonnes réponses sur <span data-qcount>0</span></p>
+        <p class="appraise" id="appraise"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="colophon">Maths Élites — R. Abed · Agrégé de Mathématiques · © 2026</p>
+    <p><b>Chapitre 1 — Notions de logique</b> — QCM de révision n° 1 (Cours sous tension), 1<sup>re</sup> année Bac Sciences Mathématiques. Conçu pour les élèves de l'Institut BenMbarek.</p>
+  </div>
+</footer>
+
+</main>
+
+<div class="actionbar">
+  <div class="wrap arow">
+    <span class="progress" id="progress"><b>0</b> / 0 répondues</span>
+    <button class="btn" id="submit" type="button">Valider la copie</button>
+  </div>
+</div>
+
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']],
+      macros: { imp:'\\Longrightarrow', eqv:'\\Longleftrightarrow', nnot:['\\overline{#1}',1], R:'\\mathbb{R}', Z:'\\mathbb{Z}', Q:'\\mathbb{Q}', N:'\\mathbb{N}', Cf:'\\mathcal{C}_f', ds:'\\displaystyle' } },
+    svg: { fontCache:'global' },
+    options: { menuOptions:{ settings:{ inTabOrder:false } } }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-svg.js" async></script>
+
+<script>
+  (function(){
+    var opts = Array.prototype.slice.call(document.querySelectorAll('.opt'));
+    var questions = Array.prototype.slice.call(document.querySelectorAll('.qcard'));
+    var submit = document.getElementById('submit');
+    var progress = document.getElementById('progress');
+    var resultSec = document.getElementById('resultSec');
+    var note20El = document.getElementById('note20');
+    var rawEl = document.getElementById('rawscore');
+    var appraiseEl = document.getElementById('appraise');
+    var total = questions.length;
+
+    // Renseigne automatiquement le nombre de questions partout (data-qcount)
+    Array.prototype.slice.call(document.querySelectorAll('[data-qcount]')).forEach(function(el){ el.textContent = total; });
+
+    function updateProgress(){
+      var n = 0;
+      questions.forEach(function(q){ if(q.querySelector('.opt.sel')) n++; });
+      progress.innerHTML = '<b>'+n+'</b> / '+total+' répondues';
+    }
+    opts.forEach(function(o){
+      o.addEventListener('click', function(){
+        if(document.body.dataset.done === '1') return;
+        var q = o.closest('.qcard');
+        q.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('sel'); });
+        o.classList.add('sel');
+        updateProgress();
+      });
+    });
+    function appraisal(n20){
+      if(n20 >= 16) return 'Excellent — maîtrise solide du chapitre.';
+      if(n20 >= 12) return 'Bien — quelques points de cours à consolider.';
+      if(n20 >= 8)  return 'Moyen — reprenez les théorèmes clés.';
+      return 'Insuffisant — chapitre à retravailler.';
+    }
+    function grade(){
+      var score = 0;
+      questions.forEach(function(q){
+        var correct = q.querySelector('.opt[data-correct]');
+        var sel = q.querySelector('.opt.sel');
+        if(correct) correct.classList.add('correct');
+        if(sel){ if(sel.hasAttribute('data-correct')) score++; else sel.classList.add('wrong'); }
+      });
+      var n20 = total ? Math.round(score/total*20*10)/10 : 0;
+      note20El.textContent = (Number.isInteger(n20) ? n20 : n20.toFixed(1));
+      rawEl.textContent = score;
+      appraiseEl.textContent = appraisal(n20);
+      document.body.dataset.done = '1';
+      submit.textContent = '↻ Recommencer';
+      resultSec.hidden = false;
+      resultSec.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    function reset(){
+      opts.forEach(function(o){ o.classList.remove('sel','correct','wrong'); });
+      document.body.dataset.done = '';
+      submit.textContent = 'Valider la copie';
+      resultSec.hidden = true;
+      updateProgress();
+      document.getElementById('n1').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    submit.addEventListener('click', function(){
+      if(document.body.dataset.done === '1') reset(); else grade();
+    });
+    updateProgress();
+  })();
+</script>
+
+</body>
+</html>

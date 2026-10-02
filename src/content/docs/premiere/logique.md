@@ -1,6 +1,6 @@
 ---
 title: Logique et raisonnement
-description: "Cours, fiche résumé, QCM interactif corrigé, séries d'exercices et leurs corrigés détaillés consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
+description: "Cours, fiche résumé, QCM interactifs corrigés (dont deux QCM de révision de 20 questions), séries d'exercices et leurs corrigés détaillés consultables en ligne — Initiation à la logique et aux modes de raisonnement (Première Bac SM)."
 sidebar:
   order: 1
 ---
@@ -15,6 +15,10 @@ Tous les documents du chapitre **Logique et raisonnement** sont consultables dir
     <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/premiere/logique/fiche-resume.pdf">📋 Fiche résumé</button>
     <button class="doc-tab" data-title="Exercices &amp; problèmes" data-src="/pdf/premiere/logique/exercices.pdf">📝 Exercices &amp; problèmes</button>
     <button class="doc-tab" data-title="QCM corrigé" data-src="/pdf/premiere/logique/qcm.pdf">❓ QCM (corrigé)</button>
+    <button class="doc-tab" data-title="QCM de révision n°1 — Cours sous tension (énoncé)" data-src="/pdf/premiere/logique/qcm-revision-1.pdf">❓ QCM de révision n°1</button>
+    <button class="doc-tab" data-title="QCM de révision n°1 — Corrigé détaillé" data-src="/pdf/premiere/logique/qcm-revision-1-corrige.pdf">✅ Corrigé QCM de révision n°1</button>
+    <button class="doc-tab" data-title="QCM de révision n°2 — Méthodes et pièges (énoncé)" data-src="/pdf/premiere/logique/qcm-revision-2.pdf">❓ QCM de révision n°2</button>
+    <button class="doc-tab" data-title="QCM de révision n°2 — Corrigé détaillé" data-src="/pdf/premiere/logique/qcm-revision-2-corrige.pdf">✅ Corrigé QCM de révision n°2</button>
     <button class="doc-tab" data-title="Série n°1 — Quantificateurs, négation, CN/CS" data-src="/pdf/premiere/logique/serie-logique-1.pdf">🧩 Série n°1 — Logique</button>
     <button class="doc-tab" data-title="Série n°1 Logique — Corrigé, partie 1/3 (exercices 1 à 6)" data-src="/pdf/premiere/logique/serie-logique-1-corrige-partie-1.pdf">✅ Corrigé Série n°1 — Partie 1 (Ex. 1–6)</button>
     <button class="doc-tab" data-title="Série n°1 Logique — Corrigé, partie 2/3 (exercices 7 à 12)" data-src="/pdf/premiere/logique/serie-logique-1-corrige-partie-2.pdf">✅ Corrigé Série n°1 — Partie 2 (Ex. 7–12)</button>
@@ -42,6 +46,18 @@ Tous les documents du chapitre **Logique et raisonnement** sont consultables dir
 Testez vos connaissances avec le **QCM interactif** du chapitre : **21 questions corrigées** sur la logique et les raisonnements, en trois niveaux (moyen · bon · difficile — type concours), avec correction justifiée et note sur 20.
 
 <a class="qcm-launch" href="/qcm-logique.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.6rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ Lancer le QCM — 21 questions corrigées</a>
+
+### QCM de révision — 1<sup>re</sup> Bac SM
+
+Deux QCM de révision de **20 questions** chacun, qui couvrent toutes les notions du chapitre : propositions, connecteurs, quantificateurs, négations, contraposée, absurde, disjonction des cas, récurrence. Une seule bonne réponse par question, note sur 20 et corrigé justifié de chaque proposition (y compris pourquoi les autres réponses sont fausses).
+
+- **QCM n°1 — Cours sous tension** : définitions, énoncés exacts et conditions d'application.
+- **QCM n°2 — Méthodes et pièges** : contre-exemples, négations, disjonction des cas, rédaction des raisonnements.
+
+<a class="qcm-launch" href="/qcm-logique-revision-1.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.4rem .6rem .4rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ QCM de révision n°1 — 20 questions</a>
+<a class="qcm-launch" href="/qcm-logique-revision-2.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.4rem .6rem .4rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ QCM de révision n°2 — 20 questions</a>
+
+La version imprimable (énoncé et corrigé détaillé) de chaque QCM se trouve dans les onglets **❓ QCM de révision** de la visionneuse ci-dessus.
 
 ---
 

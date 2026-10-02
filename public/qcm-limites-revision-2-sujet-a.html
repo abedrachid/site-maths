@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Limites, continuité &amp; réciproques — QCM de révision n° 2 · Sujet A | Maths Élites</title>
+<meta name="description" content="QCM de révision n° 2 (sujet A) corrigé — Limites, continuité et fonctions réciproques (racines n-ièmes, arctangente), Terminale Sciences Mathématiques : 20 questions, note sur 20 et corrigé justifié (R. Abed).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
+<style>
+  :root{
+    --cream:#fbf7ef; --paper:#fffdf8; --paper2:#f5efe1;
+    --navy:#1b3a6b; --navy-deep:#0c2340; --navy-light:#3b5e93; --navy-soft:#eaeff6;
+    --gold:#c8932b; --gold-light:#e0b457; --gold-soft:#f7edd7; --gold-line:#e6d3a6;
+    --teal:#1e7a6e; --teal-soft:#e3f0ed; --teal-line:#b6dbd4; --teal-ink:#155e54;
+    --coral:#c9554a; --coral-soft:#f8e7e4; --coral-line:#eec6c0; --coral-ink:#a63f36;
+    --ink:#2a2a2a; --ink-soft:#4b4f57; --gray:#5b6472;
+    --line:#e7ddca; --line-strong:#d8ccb2;
+    --shadow:0 1px 2px rgba(27,58,107,.06),0 10px 26px -16px rgba(12,35,64,.26);
+    --radius:12px;
+    --sans:"Arimo","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --serif:"Palatino Linotype","Book Antiqua","TeX Gyre Pagella",Palatino,"URW Palladio L",Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--serif);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;padding-bottom:78px}
+  .wrap{width:min(980px,100%);margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+
+  .topnav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--cream) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--gold-line)}
+  .topnav .row{display:flex;align-items:center;gap:18px;min-height:50px;flex-wrap:wrap}
+  .brandmark{font-family:var(--sans);font-weight:700;font-size:14px;letter-spacing:.02em;color:var(--navy);white-space:nowrap}
+  .brandmark b{color:var(--gold)}
+  .navlinks{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+  .navlinks a{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--gray);text-decoration:none;padding:6px 9px;border-radius:7px;line-height:1}
+  .navlinks a:hover{background:var(--navy-soft);color:var(--navy)}
+  @media (max-width:720px){.navlinks{display:none}}
+
+  header.mast{padding:clamp(26px,4vw,40px) 0 6px}
+  .banner{display:flex;align-items:center;gap:clamp(16px,3vw,26px);background:linear-gradient(140deg,var(--navy) 0%,var(--navy-deep) 100%);border-radius:14px;border-bottom:4px solid var(--gold);padding:clamp(20px,3.4vw,30px) clamp(20px,3.6vw,34px);box-shadow:var(--shadow)}
+  .logo{flex:none}
+  .logo svg{width:clamp(58px,9vw,76px);height:clamp(58px,9vw,76px);display:block;filter:drop-shadow(0 2px 5px rgba(0,0,0,.3))}
+  .banner-txt{min-width:0}
+  .badge{display:inline-block;font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);border:1px solid rgba(224,180,87,.55);border-radius:999px;padding:4px 11px;margin:0 0 11px}
+  .eyebrow{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin:0 0 6px}
+  .banner-txt h1{font-family:var(--sans);font-weight:700;color:#fff;font-size:clamp(1.6rem,4.6vw,2.6rem);line-height:1.08;letter-spacing:-.01em;text-wrap:balance;margin:0}
+  .banner-sub{font-family:var(--serif);font-style:italic;color:#d8e2f0;font-size:clamp(1rem,2vw,1.12rem);margin:.4em 0 0}
+  .lede{font-size:1.08rem;color:var(--ink-soft);max-width:64ch;margin:26px auto 0;line-height:1.62}
+  .lede strong{color:var(--navy);font-weight:600}
+
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:26px 0 4px}
+  .fact{background:var(--paper);padding:15px 18px}
+  .fact .n{font-family:var(--sans);font-weight:700;font-size:1.66rem;line-height:1;color:var(--navy);font-variant-numeric:tabular-nums}
+  .fact .l{font-family:var(--sans);font-size:11.5px;color:var(--gray);margin-top:7px;letter-spacing:.02em;line-height:1.35}
+
+  section.level{padding:clamp(30px,4.5vw,48px) 0 0}
+  .lvlbanner{display:flex;align-items:center;gap:14px;background:var(--c);border-radius:10px;border-bottom:3px solid rgba(0,0,0,.16);padding:12px 18px;color:#fff;box-shadow:var(--shadow)}
+  .lvlbanner .lv{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+  .lvlbanner .nm{font-family:var(--sans);font-weight:700;font-size:1.06rem;letter-spacing:.01em}
+  .lvlbanner .st{margin-left:auto;letter-spacing:.12em;font-size:1rem;color:var(--gold-light)}
+  .level[data-l="moyen"]{--c:var(--teal)}
+  .level[data-l="bon"]{--c:var(--navy-light)}
+  .level[data-l="diff"]{--c:var(--coral)}
+  .kicker{font-family:var(--sans);color:var(--gray);max-width:70ch;margin:14px 2px 22px;font-size:.96rem;line-height:1.5}
+
+  .stack{display:grid;gap:15px}
+  .qcard{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:var(--radius);padding:20px clamp(16px,2.4vw,24px);box-shadow:var(--shadow)}
+  .qtop{display:flex;gap:12px;align-items:baseline}
+  .qnum{font-family:var(--sans);font-weight:700;font-size:12px;color:#fff;background:var(--navy);border-radius:6px;padding:4px 8px;line-height:1;flex:none}
+  .qtext{font-size:1.08rem;color:var(--ink);line-height:1.5}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:15px 0 0}
+  @media (max-width:560px){.opts{grid-template-columns:1fr}}
+  .opt{display:flex;align-items:center;gap:11px;width:100%;text-align:left;font-family:var(--serif);font-size:1rem;color:var(--ink);background:var(--cream);border:1px solid var(--line-strong);border-radius:9px;padding:10px 12px;cursor:pointer;transition:background .15s,border-color .15s,box-shadow .15s,transform .05s}
+  .opt:hover{border-color:var(--navy)}
+  .opt:active{transform:translateY(1px)}
+  .opt:focus-visible{outline:2.5px solid var(--navy);outline-offset:2px}
+  .ok{flex:none;width:1.7em;height:1.7em;display:grid;place-items:center;font-family:var(--sans);font-weight:700;font-size:.8rem;color:var(--gold);border:1.5px solid var(--gold-line);border-radius:7px;background:var(--gold-soft)}
+  .ob{flex:1}
+  .opt.sel{border-color:var(--navy);background:var(--navy-soft);box-shadow:0 0 0 1px var(--navy) inset}
+  .opt.sel .ok{background:var(--navy);color:#fff;border-color:var(--navy)}
+  body[data-done="1"] .opt{cursor:default}
+  body[data-done="1"] .opt:hover{border-color:var(--line-strong)}
+  .opt.correct{border-color:var(--teal);background:var(--teal-soft);box-shadow:0 0 0 1px var(--teal) inset}
+  .opt.correct .ok{background:var(--teal);color:#fff;border-color:var(--teal)}
+  .opt.correct .ob::after{content:" ✓";color:var(--teal-ink);font-weight:700}
+  .opt.wrong{border-color:var(--coral);background:var(--coral-soft);box-shadow:0 0 0 1px var(--coral) inset}
+  .opt.wrong .ok{background:var(--coral);color:#fff;border-color:var(--coral)}
+  .opt.wrong .ob::after{content:" ✕";color:var(--coral-ink);font-weight:700}
+
+  .exp{display:none;margin:14px 0 0;padding:13px 16px;background:var(--teal-soft);border:1px solid var(--teal-line);border-left:4px solid var(--teal);border-radius:9px;font-size:.98rem;color:var(--ink-soft);line-height:1.5}
+  body[data-done="1"] .exp{display:block}
+  .exp-tag{display:inline-block;font-family:var(--sans);font-weight:700;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal-ink);border:1px solid var(--teal-line);background:var(--paper);border-radius:5px;padding:3px 7px;margin-right:10px;vertical-align:1px}
+  .exp b{color:var(--navy);font-weight:600}
+
+  mjx-container{color:inherit}
+  mjx-container svg{vertical-align:-.14em}
+
+  section.result{padding:clamp(30px,4.5vw,48px) 0 0}
+  .resultcard{display:flex;gap:22px;align-items:center;flex-wrap:wrap;background:linear-gradient(140deg,var(--navy),var(--navy-deep));border-radius:14px;border-bottom:4px solid var(--gold);padding:24px clamp(20px,3vw,30px);box-shadow:var(--shadow)}
+  .score-tile{flex:none;min-width:150px;text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(224,180,87,.4);border-radius:12px;padding:16px 26px}
+  .score-tile .n{font-family:var(--sans);font-weight:700;font-size:2.8rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .score-tile .n span{font-size:1.8rem;color:var(--gold-light)}
+  .score-tile .l{font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);margin-top:8px}
+  .score-meta{flex:1;min-width:220px}
+  .score-meta .raw{font-family:var(--sans);font-size:.98rem;color:#d8e2f0;margin:0 0 6px}
+  .score-meta .raw b{color:#fff;font-variant-numeric:tabular-nums}
+  .score-meta .appraise{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:#fff;margin:0;text-wrap:balance}
+
+  .actionbar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:color-mix(in srgb,var(--cream) 92%,transparent);backdrop-filter:blur(10px);border-top:2px solid var(--gold)}
+  .arow{display:flex;align-items:center;gap:16px;min-height:60px}
+  .progress{font-family:var(--sans);font-size:12.5px;font-weight:500;color:var(--gray)}
+  .progress b{color:var(--navy);font-weight:700}
+  .btn{margin-left:auto;font-family:var(--sans);font-weight:700;font-size:.92rem;letter-spacing:.01em;color:#fff;cursor:pointer;padding:.72em 1.6em;border-radius:9px;border:1px solid var(--navy-deep);background:var(--navy);box-shadow:var(--shadow);transition:filter .15s,transform .06s}
+  .btn:hover{filter:brightness(1.12)}
+  .btn:active{transform:translateY(1px)}
+  .btn:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px}
+
+  footer{margin-top:clamp(34px,5vw,52px);border-top:1px solid var(--gold-line);padding:28px 0 34px;color:var(--gray)}
+  footer .colophon{font-family:var(--sans);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray)}
+  footer p{margin:8px 0 0;font-size:.9rem}
+  footer b{color:var(--navy)}
+  :focus-visible{outline:2.5px solid var(--navy);outline-offset:2px;border-radius:4px}
+
+  .level[data-l="rev"]{--c:var(--navy)}
+  .opts.one{grid-template-columns:1fr}
+  .cl{display:block;text-align:center;margin:.45em 0}
+  .fig{display:flex;justify-content:center;margin:14px 0 2px;overflow-x:auto}
+  table.tt{border-collapse:collapse;font-family:var(--sans);font-size:.95rem;background:var(--paper)}
+  table.tt th{background:var(--navy);color:#fff;font-weight:700;padding:7px 16px;border:1px solid #fff}
+  table.tt td{padding:7px 16px;border:1px solid var(--line-strong);text-align:center;font-weight:700}
+  table.tt td.tv{color:var(--teal)} table.tt td.tf{color:var(--coral)}
+  .exp .meta{display:block;font-family:var(--sans);font-size:.78rem;color:var(--gray);margin:0 0 8px;letter-spacing:.01em}
+  .exp .why{margin:11px 0 0}
+  .exp .why-t{font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:var(--coral-ink)}
+  .exp ul{margin:6px 0 0;padding-left:0;list-style:none}
+  .exp li{margin:5px 0 0;padding-left:1.9em;text-indent:-1.9em}
+  .exp li .wl{display:inline-block;width:1.9em;text-indent:0;font-family:var(--sans);font-weight:700;color:var(--coral)}
+  .exp .ret{margin:11px 0 0;padding-top:9px;border-top:1px dashed var(--teal-line)}
+  .exp .ret-t{font-family:var(--sans);font-weight:700;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:#9a6d16}
+  .qfig{margin:14px 0 4px;padding:0;text-align:center}
+  .qfig-svg{width:min(100%,520px);height:auto;border:1px solid var(--line);border-radius:10px}
+  .pdfnote{font-family:var(--sans);font-size:.92rem;color:var(--gray);text-align:center;margin:22px 0 0}
+  .pdfnote a{color:var(--navy);font-weight:700}
+</style>
+
+</head>
+<body>
+<nav class="topnav">
+  <div class="wrap row">
+    <span class="brandmark">MATHS <b>ÉLITES</b> · Limites &amp; réciproques — QCM 2 · Sujet A</span>
+    <div class="navlinks"><a href="#n1">Questions</a><a href="/terminale/limites#qcm">Version PDF</a><a href="/qcm-limites-revision-2-sujet-b.html">Sujet B</a><a href="/terminale/limites">Chapitre</a></div>
+  </div>
+</nav>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="banner">
+      <span class="logo" aria-label="Logo Maths Élites">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><rect x="42" y="42" width="556" height="556" rx="111.2" ry="111.2" fill="#F6F1E4" stroke="#0C2340" stroke-width="25.02"/><rect x="83.7" y="83.7" width="472.6" height="472.6" rx="80.064" ry="80.064" fill="none" stroke="#0C2340" stroke-width="5.56"/><path d="M 158.76,464.56 L 206.72,453.81 L 254.67,438.65 L 302.62,417.28 L 345.78,390.64 L 384.15,358.95 L 417.72,323.09 L 446.49,284.68 L 470.47,246.03 L 489.65,209.96 L 504.04,179.46 L 518.42,145.64 L 532.81,108.15 L 542.40,80.92" fill="none" stroke="#C9A227" stroke-width="23.63" stroke-linecap="round" stroke-linejoin="round"/><path d="M 542.4,80.9 L 488.8,126.5 L 554.1,150.3 Z" fill="#C9A227"/><circle cx="158.8" cy="464.6" r="13.344" fill="#C9A227"/><path d="M1051 0V47H943V639H1051V686H830C808 686 797 686 786 661L546 132L306 661C295 686 284 686 262 686H40V639H148V76C148 54 147 53 119 50C95 47 93 47 65 47H40V0C78 3 135 3 174 3C216 3 268 3 309 0V47H284C266 47 249 48 231 50C202 53 201 54 201 76V626H202L474 25C483 5 495 0 506 0C526 0 534 15 538 24L817 639H818V47H710V0C746 3 839 3 880 3C921 3 1015 3 1051 0Z" fill="#0C2340" transform="translate(160.739,431.2) scale(0.17236,-0.17236)"/><path d="M723 274H676C654 136 626 47 441 47H289V329H344C440 329 450 286 450 212H497V493H450C450 419 441 376 344 376H289V633H441C602 633 628 560 644 439H691L660 680H39V633H147V47H39V0H677Z" fill="#C9A227" transform="translate(348.956,431.2) scale(0.17236,-0.17236)"/></svg>
+      </span>
+      <div class="banner-txt">
+        <span class="badge">QCM interactif</span>
+        <p class="eyebrow">Maths Élites · 2<sup>e</sup> Bac Sciences Mathématiques</p>
+        <h1>Limites, continuité &amp; réciproques — QCM de révision n° 2</h1>
+        <p class="banner-sub">Méthodes et pièges · Sujet A · <span data-qcount>0</span> questions</p>
+      </div>
+    </div>
+
+    <p class="lede">Chapitres 1 et 2 — <strong>Limites, continuité et fonctions réciproques</strong> : formes indéterminées, définition d'une limite, T.V.I. et image d'un intervalle, théorème de la bijection, racines <em>n</em>-ièmes et arctangente. Techniques en situation, erreurs typiques et contre-exemples. Une seule bonne réponse par question : répondez, validez votre copie et obtenez votre note sur 20 avec le corrigé justifié de chaque item.</p>
+
+    <div class="facts">
+      <div class="fact"><div class="n"><span data-qcount>0</span></div><div class="l">questions à choix unique</div></div>
+      <div class="fact"><div class="n">30 min</div><div class="l">durée conseillée</div></div>
+      <div class="fact"><div class="n">/20</div><div class="l">note calculée automatiquement</div></div>
+      <div class="fact"><div class="n"><span data-qcount>0</span></div><div class="l">corrigés justifiés</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="level" data-l="rev" id="n1">
+  <div class="wrap">
+    <div class="lvlbanner"><span class="lv">QCM de révision n° 2 · Sujet A</span><span class="nm">Méthodes et pièges</span><span class="st">20 Q</span></div>
+    <p class="kicker">Les techniques des chapitres 1 et 2 en situation : choisir la bonne démarche, repérer l'erreur typique, justifier avec les théorèmes du cours. Barème +1 / 0, note sur 20.</p>
+    <div class="stack">
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q1</span><div class="qtext">Pour calculer $\ell=\ds\lim_{x\to+\infty}\Bigl(\sqrt[3]{x^3+x^2}-x\Bigr)$, quelle démarche est correcte ?</div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">Avec $a=\sqrt[3]{x^3+x^2}$, $b=x$ : $a-b=\dfrac{a^3-b^3}{a^2+ab+b^2}=\dfrac{x^2}{a^2+ab+b^2}$, d'où $\ell=\dfrac13$.</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">On multiplie par la quantité conjuguée $\sqrt[3]{x^3+x^2}+x$, d'où $\ell=\dfrac12$.</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$\sqrt[3]{x^3+x^2}\to+\infty$ et $x\to+\infty$, donc $\ell=0$.</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">Même identité ; $a^3-b^3=x^2$ et $a^2+ab+b^2$ « se comporte comme » $x^2$, d'où $\ell=1$.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.1 • Niveau N2 • Type T6 (Rédaction / justification) • Notion N1</span><span class="exp-tag">Corrigé · A</span>$a^3-b^3=x^2$. En factorisant : $a^2+ab+b^2=x^2\Bigl(\bigl(\sqrt[3]{1+\tfrac1x}\bigr)^2+\sqrt[3]{1+\tfrac1x}+1\Bigr)$, et la parenthèse tend vers $3$ (continuité de $\sqrt[3]{\ }$). Donc $\ell=\frac13$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>$(a-b)(a+b)=a^2-b^2$ garde une racine cubique : cette « conjuguée » ne sert que pour les racines carrées.</li><li><span class="wl">C.</span>$\infty-\infty$ est une forme indéterminée.</li><li><span class="wl">D.</span>le dénominateur contient <em>trois</em> termes voisins de $x^2$ : il se comporte comme $3x^2$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Racine cubique : utiliser $a-b=\dfrac{a^3-b^3}{a^2+ab+b^2}$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q2</span><div class="qtext">$\ds\lim_{x\to0}\frac{1-\cos(2x)}{x\tan x}$ vaut :</div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">$2$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$1$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$4$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$\dfrac12$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.2 • Niveau N2 • Type T5 (Formule piégée) • Notion N2</span><span class="exp-tag">Corrigé · A</span>$1-\cos(2x)=2\sin^2x$, d'où $\dfrac{1-\cos 2x}{x\tan x}=\dfrac{2\sin^2x\cos x}{x\sin x}=2\cdot\dfrac{\sin x}{x}\cdot\cos x\longrightarrow2\cdot1\cdot1=2$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>facteur $2$ oublié dans $1-\cos(2x)=2\sin^2x$.</li><li><span class="wl">C.</span>on a utilisé $\frac{1-\cos u}{u^2}\to1$ au lieu de $\frac12$ (avec $u=2x$).</li><li><span class="wl">D.</span>on a appliqué $\frac{1-\cos u}{u^2}\to\frac12$ avec $u=x$ au lieu de $u=2x$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Dans $\frac{1-\cos u}{u^2}\to\frac12$, l'argument doit être exactement $u$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q3</span><div class="qtext">Soit $a$ réel. Laquelle des situations suivantes est <strong>impossible</strong> ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$f$ et $g$ discontinues en $a$, et $f+g$ continue en $a$.</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$f$ et $g$ discontinues en $a$, et $f\,g$ continue en $a$.</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$f$ discontinue en $a$, $g$ continue en $a$, et $f\,g$ continue en $a$.</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">$f$ discontinue en $a$, $g$ continue en $a$, et $f+g$ continue en $a$.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.3 • Niveau N2 • Type T4 (Assertions fines) • Notion N4</span><span class="exp-tag">Corrigé · D</span>Si $f+g$ et $g$ étaient continues en $a$, alors $f=(f+g)-g$ serait continue en $a$ (différence de fonctions continues en $a$) : contradiction.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>possible : $f=E$, $g=-E$ en $a=0$.</li><li><span class="wl">B.</span>possible : $f=g$ valant $1$ sur $[0,+\infty[$ et $-1$ ailleurs ; $fg=1$.</li><li><span class="wl">C.</span>possible : $g=0$, donc $fg=0$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Continue $+$ discontinue $=$ discontinue ; pour le produit, rien n'est imposé.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q4</span><div class="qtext">La restriction de $f(x)=x^2-2x$ à $I=]-\infty,1]$ est une bijection de $I$ sur $J$. Sa réciproque est définie par :</div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">$f^{-1}(x)=1-\sqrt{1+x}$, $x\in[-1,+\infty[$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$f^{-1}(x)=1+\sqrt{1+x}$, $x\in[-1,+\infty[$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$f^{-1}(x)=1-\sqrt{1+x}$, $x\in\,]-\infty,1]$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$f^{-1}(x)=\sqrt{1+x}-1$, $x\in[-1,+\infty[$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.6 • Niveau N2 • Type T8 (Synthèse) • Notion N9</span><span class="exp-tag">Corrigé · A</span>$f(x)=(x-1)^2-1$ est continue et strictement décroissante sur $I$ (car $x-1\le0$), avec $f(1)=-1$ et $\lim_{-\infty}f=+\infty$ : $J=[-1,+\infty[$. Pour $y\in J$ : $y=(x-1)^2-1\iff(x-1)^2=1+y$ ; comme $x\le1$, $x-1=-\sqrt{1+y}$, soit $x=1-\sqrt{1+y}$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>mauvaise branche : ces valeurs sont $\ge1$, hors de $I$ (sauf $1$).</li><li><span class="wl">C.</span>confusion entre $I$ et $J$ : $f^{-1}$ est définie sur $J=f(I)=[-1,+\infty[$.</li><li><span class="wl">D.</span>en $x=3$ elle donne $1$, or $f(1)=-1\neq3$ (on a $f^{-1}(3)=-1$).</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> La branche se choisit avec $I$ ; $f^{-1}$ se définit sur $J=f(I)$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q5</span><div class="qtext">Une seule des affirmations suivantes est vraie. Laquelle ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">L'équation $x^4=-16$ admet deux solutions réelles : $2$ et $-2$.</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">L'équation $x^5=-32$ admet une unique solution réelle : $-2$.</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">L'équation $x^6=64$ admet une unique solution réelle : $2$.</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">L'équation $x^3=27$ admet trois solutions réelles.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.7 • Niveau N1 • Type T4 (Assertions fines) • Notion N10</span><span class="exp-tag">Corrigé · B</span>$5$ est impair : $x\mapsto x^5$ est continue, strictement croissante, bijection de $\R$ sur $\R$ ; l'équation a une unique solution. Comme $(-2)^5=-32$, c'est $x=-2$, soit $x=-\sqrt[5]{32}$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$x^4\ge0$ : aucune solution réelle.</li><li><span class="wl">C.</span>$n$ pair et $a&gt;0$ : deux solutions, $\pm2$.</li><li><span class="wl">D.</span>$x\mapsto x^3$ est injective sur $\R$ : une seule solution, $3$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> $x^n=a$ : $n$ impair $\to$ une solution ($\sqrt[n]a$ si $a\ge0$, $-\sqrt[n]{-a}$ si $a&lt;0$) ; $n$ pair $\to$ deux ($a&gt;0$), une ($a=0$), aucune ($a&lt;0$).</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q6</span><div class="qtext">L'ensemble des solutions de l'inéquation $\sqrt{x+3}&lt;x+1$ est :</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$]-\infty,-2[\,\cup\,]1,+\infty[$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$[-3,-2[\,\cup\,]1,+\infty[$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$]1,+\infty[$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$]-1,+\infty[$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.7 • Niveau N2 • Type T1 (Conditions d'un théorème) • Notion N10</span><span class="exp-tag">Corrigé · C</span>Domaine : $x\ge-3$. Si $x+1\le0$ : impossible ($\sqrt{\ }\ge0$). Si $x&gt;-1$ : les deux membres sont positifs, et pour $A,B\ge0$, $A&lt;B\iff A^2&lt;B^2$ : $x+3&lt;x^2+2x+1\iff(x-1)(x+2)&gt;0\iff x&gt;1$ (puisque $x&gt;-1$).<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>élévation au carré sans domaine ni condition de signe.</li><li><span class="wl">B.</span>domaine respecté, mais pas le signe : pour $x=-3$, $0&lt;-2$ est faux.</li><li><span class="wl">D.</span>seule la condition de signe est gardée : pour $x=0$, $\sqrt3&lt;1$ est faux.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> $A&lt;B\iff A^2&lt;B^2$ n'est valable que si $A,B\ge0$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q7</span><div class="qtext">$f(x)=-x^3$ est une bijection de $\R$ sur $\R$. Les courbes $\mathcal C_f$ et $\mathcal C_{f^{-1}}$ se coupent :</div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">en trois points, dont deux hors de la droite $y=x$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">uniquement en $O$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">en trois points, tous sur la droite $y=x$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">en aucun point</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.6 • Niveau N2 • Type T3 (Exemple / contre-exemple) • Notion N8</span><span class="exp-tag">Corrigé · A</span>$M(a,b)\in\mathcal C_f\cap\mathcal C_{f^{-1}}\iff b=f(a)$ et $a=f(b)$ (car $M\in\mathcal C_{f^{-1}}\iff(b,a)\in\mathcal C_f$). Donc $b=-a^3$ et $a=-b^3=a^9$, soit $a(a^8-1)=0\iff a\in\{-1,0,1\}$. Points communs : $(-1,1)$, $(0,0)$, $(1,-1)$ ; seul $O$ est sur $y=x$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>on n'a résolu que $f(x)=x$ ; on oublie $(1,-1)$ et $(-1,1)$.</li><li><span class="wl">C.</span>$(1,-1)$ n'est pas sur $y=x$.</li><li><span class="wl">D.</span>$O(0,0)$ appartient aux deux courbes.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> $f$ croissante : points communs sur $y=x$ ; $f$ décroissante : pas nécessairement.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q8</span><div class="qtext">Quelle proposition traduit « $f$ <strong>ne tend pas</strong> vers $0$ en $+\infty$ » ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\exists\varepsilon&gt;0,\ \forall B&gt;0,\ \forall x&gt;B,\ \abs{f(x)}\ge\varepsilon$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">$\exists\varepsilon&gt;0,\ \forall B&gt;0,\ \exists x&gt;B,\ \abs{f(x)}\ge\varepsilon$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$\forall\varepsilon&gt;0,\ \exists B&gt;0,\ \exists x&gt;B,\ \abs{f(x)}\ge\varepsilon$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$\exists\varepsilon&gt;0,\ \exists B&gt;0,\ \forall x&gt;B,\ \abs{f(x)}\ge\varepsilon$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.1 • Niveau N2 • Type T7 (Logique &amp;amp; quantificateurs) • Notion N3</span><span class="exp-tag">Corrigé · B</span>On nie « $\forall\varepsilon&gt;0,\ \exists B&gt;0,\ \forall x&gt;B,\ \abs{f(x)}&lt;\varepsilon$ » : chaque $\forall$ devient $\exists$ (et inversement), dans le même ordre, et $\abs{f(x)}&lt;\varepsilon$ devient $\abs{f(x)}\ge\varepsilon$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>trop fort : $\sin$ ne tend pas vers $0$ mais s'annule au-delà de tout $B$.</li><li><span class="wl">C.</span>$\forall\varepsilon$ non nié : vérifiée par $x\mapsto\frac1x$ (prendre $B=\frac1{2\varepsilon}$, $x=\frac1\varepsilon$), qui tend vers $0$.</li><li><span class="wl">D.</span>trop fort également : $\sin$ en est encore un contre-exemple.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Nier : on échange $\forall/\exists$ sans changer l'ordre, et on nie la conclusion.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q9</span><div class="qtext">Laquelle des parties suivantes ne peut <strong>pas</strong> être l'image $f(\R)$ d'une fonction $f$ continue sur $\R$ ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\left]0,1\right]$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$[0,1[$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$[0,1]\cup[2,3]$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$\left]-\dfrac\pi2,\dfrac\pi2\right[$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.4 • Niveau N3 • Type T3 (Exemple / contre-exemple) • Notion N5</span><span class="exp-tag">Corrigé · C</span>$\R$ est un intervalle et $f$ est continue : $f(\R)$ est un <strong>intervalle</strong>. $[0,1]\cup[2,3]$ n'en est pas un ($\frac32$ manque entre $1$ et $2$).<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>c'est l'image de $x\mapsto\frac1{1+x^2}$.</li><li><span class="wl">B.</span>c'est l'image de $x\mapsto\frac{x^2}{1+x^2}$ (vaut $0$ en $0$, reste $&lt;1$, tend vers $1$).</li><li><span class="wl">D.</span>c'est l'image de $\arctan$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> L'image d'un intervalle par une fonction continue est un intervalle — de nature quelconque.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q10</span><div class="qtext">Soit $x&gt;0$. Une seule des égalités suivantes est vraie. Laquelle ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\sqrt{x\sqrt[3]{x}}=x^{5/6}$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\bigl(x^{2/3}\bigr)^{3/4}=x^{17/12}$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$\sqrt[4]{x^3}\cdot\sqrt[4]{x}=x^{3/16}$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">$\dfrac{\sqrt[3]{x^2}\,\sqrt[4]{x}}{\sqrt[6]{x^5}}=\sqrt[12]{x}$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.7 • Niveau N2 • Type T4 (Assertions fines) • Notion N11</span><span class="exp-tag">Corrigé · D</span>Exposants : $\frac23+\frac14-\frac56=\frac{8+3-10}{12}=\frac1{12}$ ; donc l'expression vaut $x^{1/12}=\sqrt[12]{x}$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$x\cdot x^{1/3}=x^{4/3}$, puis $\bigl(x^{4/3}\bigr)^{1/2}=x^{2/3}$.</li><li><span class="wl">B.</span>puissance de puissance : on <em>multiplie</em>, $x^{1/2}$.</li><li><span class="wl">C.</span>produit : on <em>ajoute</em>, $x^{3/4+1/4}=x$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Produit : on ajoute les exposants ; puissance de puissance : on les multiplie.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q11</span><div class="qtext">Quelle justification de $\ds\lim_{x\to0}\frac{\arctan x}{x}=1$ est recevable avec les outils de ces deux chapitres ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">Pour $x&gt;0$, $\arctan x&lt;x$, donc $\dfrac{\arctan x}{x}&lt;1$ ; la limite vaut $1$.</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">On simplifie par $x$ : $\dfrac{\arctan x}{x}=\arctan1=\dfrac\pi4$.</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">Par la règle de L'Hôpital, $\dfrac{\arctan x}{x}$ a même limite que $\dfrac{1}{1+x^2}$, donc $1$.</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">On pose $t=\arctan x$ : $x=\tan t$, $t\to0$ quand $x\to0$ (continuité de $\arctan$ en $0$) et $t\neq0$ ; donc $\dfrac{\arctan x}{x}=\dfrac{t}{\tan t}\to1$.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.7 • Niveau N2 • Type T6 (Rédaction / justification) • Notions N12, N2</span><span class="exp-tag">Corrigé · D</span>$\dfrac{\tan t}{t}=\dfrac{\sin t}{t}\cdot\dfrac1{\cos t}\to1$, donc $\dfrac{t}{\tan t}\to1$. Le changement de variable est légitime : $\arctan$ est continue en $0$ ($t\to0$) et $t\neq0$ pour $x\neq0$ (limite d'une composée).<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>une majoration seule ne donne pas la limite : il faudrait aussi une minoration tendant vers $1$.</li><li><span class="wl">B.</span>$\arctan$ n'est pas linéaire : $\arctan x\neq x\arctan1$.</li><li><span class="wl">C.</span>outil hors programme de la série SM : la justification n'est pas recevable.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> En $0$ : $t=\arctan x$ ramène $\frac{\arctan x}{x}$ à $\frac{t}{\tan t}$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q12</span><div class="qtext">Le réel $\theta=\arctan(-2)+\arctan(-3)$ vaut :</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\dfrac\pi4$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\dfrac{3\pi}4$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$-\dfrac{3\pi}4$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$-\dfrac{5\pi}4$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.7 • Niveau N3 • Type T5 (Formule piégée) • Notion N12</span><span class="exp-tag">Corrigé · C</span>$\tan\theta=\dfrac{-2-3}{1-6}=1$. Or $-2&lt;-1$ et $-3&lt;-1$ donnent $\arctan(-2),\arctan(-3)\in\left]-\frac\pi2,-\frac\pi4\right[$, donc $\theta\in\left]-\pi,-\frac\pi2\right[$. Le seul réel de cet intervalle de tangente $1$ est $\frac\pi4-\pi=-\frac{3\pi}4$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$\tan\theta=1$ ne suffit pas : $\theta&lt;0$ (terme correctif $-\pi$ car $ab=6&gt;1$ et $a&lt;0$).</li><li><span class="wl">B.</span>erreur de signe : c'est $\arctan2+\arctan3$.</li><li><span class="wl">D.</span>impossible : une somme de deux éléments de $\left]-\frac\pi2,\frac\pi2\right[$ est dans $]-\pi,\pi[$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Formule d'addition : si $ab&gt;1$, corriger de $\pm\pi$ selon le signe de $a$.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q13</span><div class="qtext">Laquelle des fonctions suivantes est continue sur $\R$ ? ($E$ : partie entière)</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$x\mapsto x\,E(x)$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">$x\mapsto E(x)+\sqrt{x-E(x)}$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$x\mapsto E(x)+E(-x)$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$x\mapsto E(x^2)$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.3 • Niveau N3 • Type T3 (Exemple / contre-exemple) • Notion N4</span><span class="exp-tag">Corrigé · B</span>Continue sur chaque $]n,n+1[$ ($n\in\Z$). En $n$ : à droite $E(x)=n$ et $x-E(x)\to0$, limite $n=f(n)$ ; à gauche $E(x)=n-1$ et $x-E(x)=x-n+1\to1$, limite $n-1+1=n$. Donc continue en tout entier, donc sur $\R$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>en $1$ : limite à gauche $1\cdot0=0$, alors que $f(1)=1$.</li><li><span class="wl">C.</span>elle vaut $0$ en tout entier et $-1$ ailleurs : discontinue en chaque entier.</li><li><span class="wl">D.</span>en $1$ : $E(x^2)=0$ à gauche, $f(1)=1$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Aux entiers, calculer séparément limite à gauche et limite à droite.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q14</span><div class="qtext">Soit $f$ continue sur $[0,+\infty[$ telle que $\ds\lim_{x\to+\infty}f(x)=0$. Alors, nécessairement :</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$f$ atteint son maximum sur $[0,+\infty[$.</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">$f$ est bornée sur $[0,+\infty[$.</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$f$ atteint son minimum sur $[0,+\infty[$.</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$f$ est monotone sur un intervalle $[A,+\infty[$.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.4 • Niveau N3 • Type T1 (Conditions d'un théorème) • Notion N5</span><span class="exp-tag">Corrigé · B</span>Avec $\varepsilon=1$ dans la définition de la limite : il existe $A&gt;0$ tel que $\abs{f(x)}\le1$ pour $x\ge A$. Sur le <strong>segment</strong> $[0,A]$, $f$ continue est bornée. Donc $f$ est bornée sur $[0,+\infty[$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$f(x)=-\frac1{1+x}$ : $\sup f=0$ n'est pas atteint.</li><li><span class="wl">C.</span>$f(x)=\frac1{1+x}$ : $\inf f=0$ n'est pas atteint.</li><li><span class="wl">D.</span>$f(x)=\frac{\sin x}{1+x}$ oscille indéfiniment.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Segment $\Rightarrow$ bornes atteintes ; demi-droite $+$ limite finie $\Rightarrow$ seulement bornée.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q15</span><div class="qtext">Pour tout réel $a$, l'équation $x^5+x=a$ admet une unique solution, notée $\varphi(a)$. Laquelle des affirmations est vraie ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$\varphi$ est strictement décroissante sur $\R$, et $\varphi(2)=1$.</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$\varphi$ est continue et $\varphi(a)=\dfrac1{a^5+a}$.</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$\varphi$ est continue et strictement croissante sur $\R$, et $\varphi(2)=1$.</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$\varphi$ n'est définie que pour $a\ge0$.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.6 • Niveau N3 • Type T8 (Synthèse) • Notions N8, N6</span><span class="exp-tag">Corrigé · C</span>$g(x)=x^5+x$ est continue, strictement croissante, de limites $\mp\infty$ en $\mp\infty$ : bijection de $\R$ sur $\R$, et $\varphi=g^{-1}$. Par le théorème de la bijection, $\varphi$ est continue et strictement croissante ; $g(1)=2$ donne $\varphi(2)=1$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$\varphi=g^{-1}$ a le <em>même</em> sens de variation que $g$.</li><li><span class="wl">B.</span>confusion entre réciproque et inverse : $g^{-1}\neq\frac1g$.</li><li><span class="wl">D.</span>$g(\R)=\R$ : $\varphi$ est définie sur $\R$ (par exemple $\varphi(-2)=-1$).</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> La solution d'une équation paramétrée $g(x)=a$ est $g^{-1}(a)$ : elle hérite de la continuité et du sens de variation.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q16</span><div class="qtext">La figure représente une fonction $f$ continue sur $[-1,3]$ (extremums marqués). L'image $f\bigl([-1,3[\bigr)$ est :<figure class="qfig"><svg class="qfig-svg" viewBox="0 0 325 208" role="img" aria-label="Courbe de f continue sur [−1, 3] : f(−1)=1, maximum 3 en 1/2, minimum −2 en 2, f(3)=0" xmlns="http://www.w3.org/2000/svg" font-family="Arimo,Helvetica,Arial,sans-serif"><rect width="325" height="208" fill="#fffdf8"/><line x1="60.0" y1="178.7" x2="60.0" y2="29.9" stroke="#e3dccb" stroke-width="1"/><line x1="110.0" y1="178.7" x2="110.0" y2="29.9" stroke="#e3dccb" stroke-width="1"/><line x1="160.0" y1="178.7" x2="160.0" y2="29.9" stroke="#e3dccb" stroke-width="1"/><line x1="210.0" y1="178.7" x2="210.0" y2="29.9" stroke="#e3dccb" stroke-width="1"/><line x1="260.0" y1="178.7" x2="260.0" y2="29.9" stroke="#e3dccb" stroke-width="1"/><line x1="35.0" y1="166.3" x2="285.0" y2="166.3" stroke="#e3dccb" stroke-width="1"/><line x1="35.0" y1="141.5" x2="285.0" y2="141.5" stroke="#e3dccb" stroke-width="1"/><line x1="35.0" y1="116.7" x2="285.0" y2="116.7" stroke="#e3dccb" stroke-width="1"/><line x1="35.0" y1="91.9" x2="285.0" y2="91.9" stroke="#e3dccb" stroke-width="1"/><line x1="35.0" y1="67.1" x2="285.0" y2="67.1" stroke="#e3dccb" stroke-width="1"/><line x1="35.0" y1="42.3" x2="285.0" y2="42.3" stroke="#e3dccb" stroke-width="1"/><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,1 L10,5 L0,9z" fill="#2a2a2a"/></marker></defs><line x1="30.0" y1="116.7" x2="295.0" y2="116.7" stroke="#2a2a2a" stroke-width="1.3" marker-end="url(#ah)"/><line x1="110.0" y1="183.7" x2="110.0" y2="20.0" stroke="#2a2a2a" stroke-width="1.3" marker-end="url(#ah)"/><text x="301.0" y="120.7" font-size="13" font-style="italic" font-family="Georgia,serif">x</text><text x="106.0" y="14.0" font-size="13" font-style="italic" font-family="Georgia,serif">y</text><text x="60.0" y="131.7" stroke="#fffdf8" stroke-width="3" paint-order="stroke" font-size="11" text-anchor="middle" fill="#2a2a2a">−1</text><text x="160.0" y="131.7" stroke="#fffdf8" stroke-width="3" paint-order="stroke" font-size="11" text-anchor="middle" fill="#2a2a2a">1</text><text x="210.0" y="131.7" stroke="#fffdf8" stroke-width="3" paint-order="stroke" font-size="11" text-anchor="middle" fill="#2a2a2a">2</text><text x="260.0" y="131.7" stroke="#fffdf8" stroke-width="3" paint-order="stroke" font-size="11" text-anchor="middle" fill="#2a2a2a">3</text><text x="105.0" y="130.7" font-size="11" text-anchor="end">0</text><text x="104.0" y="170.3" font-size="11" text-anchor="end">−2</text><text x="104.0" y="145.5" font-size="11" text-anchor="end">−1</text><text x="104.0" y="95.9" font-size="11" text-anchor="end">1</text><text x="104.0" y="71.1" font-size="11" text-anchor="end">2</text><text x="104.0" y="46.3" font-size="11" text-anchor="end">3</text><polyline points="135.0,116.7 135.0,42.3 110.0,42.3" fill="none" stroke="#5b6472" stroke-width="1" stroke-dasharray="4 3"/><polyline points="210.0,116.7 210.0,166.3 110.0,166.3" fill="none" stroke="#5b6472" stroke-width="1" stroke-dasharray="4 3"/><polyline points="60.0,116.7 60.0,91.9" fill="none" stroke="#5b6472" stroke-width="1" stroke-dasharray="4 3"/><polyline points="60.0,91.9 60.9,91.9 61.9,91.8 62.8,91.7 63.8,91.6 64.7,91.4 65.6,91.2 66.6,91.0 67.5,90.7 68.4,90.4 69.4,90.0 70.3,89.6 71.2,89.2 72.2,88.8 73.1,88.3 74.1,87.7 75.0,87.2 75.9,86.6 76.9,86.0 77.8,85.3 78.8,84.7 79.7,84.0 80.6,83.2 81.6,82.5 82.5,81.7 83.4,80.9 84.4,80.1 85.3,79.2 86.2,78.4 87.2,77.5 88.1,76.6 89.1,75.7 90.0,74.8 90.9,73.9 91.9,72.9 92.8,72.0 93.8,71.0 94.7,70.0 95.6,69.1 96.6,68.1 97.5,67.1 98.4,66.1 99.4,65.2 100.3,64.2 101.2,63.2 102.2,62.3 103.1,61.3 104.1,60.4 105.0,59.5 105.9,58.5 106.9,57.6 107.8,56.7 108.8,55.9 109.7,55.0 110.6,54.2 111.6,53.3 112.5,52.5 113.4,51.8 114.4,51.0 115.3,50.3 116.2,49.6 117.2,48.9 118.1,48.3 119.1,47.6 120.0,47.1 120.9,46.5 121.9,46.0 122.8,45.5 123.8,45.0 124.7,44.6 125.6,44.2 126.6,43.9 127.5,43.5 128.4,43.3 129.4,43.0 130.3,42.8 131.2,42.6 132.2,42.5 133.1,42.4 134.1,42.3 135.0,42.3" fill="none" stroke="#1b3a6b" stroke-width="2.4" stroke-linejoin="round"/><polyline points="135.0,42.3 135.9,42.4 136.9,42.5 137.8,42.7 138.8,43.1 139.7,43.5 140.6,44.0 141.6,44.6 142.5,45.4 143.4,46.2 144.4,47.0 145.3,48.0 146.2,49.1 147.2,50.2 148.1,51.5 149.1,52.8 150.0,54.2 150.9,55.6 151.9,57.2 152.8,58.8 153.8,60.5 154.7,62.2 155.6,64.1 156.6,65.9 157.5,67.9 158.4,69.9 159.4,71.9 160.3,74.0 161.2,76.2 162.2,78.4 163.1,80.6 164.1,82.9 165.0,85.2 165.9,87.5 166.9,89.8 167.8,92.2 168.8,94.6 169.7,97.0 170.6,99.5 171.6,101.9 172.5,104.3 173.4,106.8 174.4,109.2 175.3,111.6 176.2,114.0 177.2,116.4 178.1,118.8 179.1,121.1 180.0,123.5 180.9,125.8 181.9,128.0 182.8,130.3 183.8,132.5 184.7,134.6 185.6,136.7 186.6,138.8 187.5,140.8 188.4,142.7 189.4,144.6 190.3,146.4 191.2,148.2 192.2,149.8 193.1,151.5 194.1,153.0 195.0,154.5 195.9,155.9 196.9,157.2 197.8,158.4 198.8,159.6 199.7,160.6 200.6,161.6 201.6,162.5 202.5,163.3 203.4,164.0 204.4,164.6 205.3,165.1 206.2,165.6 207.2,165.9 208.1,166.1 209.1,166.3 210.0,166.3" fill="none" stroke="#1b3a6b" stroke-width="2.4" stroke-linejoin="round"/><polyline points="210.0,166.3 210.6,166.3 211.2,166.2 211.9,166.1 212.5,166.0 213.1,165.8 213.8,165.6 214.4,165.4 215.0,165.1 215.6,164.8 216.2,164.4 216.9,164.0 217.5,163.6 218.1,163.2 218.8,162.7 219.4,162.1 220.0,161.6 220.6,161.0 221.2,160.4 221.9,159.7 222.5,159.1 223.1,158.4 223.8,157.6 224.4,156.9 225.0,156.1 225.6,155.3 226.2,154.5 226.9,153.6 227.5,152.8 228.1,151.9 228.8,151.0 229.4,150.1 230.0,149.2 230.6,148.3 231.2,147.3 231.9,146.4 232.5,145.4 233.1,144.4 233.8,143.5 234.4,142.5 235.0,141.5 235.6,140.5 236.2,139.6 236.9,138.6 237.5,137.6 238.1,136.7 238.8,135.7 239.4,134.8 240.0,133.9 240.6,132.9 241.2,132.0 241.9,131.1 242.5,130.3 243.1,129.4 243.8,128.6 244.4,127.7 245.0,126.9 245.6,126.2 246.2,125.4 246.9,124.7 247.5,124.0 248.1,123.3 248.8,122.7 249.4,122.0 250.0,121.5 250.6,120.9 251.3,120.4 251.9,119.9 252.5,119.4 253.1,119.0 253.8,118.6 254.4,118.3 255.0,117.9 255.6,117.7 256.2,117.4 256.9,117.2 257.5,117.0 258.1,116.9 258.8,116.8 259.4,116.7 260.0,116.7" fill="none" stroke="#1b3a6b" stroke-width="2.4" stroke-linejoin="round"/><circle cx="60.0" cy="91.9" r="3.6" fill="#c8932b" stroke="#1b3a6b" stroke-width="1"/><circle cx="135.0" cy="42.3" r="3.6" fill="#c8932b" stroke="#1b3a6b" stroke-width="1"/><circle cx="210.0" cy="166.3" r="3.6" fill="#c8932b" stroke="#1b3a6b" stroke-width="1"/><circle cx="260.0" cy="116.7" r="3.6" fill="#c8932b" stroke="#1b3a6b" stroke-width="1"/><text x="135.0" y="33.3" font-size="11" text-anchor="middle" fill="#1b3a6b">max</text><text x="210.0" y="183.3" font-size="11" text-anchor="middle" fill="#1b3a6b">min</text><text x="135.0" y="131.7" font-size="12" text-anchor="middle" fill="#2a2a2a">½</text><text x="272.5" y="87.0" font-size="15" text-anchor="middle" fill="#1b3a6b"><tspan font-family="Georgia,serif" font-style="italic">𝒞</tspan><tspan font-size="10" dy="3" font-style="italic" font-family="Georgia,serif">f</tspan></text></svg></figure></div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$[0,1]$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">B</span><span class="ob">$[-2,3]$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$[-2,3[$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$]-2,3[$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.4 • Niveau N2 • Type T9 (Lecture de figure / tableau) • Notion N5</span><span class="exp-tag">Corrigé · B</span>Sur $[-1,3[$, $f$ atteint son maximum $3$ (en $\frac12$) et son minimum $-2$ (en $2$) ; image d'un intervalle par une fonction continue, $f\bigl([-1,3[\bigr)$ est un intervalle contenant $-2$ et $3$, contenu dans $[-2,3]$ : c'est $[-2,3]$ (la valeur $f(3)=0$, exclue, est de toute façon atteinte ailleurs).<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>on a pris l'intervalle entre $f(3)$ et $f(-1)$ : l'image ne se lit pas aux bornes.</li><li><span class="wl">C.</span>$3$ est atteint en $\frac12\in[-1,3[$.</li><li><span class="wl">D.</span>les extremums sont atteints à l'intérieur : les bornes sont incluses.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> L'image se lit sur les extremums, pas sur les valeurs aux bornes.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q17</span><div class="qtext">On applique la dichotomie à $f(x)=x^3+x-1$ sur $[0,1]$ ($f$ s'y annule en un unique $\alpha$). À l'issue de <strong>deux</strong> étapes on obtient $[a_2,b_2]$, et l'on approche $\alpha$ par le centre $c$ de cet intervalle. Alors :</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$[a_2,b_2]=\left[\frac34,1\right]$ et $\abs{c-\alpha}\le\frac18$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$[a_2,b_2]=\left[\frac14,\frac12\right]$ et $\abs{c-\alpha}\le\frac18$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">$[a_2,b_2]=\left[\frac12,1\right]$ et $\abs{c-\alpha}\le\frac14$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">$[a_2,b_2]=\left[\frac12,\frac34\right]$ et $\abs{c-\alpha}\le\frac18$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.5 • Niveau N3 • Type T8 (Synthèse) • Notions N7, N6</span><span class="exp-tag">Corrigé · D</span>$f\bigl(\frac12\bigr)=\frac18+\frac12-1=-\frac38&lt;0&lt;f(1)$ : on garde $\left[\frac12,1\right]$. $f\bigl(\frac34\bigr)=\frac{27}{64}+\frac34-1=\frac{11}{64}&gt;0$ : on garde $\left[\frac12,\frac34\right]$ (changement de signe, TVI). Son centre $c=\frac58$ vérifie $\abs{c-\alpha}\le\frac12\cdot\frac14=\frac18$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$f\bigl(\frac34\bigr)=\frac{11}{64}&gt;0$ et $f(1)&gt;0$ : pas de changement de signe, $\alpha\notin\left[\frac34,1\right]$.</li><li><span class="wl">B.</span>$f\bigl(\frac14\bigr)&lt;0$ et $f\bigl(\frac12\bigr)&lt;0$ : erreur de lecture des signes.</li><li><span class="wl">C.</span>c'est le résultat d'une seule étape.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> On garde la moitié où $f$ change de signe ; le centre approche $\alpha$ à $\frac{b-a}{2^{n+1}}$ près.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q18</span><div class="qtext">Soit $f$ définie sur $[0,2]$. Laquelle des implications est vraie ?</div></div>
+       <div class="opts">
+         <button class="opt" data-correct type="button"><span class="ok">A</span><span class="ob">Si $f$ est continue sur $[0,2]$, alors $f$ prend toutes les valeurs comprises entre $f(0)$ et $f(2)$.</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">Si $f$ prend toutes les valeurs comprises entre $f(0)$ et $f(2)$, alors $f$ est continue sur $[0,2]$.</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">Si $f(0)\,f(2)&gt;0$, alors $f$ ne s'annule pas sur $[0,2]$.</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">Si $f$ s'annule sur $]0,2[$, alors $f(0)\,f(2)&lt;0$.</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.4 • Niveau N3 • Type T2 (Réciproque / équivalence) • Notion N6</span><span class="exp-tag">Corrigé · A</span>C'est exactement le théorème des valeurs intermédiaires, appliqué sur le segment $[0,2]$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">B.</span>réciproque du TVI fausse : $f(x)=x$ sur $[0,1]$, $f(x)=x-1$ sur $\left]1,2\right]$ ; $f(0)=0$, $f(2)=1$, toutes les valeurs de $[0,1]$ sont prises, mais $f$ est discontinue en $1$.</li><li><span class="wl">C.</span>$f(x)=(x-1)^2$ : $f(0)f(2)=1&gt;0$ et $f(1)=0$.</li><li><span class="wl">D.</span>même contre-exemple $(x-1)^2$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Le TVI est une implication : sa réciproque est fausse, et « $f(a)f(b)&gt;0$ » n'exclut aucun zéro.</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q19</span><div class="qtext">On veut calculer $\ell=\ds\lim_{x\to1}\frac{\sqrt[3]x-1}{\sqrt x-1}$ en posant $t=\sqrt[6]{x}$. Quelle affirmation est correcte ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$t\to1$ et $\ell=\ds\lim_{t\to1}\frac{t^3-1}{t^2-1}=\frac32$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$t\to0$ et $\ell=\ds\lim_{t\to0}\frac{t^2-1}{t^3-1}=1$</span></button>
+         <button class="opt" type="button"><span class="ok">C</span><span class="ob">le changement de variable est interdit, car la forme est $\dfrac00$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">D</span><span class="ob">$t\to1$ (continuité de $\sqrt[6]{\ }$ en $1$) et $\ell=\ds\lim_{t\to1}\frac{t^2-1}{t^3-1}=\frac23$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.1 • Niveau N2 • Type T1 (Conditions d'un théorème) • Notions N1, N2</span><span class="exp-tag">Corrigé · D</span>Pour $x&gt;0$ : $\sqrt[3]x=t^2$, $\sqrt x=t^3$. La limite d'une composée s'applique : $\sqrt[6]{\ }$ est continue en $1$ ($t\to1$) et $t\neq1$ pour $x\neq1$. Puis $\dfrac{t^2-1}{t^3-1}=\dfrac{t+1}{t^2+t+1}\to\dfrac23$.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>inversion : $\sqrt[3]x=t^2$ et $\sqrt x=t^3$.</li><li><span class="wl">B.</span>$\sqrt[6]1=1$ : $t\to1$, pas $0$.</li><li><span class="wl">C.</span>c'est précisément pour lever la forme $\frac00$ qu'on l'effectue.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Poser $t=\sqrt[m]{x}$ avec $m$ multiple commun des indices rend toutes les racines « entières ».</p></div>
+     </article>
+     <article class="qcard">
+       <div class="qtop"><span class="qnum">Q20</span><div class="qtext">Laquelle des équivalences suivantes est vraie pour <strong>tous</strong> réels $a$ et $b$ ?</div></div>
+       <div class="opts">
+         <button class="opt" type="button"><span class="ok">A</span><span class="ob">$a=b\iff a^2=b^2$</span></button>
+         <button class="opt" type="button"><span class="ok">B</span><span class="ob">$a&lt;b\iff a^2&lt;b^2$</span></button>
+         <button class="opt" data-correct type="button"><span class="ok">C</span><span class="ob">$a=b\iff a^3=b^3$</span></button>
+         <button class="opt" type="button"><span class="ok">D</span><span class="ob">$a=b\iff\tan a=\tan b$</span></button>
+       </div>
+       <div class="exp"><span class="meta">Capacité 1.2.7 • Niveau N2 • Type T2 (Réciproque / équivalence) • Notions N10, N12</span><span class="exp-tag">Corrigé · C</span>$x\mapsto x^3$ est strictement croissante sur $\R$, donc injective : $a^3=b^3\Rightarrow a=b$ ; l'autre sens est immédiat.<div class="why"><span class="why-t">Pourquoi les autres propositions sont fausses</span><ul><li><span class="wl">A.</span>$\Leftarrow$ faux : $1^2=(-1)^2$.</li><li><span class="wl">B.</span>$-2&lt;1$ mais $4&gt;1$.</li><li><span class="wl">D.</span>$\tan$ n'est pas définie partout, et $\tan0=\tan\pi$ avec $0\neq\pi$.</li></ul></div><p class="ret"><span class="ret-t">▲ À retenir :</span> Une fonction strictement monotone fournit des <strong>équivalences</strong> ; $x\mapsto x^2$ ou $\tan$ (sur $\R$) non.</p></div>
+     </article>
+    </div>
+    <p class="pdfnote">Version imprimable (énoncé et corrigé détaillé) : <a href="/terminale/limites#qcm">page du chapitre Limites et continuité</a> · Autre sujet : <a href="/qcm-limites-revision-2-sujet-b.html">Sujet B</a>.</p>
+  </div>
+</section>
+
+<section class="result" id="resultSec" hidden>
+  <div class="wrap">
+    <div class="resultcard">
+      <div class="score-tile"><div class="n"><span id="note20">0</span>/20</div><div class="l">Note</div></div>
+      <div class="score-meta">
+        <p class="raw"><b id="rawscore">0</b> bonnes réponses sur <span data-qcount>0</span></p>
+        <p class="appraise" id="appraise"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="colophon">Maths Élites — R. Abed · Agrégé de Mathématiques · © 2026</p>
+    <p><b>Chapitres 1 et 2 — Limites, continuité &amp; fonctions réciproques</b> — QCM de révision n° 2 (Méthodes et pièges), sujet A, 2<sup>e</sup> année Bac Sciences Mathématiques.</p>
+  </div>
+</footer>
+
+</main>
+
+<div class="actionbar">
+  <div class="wrap arow">
+    <span class="progress" id="progress"><b>0</b> / 0 répondues</span>
+    <button class="btn" id="submit" type="button">Valider la copie</button>
+  </div>
+</div>
+
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']],
+      macros: { imp:'\\Longrightarrow', eqv:'\\Longleftrightarrow', nnot:['\\overline{#1}',1], R:'\\mathbb{R}', Z:'\\mathbb{Z}', Q:'\\mathbb{Q}', N:'\\mathbb{N}', Cf:'\\mathcal{C}_f', ds:'\\displaystyle', abs:['\\left|#1\\right|',1] } },
+    svg: { fontCache:'global' },
+    options: { menuOptions:{ settings:{ inTabOrder:false } } }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-svg.js" async></script>
+
+<script>
+  (function(){
+    var opts = Array.prototype.slice.call(document.querySelectorAll('.opt'));
+    var questions = Array.prototype.slice.call(document.querySelectorAll('.qcard'));
+    var submit = document.getElementById('submit');
+    var progress = document.getElementById('progress');
+    var resultSec = document.getElementById('resultSec');
+    var note20El = document.getElementById('note20');
+    var rawEl = document.getElementById('rawscore');
+    var appraiseEl = document.getElementById('appraise');
+    var total = questions.length;
+
+    // Renseigne automatiquement le nombre de questions partout (data-qcount)
+    Array.prototype.slice.call(document.querySelectorAll('[data-qcount]')).forEach(function(el){ el.textContent = total; });
+
+    function updateProgress(){
+      var n = 0;
+      questions.forEach(function(q){ if(q.querySelector('.opt.sel')) n++; });
+      progress.innerHTML = '<b>'+n+'</b> / '+total+' répondues';
+    }
+    opts.forEach(function(o){
+      o.addEventListener('click', function(){
+        if(document.body.dataset.done === '1') return;
+        var q = o.closest('.qcard');
+        q.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('sel'); });
+        o.classList.add('sel');
+        updateProgress();
+      });
+    });
+    function appraisal(n20){
+      if(n20 >= 16) return 'Excellent — maîtrise solide du chapitre.';
+      if(n20 >= 12) return 'Bien — quelques points de cours à consolider.';
+      if(n20 >= 8)  return 'Moyen — reprenez les théorèmes clés.';
+      return 'Insuffisant — chapitre à retravailler.';
+    }
+    function grade(){
+      var score = 0;
+      questions.forEach(function(q){
+        var correct = q.querySelector('.opt[data-correct]');
+        var sel = q.querySelector('.opt.sel');
+        if(correct) correct.classList.add('correct');
+        if(sel){ if(sel.hasAttribute('data-correct')) score++; else sel.classList.add('wrong'); }
+      });
+      var n20 = total ? Math.round(score/total*20*10)/10 : 0;
+      note20El.textContent = (Number.isInteger(n20) ? n20 : n20.toFixed(1));
+      rawEl.textContent = score;
+      appraiseEl.textContent = appraisal(n20);
+      document.body.dataset.done = '1';
+      submit.textContent = '↻ Recommencer';
+      resultSec.hidden = false;
+      resultSec.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+    function reset(){
+      opts.forEach(function(o){ o.classList.remove('sel','correct','wrong'); });
+      document.body.dataset.done = '';
+      submit.textContent = 'Valider la copie';
+      resultSec.hidden = true;
+      updateProgress();
+      document.getElementById('n1').scrollIntoView({behavior:'smooth', block:'start'});
+    }
+    submit.addEventListener('click', function(){
+      if(document.body.dataset.done === '1') reset(); else grade();
+    });
+    updateProgress();
+  })();
+</script>
+
+</body>
+</html>

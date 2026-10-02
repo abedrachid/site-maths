@@ -46,7 +46,12 @@ Deux sujets de **20 questions** (30 min, +1 / 0, note sur 20) couvrant **limites
 
 - **Sujet A** et **Sujet B** : mêmes notions, questions différentes — idéal pour s'entraîner deux fois.
 
-L'énoncé et le corrigé de chaque sujet se trouvent dans les onglets **❓ QCM de révision n°2** et **✅ Corrigé** de la visionneuse ci-dessus.
+**Version interactive** — répondez en ligne, validez et obtenez votre note sur 20 avec le corrigé justifié de chaque question :
+
+<a class="qcm-launch" href="/qcm-limites-revision-2-sujet-a.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.4rem .6rem .4rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ QCM n°2 — Sujet A (interactif)</a>
+<a class="qcm-launch" href="/qcm-limites-revision-2-sujet-b.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.4rem .6rem .4rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ QCM n°2 — Sujet B (interactif)</a>
+
+La version imprimable (énoncé et corrigé détaillé) de chaque sujet se trouve dans les onglets **❓ QCM de révision n°2** et **✅ Corrigé** de la visionneuse ci-dessus.
 
 ---
 

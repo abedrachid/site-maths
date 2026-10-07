@@ -297,6 +297,24 @@ export default defineConfig({
                 { label: '⚡ Formulaire express', link: '/premiere/calcul-trigonometrique#doc=/pdf/premiere/calcul-trigonometrique/Formulaire_express_trigo.pdf' },
               ],
             },
+
+            /* ── Chapitre 5 : Ensembles et applications ── */
+            {
+              label: '📗 Ensembles et applications',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/premiere/ensembles-applications' },
+              ],
+            },
+
+            /* ── Chapitre 6 : Les symboles Σ et Π ── */
+            {
+              label: '📗 Les symboles Σ et Π',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/premiere/sommes-produits' },
+              ],
+            },
             {
               label: '📚 Devoirs & examens',
               collapsed: true,

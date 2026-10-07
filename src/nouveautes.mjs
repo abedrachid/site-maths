@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-10-07',
+    type: 'document',
+    niveau: 'Première SM',
+    titre: 'Fiche — La rédaction obligatoire en Première Bac Sciences Mathématiques',
+    lien: '/pdf/premiere/fiche-redaction-obligatoire-1sm.pdf',
+    desc: 'Ce qu\'il faut impérativement écrire, chapitre par chapitre (logique, ensembles et applications, fonctions, suites), avec des modèles rédigés.',
+  },
+  {
     date: '2026-10-02',
     type: 'document',
     niveau: 'Terminale SM',

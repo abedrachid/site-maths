@@ -159,6 +159,16 @@ export const devoirs = [
 
   { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 1', chapitres: 'Limites et continuité · Arctangente', ajout: '2026-09-27',
     sujet: '/pdf/terminale/dm/2026/dm1-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm1-corrige.pdf' },
+  { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 2 — Limites & racines n-ièmes — Planche 1', chapitres: 'Forme indéterminée 0/0 du type (f − gh)/k · Racines n-ièmes', ajout: '2026-10-07',
+    sujet: '/pdf/terminale/dm/2026/dm2-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm2-corrige.pdf' },
+  { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 3 — Limites & racines n-ièmes — Planche 2', chapitres: 'Racines n-ièmes · Au-delà du modèle (f − gh)/k : neuf situations', ajout: '2026-10-07',
+    sujet: '/pdf/terminale/dm/2026/dm3-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm3-corrige.pdf' },
+  { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 4 — Limites & arctangente — Planche 1', chapitres: 'Forme indéterminée 0/0 du type (f − gh)/k · Arctangente', ajout: '2026-10-07',
+    sujet: '/pdf/terminale/dm/2026/dm4-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm4-corrige.pdf' },
+  { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 5 — Limites & arctangente — Planche 2', chapitres: 'Arctangente · Au-delà du modèle (f − gh)/k : neuf situations', ajout: '2026-10-07',
+    sujet: '/pdf/terminale/dm/2026/dm5-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm5-corrige.pdf' },
+  { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 6 — Différence de deux arctangentes', chapitres: 'Problème : quatre démonstrations de la formule, puis applications', ajout: '2026-10-07',
+    sujet: '/pdf/terminale/dm/2026/dm6-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm6-corrige.pdf' },
 
   // DM — modèle à dupliquer :
   // { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 1', chapitres: '…',

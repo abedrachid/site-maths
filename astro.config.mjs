@@ -494,6 +494,21 @@ export default defineConfig({
               ],
             },
 
+            /* ── Chapitre : Suites numériques ── */
+            {
+              label: '📗 Suites numériques',
+              collapsed: true,
+              items: [
+                { label: '📖 Cours', link: '/terminale/suites' },
+                { label: '📋 Fiche résumé', link: '/terminale/suites#doc=/pdf/terminale/suites/fiche-resume.pdf' },
+                { label: '❓ QCM', link: '/terminale/suites#doc=/pdf/terminale/suites/qcm.pdf' },
+                { label: '↳ Corrigé du QCM', link: '/terminale/suites#doc=/pdf/terminale/suites/qcm-corrige.pdf' },
+                { label: '📝 Exercices & problèmes', link: '/terminale/suites#doc=/pdf/terminale/suites/exercices-problemes.pdf' },
+                { label: '↳ Corrigés des exercices', link: '/terminale/suites#doc=/pdf/terminale/suites/exercices-problemes-corriges.pdf' },
+                { label: '📚 Chapitre complet', link: '/terminale/suites#doc=/pdf/terminale/suites/Suites_numeriques.pdf' },
+              ],
+            },
+
             /* ── Chapitre 4 : Dénombrement ── */
             {
               label: '📗 Dénombrement',

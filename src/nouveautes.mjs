@@ -52,6 +52,14 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-10-13',
+    type: 'document',
+    niveau: 'Terminale SM',
+    titre: 'Suites numériques — cours, fiche, QCM, exercices et problèmes corrigés',
+    lien: '/terminale/suites',
+    desc: 'Chapitre complet (37 p.) : cours démontré, fiche résumé, QCM de 21 questions corrigé, 12 exercices et 4 problèmes corrigés.',
+  },
+  {
     date: '2026-10-07',
     type: 'document',
     niveau: 'Première SM',

@@ -52,6 +52,30 @@ export const canal = {
 export const nouveautes = [
   // ↓↓↓ AJOUTEZ VOS NOUVELLES ENTRÉES ICI ↓↓↓
   {
+    date: '2026-11-01',
+    type: 'stage',
+    niveau: 'Terminale SM',
+    titre: 'Stage de mathématiques N°1 — polycopié complet (PDF)',
+    lien: '/stages/terminale-sm',
+    desc: 'Fonctions primitives, dérivabilité et réciproques, théorèmes de Rolle et des accroissements finis, suites numériques.',
+  },
+  {
+    date: '2026-11-01',
+    type: 'document',
+    niveau: 'Terminale SM',
+    titre: 'DM 7 — Dérivabilité, primitives & arctangente (énoncé)',
+    lien: '/devoirs-maison?niveau=terminale',
+    desc: 'Devoir libre sur 40 points : dérivabilité, primitives, T.A.F. et arctangente.',
+  },
+  {
+    date: '2026-11-01',
+    type: 'document',
+    niveau: 'Terminale SM',
+    titre: 'QCM de révision n°1 — Dérivabilité, Rolle-TAF-IAF & primitives (énoncé)',
+    lien: '/terminale/derivabilite',
+    desc: 'QCM de niveau approfondi sur les chapitres 3 et 4, en PDF.',
+  },
+  {
     date: '2026-10-13',
     type: 'document',
     niveau: 'Terminale SM',

@@ -16,6 +16,7 @@ Tous les documents du chapitre "Dérivabilité " sont consultables directement c
     <button class="doc-tab" data-title="Corrections des exercices" data-src="/pdf/terminale/derivabilite/corrections-cours.pdf">✅ Corrections</button>
     <button class="doc-tab" data-title="Fiche de révision" data-src="/pdf/terminale/derivabilite/fiche-resume.pdf">📋 Fiche de révision</button>
     <button class="doc-tab" data-title="QCM (PDF)" data-src="/pdf/terminale/derivabilite/qcm.pdf">❓ QCM (PDF)</button>
+    <button class="doc-tab" data-title="QCM de révision n°1 — Dérivabilité, Rolle-TAF-IAF &amp; primitives" data-src="/pdf/terminale/derivabilite/qcm-revision-1-derivees-primitives-taf.pdf">🎯 QCM de révision n°1 (énoncé)</button>
     <button class="doc-tab" data-title="Série 1 — Dérivabilité en un point" data-src="/pdf/terminale/derivabilite/serie1.pdf">📄 Série 1 — Dérivabilité en un point</button>
     <button class="doc-tab" data-title="Série 1 — Corrigé" data-src="/pdf/terminale/derivabilite/serie1-corrige.pdf">✅ Corrigé série 1</button>
     <button class="doc-tab" data-title="Série 2 — Étude de fonctions et bijections (1)" data-src="/pdf/terminale/derivabilite/serie2.pdf">📄 Série 2 — Fonctions & bijections (1)</button>

@@ -170,6 +170,9 @@ export const devoirs = [
   { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 6 — Différence de deux arctangentes', chapitres: 'Problème : quatre démonstrations de la formule, puis applications', ajout: '2026-10-07',
     sujet: '/pdf/terminale/dm/2026/dm6-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm6-corrige.pdf' },
 
+  { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 7 — Dérivabilité, primitives & arctangente', chapitres: 'Dérivabilité · Primitives · Théorème des accroissements finis · Arctangente', ajout: '2026-11-01',
+    sujet: '/pdf/terminale/dm/2026/dm7-sujet.pdf' },
+
   // DM — modèle à dupliquer :
   // { type: 'dm', niveau: 'terminale', annee: 2026, titre: 'DM 1', chapitres: '…',
   //   sujet: '/pdf/terminale/dm/2026/dm1-sujet.pdf', corrige: '/pdf/terminale/dm/2026/dm1-corrige.pdf' },

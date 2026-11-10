@@ -79,17 +79,17 @@
       'display:inline-flex;align-items:center;gap:.25em;' +
       'margin-left:.5em;padding:.05em .5em;border-radius:999px;' +
       'font-size:.78em;font-weight:600;line-height:1.6;' +
-      'background:rgba(124,58,237,.12);color:#7c3aed;' +
+      'background:rgba(47,95,158,.12);color:#2f5f9e;' +
       'vertical-align:middle;white-space:nowrap;';
-    b.textContent = '⬇ …';
+    b.textContent = '…';
     return b;
   }
 
   function setBadge(badge, n) {
     if (n === null || n === undefined) {
-      badge.textContent = '⬇ 0';
+      badge.textContent = '0';
     } else {
-      badge.textContent = '⬇ ' + fmt(n);
+      badge.textContent = fmt(n);
     }
   }
 

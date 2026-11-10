@@ -23,7 +23,7 @@ const WA_NUMBER = '212661892588';
 
 // Pages SANS le lien : accueil, présentations de niveau et pages utilitaires.
 // Tout le reste (cours, séries, DS, DM, examens blancs…) affiche le lien.
-const SANS_LIEN = ['', 'a-propos', 'contact', 'premiere', 'terminale', 'prepas'];
+const SANS_LIEN = ['', 'index', 'a-propos', 'contact', 'mentions-legales', 'confidentialite', 'premiere', 'terminale', 'prepas'];
 const afficher = !SANS_LIEN.includes(slug);
 
 // URL absolue de la page (utile pour retrouver le chapitre concerné)
@@ -74,7 +74,7 @@ const aCanal = aTelegram || aWhatsapp;
     automatiquement en fin de contenu. */}
 {aCanal && (
   <div class="me-canal">
-    <span class="me-canal-txt">🔔 Soyez prévenu·e des nouveaux documents &amp; vidéos :</span>
+    <span class="me-canal-txt">Soyez prévenu·e des nouveaux documents &amp; vidéos :</span>
     <span class="me-canal-btns">
       {aTelegram && (
         <a class="me-canal-btn me-canal-tg" href={canal.telegram} target="_blank" rel="noopener">Rejoindre le canal Telegram</a>
@@ -88,7 +88,80 @@ const aCanal = aTelegram || aWhatsapp;
 
 <div id="me-stats-slot"></div>
 
+<footer class="me-footer not-content">
+  <div class="me-footer__grid">
+    <div class="me-footer__brand">
+      <p class="me-footer__logo">Maths<em>Elites</em></p>
+      <p class="me-footer__tag">Plateforme de mathématiques pour la Première Bac SM, la Terminale SM et les Classes Prépas — Maroc.</p>
+      <p class="me-footer__social">
+        <a href="https://www.youtube.com/@mathselites" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.instagram.com/mathselites.pro" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=1308180605710026" target="_blank" rel="noopener">Facebook</a>
+      </p>
+    </div>
+    <nav aria-label="Niveaux">
+      <p class="me-footer__h">Niveaux</p>
+      <ul>
+        <li><a href="/premiere/">Première Bac SM</a></li>
+        <li><a href="/terminale/">Terminale SM</a></li>
+        <li><a href="/terminale-pc/">Terminale PC</a></li>
+        <li><a href="/prepas/">Classes Prépas</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Ressources">
+      <p class="me-footer__h">Ressources</p>
+      <ul>
+        <li><a href="/devoirs-surveilles">Devoirs surveillés</a></li>
+        <li><a href="/examens-nationaux">Examens nationaux</a></li>
+        <li><a href="/probleme-de-la-semaine">Problème de la semaine</a></li>
+        <li><a href="/stages">Stages</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Informations">
+      <p class="me-footer__h">Informations</p>
+      <ul>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+        <li><a href="/confidentialite">Confidentialité</a></li>
+      </ul>
+    </nav>
+  </div>
+  <p class="me-footer__copy">© {new Date().getFullYear()} MathsElites — R. Abed. Tous droits réservés. Usage pédagogique personnel autorisé.</p>
+</footer>
+
 <style>
+  .me-footer {
+    margin: 3rem calc(var(--sl-content-pad-x, 1rem) * -1) -2rem;
+    padding: 2.4rem var(--sl-content-pad-x, 1rem) 1.4rem;
+    background: #0a1c33; color: #cfdcee; border-top: 3px solid #c9a227;
+  }
+  .me-footer__grid {
+    display: grid; gap: 2rem 2.5rem; max-width: 62rem; margin: 0 auto;
+    grid-template-columns: 1.6fr repeat(3, 1fr);
+  }
+  .me-footer__logo {
+    font-family: var(--me-font-display); font-size: 1.5rem; font-weight: 600;
+    color: #fff; margin: 0 0 .5rem;
+  }
+  .me-footer__logo em { color: #e3c24e; font-style: italic; }
+  .me-footer__tag { font-size: .85rem; line-height: 1.6; margin: 0 0 1rem; color: #b9c8dc; max-width: 30ch; }
+  .me-footer__social { display: flex; gap: 1rem; margin: 0; font-size: .85rem; }
+  .me-footer__h {
+    font-size: .72rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    color: #e3c24e; margin: 0 0 .8rem;
+  }
+  .me-footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font-size: .88rem; }
+  .me-footer a { color: #cfdcee; text-decoration: none; }
+  .me-footer a:hover { color: #fff; text-decoration: underline; text-decoration-color: #c9a227; }
+  .me-footer__copy {
+    max-width: 62rem; margin: 2rem auto 0; padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,.12); font-size: .78rem; color: #8ea3bf;
+  }
+  @media (max-width: 760px) {
+    .me-footer__grid { grid-template-columns: 1fr 1fr; }
+    .me-footer__brand { grid-column: 1 / -1; }
+  }
   .me-report {
     margin: 1.75rem 0 0.5rem;
   }

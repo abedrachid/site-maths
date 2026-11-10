@@ -7,13 +7,13 @@ sidebar:
 
 **Révision de 1ère Bac SM — Partie IV.** Branches infinies et asymptotes, concavité, points d'inflexion, symétries, périodicité et problèmes de synthèse. Cours, exercices et corrigés sont consultables ci-dessous ou téléchargeables en PDF.
 
-## 📄 Documents — Étude de fonctions
+## Documents — Étude de fonctions
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/etude-fonctions/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/etude-fonctions/exercices.pdf">📝 Exercices</button>
-    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/etude-fonctions/corriges.pdf">✅ Corrigés</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/etude-fonctions/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/etude-fonctions/exercices.pdf">Exercices</button>
+    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/etude-fonctions/corriges.pdf">Corrigés</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

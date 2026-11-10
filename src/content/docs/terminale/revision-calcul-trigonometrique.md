@@ -7,13 +7,13 @@ sidebar:
 
 **Chapitre de révision distinct** — proposé au cours de l'année **2026/2027**, en complément de la révision de 1ère Bac SM. Cercle trigonométrique, valeurs remarquables, formules d'addition et de duplication, équations et inéquations trigonométriques. Le cours et les formulaires sont consultables ci-dessous ou téléchargeables en PDF.
 
-## 📄 Documents — Calcul trigonométrique
+## Documents — Calcul trigonométrique
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/calcul-trigonometrique/Calcul_trigonometrique.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Formulaire de trigonométrie" data-src="/pdf/terminale/calcul-trigonometrique/Formulaire_trigonometrie.pdf">📋 Formulaire complet</button>
-    <button class="doc-tab" data-title="Formulaire express" data-src="/pdf/terminale/calcul-trigonometrique/Formulaire_express_trigo.pdf">⚡ Formulaire express</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/calcul-trigonometrique/Calcul_trigonometrique.pdf">Cours</button>
+    <button class="doc-tab" data-title="Formulaire de trigonométrie" data-src="/pdf/terminale/calcul-trigonometrique/Formulaire_trigonometrie.pdf">Formulaire complet</button>
+    <button class="doc-tab" data-title="Formulaire express" data-src="/pdf/terminale/calcul-trigonometrique/Formulaire_express_trigo.pdf">Formulaire express</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
@@ -28,5 +28,5 @@ Le **Cours**, le **Formulaire complet** et le **Formulaire express** du chapitre
 
 ## Pour aller plus loin
 
-- [🔄 Révision de 1ère Bac SM](/terminale/revision-premiere)
+- [Révision de 1ère Bac SM](/terminale/revision-premiere)
 - [Retour à la Terminale SM →](/terminale/)

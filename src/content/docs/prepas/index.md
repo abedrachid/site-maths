@@ -11,14 +11,14 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
 
 <div class="me-outils" data-niveau="prepas"></div>
 
-## 🏆 Concours d'entrée & Excellence
+## Concours d'entrée & Excellence
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:1.25rem 0 1.5rem;">
 
   <a href="/prepas/concours-entree-excellence" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #b45309;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#b45309;letter-spacing:.05em;">ANNALES · MPSI</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">🏆 Concours Entrée Prépas d'Excellence</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Concours Entrée Prépas d'Excellence</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">6 sujets · 2019 à 2025</p>
     </div>
   </a>
@@ -26,7 +26,7 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
   <a href="/prepas/atelier-chercheur" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #059669;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#059669;letter-spacing:.05em;">MPSI / MP</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">🔬 Atelier du Chercheur</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Atelier du Chercheur</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Problèmes ouverts · méthodes de recherche</p>
     </div>
   </a>
@@ -34,15 +34,15 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
   <a href="/prepas/cours-continuite-derivabilite" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #059669;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#059669;letter-spacing:.05em;">MPSI / MP · ANALYSE</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">📖 Continuité, Dérivabilité & Intégrales à paramètre</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Continuité, Dérivabilité & Intégrales à paramètre</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours complet PDF</p>
     </div>
   </a>
 
   <a href="/prepas/preparation-lycees-excellence" class="me-card" style="text-decoration:none;">
-    <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #0891b2;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">SÉLECTION · ORIENTATION</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">🎯 Préparation aux Lycées d'Excellence</p>
+    <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #2b6f8a;border-radius:12px;background:var(--sl-color-black);">
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#2b6f8a;letter-spacing:.05em;">SÉLECTION · ORIENTATION</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Préparation aux Lycées d'Excellence</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Méthodes · entraînement</p>
     </div>
   </a>
@@ -56,7 +56,7 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
   <a href="/prepas/problemes-stage-sup" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #b45309;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#b45309;letter-spacing:.05em;">SUP / SPÉ</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">📐 Problèmes d'algèbre linéaire</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Problèmes d'algèbre linéaire</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">4 problèmes de synthèse · 12 exercices corrigés</p>
     </div>
   </a>
@@ -64,21 +64,21 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
   <a href="/prepas/problemes-stage-sup#doc=/pdf/prepas/stage_sup_spe.pdf" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #b45309;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#b45309;letter-spacing:.05em;">SUP / SPÉ</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">📘 Stage Sup / Spé — cours complet</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Stage Sup / Spé — cours complet</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Réduction · Séries · Dualité</p>
     </div>
   </a>
 
 </div>
 
-## 📗 Ensembles & Applications
+## Ensembles & Applications
 
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:1.25rem 0 1.5rem;">
 
   <a href="/prepas/ensembles-applications" class="me-card" style="text-decoration:none;">
     <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #059669;border-radius:12px;background:var(--sl-color-black);">
       <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#059669;letter-spacing:.05em;">MPSI / MP · FONDAMENTAUX</p>
-      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">📗 Ensembles & Applications</p>
+      <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Ensembles & Applications</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Exercices & problèmes · corrigés</p>
     </div>
   </a>
@@ -120,16 +120,16 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem;margin:1.25rem 0 1.5rem;">
 
   <a href="/prepas/pcsi-analyse" class="me-card" style="text-decoration:none;">
-    <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #0891b2;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">PCSI / PC</p>
+    <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #2b6f8a;border-radius:12px;background:var(--sl-color-black);">
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#2b6f8a;letter-spacing:.05em;">PCSI / PC</p>
       <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Analyse & Intégration</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · planches</p>
     </div>
   </a>
 
   <a href="/prepas/pcsi-algebre" class="me-card" style="text-decoration:none;">
-    <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #0891b2;border-radius:12px;background:var(--sl-color-black);">
-      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#0891b2;letter-spacing:.05em;">PCSI / PC</p>
+    <div style="height:100%;padding:1.2rem 1.3rem;border:1px solid var(--sl-color-gray-5);border-left:4px solid #2b6f8a;border-radius:12px;background:var(--sl-color-black);">
+      <p style="margin:0 0 .35rem;font-size:.72rem;font-weight:700;color:#2b6f8a;letter-spacing:.05em;">PCSI / PC</p>
       <p style="margin:0 0 .3rem;font-size:1rem;font-weight:600;color:var(--sl-color-white);">Algèbre linéaire</p>
       <p style="margin:0;font-size:.8rem;color:var(--sl-color-gray-3);">Cours PDF · planches</p>
     </div>
@@ -141,9 +141,9 @@ description: Cours en PDF, séries d'exercices et ressources pour les Classes Pr
 
 | Ressource | Accès |
 |---|---|
-| 📝 Devoirs surveillés — 15 années | [Ouvrir →](/devoirs-surveilles?niveau=prepas) |
-| 🏠 Devoirs à la maison — 15 années | [Ouvrir →](/devoirs-maison?niveau=prepas) |
-| 🏁 Examens & concours blancs | [Ouvrir →](/examens-blancs?niveau=prepas) |
+| Devoirs surveillés — 15 années | [Ouvrir →](/devoirs-surveilles?niveau=prepas) |
+| Devoirs à la maison — 15 années | [Ouvrir →](/devoirs-maison?niveau=prepas) |
+| Examens & concours blancs | [Ouvrir →](/examens-blancs?niveau=prepas) |
 
 :::note[Concours visés]
 CNC (Maroc) · ENS · Mines-Ponts · Centrale-Supélec · CCP

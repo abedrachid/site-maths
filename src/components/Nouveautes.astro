@@ -17,10 +17,10 @@ const fmtDate = (iso) => {
 };
 
 const meta = {
-  document: { emoji: '📄', mot: 'Document' },
-  video:    { emoji: '🎬', mot: 'Vidéo' },
-  stage:    { emoji: '🚀', mot: 'Stage' },
-  autre:    { emoji: '✨', mot: 'Nouveauté' },
+  document: { emoji: '', mot: 'Document' },
+  video:    { emoji: '', mot: 'Vidéo' },
+  stage:    { emoji: '', mot: 'Stage' },
+  autre:    { emoji: '', mot: 'Nouveauté' },
 };
 const infoType = (t) => meta[t] || meta.autre;
 
@@ -32,7 +32,7 @@ const aCanal = aTelegram || aWhatsapp;
 {aCanal && (
   <aside class="me-nv-cta">
     <div class="me-nv-cta-txt">
-      <strong>🔔 Ne manquez aucun ajout</strong>
+      <strong>Ne manquez aucun ajout</strong>
       <span>Rejoignez notre canal : vous serez prévenu·e sur votre téléphone dès qu'un nouveau document ou une nouvelle vidéo est publié.</span>
     </div>
     <div class="me-nv-cta-btns">
@@ -102,7 +102,7 @@ const aCanal = aTelegram || aWhatsapp;
   .me-nv-haut { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
   .me-nv-type {
     font-size: .7rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
-    color: #1d4ed8;
+    color: #1f4f8f;
   }
   .me-nv-niveau {
     font-size: .72rem; font-weight: 700; padding: .05rem .5rem; border-radius: 9999px;

@@ -7,13 +7,13 @@ sidebar:
 
 **Révision de 1ère Bac SM — Partie III.** Nombre dérivé et tangente, formulaire complet, dérivées successives et applications (inégalités, extremums). Cours, exercices et corrigés sont consultables ci-dessous ou téléchargeables en PDF.
 
-## 📄 Documents — Dérivation
+## Documents — Dérivation
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/derivation/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/derivation/exercices.pdf">📝 Exercices</button>
-    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/derivation/corriges.pdf">✅ Corrigés</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/derivation/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/derivation/exercices.pdf">Exercices</button>
+    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/derivation/corriges.pdf">Corrigés</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

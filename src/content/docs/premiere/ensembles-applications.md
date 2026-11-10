@@ -7,11 +7,11 @@ sidebar:
 
 Le document du chapitre **Ensembles et applications** est consultable directement ci-dessous, ou téléchargeable.
 
-## 📄 Documents du chapitre
+## Documents du chapitre
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/premiere/ensembles-applications/ensembles_applications_cours.pdf">📖 Cours</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/premiere/ensembles-applications/ensembles_applications_cours.pdf">Cours</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

@@ -9,17 +9,17 @@ sidebar:
 
 Cours, fiche résumé, QCM et série d'exercices sont consultables séparément ci-dessous, ou réunis dans le chapitre complet (37 pages).
 
-## 📄 Documents — Suites numériques
+## Documents — Suites numériques
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/suites/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/terminale/suites/fiche-resume.pdf">📋 Fiche résumé</button>
-    <button class="doc-tab" data-title="QCM" data-src="/pdf/terminale/suites/qcm.pdf">❓ QCM</button>
-    <button class="doc-tab" data-title="QCM — Corrigé" data-src="/pdf/terminale/suites/qcm-corrige.pdf">✅ Corrigé du QCM</button>
-    <button class="doc-tab" data-title="Exercices et problèmes" data-src="/pdf/terminale/suites/exercices-problemes.pdf">📝 Exercices &amp; problèmes</button>
-    <button class="doc-tab" data-title="Exercices et problèmes — Corrigés" data-src="/pdf/terminale/suites/exercices-problemes-corriges.pdf">✅ Corrigés des exercices</button>
-    <button class="doc-tab" data-title="Chapitre complet" data-src="/pdf/terminale/suites/Suites_numeriques.pdf">📚 Chapitre complet</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/suites/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/terminale/suites/fiche-resume.pdf">Fiche résumé</button>
+    <button class="doc-tab" data-title="QCM" data-src="/pdf/terminale/suites/qcm.pdf">QCM</button>
+    <button class="doc-tab" data-title="QCM — Corrigé" data-src="/pdf/terminale/suites/qcm-corrige.pdf">Corrigé du QCM</button>
+    <button class="doc-tab" data-title="Exercices et problèmes" data-src="/pdf/terminale/suites/exercices-problemes.pdf">Exercices &amp; problèmes</button>
+    <button class="doc-tab" data-title="Exercices et problèmes — Corrigés" data-src="/pdf/terminale/suites/exercices-problemes-corriges.pdf">Corrigés des exercices</button>
+    <button class="doc-tab" data-title="Chapitre complet" data-src="/pdf/terminale/suites/Suites_numeriques.pdf">Chapitre complet</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

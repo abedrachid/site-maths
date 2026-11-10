@@ -4,11 +4,11 @@ description: Votre inscription est confirmée — les corrigés et les vidéos s
 tableOfContents: false
 ---
 
-:::tip[✅ Accès activé]
+:::tip[Accès activé]
 Merci, votre inscription est confirmée ! **Les corrigés et les vidéos sont maintenant débloqués** sur cet appareil.
 :::
 
-Vous pouvez retourner à vos chapitres : les onglets **« ✅ Corrections »** et les **vidéos de correction** s'ouvrent désormais directement.
+Vous pouvez retourner à vos chapitres : les onglets **« Corrections »** et les **vidéos de correction** s'ouvrent désormais directement.
 
 - [Terminale — Limites et continuité](/terminale/limites)
 - [Retour à l'accueil](/)

@@ -7,21 +7,21 @@ sidebar:
 
 Tous les documents du chapitre **Limites et continuité** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
-## 📄 Documents du chapitre
+## Documents du chapitre
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/limites/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Fiche de révision" data-src="/pdf/terminale/limites/fiche-resume.pdf">📋 Fiche de révision</button>
-    <button class="doc-tab" data-title="QCM (PDF)" data-src="/pdf/terminale/limites/qcm.pdf">❓ QCM (PDF)</button>
-    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet A (énoncé)" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-a.pdf">❓ QCM de révision n°2 — Sujet A</button>
-    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet A — Corrigé détaillé" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-a-corrige.pdf">✅ Corrigé QCM n°2 — Sujet A</button>
-    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet B (énoncé)" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-b.pdf">❓ QCM de révision n°2 — Sujet B</button>
-    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet B — Corrigé détaillé" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-b-corrige.pdf">✅ Corrigé QCM n°2 — Sujet B</button>
-    <button class="doc-tab" data-title="Exercices d'applications" data-src="/pdf/terminale/limites/exercices-applications.pdf">📝 Exercices d'applications</button>
-    <button class="doc-tab" data-title="Planche 1 — Limites, continuité & T.V.I" data-src="/pdf/terminale/limites/planche1.pdf">📄 Planche 1 — Limites, continuité & T.V.I</button>
-    <button class="doc-tab" data-title="Planche 2 — T.V.I, points fixes & propriétés" data-src="/pdf/terminale/limites/planche2.pdf">📄 Planche 2 — T.V.I, points fixes & propriétés</button>
-    <button class="doc-tab" data-title="Planche 3 — Propriétés & périodicité" data-src="/pdf/terminale/limites/planche3.pdf">📄 Planche 3 — Propriétés & périodicité</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/limites/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Fiche de révision" data-src="/pdf/terminale/limites/fiche-resume.pdf">Fiche de révision</button>
+    <button class="doc-tab" data-title="QCM (PDF)" data-src="/pdf/terminale/limites/qcm.pdf">QCM (PDF)</button>
+    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet A (énoncé)" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-a.pdf">QCM de révision n°2 — Sujet A</button>
+    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet A — Corrigé détaillé" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-a-corrige.pdf">Corrigé QCM n°2 — Sujet A</button>
+    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet B (énoncé)" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-b.pdf">QCM de révision n°2 — Sujet B</button>
+    <button class="doc-tab" data-title="QCM de révision n°2 — Sujet B — Corrigé détaillé" data-src="/pdf/terminale/limites/qcm-revision-2-sujet-b-corrige.pdf">Corrigé QCM n°2 — Sujet B</button>
+    <button class="doc-tab" data-title="Exercices d'applications" data-src="/pdf/terminale/limites/exercices-applications.pdf">Exercices d'applications</button>
+    <button class="doc-tab" data-title="Planche 1 — Limites, continuité & T.V.I" data-src="/pdf/terminale/limites/planche1.pdf">Planche 1 — Limites, continuité & T.V.I</button>
+    <button class="doc-tab" data-title="Planche 2 — T.V.I, points fixes & propriétés" data-src="/pdf/terminale/limites/planche2.pdf">Planche 2 — T.V.I, points fixes & propriétés</button>
+    <button class="doc-tab" data-title="Planche 3 — Propriétés & périodicité" data-src="/pdf/terminale/limites/planche3.pdf">Planche 3 — Propriétés & périodicité</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
@@ -32,7 +32,7 @@ Tous les documents du chapitre **Limites et continuité** sont consultables dire
 
 <div id="qcm" style="scroll-margin-top:5rem;"></div>
 
-## ❓ QCM — Limites et continuité
+## QCM — Limites et continuité
 
 ### QCM interactif — Continuité
 
@@ -51,13 +51,13 @@ Deux sujets de **20 questions** (30 min, +1 / 0, note sur 20) couvrant **limites
 <a class="qcm-launch" href="/qcm-limites-revision-2-sujet-a.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.4rem .6rem .4rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ QCM n°2 — Sujet A (interactif)</a>
 <a class="qcm-launch" href="/qcm-limites-revision-2-sujet-b.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.55em;margin:.4rem .6rem .4rem 0;padding:.85em 1.5em;background:#1B3A6B;color:#fff;font-weight:700;text-decoration:none;border-radius:10px;border-bottom:3px solid #C8932B;box-shadow:0 6px 18px rgba(27,58,107,.28);">▶ QCM n°2 — Sujet B (interactif)</a>
 
-La version imprimable (énoncé et corrigé détaillé) de chaque sujet se trouve dans les onglets **❓ QCM de révision n°2** et **✅ Corrigé** de la visionneuse ci-dessus.
+La version imprimable (énoncé et corrigé détaillé) de chaque sujet se trouve dans les onglets **QCM de révision n°2** et **Corrigé** de la visionneuse ci-dessus.
 
 ---
 
 <div id="video-tvi" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Vidéo — Le théorème des valeurs intermédiaires (T.V.I) en animation
+## Vidéo — Le théorème des valeurs intermédiaires (T.V.I) en animation
 
 <div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
   <video controls preload="metadata" poster="/videos/tvi-extrema-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
@@ -70,7 +70,7 @@ La version imprimable (énoncé et corrigé détaillé) de chaque sujet se trouv
 
 <div id="video-tvi-solutions" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Vidéo — T.V.I : combien de solutions pour f(x) = k ?
+## Vidéo — T.V.I : combien de solutions pour f(x) = k ?
 
 <div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
   <video controls preload="metadata" poster="/videos/tvi-multisolutions-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
@@ -83,7 +83,7 @@ La version imprimable (énoncé et corrigé détaillé) de chaque sujet se trouv
 
 <div id="video-image-segment" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Vidéo — L’image d’un segment par une fonction continue
+## Vidéo — L’image d’un segment par une fonction continue
 
 <div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
   <video controls preload="metadata" poster="/videos/image-segment-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
@@ -96,7 +96,7 @@ La version imprimable (énoncé et corrigé détaillé) de chaque sujet se trouv
 
 <div id="video-limite-racines-niemes" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Correction en vidéo — limite d'une différence de racines n-ièmes
+## Correction en vidéo — limite d'une différence de racines n-ièmes
 
 <div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
   <video controls preload="metadata" poster="/videos/correction-limite-difference-racines-niemes-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
@@ -109,7 +109,7 @@ La version imprimable (énoncé et corrigé détaillé) de chaque sujet se trouv
 
 <div id="video-corrections" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Corrections en vidéo — exercices types
+## Corrections en vidéo — exercices types
 
 Deux corrections animées au format court (idéales sur téléphone) : le calcul d'une limite avec racines cubiques à l'infini, et un prolongement par continuité en 0.
 

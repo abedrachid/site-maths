@@ -52,8 +52,8 @@ export const SESSION_COURANTE = now.getMonth() >= 5 ? now.getFullYear() : now.ge
 
 /* ── Niveaux ── */
 export const NIVEAUX = {
-  premiere:       { label: '1ère Bac SM',      court: '1ère SM',  couleur: '#0891b2' },
-  terminale:      { label: 'Terminale SM',     court: 'Term. SM', couleur: '#1d4ed8' },
+  premiere:       { label: '1ère Bac SM',      court: '1ère SM',  couleur: '#2b6f8a' },
+  terminale:      { label: 'Terminale SM',     court: 'Term. SM', couleur: '#1f4f8f' },
   'terminale-pc': { label: 'Terminale PC/SVT', court: 'Term. PC', couleur: '#b3922e' },
   prepas:         { label: 'Classes Prépas',   court: 'Prépas',   couleur: '#059669' },
 };
@@ -61,19 +61,19 @@ export const NIVEAUX = {
 /* ── Les quatre espaces (textes des pages) ── */
 export const TYPES = {
   ds: {
-    emoji: '📝', titre: 'Devoirs surveillés', court: 'DS', url: '/devoirs-surveilles',
+    emoji: '', titre: 'Devoirs surveillés', court: 'DS', url: '/devoirs-surveilles',
     accroche: 'Tous les devoirs surveillés, classés par année scolaire et par niveau — énoncés et corrigés détaillés.',
   },
   dm: {
-    emoji: '🏠', titre: 'Devoirs à la maison', court: 'DM', url: '/devoirs-maison',
+    emoji: '', titre: 'Devoirs à la maison', court: 'DM', url: '/devoirs-maison',
     accroche: 'Les devoirs libres pour approfondir le cours à votre rythme — énoncés et corrigés, classés par année.',
   },
   eb: {
-    emoji: '🏁', titre: 'Examens blancs', court: 'Examens blancs', url: '/examens-blancs',
+    emoji: '', titre: 'Examens blancs', court: 'Examens blancs', url: '/examens-blancs',
     accroche: 'Examens blancs, bacs blancs et concours blancs : entraînez-vous en conditions réelles, année après année.',
   },
   national: {
-    emoji: '🎓', titre: 'Examens nationaux', court: 'Bac national', url: '/examens-nationaux',
+    emoji: '', titre: 'Examens nationaux', court: 'Bac national', url: '/examens-nationaux',
     accroche: 'Les sujets officiels du Baccalauréat marocain — session normale et rattrapage — sur les 15 dernières sessions.',
   },
 };

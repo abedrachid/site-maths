@@ -7,13 +7,13 @@ sidebar:
 
 Tous les documents du chapitre **Calcul trigonométrique** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
-## 📄 Documents du chapitre
+## Documents du chapitre
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/premiere/calcul-trigonometrique/Calcul_trigonometrique.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Formulaire de trigonométrie" data-src="/pdf/premiere/calcul-trigonometrique/Formulaire_trigonometrie.pdf">📋 Formulaire complet</button>
-    <button class="doc-tab" data-title="Formulaire express" data-src="/pdf/premiere/calcul-trigonometrique/Formulaire_express_trigo.pdf">⚡ Formulaire express</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/premiere/calcul-trigonometrique/Calcul_trigonometrique.pdf">Cours</button>
+    <button class="doc-tab" data-title="Formulaire de trigonométrie" data-src="/pdf/premiere/calcul-trigonometrique/Formulaire_trigonometrie.pdf">Formulaire complet</button>
+    <button class="doc-tab" data-title="Formulaire express" data-src="/pdf/premiere/calcul-trigonometrique/Formulaire_express_trigo.pdf">Formulaire express</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

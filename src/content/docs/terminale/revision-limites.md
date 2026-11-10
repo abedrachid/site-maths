@@ -7,13 +7,13 @@ sidebar:
 
 **Révision de 1ère Bac SM — Partie II.** Formes indéterminées, quantité conjuguée, limites trigonométriques, encadrements et partie entière — avec une série de 30 limites supplémentaires. Cours, exercices et corrigés sont consultables ci-dessous ou téléchargeables en PDF.
 
-## 📄 Documents — Calcul des limites
+## Documents — Calcul des limites
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/limites/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/limites/exercices.pdf">📝 Exercices</button>
-    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/limites/corriges.pdf">✅ Corrigés</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/limites/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/limites/exercices.pdf">Exercices</button>
+    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/limites/corriges.pdf">Corrigés</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

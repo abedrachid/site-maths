@@ -5,16 +5,16 @@ description: "Cours, fiche résumé, corrections, QCM et planches consultables e
 
 Tous les documents du cours **Géométrie & Espaces vectoriels — MPSI / MP** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
-## 📄 Documents du cours
+## Documents du cours
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/prepas/mpsi-geometrie/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Corrections des exercices" data-src="/pdf/prepas/mpsi-geometrie/corrections-cours.pdf">✅ Corrections</button>
-    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/prepas/mpsi-geometrie/fiche-resume.pdf">📋 Fiche résumé</button>
-    <button class="doc-tab" data-title="Série 1 (planche 1)" data-src="/pdf/prepas/mpsi-geometrie/serie1.pdf">📄 Série 1</button>
-    <button class="doc-tab" data-title="Série 2 (planche 2)" data-src="/pdf/prepas/mpsi-geometrie/serie2.pdf">📄 Série 2</button>
-    <button class="doc-tab" data-title="Série 3 (planche 3)" data-src="/pdf/prepas/mpsi-geometrie/serie3.pdf">📄 Série 3</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/prepas/mpsi-geometrie/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Corrections des exercices" data-src="/pdf/prepas/mpsi-geometrie/corrections-cours.pdf">Corrections</button>
+    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/prepas/mpsi-geometrie/fiche-resume.pdf">Fiche résumé</button>
+    <button class="doc-tab" data-title="Série 1 (planche 1)" data-src="/pdf/prepas/mpsi-geometrie/serie1.pdf">Série 1</button>
+    <button class="doc-tab" data-title="Série 2 (planche 2)" data-src="/pdf/prepas/mpsi-geometrie/serie2.pdf">Série 2</button>
+    <button class="doc-tab" data-title="Série 3 (planche 3)" data-src="/pdf/prepas/mpsi-geometrie/serie3.pdf">Série 3</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
@@ -25,7 +25,7 @@ Tous les documents du cours **Géométrie & Espaces vectoriels — MPSI / MP** s
 
 <div id="qcm" style="scroll-margin-top:5rem;"></div>
 
-## ❓ QCM — Géométrie & Espaces vectoriels
+## QCM — Géométrie & Espaces vectoriels
 
 Testez vos connaissances, puis validez pour voir votre score.
 

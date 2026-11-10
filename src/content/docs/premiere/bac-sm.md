@@ -8,15 +8,15 @@ Bienvenue dans l'espace dédié à la classe de Première Sciences Mathématique
 	<iframe src="/pdf/denombrement.pdf" title="PDF Dénombrement Première SM" style="width:100%;height:78vh;border:0;display:block;"></iframe>
 </div>
 
-### 📘 Chapitre: Dénombrement
+### Chapitre: Dénombrement
 
 * [Cours sur le Dénombrement](/pdf/denombrement.pdf)
-### 📝 Séries d'Exercices
+### Séries d'Exercices
 * [Série d’exercices : Dénombrement - Série 1](/pdf/denombrement_serie1.pdf)
 * [Série d’exercices : Dénombrement - Série 2](/pdf/denombrement_serie2.pdf)
 * [Série d’exercices : Dénombrement - Série 3](/pdf/denombrement_serie3.pdf)
 
-### 📘 Chapitre: Arithmétique
+### Chapitre: Arithmétique
 
 * [Cours sur l'Arithmétique](/pdf/arithmetique.pdf)
 

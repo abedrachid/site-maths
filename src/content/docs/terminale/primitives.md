@@ -7,16 +7,16 @@ sidebar:
 
 Tous les documents du chapitre **Primitives** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
-## 📄 Documents du chapitre
+## Documents du chapitre
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/primitives/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Corrections des exercices" data-src="/pdf/terminale/primitives/corrections-cours.pdf">✅ Corrections</button>
-    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/terminale/primitives/fiche-resume.pdf">📋 Fiche résumé</button>
-    <button class="doc-tab" data-title="Série 1 (planche 1)" data-src="/pdf/terminale/primitives/serie1.pdf">📄 Série 1</button>
-    <button class="doc-tab" data-title="Série 2 (planche 2)" data-src="/pdf/terminale/primitives/serie2.pdf">📄 Série 2</button>
-    <button class="doc-tab" data-title="Série 3 (planche 3)" data-src="/pdf/terminale/primitives/serie3.pdf">📄 Série 3</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/primitives/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Corrections des exercices" data-src="/pdf/terminale/primitives/corrections-cours.pdf">Corrections</button>
+    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/terminale/primitives/fiche-resume.pdf">Fiche résumé</button>
+    <button class="doc-tab" data-title="Série 1 (planche 1)" data-src="/pdf/terminale/primitives/serie1.pdf">Série 1</button>
+    <button class="doc-tab" data-title="Série 2 (planche 2)" data-src="/pdf/terminale/primitives/serie2.pdf">Série 2</button>
+    <button class="doc-tab" data-title="Série 3 (planche 3)" data-src="/pdf/terminale/primitives/serie3.pdf">Série 3</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
@@ -27,7 +27,7 @@ Tous les documents du chapitre **Primitives** sont consultables directement ci-d
 
 <div id="qcm" style="scroll-margin-top:5rem;"></div>
 
-## ❓ QCM — Primitives
+## QCM — Primitives
 
 Testez vos connaissances, puis validez pour voir votre score.
 

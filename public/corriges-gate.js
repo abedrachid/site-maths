@@ -97,7 +97,7 @@
       '#me-cg-card input[type=email]{width:100%;box-sizing:border-box;padding:.7rem .85rem;',
       'font-size:1rem;border:1px solid var(--sl-color-gray-5,#c0ccd9);border-radius:9px;',
       'background:var(--sl-color-bg,#fff);color:inherit;margin-bottom:.7rem;}',
-      '#me-cg-card input[type=email]:focus{outline:2px solid #7c3aed;outline-offset:1px;border-color:#7c3aed;}',
+      '#me-cg-card input[type=email]:focus{outline:2px solid #2f5f9e;outline-offset:1px;border-color:#2f5f9e;}',
       '#me-cg-btn{width:100%;padding:.75rem 1rem;font-size:1rem;font-weight:700;cursor:pointer;',
       'color:#fff;background:#0c2340;border:0;border-radius:9px;transition:background .15s;}',
       '#me-cg-btn:hover{background:#123156;}',

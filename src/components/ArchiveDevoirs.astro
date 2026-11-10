@@ -145,7 +145,7 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
         </div>
         <div class="ar-tools-row">
           <label class="ar-search">
-            <span aria-hidden="true">🔎</span>
+            <span aria-hidden="true"></span>
             <input type="search" placeholder="Chercher un chapitre : limites, suites, complexes…" aria-label="Chercher un chapitre" />
           </label>
           <label class="ar-toggle">
@@ -206,21 +206,21 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
                           ) : (
                             <>
                               {d.okS ? (
-                                <a class="ar-btn" href={d.sujet} data-ar-src={d.sujet} data-ar-title={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)} (Sujet)`}>📄 Sujet</a>
+                                <a class="ar-btn" href={d.sujet} data-ar-src={d.sujet} data-ar-title={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)} (Sujet)`}>Sujet</a>
                               ) : (
-                                <span class="ar-btn is-off" title="Énoncé bientôt en ligne">📄 Bientôt</span>
+                                <span class="ar-btn is-off" title="Énoncé bientôt en ligne">Bientôt</span>
                               )}
                               {d.okC ? (
-                                <button type="button" class="doc-tab ar-btn ar-btn--corr" data-src={d.corrige} data-title={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)} (Corrigé)`} data-ar-src={d.corrige}>✅ Corrigé</button>
+                                <button type="button" class="doc-tab ar-btn ar-btn--corr" data-src={d.corrige} data-title={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)} (Corrigé)`} data-ar-src={d.corrige}>Corrigé</button>
                               ) : d.corrige ? (
-                                <span class="ar-btn is-off" title="Corrigé bientôt en ligne">✅ Bientôt</span>
+                                <span class="ar-btn is-off" title="Corrigé bientôt en ligne">Bientôt</span>
                               ) : (
                                 <span class="ar-btn is-off" title="Pas de corrigé pour ce devoir">Sans corrigé</span>
                               )}
                             </>
                           )}
                           {d.okS && (
-                            <button type="button" class="ar-share" data-ar-share={d.sujet} data-ar-name={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)}`} title="Copier le lien pour le partager" aria-label="Partager">🔗</button>
+                            <button type="button" class="ar-share" data-ar-share={d.sujet} data-ar-name={`${d.titre} — ${NIVEAUX[d.niveau].label} ${anneeLabel(d.annee)}`} title="Copier le lien pour le partager" aria-label="Partager"></button>
                           )}
                         </div>
                       </li>
@@ -283,12 +283,12 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
                         <>
                           <td>
                             {e.okS
-                              ? <a class="ar-btn ar-btn--sm" aria-label={`${lbl} — sujet`} href={e.sujet} data-ar-src={e.sujet} data-ar-title={`${lbl} (Sujet)`}>📄<span class="ar-bl"> Sujet</span></a>
+                              ? <a class="ar-btn ar-btn--sm" aria-label={`${lbl} — sujet`} href={e.sujet} data-ar-src={e.sujet} data-ar-title={`${lbl} (Sujet)`}><span class="ar-bl"> Sujet</span></a>
                               : <span class="ar-dash" title="Bientôt en ligne">—</span>}
                           </td>
                           <td>
                             {e.okC
-                              ? <button type="button" aria-label={`${lbl} — corrigé`} class="doc-tab ar-btn ar-btn--sm ar-btn--corr" data-src={e.corrige} data-title={`${lbl} (Corrigé)`} data-ar-src={e.corrige}>✅<span class="ar-bl"> Corrigé</span></button>
+                              ? <button type="button" aria-label={`${lbl} — corrigé`} class="doc-tab ar-btn ar-btn--sm ar-btn--corr" data-src={e.corrige} data-title={`${lbl} (Corrigé)`} data-ar-src={e.corrige}><span class="ar-bl"> Corrigé</span></button>
                               : <span class="ar-dash" title="Bientôt en ligne">—</span>}
                           </td>
                         </>
@@ -310,7 +310,7 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
     <div class="doc-toolbar">
       <span class="doc-current">Document</span>
       <a class="doc-download" href="#" download>⬇️ Télécharger</a>
-      <button type="button" class="ar-close" aria-label="Fermer la visionneuse">✕</button>
+      <button type="button" class="ar-close" aria-label="Fermer la visionneuse"></button>
     </div>
     <iframe class="doc-frame" src="about:blank" title="Visionneuse de document"></iframe>
   </div>
@@ -387,7 +387,7 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
         if (navigator.share && small()) {
           navigator.share({ title: name, url }).catch(() => {});
         } else if (navigator.clipboard) {
-          navigator.clipboard.writeText(url).then(() => say('🔗 Lien copié — collez-le sur WhatsApp !'), () => say(url));
+          navigator.clipboard.writeText(url).then(() => say('Lien copié — collez-le sur WhatsApp !'), () => say(url));
         } else { say(url); }
         return;
       }
@@ -409,7 +409,7 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
           b.closest('details')?.setAttribute('open', '');
           b.scrollIntoView({ block: 'center', behavior: 'smooth' });
           b.classList.add('is-flash');
-          say('🔒 Cliquez sur « Corrigé » pour débloquer les corrigés (gratuit).');
+          say('Cliquez sur « Corrigé » pour débloquer les corrigés (gratuit).');
         }
         return;
       }
@@ -626,11 +626,11 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
     padding: 0.38rem 0.8rem; border-radius: 999px; border: 1px solid var(--ar-navy); background: var(--ar-navy); color: #fff;
     text-decoration: none; cursor: pointer; margin: 0 !important; transition: transform 0.12s, box-shadow 0.12s, background 0.12s; }
   .ar-root .ar-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(12, 35, 64, 0.25); }
-  :root[data-theme='dark'] .ar-root .ar-btn:not(.ar-btn--corr):not(.is-off) { background: #1d4ed8; border-color: #1d4ed8; }
+  :root[data-theme='dark'] .ar-root .ar-btn:not(.ar-btn--corr):not(.is-off) { background: #1f4f8f; border-color: #1f4f8f; }
   .ar-root .ar-btn--corr { background: transparent; color: #047857; border-color: #10b981; }
   :root[data-theme='dark'] .ar-root .ar-btn--corr { background: transparent; color: #6ee7b7; border-color: #10b981; }
   .ar-root .ar-btn--corr:hover { background: rgba(16, 185, 129, 0.1); }
-  .ar-root .ar-btn--corr.is-locked::after { content: '🔒'; font-size: 0.72rem; }
+  .ar-root .ar-btn--corr.is-locked::after { content: ''; font-size: 0.72rem; }
   .ar-root .ar-btn.is-off { background: transparent; border: 1px dashed var(--sl-color-gray-4); color: var(--sl-color-gray-3); cursor: default; font-weight: 600; }
   .ar-root .ar-btn.is-off:hover { transform: none; box-shadow: none; }
   .ar-root .ar-btn--sm { padding: 0.28rem 0.65rem; font-size: 0.76rem; }
@@ -684,8 +684,8 @@ const sessionLabel = { normale: 'Session normale', rattrapage: 'Rattrapage' };
     .ar-hero::after { font-size: 2.2rem; }
   }
 
-  :root[data-theme='dark'] .ar-switch-item.is-active { background: #1d4ed8; }
-  :root[data-theme='dark'] .ar-chip[data-niveau='all'].is-active { background: #1d4ed8; border-color: #1d4ed8; }
+  :root[data-theme='dark'] .ar-switch-item.is-active { background: #1f4f8f; }
+  :root[data-theme='dark'] .ar-chip[data-niveau='all'].is-active { background: #1f4f8f; border-color: #1f4f8f; }
   @media (max-width: 640px) {
     .ar-chip small { display: none; }
     .ar-root .ar-table { font-size: 0.8rem; }

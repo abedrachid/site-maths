@@ -9,12 +9,12 @@ description: "Ensembles et applications (MPSI / MP) : exercices, problèmes et c
   <p style="margin:0;color:#dcfce7;font-size:.95rem;line-height:1.6;max-width:640px;">Un recueil d'<strong style="color:#fff;">exercices et problèmes</strong> sur les ensembles et les applications, accompagné de ses <strong style="color:#fff;">corrigés détaillés</strong>. Consultez-les en ligne ou téléchargez-les.</p>
 </div>
 
-## 📄 Consulter les documents
+## Consulter les documents
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Exercices & problèmes" data-src="/pdf/prepas/Ensembles_Applications_exos_problèmes.pdf">📝 Exercices & problèmes</button>
-    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/prepas/Ensembles_Applications_Corriges.pdf">✅ Corrigés</button>
+    <button class="doc-tab active" data-title="Exercices & problèmes" data-src="/pdf/prepas/Ensembles_Applications_exos_problèmes.pdf">Exercices & problèmes</button>
+    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/prepas/Ensembles_Applications_Corriges.pdf">Corrigés</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Exercices & problèmes</span>

@@ -1,0 +1,51 @@
+/* ═══════════════════════════════════════════════════════════════
+   MATHSELITES — Pages de chapitre : onglets de documents + navigation
+   Charte marine · or. Remplace le style « pastilles + emojis ».
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Visionneuse : onglets sobres ───────────────────────────── */
+.doc-viewer { border-radius: 12px; box-shadow: 0 6px 22px rgba(12, 35, 64, 0.08); }
+.doc-tabs { gap: 0.35rem; padding: 0.75rem 0.85rem; }
+.doc-tab {
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.83rem;
+  padding: 0.42rem 0.8rem;
+  border: 1px solid var(--sl-color-gray-5);
+  border-bottom-width: 2px;
+}
+.doc-tab:hover { border-color: var(--me-gold); }
+.doc-tab.active {
+  background: var(--me-navy-mid, #123156);
+  border-color: var(--me-navy-mid, #123156);
+  border-bottom-color: var(--me-gold);
+  color: #fff;
+  font-weight: 600;
+}
+.doc-group-label { font-size: 0.7rem; letter-spacing: 0.12em; font-weight: 700; color: var(--sl-color-gray-3); }
+.doc-group--qcm .doc-group-label { color: var(--sl-color-gray-3); }
+.doc-pair { border-radius: 10px; }
+.doc-current { font-family: var(--me-font-display); font-size: 1rem; }
+.doc-download, .doc-newtab { color: var(--me-gold); }
+:root[data-theme='light'] .doc-download, :root[data-theme='light'] .doc-newtab { color: #8a6d0f; }
+
+/* ── Barre latérale : 4 entrées principales ─────────────────── */
+.sidebar-content > ul > li > details > summary,
+.sidebar-content > ul > li > details > summary .large {
+  font-family: var(--me-font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--sl-color-white);
+}
+/* Sous-groupes (Terminale SM / PC, MPSI·MP…) : plus discrets */
+.sidebar-content details details > summary .large {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sl-color-gray-2);
+}
+.sidebar-content a[aria-current='page'] {
+  background: var(--sl-color-accent-low);
+  color: var(--sl-color-white);
+  border-left: 3px solid var(--me-gold);
+}

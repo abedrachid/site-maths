@@ -7,13 +7,13 @@ sidebar:
 
 **Révision de 1ère Bac SM — Partie V.** Exercices de synthèse composés spécialement, ouvrant sur des résultats classiques (Vandermonde, Jordan, série de Bâle…). Cours, exercices et corrigés sont consultables ci-dessous ou téléchargeables en PDF.
 
-## 📄 Documents — Neuf exercices originaux
+## Documents — Neuf exercices originaux
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/exercices-originaux/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/exercices-originaux/exercices.pdf">📝 Exercices</button>
-    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/exercices-originaux/corriges.pdf">✅ Corrigés</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/exercices-originaux/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/exercices-originaux/exercices.pdf">Exercices</button>
+    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/exercices-originaux/corriges.pdf">Corrigés</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

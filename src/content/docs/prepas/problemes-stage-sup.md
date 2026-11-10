@@ -9,20 +9,20 @@ description: "Problèmes d'algèbre linéaire (MPSI) et support du stage Sup/Sp�
   <p style="margin:0;color:#dbe4f5;font-size:.95rem;line-height:1.6;max-width:640px;">Deux documents d'approfondissement pour <strong style="color:#fff;">bien consolider la Sup</strong> et <strong style="color:#fff;">aborder la Spé en confiance</strong> : un recueil de problèmes d'algèbre linéaire et un support complet de stage de révision. Consultez-les en ligne ou téléchargez-les.</p>
 </div>
 
-## 📐 Problèmes d'algèbre linéaire — consolider les fondamentaux de la Sup
+## Problèmes d'algèbre linéaire — consolider les fondamentaux de la Sup
 
 Quatre **problèmes de synthèse** (décomposition des noyaux, endomorphismes vérifiant $f\circ f=-\mathrm{id}$, endomorphismes cycliques, trace d'une matrice) suivis de **douze exercices classiques** avec indications et corrigés.
 
-## 📘 Stage de révision Sup → Spé : réduction, séries & dualité
+## Stage de révision Sup → Spé : réduction, séries & dualité
 
 Un **cours structuré de révision** couvrant la réduction des endomorphismes, les séries numériques et la dualité, enrichi de rappels, méthodes, astuces, exercices classiques et extraits de concours.
 
-## 📄 Consulter les documents
+## Consulter les documents
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Problèmes d'algèbre linéaire — fondamentaux de la Sup" data-src="/pdf/prepas/problèmes_sup.pdf">📐 Problèmes d'algèbre linéaire</button>
-    <button class="doc-tab" data-title="Stage de révision Sup → Spé — réduction, séries, dualité" data-src="/pdf/prepas/stage_sup_spe.pdf">📘 Stage de révision Sup → Spé</button>
+    <button class="doc-tab active" data-title="Problèmes d'algèbre linéaire — fondamentaux de la Sup" data-src="/pdf/prepas/problèmes_sup.pdf">Problèmes d'algèbre linéaire</button>
+    <button class="doc-tab" data-title="Stage de révision Sup → Spé — réduction, séries, dualité" data-src="/pdf/prepas/stage_sup_spe.pdf">Stage de révision Sup → Spé</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Problèmes d'algèbre linéaire — fondamentaux de la Sup</span>

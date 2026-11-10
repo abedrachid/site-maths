@@ -4,8 +4,8 @@
    C'EST LE SEUL FICHIER À MODIFIER pour annoncer un ajout aux élèves.
 
    Ce fichier alimente :
-     • la page « ✨ Nouveautés » (/nouveautes) — la liste consultable
-     • la pastille « ✨ N » dans le menu (nombre d'ajouts pas encore vus
+     • la page « Nouveautés » (/nouveautes) — la liste consultable
+     • la pastille « N » dans le menu (nombre d'ajouts pas encore vus
        par l'élève ; disparaît quand il ouvre la page Nouveautés).
 
    POUR ANNONCER UN AJOUT :
@@ -39,14 +39,14 @@ export const canal = {
 // remplacez les [ ... ]. Gardez le lien : il ouvre directement le doc.
 //
 //   🆕 Nouveau sur MathsElites
-//   📄 [Titre du document ou de la vidéo]
-//   🎓 Niveau : [Terminale SM / Première SM / Prépas]
-//   👉 À consulter ici : https://mathselites.com[lien, ex. /devoirs-surveilles?niveau=terminale]
+//   [Titre du document ou de la vidéo]
+//   Niveau : [Terminale SM / Première SM / Prépas]
+//   À consulter ici : https://mathselites.com[lien, ex. /devoirs-surveilles?niveau=terminale]
 //
-//   Bon travail 💪
+//   Bon travail 
 //
 // Variante courte :
-//   🆕 Nouveau DS de Terminale SM en ligne 👉 https://mathselites.com/devoirs-surveilles?niveau=terminale
+//   🆕 Nouveau DS de Terminale SM en ligne https://mathselites.com/devoirs-surveilles?niveau=terminale
 
 // ── Liste des nouveautés (la plus récente EN HAUT) ────────────────
 export const nouveautes = [

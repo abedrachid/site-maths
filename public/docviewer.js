@@ -26,7 +26,7 @@
     a.className = 'doc-newtab';
     a.target = '_blank';
     a.rel = 'noopener';
-    a.textContent = '↗ Ouvrir';
+    a.textContent = 'Ouvrir';
     a.href = '#';
     var dl = bar.querySelector('.doc-download');
     if (dl) bar.insertBefore(a, dl); else bar.appendChild(a);
@@ -41,10 +41,10 @@
      Désactiver sur une visionneuse : data-group="none" sur .doc-viewer.
      Ne s'applique que s'il y a ≥ 6 onglets et au moins 2 thèmes.   */
   var GROUPS = [
-    { id: 'cours', label: '📖 Cours & fiches' },
-    { id: 'qcm',   label: '❓ QCM' },
-    { id: 'exo',   label: '📝 Exercices & corrigés' },
-    { id: 'autre', label: '📄 Autres documents' }
+    { id: 'cours', label: 'Cours & fiches' },
+    { id: 'qcm',   label: 'QCM' },
+    { id: 'exo',   label: 'Exercices & corrigés' },
+    { id: 'autre', label: 'Autres documents' }
   ];
   function groupOf(el) {
     var g = el.getAttribute('data-group');
@@ -103,7 +103,19 @@
     });
   }
 
+  /* Onglets sobres : retire l'emoji de tête des libellés (📖, ✅, 📝…)
+     et marque les corrigés par une classe pour un style distinct. */
+  var LEAD_EMOJI = /^[\s\u200d\ufe0f\p{Extended_Pictographic}]+/u;
+  function cleanTabs(v) {
+    v.querySelectorAll('.doc-tab').forEach(function (t) {
+      var txt = (t.textContent || '').replace(LEAD_EMOJI, '').trim();
+      if (txt) t.textContent = txt;
+      if (isCorr(t)) t.classList.add('doc-tab--corr');
+    });
+  }
+
   function initViewer(v) {
+    cleanTabs(v);
     injectNewTab(v);
     groupTabs(v);
     var tabs = v.querySelectorAll('.doc-tab');

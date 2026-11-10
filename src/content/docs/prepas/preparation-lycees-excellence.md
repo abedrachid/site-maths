@@ -9,11 +9,11 @@ description: "Préparation aux Lycées d'Excellence : sélection, méthodes et e
   <p style="margin:0;color:#dcfce7;font-size:.95rem;line-height:1.6;max-width:640px;">Un document d'accompagnement pour <strong style="color:#fff;">préparer l'entrée aux lycées d'excellence</strong> : attentes, méthodes de travail et exercices d'entraînement. Consultez-le en ligne ou téléchargez-le.</p>
 </div>
 
-## 📄 Consulter le document
+## Consulter le document
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Préparation aux Lycées d'Excellence" data-src="/pdf/prepas/concours-excellence/preparation-lycees-excellence.pdf">🎯 Préparation Lycées d'Excellence</button>
+    <button class="doc-tab active" data-title="Préparation aux Lycées d'Excellence" data-src="/pdf/prepas/concours-excellence/preparation-lycees-excellence.pdf">Préparation Lycées d'Excellence</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Préparation aux Lycées d'Excellence</span>

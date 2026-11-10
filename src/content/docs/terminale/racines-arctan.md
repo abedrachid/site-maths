@@ -9,15 +9,15 @@ sidebar:
 
 Cours, fiche résumé, QCM et exercices sont consultables séparément ci-dessous, ou réunis dans le chapitre complet (23 pages).
 
-## 📄 Documents — Racines n-ièmes et Arctangente
+## Documents — Racines n-ièmes et Arctangente
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/racines-arctan/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/terminale/racines-arctan/fiche-resume.pdf">📋 Fiche résumé</button>
-    <button class="doc-tab" data-title="QCM" data-src="/pdf/terminale/racines-arctan/qcm.pdf">❓ QCM</button>
-    <button class="doc-tab" data-title="Exercices et problèmes" data-src="/pdf/terminale/racines-arctan/exercices-problemes.pdf">📝 Exercices &amp; problèmes</button>
-    <button class="doc-tab" data-title="Chapitre complet" data-src="/pdf/terminale/racines-arctan/Racines_niemes_Arctan.pdf">📚 Chapitre complet</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/racines-arctan/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Fiche résumé" data-src="/pdf/terminale/racines-arctan/fiche-resume.pdf">Fiche résumé</button>
+    <button class="doc-tab" data-title="QCM" data-src="/pdf/terminale/racines-arctan/qcm.pdf">QCM</button>
+    <button class="doc-tab" data-title="Exercices et problèmes" data-src="/pdf/terminale/racines-arctan/exercices-problemes.pdf">Exercices &amp; problèmes</button>
+    <button class="doc-tab" data-title="Chapitre complet" data-src="/pdf/terminale/racines-arctan/Racines_niemes_Arctan.pdf">Chapitre complet</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
@@ -32,8 +32,8 @@ Le chapitre est proposé **en 4 parties** (cours, fiche résumé, QCM de 21 ques
 
 ## Pour aller plus loin
 
-- [📐 Calcul trigonométrique (révision)](/terminale/revision-calcul-trigonometrique)
+- [Calcul trigonométrique (révision)](/terminale/revision-calcul-trigonometrique)
 - [Limites et continuité →](/terminale/limites)
-- [❓ QCM de révision n°2 (chapitres 1–2, sujets A et B corrigés) →](/terminale/limites#qcm)
+- [QCM de révision n°2 (chapitres 1–2, sujets A et B corrigés) →](/terminale/limites#qcm)
 - [Devoirs surveillés d'entraînement →](/devoirs-surveilles?niveau=terminale)
 - [Retour à la Terminale SM →](/terminale/)

@@ -25,3 +25,15 @@ pnpm-debug.log*
 
 # Corrigés prêts mais pas encore publiés
 _corriges_a_venir/
+
+# Sauvegardes et copies de travail (ne pas publier)
+_refonte-v2/
+_sauvegarde-avant-refonte/
+_sauvegarde-avant-couleurs/
+_sauvegarde-anciennes-pages-devoirs/
+_sauvegarde-cours-ecrits/
+_to_delete/
+.logo-backup-ancien/
+"Claude outputs/"
+*.zip
+*.bak

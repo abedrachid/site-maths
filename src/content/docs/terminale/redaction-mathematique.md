@@ -7,7 +7,7 @@ sidebar:
 
 Apprendre à **rédiger proprement** est la première compétence à maîtriser avant d'aborder les chapitres du programme. Ce guide réunit les grands principes de la rédaction, l'application correcte des conditions d'un théorème, les pièges classiques du langage des fonctions et une check-list finale pour viser la copie parfaite.
 
-## 📄 Document
+## Document
 
 <div class="doc-viewer">
   <div class="doc-toolbar">

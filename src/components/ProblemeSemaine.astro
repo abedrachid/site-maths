@@ -27,16 +27,16 @@ function semaineDu(iso) {
 }
 
 const THEME_COULEUR = {
-  'Logique et raisonnement': '#3b82f6',
-  'Ensembles et applications': '#0891b2',
-  'Généralités sur les fonctions': '#7c3aed',
+  'Logique et raisonnement': '#3f6fb0',
+  'Ensembles et applications': '#2b6f8a',
+  'Généralités sur les fonctions': '#2f5f9e',
   'Suites & récurrence': '#C9A227',
-  'Limites et continuité': '#3b82f6',
+  'Limites et continuité': '#3f6fb0',
   'Dérivabilité (Rolle, TAF)': '#10b981',
   'Primitives': '#C9A227',
-  'Fonctions ln & exp': '#7c3aed',
+  'Fonctions ln & exp': '#2f5f9e',
 };
-function couleur(theme) { return THEME_COULEUR[theme] || '#3b82f6'; }
+function couleur(theme) { return THEME_COULEUR[theme] || '#3f6fb0'; }
 
 const aujourdhui = new Date();
 const tries = [...problemes].filter((p) => p.date).sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -53,7 +53,7 @@ const waHref = courant
 {courant ? (
   <div class="pdsem">
     <section class="hero" style={`--accent:${couleur(courant.theme)}`}>
-      <div class="hero-ribbon"><span class="star">★</span> Défi de la semaine · {niveauLabel}</div>
+      <div class="hero-ribbon"><span class="star"></span> Défi de la semaine · {niveauLabel}</div>
       <div class="hero-meta">
         <span class="hero-theme">{courant.theme}</span>
         <span class="hero-date">{semaineDu(courant.date)}</span>
@@ -61,18 +61,18 @@ const waHref = courant
       <h2 class="hero-title">{courant.titre}</h2>
       <div class="hero-enonce not-content" set:html={courant.enonceHtml} />
       <div class="hero-actions">
-        <a class="btn-wa" href={waHref} target="_blank" rel="noopener">💬 Soumettre ma solution</a>
+        <a class="btn-wa" href={waHref} target="_blank" rel="noopener">Soumettre ma solution</a>
         <details class="indice">
-          <summary>💡 Voir un indice</summary>
+          <summary>Voir un indice</summary>
           <div class="not-content" set:html={courant.indiceHtml} />
         </details>
       </div>
-      <p class="hero-note">🔒 La solution détaillée paraîtra dans les archives la semaine prochaine. À vos crayons&nbsp;!</p>
+      <p class="hero-note">La solution détaillée paraîtra dans les archives la semaine prochaine. À vos crayons&nbsp;!</p>
     </section>
 
     {archives.length > 0 && (
       <div class="archives">
-        <h3 class="arch-titre">📚 Archives &amp; solutions</h3>
+        <h3 class="arch-titre">Archives &amp; solutions</h3>
         {archives.map((p) => (
           <details class="arch-item" style={`--accent:${couleur(p.theme)}`}>
             <summary>
@@ -82,7 +82,7 @@ const waHref = courant
             </summary>
             <div class="arch-enonce not-content" set:html={p.enonceHtml} />
             <details class="arch-indice">
-              <summary>💡 Indice</summary>
+              <summary>Indice</summary>
               <div class="not-content" set:html={p.indiceHtml} />
             </details>
             <div class="arch-sol-label">Solution</div>

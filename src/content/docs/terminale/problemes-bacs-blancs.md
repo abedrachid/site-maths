@@ -19,7 +19,7 @@ sidebar:
 Composez un bac blanc dans les conditions réelles : 3 heures, au calme, sans le cours. Corrigez-vous ensuite à l'aide du corrigé.
 :::
 
-## 🧩 Problèmes de synthèse
+## Problèmes de synthèse
 
 | Problème | Thème | Sujet | Corrigé |
 |---|---|---|---|
@@ -27,7 +27,7 @@ Composez un bac blanc dans les conditions réelles : 3 heures, au calme, sans le
 | **Problème 2** | Suites & primitives | <a class="doc-open" data-title="Problème 2 — Sujet" data-src="/pdf/terminale/problemes-bacs-blancs/probleme2-sujet.pdf" href="/pdf/terminale/problemes-bacs-blancs/probleme2-sujet.pdf">Voir</a> | <a class="doc-open" data-title="Problème 2 — Corrigé" data-src="/pdf/terminale/problemes-bacs-blancs/probleme2-corrige.pdf" href="/pdf/terminale/problemes-bacs-blancs/probleme2-corrige.pdf">Voir</a> |
 | **Problème 3** | Probabilités & dénombrement | <a class="doc-open" data-title="Problème 3 — Sujet" data-src="/pdf/terminale/problemes-bacs-blancs/probleme3-sujet.pdf" href="/pdf/terminale/problemes-bacs-blancs/probleme3-sujet.pdf">Voir</a> | <a class="doc-open" data-title="Problème 3 — Corrigé" data-src="/pdf/terminale/problemes-bacs-blancs/probleme3-corrige.pdf" href="/pdf/terminale/problemes-bacs-blancs/probleme3-corrige.pdf">Voir</a> |
 
-## 🏁 Bacs blancs complets
+## Bacs blancs complets
 
 Les bacs blancs ont rejoint l'espace **[Examens blancs →](/examens-blancs?niveau=terminale)**, avec les archives des 15 dernières années.
 

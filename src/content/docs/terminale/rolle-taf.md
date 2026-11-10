@@ -7,28 +7,28 @@ sidebar:
 
 Tous les documents du chapitre **Théorèmes de Rolle, des accroissements finis (T.A.F) et inégalité des accroissements finis (I.A.F)** sont consultables directement ci-dessous. Cliquez sur un onglet pour afficher le document, ou téléchargez-le.
 
-## 📄 Documents du chapitre
+## Documents du chapitre
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/rolle-taf/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-group="cours" data-title="Corrections du cours" data-src="/pdf/terminale/rolle-taf/corrections-cours.pdf">✅ Corrections du cours</button>
-    <button class="doc-tab" data-title="Fiche de révision" data-src="/pdf/terminale/rolle-taf/fiche-resume.pdf">📋 Fiche de révision</button>
-    <button class="doc-tab" data-title="QCM (PDF)" data-src="/pdf/terminale/rolle-taf/qcm.pdf">❓ QCM (PDF)</button>
-    <button class="doc-tab" data-title="Exercices du chapitre" data-src="/pdf/terminale/rolle-taf/exercices-chapitre.pdf">📝 Exercices du chapitre</button>
-    <button class="doc-tab" data-title="Corrigés des exercices" data-src="/pdf/terminale/rolle-taf/exercices-chapitre-corriges.pdf">✅ Corrigés des exercices</button>
-    <button class="doc-tab" data-title="Série 1 — Encadrements et limites (T.A.F)" data-src="/pdf/terminale/rolle-taf/serie1.pdf">📄 Série 1 — Encadrements & limites (T.A.F)</button>
-    <button class="doc-tab" data-title="Série 1 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie1-corrige.pdf">✅ Corrigé série 1</button>
-    <button class="doc-tab" data-title="Série 2 — Rolle et fonctions auxiliaires (1)" data-src="/pdf/terminale/rolle-taf/serie2.pdf">📄 Série 2 — Rolle & fonctions auxiliaires (1)</button>
-    <button class="doc-tab" data-title="Série 2 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie2-corrige.pdf">✅ Corrigé série 2</button>
-    <button class="doc-tab" data-title="Série 3 — Rolle et fonctions auxiliaires (2)" data-src="/pdf/terminale/rolle-taf/serie3.pdf">📄 Série 3 — Rolle & fonctions auxiliaires (2)</button>
-    <button class="doc-tab" data-title="Série 3 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie3-corrige.pdf">✅ Corrigé série 3</button>
-    <button class="doc-tab" data-title="Série 4 — Racines, polynômes et équations (1)" data-src="/pdf/terminale/rolle-taf/serie4.pdf">📄 Série 4 — Racines & polynômes (1)</button>
-    <button class="doc-tab" data-title="Série 4 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie4-corrige.pdf">✅ Corrigé série 4</button>
-    <button class="doc-tab" data-title="Série 5 — Racines, polynômes et équations (2)" data-src="/pdf/terminale/rolle-taf/serie5.pdf">📄 Série 5 — Racines & polynômes (2)</button>
-    <button class="doc-tab" data-title="Série 5 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie5-corrige.pdf">✅ Corrigé série 5</button>
-    <button class="doc-tab" data-title="Série 6 — Cauchy et Taylor-Lagrange" data-src="/pdf/terminale/rolle-taf/serie6.pdf">📄 Série 6 — Cauchy & Taylor-Lagrange</button>
-    <button class="doc-tab" data-title="Série 6 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie6-corrige.pdf">✅ Corrigé série 6</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/rolle-taf/cours.pdf">Cours</button>
+    <button class="doc-tab" data-group="cours" data-title="Corrections du cours" data-src="/pdf/terminale/rolle-taf/corrections-cours.pdf">Corrections du cours</button>
+    <button class="doc-tab" data-title="Fiche de révision" data-src="/pdf/terminale/rolle-taf/fiche-resume.pdf">Fiche de révision</button>
+    <button class="doc-tab" data-title="QCM (PDF)" data-src="/pdf/terminale/rolle-taf/qcm.pdf">QCM (PDF)</button>
+    <button class="doc-tab" data-title="Exercices du chapitre" data-src="/pdf/terminale/rolle-taf/exercices-chapitre.pdf">Exercices du chapitre</button>
+    <button class="doc-tab" data-title="Corrigés des exercices" data-src="/pdf/terminale/rolle-taf/exercices-chapitre-corriges.pdf">Corrigés des exercices</button>
+    <button class="doc-tab" data-title="Série 1 — Encadrements et limites (T.A.F)" data-src="/pdf/terminale/rolle-taf/serie1.pdf">Série 1 — Encadrements & limites (T.A.F)</button>
+    <button class="doc-tab" data-title="Série 1 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie1-corrige.pdf">Corrigé série 1</button>
+    <button class="doc-tab" data-title="Série 2 — Rolle et fonctions auxiliaires (1)" data-src="/pdf/terminale/rolle-taf/serie2.pdf">Série 2 — Rolle & fonctions auxiliaires (1)</button>
+    <button class="doc-tab" data-title="Série 2 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie2-corrige.pdf">Corrigé série 2</button>
+    <button class="doc-tab" data-title="Série 3 — Rolle et fonctions auxiliaires (2)" data-src="/pdf/terminale/rolle-taf/serie3.pdf">Série 3 — Rolle & fonctions auxiliaires (2)</button>
+    <button class="doc-tab" data-title="Série 3 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie3-corrige.pdf">Corrigé série 3</button>
+    <button class="doc-tab" data-title="Série 4 — Racines, polynômes et équations (1)" data-src="/pdf/terminale/rolle-taf/serie4.pdf">Série 4 — Racines & polynômes (1)</button>
+    <button class="doc-tab" data-title="Série 4 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie4-corrige.pdf">Corrigé série 4</button>
+    <button class="doc-tab" data-title="Série 5 — Racines, polynômes et équations (2)" data-src="/pdf/terminale/rolle-taf/serie5.pdf">Série 5 — Racines & polynômes (2)</button>
+    <button class="doc-tab" data-title="Série 5 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie5-corrige.pdf">Corrigé série 5</button>
+    <button class="doc-tab" data-title="Série 6 — Cauchy et Taylor-Lagrange" data-src="/pdf/terminale/rolle-taf/serie6.pdf">Série 6 — Cauchy & Taylor-Lagrange</button>
+    <button class="doc-tab" data-title="Série 6 — Corrigé" data-src="/pdf/terminale/rolle-taf/serie6-corrige.pdf">Corrigé série 6</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
@@ -39,7 +39,7 @@ Tous les documents du chapitre **Théorèmes de Rolle, des accroissements finis 
 
 <div id="qcm" style="scroll-margin-top:5rem;"></div>
 
-## ❓ QCM — Rolle, T.A.F et I.A.F
+## QCM — Rolle, T.A.F et I.A.F
 
 Même contenu que le [QCM en PDF](/pdf/terminale/rolle-taf/qcm.pdf). Une seule réponse correcte par question ; validez pour voir votre score.
 
@@ -176,7 +176,7 @@ Cours, corrections du cours, fiche de révision, QCM (PDF et interactif), exerci
 
 <div id="video-rolle" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Vidéo — Le théorème de Rolle en animation
+## Vidéo — Le théorème de Rolle en animation
 
 <div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
   <video controls preload="metadata" poster="/videos/rolle-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
@@ -189,7 +189,7 @@ Cours, corrections du cours, fiche de révision, QCM (PDF et interactif), exerci
 
 <div id="video-taf" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Vidéo — Le théorème des accroissements finis (T.A.F) en animation
+## Vidéo — Le théorème des accroissements finis (T.A.F) en animation
 
 <div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
   <video controls preload="metadata" poster="/videos/taf-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">
@@ -202,7 +202,7 @@ Cours, corrections du cours, fiche de révision, QCM (PDF et interactif), exerci
 
 <div id="video-taf-demo" style="scroll-margin-top:5rem;"></div>
 
-## 🎬 Vidéo — Idée démonstration de T.A.F
+## Vidéo — Idée démonstration de T.A.F
 
 <div class="video-me" style="max-width:760px;margin:1.5rem auto;border:2px solid #C8932B;border-radius:12px;overflow:hidden;box-shadow:0 6px 24px rgba(27,58,107,.25);">
   <video controls preload="metadata" poster="/videos/taf-demonstration-poster.jpg" style="display:block;width:100%;height:auto;background:#1B3A6B;">

@@ -9,11 +9,11 @@ description: "Cours MathExpert : continuité, dérivabilité et intégrales à p
   <p style="margin:0;color:#dcfce7;font-size:.95rem;line-height:1.6;max-width:640px;">Un <strong style="color:#fff;">cours structuré d'analyse</strong> couvrant la continuité, la dérivabilité et les intégrales dépendant d'un paramètre, avec rappels, méthodes et exemples. Consultez-le en ligne ou téléchargez-le.</p>
 </div>
 
-## 📄 Consulter le document
+## Consulter le document
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Continuité, Dérivabilité & Intégrales à paramètre" data-src="/pdf/prepas/concours-excellence/cours-continuite-derivabilite-integrale.pdf">📖 Cours complet</button>
+    <button class="doc-tab active" data-title="Continuité, Dérivabilité & Intégrales à paramètre" data-src="/pdf/prepas/concours-excellence/cours-continuite-derivabilite-integrale.pdf">Cours complet</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Continuité, Dérivabilité & Intégrales à paramètre</span>

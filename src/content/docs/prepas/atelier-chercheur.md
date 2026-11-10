@@ -9,11 +9,11 @@ description: "Atelier du Chercheur (MPSI / MP) : problèmes ouverts et méthodes
   <p style="margin:0;color:#dcfce7;font-size:.95rem;line-height:1.6;max-width:640px;">Un support d'<strong style="color:#fff;">initiation à la recherche mathématique</strong> pour la MPSI / MP : problèmes ouverts, démarche d'investigation et méthodes de raisonnement. Consultez-le en ligne ou téléchargez-le.</p>
 </div>
 
-## 📄 Consulter le document
+## Consulter le document
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Atelier du Chercheur — MPSI / MP" data-src="/pdf/prepas/concours-excellence/atelier-chercheur-mpsi-mp.pdf">🔬 Atelier du Chercheur</button>
+    <button class="doc-tab active" data-title="Atelier du Chercheur — MPSI / MP" data-src="/pdf/prepas/concours-excellence/atelier-chercheur-mpsi-mp.pdf">Atelier du Chercheur</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Atelier du Chercheur — MPSI / MP</span>

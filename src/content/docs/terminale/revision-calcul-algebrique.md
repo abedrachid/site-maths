@@ -7,13 +7,13 @@ sidebar:
 
 **Révision de 1ère Bac SM — Partie I.** Binôme de Newton, coefficients binomiaux, sommes classiques, télescopage et factorisations de référence. Cours, exercices et corrigés sont consultables ci-dessous ou téléchargeables en PDF.
 
-## 📄 Documents — Calcul algébrique
+## Documents — Calcul algébrique
 
 <div class="doc-viewer">
   <div class="doc-tabs">
-    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/calcul-algebrique/cours.pdf">📖 Cours</button>
-    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/calcul-algebrique/exercices.pdf">📝 Exercices</button>
-    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/calcul-algebrique/corriges.pdf">✅ Corrigés</button>
+    <button class="doc-tab active" data-title="Cours" data-src="/pdf/terminale/revision/calcul-algebrique/cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="Exercices" data-src="/pdf/terminale/revision/calcul-algebrique/exercices.pdf">Exercices</button>
+    <button class="doc-tab" data-title="Corrigés" data-src="/pdf/terminale/revision/calcul-algebrique/corriges.pdf">Corrigés</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

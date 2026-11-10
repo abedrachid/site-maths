@@ -21,7 +21,7 @@ export const annonce = {
   version: '2026-01',
 
   // Petit pictogramme au début du bandeau.
-  emoji: '🚀',
+  emoji: '',
 
   // Texte court affiché dans le bandeau (gardez-le concis).
   texte: 'Stages intensifs & cours accélérés pendant les vacances — Première SM, Terminale SM & Prépas. Places limitées.',

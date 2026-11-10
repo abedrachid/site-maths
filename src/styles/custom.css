@@ -13,20 +13,20 @@
    surlignages de la sidebar, etc. On les aligne sur le violet
    de la page d'accueil pour une identité cohérente.            */
 :root {
-  --sl-color-accent-low: #0e1f38;
-  --sl-color-accent: #3f74d6;
-  --sl-color-accent-high: #d5e3ff;
+  --sl-color-accent-low: #132a47;
+  --sl-color-accent: #4a78b8;
+  --sl-color-accent-high: #dbe5f3;
 
   /* Typographie professionnelle */
-  --sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --me-font-display: 'Fraunces', 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  --sl-font: 'Inter Variable', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --me-font-display: 'Fraunces Variable', 'Fraunces', 'Crimson Pro', Georgia, 'Times New Roman', serif;
 
   /* Variables réutilisées par les composants de cours */
   --me-navy: #0c2340;
   --me-navy2: #14345e;
-  --me-blue: #3a6fd8;
-  --me-indigo: #4f46e5;
-  --me-sky: #38bdf8;
+  --me-blue: #3f6fb0;
+  --me-indigo: #2f5f9e;
+  --me-sky: #6fa8e8;
   --me-green: #059669;
   --me-gold: #c9a227;
   --me-gold2: #e3c24e;
@@ -38,9 +38,9 @@
 
 /* Thème clair : accent un peu plus foncé pour le contraste */
 :root[data-theme='light'] {
-  --sl-color-accent-low: #dce7ff;
-  --sl-color-accent: #1d4ed8;
-  --sl-color-accent-high: #10233f;
+  --sl-color-accent-low: #e7edf6;
+  --sl-color-accent: #1f4f8f;
+  --sl-color-accent-high: #0c2340;
 }
 
 /* ── 2. PAGE D'ACCUEIL (template: splash) ──────────────────────
@@ -330,7 +330,7 @@ h1#_top,
    lisible en thème clair comme sombre. Cible le libellé texte,
    pas le logo. */
 .site-title > span:not(.sr-only) {
-  background: linear-gradient(95deg, #0C2340 0%, #14345e 30%, #1d4ed8 58%, #C9A227 100%);
+  background: linear-gradient(95deg, #0C2340 0%, #14345e 30%, #1f4f8f 58%, #C9A227 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -795,7 +795,7 @@ header.header {
    et /stages/mpsi. La couleur d'accent de chaque page est définie
    via --acc / --acc2 sur le conteneur .me-stage.
    ============================================================ */
-.me-stage { --acc:#1d4ed8; --acc2:#0891b2; }
+.me-stage { --acc:#1f4f8f; --acc2:#2b6f8a; }
 
 .me-stage-hero{
   position:relative; overflow:hidden;

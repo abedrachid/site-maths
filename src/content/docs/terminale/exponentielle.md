@@ -15,6 +15,7 @@ Tous les documents du chapitre **Fonction exponentielle** sont consultables dire
     <button class="doc-tab" data-title="Fiche résumé — Fonction exponentielle" data-src="/pdf/terminale/exponentielle/fiche-resume.pdf">Fiche résumé</button>
     <button class="doc-tab" data-title="QCM — Fonction exponentielle" data-src="/pdf/terminale/exponentielle/qcm.pdf">QCM (PDF)</button>
     <button class="doc-tab" data-title="Exercices et problèmes — Fonction exponentielle" data-src="/pdf/terminale/exponentielle/exercices-problemes.pdf">Exercices et problèmes</button>
+    <button class="doc-tab" data-title="Chapitre complet avec corrigés — Fonction exponentielle" data-src="/pdf/terminale/exponentielle/chapitre-complet.pdf">Chapitre complet (avec corrigés)</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>
@@ -22,6 +23,10 @@ Tous les documents du chapitre **Fonction exponentielle** sont consultables dire
   </div>
   <iframe class="doc-frame" src="/pdf/terminale/exponentielle/cours.pdf" title="Document — Fonction exponentielle"></iframe>
 </div>
+
+:::note[Contenu]
+L'onglet **Chapitre complet** (35 pages) réunit le cours, la fiche, le QCM de 21 questions avec son **corrigé détaillé**, les exercices et problèmes avec leurs **corrigés**, et des compléments.
+:::
 
 ---
 

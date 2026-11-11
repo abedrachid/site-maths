@@ -73,7 +73,7 @@ export const nouveautes = [
     niveau: 'Terminale SM',
     titre: 'Fonction exponentielle — cours, fiche, QCM, exercices et problèmes',
     lien: '/terminale/exponentielle',
-    desc: 'Chapitre complet en PDF : cours, fiche résumé, QCM de 21 questions, exercices et problèmes.',
+    desc: 'Chapitre complet en PDF (35 p.) : cours, fiche résumé, QCM de 21 questions, exercices et problèmes, avec corrigés.',
   },
   {
     date: '2026-11-11',
@@ -81,7 +81,7 @@ export const nouveautes = [
     niveau: 'Terminale SM',
     titre: 'Fonction logarithme — cours, fiche, QCM, exercices et problèmes',
     lien: '/terminale/logarithme',
-    desc: 'Chapitre complet en PDF : cours, fiche résumé, QCM de 21 questions, exercices et problèmes.',
+    desc: 'Chapitre complet en PDF (32 p.) : cours, fiche résumé, QCM de 21 questions, exercices et problèmes, avec corrigés.',
   },
   {
     date: '2026-11-11',

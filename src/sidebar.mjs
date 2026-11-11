@@ -20,6 +20,7 @@ export const sidebar = [
     l('Calcul trigonométrique', '/premiere/calcul-trigonometrique'),
     l('Ensembles et applications', '/premiere/ensembles-applications'),
     l('Les symboles Σ et Π', '/premiere/sommes-produits'),
+    l('Généralités sur les fonctions', '/premiere/generalites-fonctions'),
   ], false),
 
   g('Terminale', [
@@ -36,11 +37,14 @@ export const sidebar = [
       ]),
       l('Calcul trigonométrique', '/terminale/revision-calcul-trigonometrique'),
       l('Rédaction mathématique', '/terminale/redaction-mathematique'),
+      l('Généralités sur les fonctions', '/terminale/generalites-fonctions'),
       l('Limites et continuité', '/terminale/limites'),
       l('Racines n-ièmes et arctangente', '/terminale/racines-arctan'),
       l('Dérivabilité', '/terminale/derivabilite'),
       l('Rolle, T.A.F et I.A.F', '/terminale/rolle-taf'),
       l('Primitives', '/terminale/primitives'),
+      l('Fonction logarithme', '/terminale/logarithme'),
+      l('Fonction exponentielle', '/terminale/exponentielle'),
       l('Suites numériques', '/terminale/suites'),
       l('Dénombrement', '/terminale/denombrement'),
       l('Probabilités', '/terminale/probabilites'),

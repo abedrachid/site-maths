@@ -12,6 +12,10 @@ Le document du chapitre **Ensembles et applications** est consultable directemen
 <div class="doc-viewer">
   <div class="doc-tabs">
     <button class="doc-tab active" data-title="Cours" data-src="/pdf/premiere/ensembles-applications/ensembles_applications_cours.pdf">Cours</button>
+    <button class="doc-tab" data-title="QCM n°1 — Ensembles et applications" data-src="/pdf/premiere/ensembles-applications/qcm1.pdf">QCM n°1 (énoncé)</button>
+    <button class="doc-tab" data-title="QCM n°1 — Corrigé" data-src="/pdf/premiere/ensembles-applications/qcm1-corrige.pdf">QCM n°1 (corrigé)</button>
+    <button class="doc-tab" data-title="Série 2 — Ensembles et applications" data-src="/pdf/premiere/ensembles-applications/serie2.pdf">Série 2</button>
+    <button class="doc-tab" data-title="Série 2 — Corrigé" data-src="/pdf/premiere/ensembles-applications/serie2-corrige.pdf">Série 2 (corrigé)</button>
   </div>
   <div class="doc-toolbar">
     <span class="doc-current">Cours</span>

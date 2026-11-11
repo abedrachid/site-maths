@@ -117,7 +117,7 @@ export const devoirs = [
     sujet: '/pdf/terminale/ds-2026/ds11-entrainement-sujet.pdf', corrige: '/pdf/terminale/ds-2026/ds11-entrainement-corrige.pdf' },
   { type: 'ds', niveau: 'terminale', annee: 2026, titre: 'DS 1', chapitres: 'Limites et continuité',
     sujet: '/pdf/terminale/ds-2026/ds1-sujet.pdf', corrige: '/pdf/terminale/ds-2026/ds1-corrige.pdf' },
-  { type: 'ds', niveau: 'terminale', annee: 2026, titre: 'DS 2', chapitres: 'Dérivabilité',
+  { type: 'ds', niveau: 'terminale', annee: 2026, titre: 'DS 2', chapitres: 'Primitives · Fonction réciproque · Théorème de Rolle', duree: '2 h', ajout: '2026-11-11',
     sujet: '/pdf/terminale/ds-2026/ds2-sujet.pdf', corrige: '/pdf/terminale/ds-2026/ds2-corrige.pdf' },
   { type: 'ds', niveau: 'terminale', annee: 2026, titre: 'DS 3', chapitres: 'Primitives · Dénombrement',
     sujet: '/pdf/terminale/ds-2026/ds3-sujet.pdf', corrige: '/pdf/terminale/ds-2026/ds3-corrige.pdf' },
